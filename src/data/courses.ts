@@ -15,12 +15,32 @@ export interface LessonContent {
         headers: string[];
         rows: string[][];
       };
+      image?: {
+        url: string;
+        alt: string;
+        caption?: string;
+      };
     }[];
     content?: string[];
     table?: {
       headers: string[];
       rows: string[][];
     };
+    image?: {
+      url: string;
+      alt: string;
+      caption?: string;
+    };
+    jobCards?: {
+      jobTitle: string;
+      frenchTitle: string;
+      imageUrl: string;
+      sector: string;
+      definition: string;
+      keyVocabulary: string[];
+      exampleSentences: string[];
+      toolsAndPlaces: string;
+    }[];
   }[];
   diagram: {
     title: string;

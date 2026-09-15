@@ -27,6 +27,9 @@ import { COURSES_FRANCAIS_5EME } from './data/courses_5eme_francais_index';
 import { COURSES_FRANCAIS_4EME } from './data/courses_4eme_francais_index';
 import { COURSES_SVT_5EME } from './data/courses_5eme_svt_index';
 import { COURSES_ANGLAIS_6EME } from './data/courses_6eme_anglais';
+import { COURSES_EDUCATION_CIVIQUE_6EME, CIVIQUE_6EME_CHAPTERS } from './data/courses_6eme_education_civique';
+import { LESSON_1_CIVIQUE_6EME } from './data/courses_6eme_education_civique_part1';
+import { COURSES_HISTOIRE_6EME, HISTOIRE_6EME_PARTS } from './data/courses_6eme_histoire';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -99,6 +102,8 @@ export default function App() {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [activeLesson, setActiveLesson] = useState<LessonContent>(LESSON_1_SVT_6EME);
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCiviqueChapter, setSelectedCiviqueChapter] = useState<string>('all');
+  const [selectedHistoirePart, setSelectedHistoirePart] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -109,7 +114,7 @@ export default function App() {
   // Filtrage des matières selon les directives officielles sénégalaises :
   // - Pas de Philosophie au Collège (6e à 3e) ni en classe de Seconde (L ou S)
   // - Pas de Physique-Chimie en classes de 6ème et 5ème (débute en 4ème)
-  // - Éducation civique dans les classes du collège uniquement (6e à 3e)
+  // - Éducation civique en classe de 6ème uniquement
   const getSubjectsForClass = (category: Category, className: string) => {
     return DATA.subjects.filter(subject => {
       // Supprimer la philosophie au collège et en seconde
@@ -124,9 +129,9 @@ export default function App() {
           return false;
         }
       }
-      // Éducation civique dans les classes du collège uniquement
+      // Éducation civique en classe de 6ème uniquement
       if (subject.name === 'Éducation civique') {
-        if (category !== 'Collège') {
+        if (className !== '6ème') {
           return false;
         }
       }
@@ -170,6 +175,8 @@ export default function App() {
 
   const handleSelectSubject = (subjectName: string) => {
     setSelectedSubject(subjectName);
+    setSelectedHistoirePart('all');
+    setSelectedCiviqueChapter('all');
     setScreen('content');
   };
 
@@ -462,50 +469,9 @@ export default function App() {
       return COURSES_SVT_5EME;
     }
 
-    // Matière Éducation civique (Collège : 6e, 5e, 4e, 3e)
-    if (selectedSubject === 'Éducation civique') {
-      return [
-        {
-          id: 'ec-lecon-1',
-          title: 'LEÇON 1 : LA CITOYENNETÉ ET LES SYMBOLES DE LA RÉPUBLIQUE DU SÉNÉGAL',
-          type: 'cours',
-          badge: 'Programme officiel Collège',
-          description: 'Étude des symboles de la nation (drapeau vert-or-rouge à l\'étoile verte, devise "Un Peuple - Un But - Une Foi", hymne national "Pincez tous vos koras", sceau de l\'État), droits et devoirs du citoyen sénégalais.',
-          content: 'L\'Éducation civique au Sénégal vise à forger des citoyens éclairés, responsables et patriotes. Cette leçon présente les fondements de la République, le sens civique de chaque symbole national, les libertés fondamentales et le respect des lois et des biens publics.'
-        },
-        {
-          id: 'ec-lecon-2',
-          title: 'LEÇON 2 : LA FAMILLE, L\'ÉCOLE ET LA VIE EN COMMUNAUTÉ',
-          type: 'cours',
-          badge: 'Programme officiel Collège',
-          description: 'Règles de vie en société, respect du règlement intérieur de l’école, droits de l\'enfant, solidarité communautaire et culture de la paix.',
-          content: 'L\'apprentissage de la vie collective débute dans la famille et s\'épanouit au collège et dans la commune. Cette leçon aborde le respect de l\'autre, la tolérance, la gestion non-violente des conflits et la participation active au bien commun.'
-        },
-        {
-          id: 'ec-lecon-3',
-          title: 'LEÇON 3 : LES INSTITUTIONS DE LA RÉPUBLIQUE ET LA DÉMOCRATIE',
-          type: 'cours',
-          badge: 'Programme officiel Collège',
-          description: 'Le Président de la République, l\'Assemblée Nationale, le Gouvernement, la Justice et le rôle des collectivités territoriales (communes, départements).',
-          content: 'Découverte du fonctionnement des institutions républicaines au Sénégal : la séparation des pouvoirs (exécutif, législatif, judiciaire), le vote citoyen et le rôle des élus locaux dans le développement du pays.'
-        },
-        {
-          id: 'pdf-ec-1',
-          title: 'Fiche de cours PDF : Symboles, Droits & Devoirs du Citoyen Sénégalais',
-          type: 'ressource',
-          badge: 'Format PDF imprimable',
-          description: 'Support de cours synthétique avec illustrations sur les institutions et la Constitution de la République du Sénégal.',
-          link: '#'
-        },
-        {
-          id: 'pdf-ec-2',
-          title: `Exercices & Études de cas civiques - Classe de ${selectedClass}`,
-          type: 'ressource',
-          badge: 'Évaluation & corrigé',
-          description: 'Séries de questions à choix multiples, situations concrètes de civisme et exercices guidés pour devoirs et composition.',
-          link: '#'
-        }
-      ];
+    // Matière Éducation civique (Classe de 6ème uniquement - Programme officiel exhaustif des 10 leçons réparties en 3 chapitres)
+    if (selectedSubject === 'Éducation civique' && selectedClass === '6ème') {
+      return COURSES_EDUCATION_CIVIQUE_6EME;
     }
 
     // Matière Français uniquement pour la classe de 6ème
@@ -625,7 +591,12 @@ export default function App() {
       return COURSES_ANGLAIS_6EME;
     }
 
-    // Matière Histoire (toutes classes)
+    // Matière Histoire pour la classe de 6ème uniquement (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
+    if (selectedSubject === 'Histoire' && selectedClass === '6ème') {
+      return COURSES_HISTOIRE_6EME;
+    }
+
+    // Matière Histoire (autres classes)
     if (selectedSubject === 'Histoire') {
       return [
         {
@@ -731,7 +702,23 @@ export default function App() {
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTab && matchesSearch;
+    const matchesCiviqueChapter =
+      selectedSubject !== 'Éducation civique' ||
+      activeTab !== 'cours' ||
+      selectedCiviqueChapter === 'all' ||
+      (selectedCiviqueChapter === 'chap-1' && item.badge?.includes('Chapitre 1')) ||
+      (selectedCiviqueChapter === 'chap-2' && item.badge?.includes('Chapitre 2')) ||
+      (selectedCiviqueChapter === 'chap-3' && item.badge?.includes('Chapitre 3'));
+    const matchesHistoirePart =
+      selectedSubject !== 'Histoire' ||
+      selectedClass !== '6ème' ||
+      activeTab !== 'cours' ||
+      selectedHistoirePart === 'all' ||
+      (selectedHistoirePart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedHistoirePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedHistoirePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedHistoirePart === 'part-4' && item.badge?.includes('Partie 4'));
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -1174,97 +1161,253 @@ export default function App() {
         </button>
       </div>
 
+      {/* Organisation officielle par chapitres pour l'Éducation Civique 6ème */}
+      {selectedSubject === 'Éducation civique' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-teal-50 via-emerald-50 to-teal-50 border border-teal-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-teal-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-teal-700" />
+                Organisation officielle : 10 leçons réparties en 3 chapitres
+              </span>
+              <p className="text-[11px] text-teal-800/80 mt-0.5">
+                Programme officiel sénégalais - Textes intégraux sans abréviation
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-teal-800 bg-white px-2.5 py-1 rounded-full border border-teal-200 shadow-2xs">
+              Classe de 6ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {CIVIQUE_6EME_CHAPTERS.map(chap => {
+              const isSelected = selectedCiviqueChapter === chap.id;
+              return (
+                <button
+                  key={chap.id}
+                  onClick={() => setSelectedCiviqueChapter(chap.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-teal-700 text-white shadow-sm ring-2 ring-teal-700/20'
+                      : 'bg-white text-gray-700 hover:bg-teal-100/70 border border-teal-200/70'
+                  }`}
+                >
+                  <span>{chap.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-800'
+                    }`}
+                  >
+                    {chap.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par parties pour l'Histoire 6ème */}
+      {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 14 leçons réparties en 4 parties
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Cours complet et approfondi - Introduction et conclusion dans chaque leçon
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-800 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de 6ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {HISTOIRE_6EME_PARTS.map(part => {
+              const isSelected = selectedHistoirePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedHistoirePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Liste des cartes */}
       <div className="space-y-4">
         {filteredContent.map(item => (
-          <div
-            key={item.id}
-            className="bg-white p-4 sm:p-6 rounded-2xl shadow-xs border border-gray-100 hover:border-blue-200 transition"
-          >
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
-                    {item.badge || (item.type === 'cours' ? 'Cours' : 'PDF')}
-                  </span>
+          <React.Fragment key={item.id}>
+            {/* Séparateurs thématiques de chapitres pour l'Éducation Civique */}
+            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>CHAPITRE 1 : LA FAMILLE SÉNÉGALAISE (Leçons 1 à 3)</span>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-
-              <div className="shrink-0 pt-2 sm:pt-0">
-                {item.type === 'cours' && item.lessonData ? (
-                  <button
-                    onClick={() => handleOpenLesson(item.lessonData!)}
-                    className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm"
-                  >
-                    <Maximize2 className="w-4 h-4" />
-                    <span>Lire en plein écran</span>
-                  </button>
-                ) : item.type === 'ressource' ? (
-                  <button
-                    onClick={() => {
-                      if (item.id.includes('lecon-1')) {
-                        handleOpenLesson(LESSON_1_SVT_6EME);
-                        showToast("Ouverture de la Leçon 1 pour révision ou impression PDF.");
-                      } else if (item.id.includes('lecon-2')) {
-                        handleOpenLesson(LESSON_2_SVT_6EME);
-                        showToast("Ouverture de la Leçon 2 pour révision ou impression PDF.");
-                      } else if (item.id.includes('lecon-3')) {
-                        handleOpenLesson(LESSON_3_SVT_6EME);
-                        showToast("Ouverture de la Leçon 3 pour révision ou impression PDF.");
-                      } else if (item.id.includes('lecon-4')) {
-                        handleOpenLesson(LESSON_4_SVT_6EME);
-                        showToast("Ouverture de la Leçon 4 pour révision ou impression PDF.");
-                      } else if (item.id.includes('lecon-5')) {
-                        handleOpenLesson(LESSON_5_SVT_6EME);
-                        showToast("Ouverture de la Leçon 5 pour révision ou impression PDF.");
-                      } else if (item.id.includes('lecon-6')) {
-                        handleOpenLesson(LESSON_6_SVT_6EME);
-                        showToast("Ouverture de la Leçon 6 pour révision ou impression PDF.");
-                      } else {
-                        showToast("Document prêt. Utilisez l'imprimante ou la sauvegarde locale hors-ligne.");
-                      }
-                    }}
-                    className="w-full sm:w-auto px-4 py-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 rounded-xl font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-xs"
-                  >
-                    <Download className="w-4 h-4" />
-                    <span>Télécharger / Imprimer PDF</span>
-                  </button>
-                ) : null}
-              </div>
-            </div>
-
-            {/* Aperçu rapide pour la leçon dans la liste */}
-            {item.lessonData && (
-              <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
-                <span>
-                  {item.lessonData.id.startsWith('anglais-6eme')
-                    ? `Objectif : ${item.description}`
-                    : item.lessonData.id === 'svt-6eme-lecon-1'
-                    ? 'Comprend : Intro • Milieux rural & urbain • Biocénose & Biotope • Schéma structural'
-                    : item.lessonData.id === 'svt-6eme-lecon-2'
-                    ? 'Comprend : Intro • Chaînes & Réseaux trophiques • Symbioses • Adaptations au Sénégal'
-                    : item.lessonData.id === 'svt-6eme-lecon-3'
-                    ? 'Comprend : Intro • Pollutions & Dégradations • Gestes éco-citoyens • Rôle État & Santé'
-                    : item.lessonData.id === 'svt-6eme-lecon-4'
-                    ? 'Comprend : Intro • Biotope/Biocénose • Chaînes alimentaires • Support & Transport • Rôle anti-érosion'
-                    : item.lessonData.id === 'svt-6eme-lecon-5'
-                    ? 'Comprend : Intro • Migration & Hibernation • Métamorphose • Plantes vivaces & annuelles'
-                    : item.lessonData.id === 'svt-6eme-lecon-6'
-                    ? 'Comprend : Intro • Producteurs primaires (Photosynthèse) • Producteurs secondaires • Recyclage sol'
-                    : item.description ? `Objectif : ${item.description}` : 'Consulter le contenu officiel'}
-                </span>
-                <span className="text-blue-600 font-semibold cursor-pointer hover:underline" onClick={() => handleOpenLesson(item.lessonData!)}>
-                  Ouvrir la leçon →
-                </span>
               </div>
             )}
-          </div>
+            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>CHAPITRE 2 : LES COLLECTIVITÉS LOCALES - LE MILIEU PROCHE (Leçons 4 à 7)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-8' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>CHAPITRE 3 : LA NATION ET LA CITOYENNETÉ SÉNÉGALAISE (Leçons 8 à 10)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques de parties pour l'Histoire 6ème */}
+            {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && selectedHistoirePart === 'all' && item.id === 'histoire-6eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIÈRE PARTIE : L'INTRODUCTION À L'ÉTUDE DE L'HISTOIRE (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && selectedHistoirePart === 'all' && item.id === 'histoire-6eme-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME PARTIE : LA PRÉHISTOIRE (Leçons 4 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && selectedHistoirePart === 'all' && item.id === 'histoire-6eme-lecon-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : L'AFRIQUE DU NORD-EST DANS L'ANTIQUITÉ (Leçons 7 à 12)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && selectedHistoirePart === 'all' && item.id === 'histoire-6eme-lecon-13' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>QUATRIÈME PARTIE : LES CIVILISATIONS ANTIQUES DE L'ASIE (Leçons 13 et 14)</span>
+                </div>
+              </div>
+            )}
+
+            <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-xs border border-gray-100 hover:border-blue-200 transition">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                <div className="flex-1">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <span className="text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
+                      {item.badge || (item.type === 'cours' ? 'Cours' : 'PDF')}
+                    </span>
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+
+                <div className="shrink-0 pt-2 sm:pt-0">
+                  {item.type === 'cours' && item.lessonData ? (
+                    <button
+                      onClick={() => handleOpenLesson(item.lessonData!)}
+                      className="w-full sm:w-auto px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <Maximize2 className="w-4 h-4" />
+                      <span>Lire en plein écran</span>
+                    </button>
+                  ) : item.type === 'ressource' ? (
+                    <button
+                      onClick={() => {
+                        if (item.id.includes('civique-6eme')) {
+                          handleOpenLesson(LESSON_1_CIVIQUE_6EME);
+                          showToast("Ouverture du cours officiel d'Éducation Civique. Impression et révision prêtes.");
+                        } else if (item.id.includes('lecon-1')) {
+                          handleOpenLesson(LESSON_1_SVT_6EME);
+                          showToast("Ouverture de la Leçon 1 pour révision ou impression PDF.");
+                        } else if (item.id.includes('lecon-2')) {
+                          handleOpenLesson(LESSON_2_SVT_6EME);
+                          showToast("Ouverture de la Leçon 2 pour révision ou impression PDF.");
+                        } else if (item.id.includes('lecon-3')) {
+                          handleOpenLesson(LESSON_3_SVT_6EME);
+                          showToast("Ouverture de la Leçon 3 pour révision ou impression PDF.");
+                        } else if (item.id.includes('lecon-4')) {
+                          handleOpenLesson(LESSON_4_SVT_6EME);
+                          showToast("Ouverture de la Leçon 4 pour révision ou impression PDF.");
+                        } else if (item.id.includes('lecon-5')) {
+                          handleOpenLesson(LESSON_5_SVT_6EME);
+                          showToast("Ouverture de la Leçon 5 pour révision ou impression PDF.");
+                        } else if (item.id.includes('lecon-6')) {
+                          handleOpenLesson(LESSON_6_SVT_6EME);
+                          showToast("Ouverture de la Leçon 6 pour révision ou impression PDF.");
+                        } else {
+                          showToast("Document prêt. Utilisez l'imprimante ou la sauvegarde locale hors-ligne.");
+                        }
+                      }}
+                      className="w-full sm:w-auto px-4 py-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 rounded-xl font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-xs"
+                    >
+                      <Download className="w-4 h-4" />
+                      <span>Télécharger / Imprimer PDF</span>
+                    </button>
+                  ) : null}
+                </div>
+              </div>
+
+              {/* Aperçu rapide pour la leçon dans la liste */}
+              {item.lessonData && (
+                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                  <span>
+                    {item.lessonData.id.startsWith('civique-6eme')
+                      ? 'Comprend : Introduction officielle • Texte intégral sans abréviation • Schéma de synthèse • Conclusion'
+                      : item.lessonData.id.startsWith('anglais-6eme')
+                      ? `Objectif : ${item.description}`
+                      : item.lessonData.id === 'svt-6eme-lecon-1'
+                      ? 'Comprend : Intro • Milieux rural & urbain • Biocénose & Biotope • Schéma structural'
+                      : item.lessonData.id === 'svt-6eme-lecon-2'
+                      ? 'Comprend : Intro • Chaînes & Réseaux trophiques • Symbioses • Adaptations au Sénégal'
+                      : item.lessonData.id === 'svt-6eme-lecon-3'
+                      ? 'Comprend : Intro • Pollutions & Dégradations • Gestes éco-citoyens • Rôle État & Santé'
+                      : item.lessonData.id === 'svt-6eme-lecon-4'
+                      ? 'Comprend : Intro • Biotope/Biocénose • Chaînes alimentaires • Support & Transport • Rôle anti-érosion'
+                      : item.lessonData.id === 'svt-6eme-lecon-5'
+                      ? 'Comprend : Intro • Migration & Hibernation • Métamorphose • Plantes vivaces & annuelles'
+                      : item.lessonData.id === 'svt-6eme-lecon-6'
+                      ? 'Comprend : Intro • Producteurs primaires (Photosynthèse) • Producteurs secondaires • Recyclage sol'
+                      : item.description ? `Objectif : ${item.description}` : 'Consulter le contenu officiel'}
+                  </span>
+                  <span className="text-blue-600 font-semibold cursor-pointer hover:underline" onClick={() => handleOpenLesson(item.lessonData!)}>
+                    Ouvrir la leçon →
+                  </span>
+                </div>
+              )}
+            </div>
+          </React.Fragment>
         ))}
 
         {filteredContent.length === 0 && (

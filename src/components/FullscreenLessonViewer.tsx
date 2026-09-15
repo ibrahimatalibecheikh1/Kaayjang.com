@@ -21,7 +21,12 @@ import {
 } from 'lucide-react';
 import { LessonContent, LESSON_1_SVT_6EME } from '../data/courses';
 
+const isSvt6eme = (id: string): boolean => {
+  return id.startsWith('svt-6eme');
+};
+
 const getAsciiDiagram = (id: string): string => {
+  if (!isSvt6eme(id)) return '';
   switch (id) {
     case 'svt-6eme-lecon-1':
       return `                         [ NOTRE CADRE DE VIE ]
@@ -631,15 +636,17 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                 </div>
               </div>
 
-              {/* Arborescence Structurée ASCII */}
-              <div className="p-4 rounded-xl bg-black/5 dark:bg-black/30 border border-current/10">
-                <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 text-indigo-600 dark:text-indigo-400">
-                  Représentation Arborescente Structurée
-                </h4>
-                <pre className="font-mono text-[10px] sm:text-xs overflow-x-auto leading-relaxed opacity-85">
-                  {getAsciiDiagram(lesson.id)}
-                </pre>
-              </div>
+              {/* Arborescence Structurée en caractères (uniquement pour SVT de 6ème) */}
+              {isSvt6eme(lesson.id) && (
+                <div className="p-4 rounded-xl bg-black/5 dark:bg-black/30 border border-current/10">
+                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider mb-2 text-indigo-600 dark:text-indigo-400">
+                    Représentation Arborescente Structurée
+                  </h4>
+                  <pre className="font-mono text-[10px] sm:text-xs overflow-x-auto leading-relaxed opacity-85">
+                    {getAsciiDiagram(lesson.id)}
+                  </pre>
+                </div>
+              )}
             </div>
           ) : lessonTab === 'exercises' ? (
             /* Exercices & Corrigés Tab */
@@ -722,6 +729,100 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                       </div>
                     )}
 
+                    {section.image && (
+                      <div className="my-4 overflow-hidden rounded-2xl border border-current/15 shadow-sm bg-black/5 dark:bg-black/20">
+                        <img
+                          src={section.image.url}
+                          alt={section.image.alt || section.title}
+                          className="w-full max-h-80 object-cover object-center"
+                          referrerPolicy="no-referrer"
+                        />
+                        {section.image.caption && (
+                          <div className="p-2.5 text-xs text-center font-medium opacity-80 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
+                            {section.image.caption}
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    {section.jobCards && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-4">
+                        {section.jobCards.map((job, jIdx) => (
+                          <div
+                            key={jIdx}
+                            className="rounded-2xl border border-current/15 overflow-hidden bg-white dark:bg-gray-800 shadow-sm flex flex-col justify-between"
+                          >
+                            <div>
+                              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-gradient-to-b from-slate-100 to-slate-200/70 dark:from-gray-900 dark:to-gray-950 flex items-center justify-center p-2">
+                                <img
+                                  src={job.imageUrl}
+                                  alt={job.jobTitle}
+                                  className="max-h-full max-w-full object-contain rounded-lg shadow-xs hover:scale-105 transition-transform duration-300"
+                                  referrerPolicy="no-referrer"
+                                />
+                                <div className="absolute top-3 left-3 bg-blue-600/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs">
+                                  {job.sector}
+                                </div>
+                              </div>
+
+                              <div className="p-4 sm:p-5 space-y-3">
+                                <div className="border-b border-current/10 pb-2.5">
+                                  <div className="flex items-baseline justify-between gap-2">
+                                    <h3 className="text-lg font-black text-blue-600 dark:text-blue-400">
+                                      {job.jobTitle}
+                                    </h3>
+                                    <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-700 dark:text-blue-300">
+                                      {job.frenchTitle}
+                                    </span>
+                                  </div>
+                                  <p className="text-xs text-gray-600 dark:text-gray-300 mt-1 italic">
+                                    {job.definition}
+                                  </p>
+                                </div>
+
+                                <div className="text-xs bg-black/2 dark:bg-white/5 p-2.5 rounded-xl border border-current/10">
+                                  <span className="font-bold text-indigo-600 dark:text-indigo-400">Lieu & Outils : </span>
+                                  <span className="opacity-90">{job.toolsAndPlaces}</span>
+                                </div>
+
+                                <div>
+                                  <span className="text-[11px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-400 block mb-1.5">
+                                    Key Vocabulary (Vocabulaire clé) :
+                                  </span>
+                                  <div className="flex flex-wrap gap-1.5">
+                                    {job.keyVocabulary.map((voc, vIdx) => (
+                                      <span
+                                        key={vIdx}
+                                        className="text-xs font-medium px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20"
+                                      >
+                                        {voc}
+                                      </span>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                <div>
+                                  <span className="text-[11px] uppercase tracking-wider font-bold text-gray-500 dark:text-gray-400 block mb-1.5">
+                                    Examples in English (Phrases types) :
+                                  </span>
+                                  <div className="space-y-1.5 text-xs">
+                                    {job.exampleSentences.map((sent, sIdx) => (
+                                      <div key={sIdx} className="p-2 rounded-lg bg-black/2 dark:bg-white/5 border-l-2 border-blue-500 pl-2.5">
+                                        <p className="font-semibold text-gray-800 dark:text-gray-200">{sent.split(' • ')[0]}</p>
+                                        {sent.includes(' • ') && (
+                                          <p className="text-[11px] text-gray-500 dark:text-gray-400 italic mt-0.5">{sent.split(' • ')[1]}</p>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {section.table && (
                       <div className="overflow-x-auto my-3 rounded-xl border border-current/20 shadow-xs">
                         <table className="min-w-full text-left text-xs sm:text-sm divide-y divide-current/15">
@@ -789,15 +890,17 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                           ))}
                         </div>
 
-                        {/* Arbre ASCII d'origine accessible */}
-                        <details className="mt-4 pt-3 border-t border-indigo-200/60 dark:border-indigo-900/60">
-                          <summary className="text-xs text-indigo-700 dark:text-indigo-400 font-semibold cursor-pointer hover:underline">
-                            Afficher le schéma original en caractères (ASCII)
-                          </summary>
-                          <pre className="mt-2 text-[10px] sm:text-xs overflow-x-auto p-2 bg-black/5 dark:bg-black/40 rounded-lg font-mono">
-                            {getAsciiDiagram(lesson.id)}
-                          </pre>
-                        </details>
+                        {/* Arbre ASCII en caractères accessible uniquement pour SVT de 6ème */}
+                        {isSvt6eme(lesson.id) && (
+                          <details className="mt-4 pt-3 border-t border-indigo-200/60 dark:border-indigo-900/60">
+                            <summary className="text-xs text-indigo-700 dark:text-indigo-400 font-semibold cursor-pointer hover:underline">
+                              Afficher le schéma original en caractères (ASCII)
+                            </summary>
+                            <pre className="mt-2 text-[10px] sm:text-xs overflow-x-auto p-2 bg-black/5 dark:bg-black/40 rounded-lg font-mono">
+                              {getAsciiDiagram(lesson.id)}
+                            </pre>
+                          </details>
+                        )}
                       </div>
                     )}
 
@@ -829,6 +932,22 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                                 );
                               })}
                             </div>
+
+                            {sub.image && (
+                              <div className="my-3 overflow-hidden rounded-xl border border-current/15 shadow-xs bg-black/5 dark:bg-black/20">
+                                <img
+                                  src={sub.image.url}
+                                  alt={sub.image.alt || sub.subtitle}
+                                  className="w-full max-h-72 object-cover object-center"
+                                  referrerPolicy="no-referrer"
+                                />
+                                {sub.image.caption && (
+                                  <div className="p-2 text-xs text-center font-medium opacity-80 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
+                                    {sub.image.caption}
+                                  </div>
+                                )}
+                              </div>
+                            )}
 
                             {sub.table && (
                               <div className="overflow-x-auto my-3 rounded-xl border border-current/20 shadow-xs">

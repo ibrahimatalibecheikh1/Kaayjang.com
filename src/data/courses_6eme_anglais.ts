@@ -1,4 +1,17 @@
 import { ContentData, LessonContent } from './courses';
+import {
+  LESSON_11_ANGLAIS_6EME,
+  LESSON_12_ANGLAIS_6EME,
+  LESSON_13_ANGLAIS_6EME,
+  LESSON_14_ANGLAIS_6EME
+} from './courses_6eme_anglais_grammar_jobs';
+
+export {
+  LESSON_11_ANGLAIS_6EME,
+  LESSON_12_ANGLAIS_6EME,
+  LESSON_13_ANGLAIS_6EME,
+  LESSON_14_ANGLAIS_6EME
+};
 
 // =========================================================================
 // PROGRAMME D'ANGLAIS 6ÈME - FICHES CADRES PAR LEÇON DE COURS
@@ -1023,9 +1036,9 @@ III. PROJET PÉDAGOGIQUE :
 };
 
 // --- AXE CULTUREL 4 : L'IMAGINAIRE ---
-export const LESSON_11_ANGLAIS_6EME: LessonContent = {
-  id: 'anglais-6eme-lecon-11',
-  number: 'LEÇON 11',
+export const LESSON_AXE_4_ANGLAIS_6EME: LessonContent = {
+  id: 'anglais-6eme-axe-4',
+  number: 'AXE 4',
   title: 'AXE CULTUREL 4 : L\'IMAGINAIRE (MYTHS, TALES AND LEGENDS)',
   subject: 'Anglais',
   classLevel: '6ème',
@@ -1215,11 +1228,47 @@ export const COURSES_ANGLAIS_6EME: ContentData[] = [
   },
   {
     id: 'anglais-6eme-axe-4',
-    title: 'LEÇON 11 : IMAGINAIRE',
+    title: 'AXE CULTUREL 4 : L\'IMAGINAIRE (MYTHS & LEGENDS)',
     type: 'cours',
     badge: 'Axe Culturel 4 • Repère du programme',
-    description: "Contes, mythes et légendes traditionnels.",
+    description: "Contes, mythes et légendes traditionnels du monde anglophone.",
+    lessonData: LESSON_AXE_4_ANGLAIS_6EME
+  },
+
+  // --- BLOC 3 : CONJUGAISON & GRAMMAIRE DÉTAILLÉE ---
+  {
+    id: 'anglais-6eme-lecon-11',
+    title: 'LEÇON 11 : LE PRÉSENT SIMPLE (THE PRESENT SIMPLE TENSE)',
+    type: 'cours',
+    badge: 'Grammaire • Conjugaison 6ème',
+    description: "Le présent d'habitude et de vérité générale : forme affirmative et règle d'or du -s à la 3ème personne, négation avec don't / doesn't, questions fermées et ouvertes, réponses brèves, adverbes de fréquence et exercices.",
     lessonData: LESSON_11_ANGLAIS_6EME
+  },
+  {
+    id: 'anglais-6eme-lecon-12',
+    title: 'LEÇON 12 : LE FUTUR (THE FUTURE: WILL & BE GOING TO)',
+    type: 'cours',
+    badge: 'Grammaire • Conjugaison 6ème',
+    description: "L'expression de l'avenir en 6ème : WILL pour les décisions spontanées et prédictions, BE GOING TO pour les projets planifiés et indices visibles, tableaux de choix et exercices d'application.",
+    lessonData: LESSON_12_ANGLAIS_6EME
+  },
+  {
+    id: 'anglais-6eme-lecon-13',
+    title: 'LEÇON 13 : LE PASSÉ SIMPLE (THE PAST SIMPLE TENSE)',
+    type: 'cours',
+    badge: 'Grammaire • Conjugaison 6ème',
+    description: "Raconter au passé : les verbes réguliers avec -ed et leurs 3 règles phonétiques (/t/, /d/, /ɪd/), le tableau complet des 30 verbes irréguliers indispensables, négation avec didn't, questions et exercices.",
+    lessonData: LESSON_13_ANGLAIS_6EME
+  },
+
+  // --- BLOC 4 : LEÇON SPÉCIALE MÉTIERS & TRAVAUX ILLUSTRÉE ---
+  {
+    id: 'anglais-6eme-lecon-14',
+    title: 'LEÇON 14 : LES MÉTIERS ET LES TRAVAUX (JOBS AND OCCUPATIONS)',
+    type: 'cours',
+    badge: 'Leçon Spéciale • Métiers Illustrés',
+    description: "Grande leçon approfondie avec illustrations visuelles sur les métiers majeurs : agriculture (farmer), police (policeman), santé médicale (doctor), vente en pharmacie (pharmacy seller), soins (nurse), armée (soldier), élevage, pêche et commerce, avec fiches pédagogiques illustrées, vocabulaire et dialogues.",
+    lessonData: LESSON_14_ANGLAIS_6EME
   },
 
   // --- RESSOURCES & GUIDES DU PROGRAMME ---
