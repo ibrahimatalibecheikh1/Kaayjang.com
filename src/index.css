@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+html, body {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Désactivation du menu d'appel tactile contextuel (empêche le copier-coller) */
+* {
+  -webkit-touch-callout: none;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Kaay Jang",
+  "description": "Application web d'apprentissage pour les élèves de la 6ème à la Terminale.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
