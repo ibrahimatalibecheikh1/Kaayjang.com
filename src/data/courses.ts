@@ -51,6 +51,12 @@ export interface LessonContent {
       items: string[];
     }[];
   };
+  senegalMap?: {
+    mode: 'administrative' | 'relief' | 'climat' | 'hydrographie' | 'cartographie' | 'regional';
+    title?: string;
+    description?: string;
+    highlightedFeatures?: string[];
+  };
   conclusion: string;
   pdfUrl?: string;
 }
@@ -161,6 +167,12 @@ export const LESSON_1_SVT_6EME: LessonContent = {
         ]
       }
     ]
+  },
+  senegalMap: {
+    mode: 'regional',
+    title: 'Exploration géographique : Les écosystèmes et cadres de vie au Sénégal',
+    description: 'Explorez la diversité des cadres de vie à travers les 14 régions du Sénégal : du milieu urbain dense de Dakar aux savanes arborées du Ferlo, vallées fluviales et mangroves de Casamance.',
+    highlightedFeatures: ['dakar', 'saint-louis', 'ziguinchor', 'thies', 'kedougou']
   },
   conclusion: `Notre cadre de vie, qu'il soit rural ou urbain, est une structure complexe. Il résulte de l'association permanente entre des composantes physiques inertes (qui servent de support et de ressources) et des composantes biologiques vivantes (qui colonisent ce support). La compréhension de ces éléments est essentielle avant d'étudier, dans la leçon suivante, comment ces différentes composantes dépendent les unes des autres pour maintenir l'équilibre de la nature.`,
   fullText: `LEÇON 1 : LES COMPOSANTES DE NOTRE CADRE DE VIE

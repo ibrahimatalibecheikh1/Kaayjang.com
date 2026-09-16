@@ -20,6 +20,7 @@ import {
   Network
 } from 'lucide-react';
 import { LessonContent, LESSON_1_SVT_6EME } from '../data/courses';
+import { SenegalMap } from './SenegalMap';
 
 const isSvt6eme = (id: string): boolean => {
   return id.startsWith('svt-6eme');
@@ -700,6 +701,16 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                 </h2>
                 <p className="leading-relaxed opacity-90">{lesson.introduction}</p>
               </section>
+
+              {/* CARTE DU SÉNÉGAL (Pour les leçons ayant un lien avec la carte) */}
+              {lesson.senegalMap && (
+                <SenegalMap
+                  initialMode={lesson.senegalMap.mode}
+                  title={lesson.senegalMap.title}
+                  description={lesson.senegalMap.description}
+                  highlightedFeatures={lesson.senegalMap.highlightedFeatures}
+                />
+              )}
 
               {/* DYNAMIC SECTIONS & DIAGRAM */}
               {lesson.sections.map((section, sIdx) => {
