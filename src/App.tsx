@@ -38,6 +38,7 @@ import { COURSES_EDUCATION_CIVIQUE_5EME, CIVIQUE_5EME_PARTS } from './data/cours
 import { LESSON_1_CIVIQUE_6EME } from './data/courses_6eme_education_civique_part1';
 import { COURSES_HISTOIRE_6EME, HISTOIRE_6EME_PARTS } from './data/courses_6eme_histoire';
 import { COURSES_HISTOIRE_5EME, HISTOIRE_5EME_PARTS } from './data/courses_5eme_histoire';
+import { COURSES_HISTOIRE_4EME, HISTOIRE_4EME_PARTS } from './data/courses_4eme_histoire_index';
 import { COURSES_GEOGRAPHIE_6EME, GEOGRAPHIE_6EME_FILTER_PARTS } from './data/courses_6eme_geographie';
 import { COURSES_GEOGRAPHIE_5EME, GEOGRAPHIE_5EME_FILTER_PARTS } from './data/courses_5eme_geographie';
 import { COURSES_ANGLAIS_5EME, ANGLAIS_5EME_FILTER_PARTS } from './data/courses_5eme_anglais';
@@ -121,6 +122,7 @@ export default function App() {
   const [selectedCiviqueChapter, setSelectedCiviqueChapter] = useState<string>('all');
   const [selectedHistoirePart, setSelectedHistoirePart] = useState<string>('all');
   const [selectedHistoire5emePart, setSelectedHistoire5emePart] = useState<string>('all');
+  const [selectedHistoire4emePart, setSelectedHistoire4emePart] = useState<string>('all');
   const [selectedGeographiePart, setSelectedGeographiePart] = useState<string>('all');
   const [selectedGeographie5emePart, setSelectedGeographie5emePart] = useState<string>('all');
   const [selectedAnglaisPart, setSelectedAnglaisPart] = useState<string>('all');
@@ -202,6 +204,8 @@ export default function App() {
   const handleSelectSubject = (subjectName: string) => {
     setSelectedSubject(subjectName);
     setSelectedHistoirePart('all');
+    setSelectedHistoire5emePart('all');
+    setSelectedHistoire4emePart('all');
     setSelectedCiviqueChapter('all');
     setSelectedGeographiePart('all');
     setSelectedGeographie5emePart('all');
@@ -656,6 +660,11 @@ export default function App() {
       return COURSES_HISTOIRE_5EME;
     }
 
+    // Matière Histoire pour la classe de 4ème (Programme officiel complet - 13 leçons intégrales sans résumé avec images de démonstration)
+    if (selectedSubject === 'Histoire' && selectedClass === '4ème') {
+      return COURSES_HISTOIRE_4EME;
+    }
+
     // Matière Histoire (autres classes)
     if (selectedSubject === 'Histoire') {
       return [
@@ -827,6 +836,14 @@ export default function App() {
       (selectedHistoire5emePart === 'part-1' && item.badge?.includes('1er Trimestre')) ||
       (selectedHistoire5emePart === 'part-2' && item.badge?.includes('2ème Trimestre')) ||
       (selectedHistoire5emePart === 'part-3' && item.badge?.includes('3ème Trimestre'));
+    const matchesHistoire4emePart =
+      selectedSubject !== 'Histoire' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedHistoire4emePart === 'all' ||
+      (selectedHistoire4emePart === 'chap-1' && item.badge?.includes('Chapitre 1')) ||
+      (selectedHistoire4emePart === 'chap-2' && item.badge?.includes('Chapitre 2')) ||
+      (selectedHistoire4emePart === 'chap-3' && item.badge?.includes('Chapitre 3'));
     const matchesGeographiePart =
       selectedSubject !== 'Géographie' ||
       selectedClass !== '6ème' ||
@@ -920,7 +937,7 @@ export default function App() {
       (selectedPc4emeTheme === 'atomes-reactions' && (item.id === 'pc-4eme-chimie-c3' || item.id === 'pc-4eme-chimie-c5')) ||
       (selectedPc4emeTheme === 'physique' && (item.badge?.includes('Physique') || item.badge?.includes('Électricité'))) ||
       (selectedPc4emeTheme === 'eau-matiere' && item.badge?.includes('Eau'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesGeographiePart && matchesGeographie5emePart && matchesAnglaisPart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesGeographiePart && matchesGeographie5emePart && matchesAnglaisPart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
