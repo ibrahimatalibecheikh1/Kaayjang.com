@@ -18,7 +18,9 @@ import {
   CheckCircle2,
   Bookmark,
   MapPin,
-  Map
+  Map,
+  Zap,
+  FlaskConical
 } from 'lucide-react';
 import { PWAInstallButton } from './PWAInstallButton';
 import { OfflineIndicator } from './OfflineIndicator';
@@ -28,15 +30,21 @@ import { SenegalMap } from './components/SenegalMap';
 import { LESSON_1_SVT_6EME, LESSON_2_SVT_6EME, LESSON_3_SVT_6EME, LESSON_4_SVT_6EME, LESSON_5_SVT_6EME, LESSON_6_SVT_6EME, LESSON_7_SVT_6EME, LESSON_8_SVT_6EME, LESSON_9_SVT_6EME, LESSON_10_SVT_6EME, LESSON_11_SVT_6EME, LESSON_1_FRANCAIS_6EME, LESSON_2_FRANCAIS_6EME, LESSON_3_FRANCAIS_6EME, LESSON_4_FRANCAIS_6EME, LESSON_5_FRANCAIS_6EME, LESSON_6_FRANCAIS_6EME, LESSON_7_FRANCAIS_6EME, LESSON_8_FRANCAIS_6EME, LESSON_9_FRANCAIS_6EME, LESSON_10_FRANCAIS_6EME, LessonContent } from './data/courses';
 import { COURSES_FRANCAIS_5EME } from './data/courses_5eme_francais_index';
 import { COURSES_FRANCAIS_4EME } from './data/courses_4eme_francais_index';
-import { COURSES_SVT_5EME } from './data/courses_5eme_svt_index';
+import { COURSES_SVT_5EME, SVT_5EME_FILTER_THEMES } from './data/courses_5eme_svt_index';
+import { COURSES_SVT_4EME, SVT_4EME_FILTER_THEMES } from './data/courses_4eme_svt_index';
 import { COURSES_ANGLAIS_6EME } from './data/courses_6eme_anglais';
 import { COURSES_EDUCATION_CIVIQUE_6EME, CIVIQUE_6EME_CHAPTERS } from './data/courses_6eme_education_civique';
 import { COURSES_EDUCATION_CIVIQUE_5EME, CIVIQUE_5EME_PARTS } from './data/courses_5eme_education_civique';
 import { LESSON_1_CIVIQUE_6EME } from './data/courses_6eme_education_civique_part1';
 import { COURSES_HISTOIRE_6EME, HISTOIRE_6EME_PARTS } from './data/courses_6eme_histoire';
+import { COURSES_HISTOIRE_5EME, HISTOIRE_5EME_PARTS } from './data/courses_5eme_histoire';
 import { COURSES_GEOGRAPHIE_6EME, GEOGRAPHIE_6EME_FILTER_PARTS } from './data/courses_6eme_geographie';
+import { COURSES_GEOGRAPHIE_5EME, GEOGRAPHIE_5EME_FILTER_PARTS } from './data/courses_5eme_geographie';
 import { COURSES_ANGLAIS_5EME, ANGLAIS_5EME_FILTER_PARTS } from './data/courses_5eme_anglais';
 import { COURSES_MATH_6EME, MATH_6EME_FILTER_CHAPTERS } from './data/courses_6eme_math';
+import { COURSES_MATH_4EME, MATH_4EME_FILTER_THEMES } from './data/courses_4eme_math_index';
+import { COURSES_MATH_5EME, MATH_5EME_FILTER_THEMES } from './data/courses_5eme_math_index';
+import { COURSES_PC_4EME, PC_4EME_FILTER_THEMES } from './data/courses_4eme_pc_index';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -112,9 +120,16 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCiviqueChapter, setSelectedCiviqueChapter] = useState<string>('all');
   const [selectedHistoirePart, setSelectedHistoirePart] = useState<string>('all');
+  const [selectedHistoire5emePart, setSelectedHistoire5emePart] = useState<string>('all');
   const [selectedGeographiePart, setSelectedGeographiePart] = useState<string>('all');
+  const [selectedGeographie5emePart, setSelectedGeographie5emePart] = useState<string>('all');
   const [selectedAnglaisPart, setSelectedAnglaisPart] = useState<string>('all');
   const [selectedMathChapter, setSelectedMathChapter] = useState<string>('all');
+  const [selectedSvt5emeTheme, setSelectedSvt5emeTheme] = useState<string>('all');
+  const [selectedSvt4emeTheme, setSelectedSvt4emeTheme] = useState<string>('all');
+  const [selectedMath4emePart, setSelectedMath4emePart] = useState<string>('all');
+  const [selectedMath5emePart, setSelectedMath5emePart] = useState<string>('all');
+  const [selectedPc4emeTheme, setSelectedPc4emeTheme] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -189,8 +204,14 @@ export default function App() {
     setSelectedHistoirePart('all');
     setSelectedCiviqueChapter('all');
     setSelectedGeographiePart('all');
+    setSelectedGeographie5emePart('all');
     setSelectedAnglaisPart('all');
     setSelectedMathChapter('all');
+    setSelectedSvt5emeTheme('all');
+    setSelectedSvt4emeTheme('all');
+    setSelectedMath4emePart('all');
+    setSelectedMath5emePart('all');
+    setSelectedPc4emeTheme('all');
     setScreen('content');
   };
 
@@ -478,6 +499,11 @@ export default function App() {
       ];
     }
 
+    // Matière SVT pour la classe de 4ème (Livret de cours officiel complet - 15 leçons intégrales)
+    if (selectedSubject === 'SVT' && selectedClass === '4ème') {
+      return COURSES_SVT_4EME;
+    }
+
     // Matière SVT pour la classe de 5ème (Fascicule officiel ADEM-Dakar / Inspection d'Académie de Dakar - 12 leçons intégrales)
     if (selectedSubject === 'SVT' && selectedClass === '5ème') {
       return COURSES_SVT_5EME;
@@ -620,9 +646,14 @@ export default function App() {
       return COURSES_ANGLAIS_5EME;
     }
 
-    // Matière Histoire pour la classe de 6ème uniquement (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
+    // Matière Histoire pour la classe de 6ème (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
     if (selectedSubject === 'Histoire' && selectedClass === '6ème') {
       return COURSES_HISTOIRE_6EME;
+    }
+
+    // Matière Histoire pour la classe de 5ème (Programme officiel complet - 14 leçons intégrales sans résumé avec détails de compréhension)
+    if (selectedSubject === 'Histoire' && selectedClass === '5ème') {
+      return COURSES_HISTOIRE_5EME;
     }
 
     // Matière Histoire (autres classes)
@@ -666,6 +697,11 @@ export default function App() {
     // Matière Géographie pour la classe de 6ème uniquement (Programme officiel approfondi conforme au PDF - 13 leçons intégrales avec introduction & conclusion)
     if (selectedSubject === 'Géographie' && selectedClass === '6ème') {
       return COURSES_GEOGRAPHIE_6EME;
+    }
+
+    // Matière Géographie pour la classe de 5ème (Programme officiel complet conforme au document officiel du Ministère - 10 leçons intégrales approfondies avec introduction & conclusion)
+    if (selectedSubject === 'Géographie' && selectedClass === '5ème') {
+      return COURSES_GEOGRAPHIE_5EME;
     }
 
     // Matière Géographie (autres classes)
@@ -719,6 +755,21 @@ export default function App() {
       return COURSES_MATH_6EME;
     }
 
+    // Matière Mathématiques pour la classe de 5ème (Programme officiel complet : Activités Géométriques avec Figures 1 à 5 et Activités Numériques avec 4 exercices corrigés par leçon)
+    if (selectedSubject === 'Mathématiques' && selectedClass === '5ème') {
+      return COURSES_MATH_5EME;
+    }
+
+    // Matière Mathématiques pour la classe de 4ème (Programme officiel complet - Activités Numériques : 12 leçons intégrales avec 2 exercices complets et corrigés par leçon)
+    if (selectedSubject === 'Mathématiques' && selectedClass === '4ème') {
+      return COURSES_MATH_4EME;
+    }
+
+    // Matière Physique-Chimie pour la classe de 4ème (Programme officiel complet : Physique/Électricité et Chimie/Matière avec figures et schémas vectoriels obligatoires)
+    if (selectedSubject === 'Physique-Chimie' && selectedClass === '4ème') {
+      return COURSES_PC_4EME;
+    }
+
     // Autres matières
     return [
       {
@@ -768,6 +819,14 @@ export default function App() {
       (selectedHistoirePart === 'part-2' && item.badge?.includes('Partie 2')) ||
       (selectedHistoirePart === 'part-3' && item.badge?.includes('Partie 3')) ||
       (selectedHistoirePart === 'part-4' && item.badge?.includes('Partie 4'));
+    const matchesHistoire5emePart =
+      selectedSubject !== 'Histoire' ||
+      selectedClass !== '5ème' ||
+      activeTab !== 'cours' ||
+      selectedHistoire5emePart === 'all' ||
+      (selectedHistoire5emePart === 'part-1' && item.badge?.includes('1er Trimestre')) ||
+      (selectedHistoire5emePart === 'part-2' && item.badge?.includes('2ème Trimestre')) ||
+      (selectedHistoire5emePart === 'part-3' && item.badge?.includes('3ème Trimestre'));
     const matchesGeographiePart =
       selectedSubject !== 'Géographie' ||
       selectedClass !== '6ème' ||
@@ -776,6 +835,15 @@ export default function App() {
       (selectedGeographiePart === 'partie-1' && item.badge?.includes('Partie 1')) ||
       (selectedGeographiePart === 'partie-2' && item.badge?.includes('Partie 2')) ||
       (selectedGeographiePart === 'partie-3' && item.badge?.includes('Partie 3'));
+    const matchesGeographie5emePart =
+      selectedSubject !== 'Géographie' ||
+      selectedClass !== '5ème' ||
+      activeTab !== 'cours' ||
+      selectedGeographie5emePart === 'all' ||
+      (selectedGeographie5emePart === 'intro' && item.badge?.includes('Introduction')) ||
+      (selectedGeographie5emePart === 'chapitre-1' && item.badge?.includes('Chapitre I')) ||
+      (selectedGeographie5emePart === 'chapitre-2' && item.badge?.includes('Chapitre II')) ||
+      (selectedGeographie5emePart === 'chapitre-3' && item.badge?.includes('Chapitre III'));
     const matchesAnglaisPart =
       selectedSubject !== 'Anglais' ||
       selectedClass !== '5ème' ||
@@ -793,11 +861,66 @@ export default function App() {
       selectedClass !== '6ème' ||
       activeTab !== 'cours' ||
       selectedMathChapter === 'all' ||
+      (selectedMathChapter === 'geometrie' && item.badge?.includes('Géométrie')) ||
+      (selectedMathChapter === 'numerique' && !item.badge?.includes('Géométrie')) ||
+      (selectedMathChapter === 'geom1' && item.badge?.includes('Ch. V')) ||
+      (selectedMathChapter === 'geom2' && item.badge?.includes('Ch. VI')) ||
+      (selectedMathChapter === 'geom3' && item.badge?.includes('Ch. VII')) ||
       (selectedMathChapter === 'chap1' && item.badge?.includes('Chapitre I')) ||
       (selectedMathChapter === 'chap2' && item.badge?.includes('Chapitre II')) ||
       (selectedMathChapter === 'chap3' && item.badge?.includes('Chapitre III')) ||
       (selectedMathChapter === 'chap4' && item.badge?.includes('Chapitre IV'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesGeographiePart && matchesAnglaisPart && matchesMathChapter;
+    const matchesSvt5emeTheme =
+      selectedSubject !== 'SVT' ||
+      selectedClass !== '5ème' ||
+      activeTab !== 'cours' ||
+      selectedSvt5emeTheme === 'all' ||
+      (selectedSvt5emeTheme === 'theme-1' && item.badge?.includes('Thème 1')) ||
+      (selectedSvt5emeTheme === 'theme-2' && item.badge?.includes('Thème 2')) ||
+      (selectedSvt5emeTheme === 'theme-3' && item.badge?.includes('Thème 3'));
+    const matchesSvt4emeTheme =
+      selectedSubject !== 'SVT' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedSvt4emeTheme === 'all' ||
+      (selectedSvt4emeTheme === 'theme-1' && item.badge?.includes('Thème 1')) ||
+      (selectedSvt4emeTheme === 'theme-2' && item.badge?.includes('Thème 2')) ||
+      (selectedSvt4emeTheme === 'theme-3' && item.badge?.includes('Thème 3'));
+    const matchesMath4emePart =
+      selectedSubject !== 'Mathématiques' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedMath4emePart === 'all' ||
+      (selectedMath4emePart === 'geometrie' && item.badge?.includes('Géométrique')) ||
+      (selectedMath4emePart === 'numerique' && item.badge?.includes('Numérique')) ||
+      (selectedMath4emePart === 'geom-pythagore-trigo' && item.badge?.includes('Pythagore & Trigo')) ||
+      (selectedMath4emePart === 'geom-thales-milieux' && item.badge?.includes('Thalès & Milieux')) ||
+      (selectedMath4emePart === 'geom-translation-espace' && item.badge?.includes('Translation & Espace')) ||
+      (selectedMath4emePart === 'theme-1' && item.badge?.includes('Partie 1')) ||
+      (selectedMath4emePart === 'theme-2' && item.badge?.includes('Partie 2')) ||
+      (selectedMath4emePart === 'theme-3' && item.badge?.includes('Partie 3'));
+    const matchesMath5emePart =
+      selectedSubject !== 'Mathématiques' ||
+      selectedClass !== '5ème' ||
+      activeTab !== 'cours' ||
+      selectedMath5emePart === 'all' ||
+      (selectedMath5emePart === 'geometrie' && item.badge?.includes('Act. Géométriques')) ||
+      (selectedMath5emePart === 'numerique' && item.badge?.includes('Act. Numériques')) ||
+      (selectedMath5emePart === 'num-operations' && (item.id === 'math-5eme-lecon-1' || item.id === 'math-5eme-lecon-2' || item.id === 'math-5eme-lecon-3')) ||
+      (selectedMath5emePart === 'num-algebre' && (item.id === 'math-5eme-lecon-4' || item.id === 'math-5eme-lecon-5' || item.id === 'math-5eme-lecon-6' || item.id === 'math-5eme-lecon-7')) ||
+      (selectedMath5emePart === 'geom-plane' && (item.id === 'math-5eme-lecon-8' || item.id === 'math-5eme-lecon-9' || item.id === 'math-5eme-lecon-10')) ||
+      (selectedMath5emePart === 'geom-quad-espace' && (item.id === 'math-5eme-lecon-11' || item.id === 'math-5eme-lecon-12'));
+    const matchesPc4emeTheme =
+      selectedSubject !== 'Physique-Chimie' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedPc4emeTheme === 'all' ||
+      (selectedPc4emeTheme === 'chimie-officiel' && item.badge?.includes('Chimie (Officiel)')) ||
+      (selectedPc4emeTheme === 'gaz-combustions' && (item.id === 'pc-4eme-chimie-c1' || item.id === 'pc-4eme-chimie-c2' || item.id === 'pc-4eme-chimie-c4')) ||
+      (selectedPc4emeTheme === 'atomes-reactions' && (item.id === 'pc-4eme-chimie-c3' || item.id === 'pc-4eme-chimie-c5')) ||
+      (selectedPc4emeTheme === 'physique' && (item.badge?.includes('Physique') || item.badge?.includes('Électricité'))) ||
+      (selectedPc4emeTheme === 'eau-matiere' && item.badge?.includes('Eau'));
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesGeographiePart && matchesGeographie5emePart && matchesAnglaisPart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -1240,6 +1363,236 @@ export default function App() {
         </button>
       </div>
 
+      {/* Organisation officielle par thèmes pour SVT 5ème */}
+      {selectedSubject === 'SVT' && selectedClass === '5ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-emerald-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-emerald-700" />
+                Programme officiel sénégalais : 18 leçons réparties en 3 grands thèmes
+              </span>
+              <p className="text-[11px] text-emerald-800/80 mt-0.5">
+                Cours intégraux sans résumé — Planète Terre, Le Vivant et son Évolution, Corps Humain et Santé
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-full border border-emerald-200 shadow-2xs">
+              Classe de 5ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {SVT_5EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedSvt5emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedSvt5emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700/20'
+                      : 'bg-white text-gray-700 hover:bg-emerald-100/70 border border-emerald-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par thèmes pour SVT 4ème */}
+      {selectedSubject === 'SVT' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-emerald-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-emerald-700" />
+                Programme officiel sénégalais : 15 leçons complètes sans résumé
+              </span>
+              <p className="text-[11px] text-emerald-800/80 mt-0.5">
+                Ressources & Biologie humaine, Reproduction humaine & Sols, Géologie & Dynamique de la Terre
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-full border border-emerald-200 shadow-2xs">
+              Classe de 4ème
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {SVT_4EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedSvt4emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedSvt4emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700/20'
+                      : 'bg-white text-gray-700 hover:bg-emerald-100/70 border border-emerald-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par thèmes pour Mathématiques 5ème */}
+      {selectedSubject === 'Mathématiques' && selectedClass === '5ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-cyan-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-blue-700" />
+                Mathématiques 5ème : 12 leçons intégrales (Figures 1 à 5 obligatoires & 4 exercices corrigés par leçon)
+              </span>
+              <p className="text-[11px] text-blue-800/80 mt-0.5">
+                Activités Géométriques (Symétrie centrale, Angles, Triangles, Parallélogrammes, Prisme droit & Cylindre) & Activités Numériques (Priorités, Diviseurs, Fractions, Relatifs, Puissances, Calcul littéral, Proportionnalité).
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+              Classe de 5ème
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {MATH_5EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedMath5emePart === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedMath5emePart(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                      : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par parties pour Mathématiques 4ème */}
+      {selectedSubject === 'Mathématiques' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-blue-700" />
+                Mathématiques 4ème : 19 leçons (Activités Géométriques & Numériques) avec 2 exercices complets et corrigés par leçon
+              </span>
+              <p className="text-[11px] text-blue-800/80 mt-0.5">
+                Pythagore (direct & réciproque), Cosinus, Thalès, Théorème des milieux, Translation, Pyramide & Cône, Relatifs, Rationnels, Puissances, Calcul littéral, Équations...
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+              Classe de 4ème
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {MATH_4EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedMath4emePart === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedMath4emePart(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                      : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour Physique-Chimie 4ème */}
+      {selectedSubject === 'Physique-Chimie' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-purple-50 to-indigo-50 border border-purple-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-purple-900 uppercase tracking-wider flex items-center gap-1.5">
+                <FlaskConical className="w-4 h-4 text-purple-700" />
+                Physique-Chimie 4ème : Cours complet de Chimie (Leçons C1 à C5) & Physique
+              </span>
+              <p className="text-[11px] text-purple-800/80 mt-0.5">
+                L'air (Fig 1 & 2), Propriétés des gaz (Fig 3), Atomes & Molécules (Fig 4), Combustions (Fig 5), Réaction chimique & Lavoisier (Fig 6) — Figures de démonstration obligatoires et 3 exercices résolus par leçon.
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-purple-800 bg-white px-2.5 py-1 rounded-full border border-purple-200 shadow-2xs">
+              Classe de 4ème
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {PC_4EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedPc4emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedPc4emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-purple-700 text-white shadow-sm ring-2 ring-purple-700/20'
+                      : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle pour l'Éducation Civique 5ème */}
       {selectedSubject === 'Éducation civique' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-teal-50 via-emerald-50 to-teal-50 border border-teal-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1378,6 +1731,52 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle par trimestres pour l'Histoire 5ème */}
+      {selectedSubject === 'Histoire' && selectedClass === '5ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 14 leçons réparties en 3 trimestres
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Histoire 5ème : Cours intégraux sans résumé avec approfondissements et détails de compréhension
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-800 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de 5ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {HISTOIRE_5EME_PARTS.map(part => {
+              const isSelected = selectedHistoire5emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedHistoire5emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par parties pour la Géographie 6ème */}
       {selectedSubject === 'Géographie' && selectedClass === '6ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1403,6 +1802,52 @@ export default function App() {
                 <button
                   key={part.id}
                   onClick={() => setSelectedGeographiePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-orange-700 text-white shadow-sm ring-2 ring-orange-700/20'
+                      : 'bg-white text-gray-700 hover:bg-orange-100/70 border border-orange-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-orange-100 text-orange-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour la Géographie 5ème */}
+      {selectedSubject === 'Géographie' && selectedClass === '5ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-orange-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-orange-700" />
+                Programme officiel sénégalais : 10 leçons réparties en 4 chapitres
+              </span>
+              <p className="text-[11px] text-orange-800/80 mt-0.5">
+                Cours intégraux sans résumé — Outils, aspects physiques, population et développement durable
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-orange-800 bg-white px-2.5 py-1 rounded-full border border-orange-200 shadow-2xs">
+              Classe de 5ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {GEOGRAPHIE_5EME_FILTER_PARTS.map(part => {
+              const isSelected = selectedGeographie5emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedGeographie5emePart(part.id)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                     isSelected
                       ? 'bg-orange-700 text-white shadow-sm ring-2 ring-orange-700/20'
@@ -1470,17 +1915,17 @@ export default function App() {
         </div>
       )}
 
-      {/* Organisation officielle par chapitres pour Mathématiques 6ème (Activités Numériques) */}
+      {/* Organisation officielle par chapitres pour Mathématiques 6ème (Activités Numériques & Géométriques) */}
       {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div>
               <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
                 <Bookmark className="w-4 h-4 text-blue-700" />
-                Programme officiel sénégalais : Activités Numériques (13 leçons en 4 chapitres)
+                Programme officiel sénégalais : 22 leçons (Activités Géométriques & Numériques)
               </span>
               <p className="text-[11px] text-blue-800/80 mt-0.5">
-                Cours intégraux sans résumé — Exemples pas-à-pas, calcul posé, décompositions, introduction et conclusion
+                Cours intégraux sans résumé — Propriétés formelles, remarques capitales, calculs et exercices d'application corrigés
               </p>
             </div>
             <span className="self-start sm:self-auto text-[11px] font-bold text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
@@ -1520,6 +1965,58 @@ export default function App() {
       <div className="space-y-4">
         {filteredContent.map(item => (
           <React.Fragment key={item.id}>
+            {/* Séparateurs thématiques pour SVT 5ème */}
+            {selectedSubject === 'SVT' && selectedClass === '5ème' && activeTab === 'cours' && selectedSvt5emeTheme === 'all' && item.id === 'svt-5eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE (Leçons 1 à 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '5ème' && activeTab === 'cours' && selectedSvt5emeTheme === 'all' && item.id === 'svt-5eme-lecon-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 2 : LE VIVANT ET SON ÉVOLUTION (Leçons 9 à 15)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '5ème' && activeTab === 'cours' && selectedSvt5emeTheme === 'all' && item.id === 'svt-5eme-lecon-16' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ (Leçons 16 à 18)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour SVT 4ème */}
+            {selectedSubject === 'SVT' && selectedClass === '4ème' && activeTab === 'cours' && selectedSvt4emeTheme === 'all' && item.id === 'svt-4eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 1 : GESTION DES RESSOURCES NATURELLES & BIOLOGIE HUMAINE (Leçons 1 à 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '4ème' && activeTab === 'cours' && selectedSvt4emeTheme === 'all' && item.id === 'svt-4eme-lecon-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 2 : REPRODUCTION HUMAINE, SANTÉ & LES SOLS (Leçons 6 à 10)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '4ème' && activeTab === 'cours' && selectedSvt4emeTheme === 'all' && item.id === 'svt-4eme-lecon-11' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 3 : GÉOLOGIE & DYNAMIQUE INTERNE DE LA TERRE (Leçons 11 à 15)</span>
+                </div>
+              </div>
+            )}
+
             {/* Séparateurs thématiques de chapitres pour l'Éducation Civique */}
             {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-1' && (
               <div className="pt-2 pb-1">
@@ -1580,6 +2077,32 @@ export default function App() {
               </div>
             )}
 
+            {/* Séparateurs thématiques de trimestres pour l'Histoire 5ème */}
+            {selectedSubject === 'Histoire' && selectedClass === '5ème' && activeTab === 'cours' && selectedHistoire5emePart === 'all' && item.id === 'histoire-5eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIER TRIMESTRE : LE MONDE MUSULMAN MÉDIÉVAL (Leçons 1 à 4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && selectedClass === '5ème' && activeTab === 'cours' && selectedHistoire5emePart === 'all' && item.id === 'histoire-5eme-lecon-5' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME TRIMESTRE : LES GRANDS EMPIRES MÉDIÉVAUX D'AFRIQUE DE L'OUEST (Leçons 5 à 9)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && selectedClass === '5ème' && activeTab === 'cours' && selectedHistoire5emePart === 'all' && item.id === 'histoire-5eme-lecon-10' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME TRIMESTRE : LE PEUPLEMENT ET L'HISTOIRE DE LA SÉNÉGAMBIE (Leçons 10 à 13)</span>
+                </div>
+              </div>
+            )}
+
             {/* Séparateurs thématiques de parties pour la Géographie 6ème */}
             {selectedSubject === 'Géographie' && selectedClass === '6ème' && activeTab === 'cours' && selectedGeographiePart === 'all' && item.id === 'geo-6eme-lecon-1' && (
               <div className="pt-2 pb-1">
@@ -1602,6 +2125,40 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-orange-600"></span>
                   <span>TROISIÈME PARTIE : LA GÉOGRAPHIE GÉNÉRALE DU SÉNÉGAL (Leçons 9 à 13)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour la Géographie 5ème */}
+            {selectedSubject === 'Géographie' && selectedClass === '5ème' && activeTab === 'cours' && selectedGeographie5emePart === 'all' && item.id === 'geo-5eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>INTRODUCTION : LES OUTILS DU GÉOGRAPHE (Leçon 1)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '5ème' && activeTab === 'cours' && selectedGeographie5emePart === 'all' && item.id === 'geo-5eme-lecon-2' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>CHAPITRE I : LES ASPECTS PHYSIQUES DU SÉNÉGAL (Leçons 2 à 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '5ème' && activeTab === 'cours' && selectedGeographie5emePart === 'all' && item.id === 'geo-5eme-lecon-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>CHAPITRE II : LES ASPECTS HUMAINS ET LA POPULATION (Leçons 6 à 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '5ème' && activeTab === 'cours' && selectedGeographie5emePart === 'all' && item.id === 'geo-5eme-lecon-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>CHAPITRE III : LES PROBLÈMES ENVIRONNEMENTAUX ET DÉVELOPPEMENT DURABLE (Leçons 9 et 10)</span>
                 </div>
               </div>
             )}
@@ -1665,11 +2222,35 @@ export default function App() {
             )}
 
             {/* Séparateurs thématiques de chapitres pour les Mathématiques 6ème */}
-            {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && selectedMathChapter === 'all' && item.id === 'math-6eme-lecon-1' && (
+            {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && selectedMathChapter === 'all' && item.id === 'math-6eme-geom-lecon-1' && (
               <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>ACTIVITÉS GÉOMÉTRIQUES • CHAPITRE V : VOCABULAIRE ENSEMBLISTE & DROITES (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && selectedMathChapter === 'all' && item.id === 'math-6eme-geom-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>ACTIVITÉS GÉOMÉTRIQUES • CHAPITRE VI : LES ANGLES, LE CERCLE ET LES TRIANGLES (Leçons 4 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && selectedMathChapter === 'all' && item.id === 'math-6eme-geom-lecon-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>ACTIVITÉS GÉOMÉTRIQUES • CHAPITRE VII : QUADRILATÈRES, PÉRIMÈTRES/AIRES & ESPACE (Leçons 7 à 9)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && selectedClass === '6ème' && activeTab === 'cours' && selectedMathChapter === 'all' && item.id === 'math-6eme-lecon-1' && (
+              <div className="pt-4 pb-1">
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-                  <span>CHAPITRE I : NUMÉRATION ET ÉTUDE DES NOMBRES ENTIERS ET DÉCIMAUX (Leçons 1 à 5)</span>
+                  <span>ACTIVITÉS NUMÉRIQUES • CHAPITRE I : NUMÉRATION ET NOMBRES ENTIERS / DÉCIMAUX (Leçons 1 à 5)</span>
                 </div>
               </div>
             )}
@@ -1883,17 +2464,6 @@ export default function App() {
                   <span className="hidden sm:inline text-[11px] font-normal text-blue-500 ml-0.5">• Changer</span>
                 </button>
               )}
-
-              {/* Bouton Carte Interactive du Sénégal */}
-              <button
-                onClick={() => setIsMapModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-200/80 transition text-xs sm:text-sm font-bold shadow-2xs"
-                title="Carte interactive du Sénégal (14 régions, relief, climat, fleuves)"
-              >
-                <MapPin className="w-4 h-4 text-amber-700 shrink-0" />
-                <span className="hidden sm:inline">Carte Sénégal</span>
-                <span className="sm:hidden">Carte</span>
-              </button>
 
               <PWAInstallButton />
               

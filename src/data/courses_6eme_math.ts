@@ -18,22 +18,135 @@ import {
   LESSON_12_MATH_6EME
 } from './courses_6eme_math_part3';
 import { LESSON_13_MATH_6EME } from './courses_6eme_math_part4';
+import {
+  LESSON_1_GEOM_6EME,
+  LESSON_2_GEOM_6EME,
+  LESSON_3_GEOM_6EME
+} from './courses_6eme_math_geometrie_part1';
+import {
+  LESSON_4_GEOM_6EME,
+  LESSON_5_GEOM_6EME,
+  LESSON_6_GEOM_6EME
+} from './courses_6eme_math_geometrie_part2';
+import {
+  LESSON_7_GEOM_6EME,
+  LESSON_8_GEOM_6EME,
+  LESSON_9_GEOM_6EME
+} from './courses_6eme_math_geometrie_part3';
 
 export const MATH_6EME_FILTER_CHAPTERS = [
-  { id: 'all', label: 'Toutes les leçons', count: 13 },
-  { id: 'chap1', label: 'Chapitre I : Entiers & Décimaux (1 à 5)', count: 5 },
-  { id: 'chap2', label: 'Chapitre II : Fractions (6 à 8)', count: 3 },
-  { id: 'chap3', label: 'Chapitre III : Opérations (9 à 12)', count: 4 },
-  { id: 'chap4', label: 'Chapitre IV : Proportionnalité (13)', count: 1 }
+  { id: 'all', label: 'Toutes les leçons (22)', count: 22 },
+  { id: 'geometrie', label: '📐 Activités Géométriques (9 leçons)', count: 9 },
+  { id: 'numerique', label: '🔢 Activités Numériques (13 leçons)', count: 13 },
+  { id: 'geom1', label: 'Ch. V : Droites & Segments (G1 à G3)', count: 3 },
+  { id: 'geom2', label: 'Ch. VI : Angles, Cercle & Triangles (G4 à G6)', count: 3 },
+  { id: 'geom3', label: 'Ch. VII : Quadrilatères, Aires & Espace (G7 à G9)', count: 3 },
+  { id: 'chap1', label: 'Ch. I : Entiers & Décimaux (1 à 5)', count: 5 },
+  { id: 'chap2', label: 'Ch. II : Fractions (6 à 8)', count: 3 },
+  { id: 'chap3', label: 'Ch. III : Opérations (9 à 12)', count: 4 },
+  { id: 'chap4', label: 'Ch. IV : Proportionnalité (13)', count: 1 }
 ];
 
 export const COURSES_MATH_6EME: ContentData[] = [
   // =========================================================================
-  // CHAPITRE I : NUMÉRATION ET ÉTUDE DES NOMBRES ENTIERS ET DÉCIMAUX (1 À 5)
+  // ACTIVITÉS GÉOMÉTRIQUES : CHAPITRE V — ÉLÉMENTS FONDAMENTAUX ET DROITES (1 À 3)
+  // =========================================================================
+  {
+    id: 'math-6eme-geom-lecon-1',
+    title: 'GÉOMÉTRIE • LEÇON 1 : VOCABULAIRE ENSEMBLISTE ET ÉLÉMENTS DE BASE',
+    type: 'cours',
+    badge: 'Géométrie • Ch. V • Fondements',
+    description:
+      'Notions primitives de point et de droite comme ensemble infini de points, symboles mathématiques d\'appartenance (∈, ∉), points alignés, demi-droite [AB) avec origine, segment [AB] borné et distinction fondamentale entre l\'objet géométrique et sa longueur numérique.',
+    lessonData: LESSON_1_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-2',
+    title: 'GÉOMÉTRIE • LEÇON 2 : POSITIONS RELATIVES DE DEUX DROITES (SÉCANTES, PERPENDICULAIRES, PARALLÈLES)',
+    type: 'cours',
+    badge: 'Géométrie • Ch. V • Droites & Positions',
+    description:
+      'Classification officielle des droites coplanaires : sécantes, perpendiculaires (angle droit de 90° à l\'équerre), strictement parallèles et confondues. Les deux théorèmes fondamentaux de démonstration liant parallélisme et perpendicularité avec exercices corrigés.',
+    lessonData: LESSON_2_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-3',
+    title: 'GÉOMÉTRIE • LEÇON 3 : LE SEGMENT DE DROITE — MILIEU ET MÉDIATRICE',
+    type: 'cours',
+    badge: 'Géométrie • Ch. V • Segments & Médiatrice',
+    description:
+      'Définition rigoureuse du milieu d\'un segment (alignement + équidistance), définition de la médiatrice comme droite perpendiculaire passant par le milieu, théorème de l\'équidistance, méthode de construction universelle au compas et axe de symétrie.',
+    lessonData: LESSON_3_GEOM_6EME
+  },
+
+  // =========================================================================
+  // ACTIVITÉS GÉOMÉTRIQUES : CHAPITRE VI — ANGLES, CERCLE ET TRIANGLES (4 À 6)
+  // =========================================================================
+  {
+    id: 'math-6eme-geom-lecon-4',
+    title: 'GÉOMÉTRIE • LEÇON 4 : LES ANGLES — DÉFINITION, MESURE, CLASSIFICATION ET BISSECTRICE',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VI • Angles & Bissectrice',
+    description:
+      'Sommet et côtés, règle d\'or de la lettre centrale AÔB, utilisation du rapporteur en degrés (°), classification (nul, aigu, droit, obtus, plat, plein), angles adjacents, complémentaires (90°), supplémentaires (180°) et construction de la bissectrice au compas.',
+    lessonData: LESSON_4_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-5',
+    title: 'GÉOMÉTRIE • LEÇON 5 : LE CERCLE ET LE DISQUE — VOCABULAIRE, PROPRIÉTÉS ET CONSTRUCTIONS',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VI • Cercle & Disque',
+    description:
+      'Définition ensembliste du cercle C(O, R), centre, rayon, diamètre (D = 2R), corde, arc de cercle, distinction absolue entre contour du cercle (OM = R) et surface du disque (OM ≤ R), et tangente perpendiculaire au rayon.',
+    lessonData: LESSON_5_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-6',
+    title: 'GÉOMÉTRIE • LEÇON 6 : LES TRIANGLES — CLASSIFICATION, PROPRIÉTÉ DES ANGLES ET CONSTRUCTIONS',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VI • Triangles',
+    description:
+      'Polygone à 3 côtés, théorème universel de la somme des trois angles égale à 180°, inégalité triangulaire (condition de constructibilité a < b + c), étude détaillée des triangles particuliers (isocèle, équilatéral, rectangle avec hypoténuse, rectangle-isocèle) et hauteurs.',
+    lessonData: LESSON_6_GEOM_6EME
+  },
+
+  // =========================================================================
+  // ACTIVITÉS GÉOMÉTRIQUES : CHAPITRE VII — QUADRILATÈRES, MESURES & ESPACE (7 À 9)
+  // =========================================================================
+  {
+    id: 'math-6eme-geom-lecon-7',
+    title: 'GÉOMÉTRIE • LEÇON 7 : LES QUADRILATÈRES PARTICULIERS (PARALLÉLOGRAMME, RECTANGLE, LOSANGE, CARRÉ)',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VII • Quadrilatères',
+    description:
+      'Ordre cyclique de dénomination des sommets, somme des 4 angles (360°), propriétés clés des diagonales (milieu commun pour le parallélogramme, même longueur pour le rectangle, perpendicularité pour le losange, cumul parfait pour le carré) et critères de démonstration.',
+    lessonData: LESSON_7_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-8',
+    title: 'GÉOMÉTRIE • LEÇON 8 : PÉRIMÈTRES ET AIRES — DÉFINITIONS, CONVERSIONS ET FORMULES DE CALCUL',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VII • Périmètres & Aires',
+    description:
+      'Distinction fondamentale entre périmètre 1D (contour en mètres) et aire 2D (superficie en m²), tableaux de conversion officiels (règle des 2 colonnes par unité d\'aire), unités agraires (are, hectare) et répertoire complet des formules (carré, rectangle, triangles, cercle/disque avec π).',
+    lessonData: LESSON_8_GEOM_6EME
+  },
+  {
+    id: 'math-6eme-geom-lecon-9',
+    title: 'GÉOMÉTRIE • LEÇON 9 : GÉOMÉTRIE DANS L\'ESPACE — SOLIDES USUELS, PERSPECTIVE ET VOLUMES',
+    type: 'cours',
+    badge: 'Géométrie • Ch. VII • Espace & Volumes',
+    description:
+      'Le monde à 3 dimensions : pavé droit et cube (faces, arêtes, sommets), perspective cavalière avec tracé obligatoire des arêtes cachées en pointillés, patrons par pliage, calculs de volumes (V = L×l×h et V = c³), et conversion clé 1 dm³ = 1 Litre.',
+    lessonData: LESSON_9_GEOM_6EME
+  },
+
+  // =========================================================================
+  // ACTIVITÉS NUMÉRIQUES : CHAPITRE I — NUMÉRATION ET NOMBRES ENTIERS / DÉCIMAUX (1 À 5)
   // =========================================================================
   {
     id: 'math-6eme-lecon-1',
-    title: 'LEÇON 1 : LES NOMBRES ENTIERS NATURELS — LECTURE, ÉCRITURE ET POSITION',
+    title: 'NUMÉRIQUE • LEÇON 1 : LES NOMBRES ENTIERS NATURELS — LECTURE, ÉCRITURE ET POSITION',
     type: 'cours',
     badge: 'Chapitre I • Numération officielle',
     description:
@@ -42,7 +155,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-2',
-    title: 'LEÇON 2 : DÉFINITION, STRUCTURE ET ÉCRITURE DES NOMBRES DÉCIMAUX',
+    title: 'NUMÉRIQUE • LEÇON 2 : DÉFINITION, STRUCTURE ET ÉCRITURE DES NOMBRES DÉCIMAUX',
     type: 'cours',
     badge: 'Chapitre I • Décimaux',
     description:
@@ -51,7 +164,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-3',
-    title: 'LEÇON 3 : COMPARAISON, RANGEMENT ET ENCADREMENT DES NOMBRES DÉCIMAUX',
+    title: 'NUMÉRIQUE • LEÇON 3 : COMPARAISON, RANGEMENT ET ENCADREMENT DES NOMBRES DÉCIMAUX',
     type: 'cours',
     badge: 'Chapitre I • Décimaux',
     description:
@@ -60,7 +173,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-4',
-    title: 'LEÇON 4 : VALEURS APPROCHÉES — TRONCATURE ET ARRONDI D\'UN DÉCIMAL',
+    title: 'NUMÉRIQUE • LEÇON 4 : VALEURS APPROCHÉES — TRONCATURE ET ARRONDI D\'UN DÉCIMAL',
     type: 'cours',
     badge: 'Chapitre I • Valeurs approchées',
     description:
@@ -69,7 +182,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-5',
-    title: 'LEÇON 5 : REPÉRAGE SUR UNE DEMI-DROITE GRADUÉE ET LECTURE D\'ABSCISSES',
+    title: 'NUMÉRIQUE • LEÇON 5 : REPÉRAGE SUR UNE DEMI-DROITE GRADUÉE ET LECTURE D\'ABSCISSES',
     type: 'cours',
     badge: 'Chapitre I • Demi-droite graduée',
     description:
@@ -78,11 +191,11 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
 
   // =========================================================================
-  // CHAPITRE II : ÉCRITURES FRACTIONNAIRES (6 À 8)
+  // ACTIVITÉS NUMÉRIQUES : CHAPITRE II — ÉCRITURES FRACTIONNAIRES (6 À 8)
   // =========================================================================
   {
     id: 'math-6eme-lecon-6',
-    title: 'LEÇON 6 : NOTION DE PARTAGE GLOBAL ET VOCABULAIRE DES FRACTIONS',
+    title: 'NUMÉRIQUE • LEÇON 6 : NOTION DE PARTAGE GLOBAL ET VOCABULAIRE DES FRACTIONS',
     type: 'cours',
     badge: 'Chapitre II • Fractions',
     description:
@@ -91,7 +204,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-7',
-    title: 'LEÇON 7 : FRACTIONS DÉCIMALES ET PASSAGES À L\'ÉCRITURE À VIRGULE',
+    title: 'NUMÉRIQUE • LEÇON 7 : FRACTIONS DÉCIMALES ET PASSAGES À L\'ÉCRITURE À VIRGULE',
     type: 'cours',
     badge: 'Chapitre II • Fractions décimales',
     description:
@@ -100,7 +213,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-8',
-    title: 'LEÇON 8 : ÉGALITÉ DE FRACTIONS ET TECHNIQUES DE SIMPLIFICATION',
+    title: 'NUMÉRIQUE • LEÇON 8 : ÉGALITÉ DE FRACTIONS ET TECHNIQUES DE SIMPLIFICATION',
     type: 'cours',
     badge: 'Chapitre II • Simplification & Équivalence',
     description:
@@ -109,11 +222,11 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
 
   // =========================================================================
-  // CHAPITRE III : LES OPÉRATIONS MATHÉMATIQUES ET TECHNIQUES OPÉRATOIRES (9 À 12)
+  // ACTIVITÉS NUMÉRIQUES : CHAPITRE III — LES OPÉRATIONS MATHÉMATIQUES (9 À 12)
   // =========================================================================
   {
     id: 'math-6eme-lecon-9',
-    title: 'LEÇON 9 : L\'ADDITION ET LA SOUSTRACTION DE NOMBRES DÉCIMAUX',
+    title: 'NUMÉRIQUE • LEÇON 9 : L\'ADDITION ET LA SOUSTRACTION DE NOMBRES DÉCIMAUX',
     type: 'cours',
     badge: 'Chapitre III • Calcul posé décimal',
     description:
@@ -122,7 +235,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-10',
-    title: 'LEÇON 10 : LA MULTIPLICATION DE NOMBRES DÉCIMAUX',
+    title: 'NUMÉRIQUE • LEÇON 10 : LA MULTIPLICATION DE NOMBRES DÉCIMAUX',
     type: 'cours',
     badge: 'Chapitre III • Multiplication décimale',
     description:
@@ -131,7 +244,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-11',
-    title: 'LEÇON 11 : LA DIVISION EUCLIDIENNE — THÉORIE ET CALCUL EN POTENCE',
+    title: 'NUMÉRIQUE • LEÇON 11 : LA DIVISION EUCLIDIENNE — THÉORIE ET CALCUL EN POTENCE',
     type: 'cours',
     badge: 'Chapitre III • Division euclidienne',
     description:
@@ -140,7 +253,7 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
   {
     id: 'math-6eme-lecon-12',
-    title: 'LEÇON 12 : LA DIVISION DÉCIMALE DE DEUX NOMBRES',
+    title: 'NUMÉRIQUE • LEÇON 12 : LA DIVISION DÉCIMALE DE DEUX NOMBRES',
     type: 'cours',
     badge: 'Chapitre III • Division décimale',
     description:
@@ -149,11 +262,11 @@ export const COURSES_MATH_6EME: ContentData[] = [
   },
 
   // =========================================================================
-  // CHAPITRE IV : PROPORTIONNALITÉ ET GESTION DE DONNÉES (13)
+  // ACTIVITÉS NUMÉRIQUES : CHAPITRE IV — PROPORTIONNALITÉ ET GESTION DE DONNÉES (13)
   // =========================================================================
   {
     id: 'math-6eme-lecon-13',
-    title: 'LEÇON 13 : PROPORTIONNALITÉ, TABLEAUX ET POURCENTAGES',
+    title: 'NUMÉRIQUE • LEÇON 13 : PROPORTIONNALITÉ, TABLEAUX ET POURCENTAGES',
     type: 'cours',
     badge: 'Chapitre IV • Proportionnalité & Pourcentages',
     description:
@@ -166,20 +279,21 @@ export const COURSES_MATH_6EME: ContentData[] = [
   // =========================================================================
   {
     id: 'pdf-manuel-math-6eme-integral',
-    title: 'Guide Pédagogique Intégral PDF : Mathématiques 6ème — Activités Numériques',
+    title: 'Guide Pédagogique Intégral PDF : Mathématiques 6ème (Activités Numériques & Géométriques)',
     type: 'ressource',
     badge: 'Manuel officiel complet',
     description:
-      'Fascicule complet officiel regroupant les 13 leçons exhaustives développées sans résumé, avec schémas explicatifs, tableaux de position, potences de division et exemples pas-à-pas.',
+      'Fascicule complet officiel regroupant les 22 leçons exhaustives développées sans résumé, avec schémas géométriques, figures vectorielles, propriétés fondamentales, remarques et exercices corrigés pas-à-pas.',
     link: '#'
   },
   {
     id: 'pdf-exercices-math-6eme-numerique',
-    title: 'Recueil d\'exercices résolus & Évaluations sommatives — Activités Numériques 6ème',
+    title: 'Recueil d\'exercices résolus & Évaluations sommatives — Mathématiques 6ème',
     type: 'ressource',
     badge: 'Évaluation & corrigé',
     description:
-      'Banque d’exercices d’application directe avec corrigés détaillés : décomposition des décimaux, encadrements, conversions fractions-décimaux, opérations posées en colonnes et problèmes de proportionnalité commerciale.',
+      'Banque d’exercices d’application directe avec corrigés détaillés : droites perpendiculaires et parallèles, médiatrice, bissectrice, triangles, quadrilatères, périmètres, aires et calcul posé.',
     link: '#'
   }
 ];
+

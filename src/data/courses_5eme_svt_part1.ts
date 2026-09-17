@@ -1,699 +1,873 @@
 import { LessonContent } from './courses';
 
 // =========================================================================
-// LEÇON 1 (SVT 5ÈME) : LE CADRE DE VIE
-// Fascicule officiel ADEM-Dakar / Ministère de l'Éducation Nationale (p. 9-11)
+// THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+// LEÇONS 1 À 6 (SVT 5ÈME - COURS NATIONAL COMPLET & APPROFONDI)
+// Conforme au Guide National d'Étude Approfondie des 18 Leçons de l'Année
 // =========================================================================
+
+// -------------------------------------------------------------------------
+// LEÇON 1 : LA TERRE DANS LE SYSTÈME SOLAIRE (SES PARTICULARITÉS)
+// -------------------------------------------------------------------------
 export const LESSON_1_SVT_5EME: LessonContent = {
   id: 'svt-5eme-lecon-1',
   number: 'LEÇON 1 (5ÈME)',
-  title: 'LE CADRE DE VIE : CARACTÉRISTIQUES, DÉGRADATION ET SOLUTIONS',
+  title: 'LA TERRE DANS LE SYSTÈME SOLAIRE (SES PARTICULARITÉS)',
   subject: 'SVT',
   classLevel: '5ème',
-  introduction: `Le cadre de vie correspond à l'environnement immédiat et quotidien dans lequel évoluent les populations humaines. Au Sénégal, il se décline en deux composantes spatiales majeures : le milieu urbain et le milieu rural. Comprendre les caractéristiques de chaque milieu, les facteurs de leur dégradation (urbanisation anarchique, inondations, déforestation) et les stratégies d'aménagement durable est essentiel pour tout citoyen.`,
-  fullText: `FASCICULE SCIENCES DE LA VIE ET DE LA TERRE – 5ème (ADEM DAKAR)
-1ère Partie : SCIENCES DE LA VIE
-THÈME N° 1 : ENVIRONNEMENT
-LEÇON 1 : LE CADRE DE VIE
+  introduction: `La Terre occupe une place tout à fait singulière dans notre système solaire. Troisième planète en partant du Soleil, elle est la seule planète connue à ce jour abritant la vie biologique sous une immense diversité de formes. Cette spécificité remarquable résulte d'un ensemble de caractéristiques physiques, orbitales et atmosphériques exceptionnelles : une position idéale dans la zone d'habitabilité du Soleil, la présence pérenne d'eau liquide à sa surface, une atmosphère gazeuse dense riche en dioxygène et un effet de serre naturel équilibrant sa température. L'étude de ces particularités permet de comprendre les conditions fondamentales de l'émergence et de la pérennité de la vie terrestre.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 1 : LA TERRE DANS LE SYSTÈME SOLAIRE (SES PARTICULARITÉS)
 
-I. OBJECTIFS SPÉCIFIQUES OFFICIELS :
-- Identifier les caractéristiques de l'espace urbain.
-- Identifier les caractéristiques de l'espace rural.
-- Rédiger et présenter un compte rendu sur le cadre de vie.
-- Identifier les causes et les conséquences de la dégradation de l'espace rural (déforestation, feux de brousse, appauvrissement des sols).
-- Identifier les causes et les conséquences de la dégradation de l'espace urbain (surpeuplement, promiscuité, prolifération des déchets, inondations).
-- Proposer des solutions concrètes pour améliorer le cadre de vie.
-- Mettre en œuvre une stratégie active de sensibilisation des populations.
+I. SITUATION ASTRONOMIQUE ET ORBITALE DE LA TERRE :
+1. Organisation générale du système solaire :
+Le système solaire est constitué d'une étoile centrale, le Soleil, autour de laquelle gravitent huit planètes principales, des planètes naines, des comètes et des ceintures d'astéroïdes. On divise ces planètes en deux catégories distinctes :
+- Les quatre planètes telluriques ou rocheuses (les plus proches du Soleil) : Mercure, Vénus, la Terre et Mars. Elles possèdent un sol solide composé de silicates et de métaux.
+- Les quatre planètes géantes gazeuses (les plus éloignées) : Jupiter, Saturne, Uranus et Neptune, essentiellement formées d'hydrogène, d'hélium et de glaces volatiles.
 
-II. CONTENU DU COURS :
-1. Les caractéristiques de l'espace urbain :
-L'espace urbain (ex. agglomérations de Dakar, Pikine, Rufisque, Thiès, Saint-Louis) se caractérise par :
-- Une concentration démographique très élevée et une forte densité de constructions en maçonnerie.
-- Un réseau dense d'infrastructures routières (rues pavées, avenues bitumées, autoroutes à péage) et hospitalières.
-- La présence d'équipements administratifs, scolaires (lycées, universités), commerciaux (marchés, supermarchés, banques) et d'hôtels.
-- Une modification artificielle profonde du biotope : la couverture végétale naturelle est réduite au profit de zones imperméabilisées (béton, goudron).
-- Des contraintes majeures : embouteillages, nuisances sonores, gestion délicate des ordures ménagères et saturation des réseaux d'assainissement.
+2. La distance au Soleil et la zone d'habitabilité :
+La Terre gravite à une distance moyenne d'environ 149,6 millions de kilomètres du Soleil (définie comme une Unité Astronomique ou 1 UA). Cette distance privilégiée la situe en plein cœur de la « zone d'habitabilité » stellaire (ou zone Goldilocks). Dans cette zone, l'énergie solaire reçue par unité de surface n'est ni excessive ni insuffisante. Cela permet de maintenir une température moyenne de surface de +15°C. Si la Terre était située à la place de Mercure ou de Vénus, la température dépasserait les 400°C et toute l'eau s'évaporerait. Si elle était à la place de Jupiter ou de Saturne, la température chuterait en dessous de -150°C et toute l'eau serait irrémédiablement gelée.
 
-2. Les caractéristiques de l'espace rural :
-L'espace rural (les campagnes et villages du Sénégal, en Casamance, dans le Sine-Saloum, le Ferlo ou la vallée du fleuve) se distingue par :
-- Un habitat traditionnel dispersé ou groupé (cases en paille ou banco, concessions familiales).
-- La prédominance des paysages naturels et des espaces agricoles (champs de mil, d'arachide, rizières, vergers) et pastoraux.
-- Des infrastructures collectives simples (pistes de production sablonneuses, cases de santé, forages ruraux, arbres à palabre au centre du village).
-- Une densité de population plus faible et un rythme de vie directement lié aux cycles des saisons (hivernage et saison sèche).
+II. LES PARTICULARITÉS FONDAMENTALES DE LA TERRE :
+1. La présence continue d'eau liquide sous ses trois états :
+L'eau (H₂O) est l'élément chimique fondamental et indispensable à toutes les réactions biochimiques du métabolisme cellulaire. Grâce à la combinaison d'une pression atmosphérique normale (1 013 hPa au niveau de la mer) et d'une température moyenne de +15°C, la Terre est le seul astre du système solaire où l'eau coexiste durablement sous ses trois états physiques :
+- État liquide : océans, mers, fleuves, lacs et eaux souterraines, recouvrant environ 71% de la surface terrestre (d'où le nom de « Planète Bleue »).
+- État solide : calottes glaciaires de l'Antarctique et du Groenland, glaciers de haute montagne et banquises.
+- État gazeux : vapeur d'eau contenue dans l'atmosphère, alimentant le cycle hydrologique continu.
 
-3. Dégradation du cadre de vie et solutions :
-- En milieu urbain : L'exode rural massif entraîne le surpeuplement, la promiscuité, l'habitat spontané dans des zones non aedificandi (bas-fonds inondables, comme dans la banlieue dakaroise), l'accumulation de dépôts sauvages d'ordures et le dysfonctionnement de la voirie.
-- En milieu rural : La déforestation pour le bois de chauffe ou les cultures sur brûlis, les feux de brousse et le surpâturage provoquent l'érosion des sols et la désertification.
-- Solutions préconisées : Rénovation urbaine, curage préventif des canaux d'évacuation, aménagement du territoire équilibré, reboisement, tri sélectif et sensibilisation éco-citoyenne.
+2. Une atmosphère dense et protectrice :
+La masse de la Terre (environ 6 × 10²⁴ kg) exerce une gravité suffisante pour retenir une épaisse couche de gaz appelée atmosphère. Sa composition chimique actuelle est tout à fait originale :
+- 78 % de diazote (N₂) : gaz inerte servant de diluant atmosphérique.
+- 21 % de dioxygène (O₂) : gaz indispensable à la respiration cellulaire aérobie de la grande majorité des êtres vivants.
+- 0,04 % de dioxyde de carbone (CO₂) : gaz indispensable à la photosynthèse des végétaux chlorophylliens.
+- Traces de vapeur d'eau (H₂O), d'argon et d'ozone (O₃).
+Cette atmosphère assure deux fonctions protectrices capitales :
+- La couche d'ozone stratosphérique (entre 20 et 30 km d'altitude) absorbe les rayonnements ultraviolets solaires nocifs (UV-B et UV-C), protégeant l'ADN des cellules vivantes contre les mutations létales.
+- L'effet de serre naturel : certains gaz (vapeur d'eau et CO₂) piègent une partie du rayonnement infrarouge réémis par le sol chauffé. Sans cet effet de serre naturel, la température moyenne de la Terre serait de -18°C, rendant la vie quasi impossible. Grâce à lui, elle s'élève à +15°C.
 
-III. EXERCICES DE MAÎTRISE DES CONNAISSANCES (FASCICULE ADEM-DAKAR) :
+3. Le bouclier magnétique terrestre (la magnétosphère) :
+Au centre de la Terre, le noyau externe constitué de fer et de nickel liquides en mouvement agit comme une gigantesque dynamo créant un champ magnétique protecteur. Cette magnétosphère dévie le vent solaire (flux dangereux de particules énergétiques chargées émises par le Soleil) et empêche l'érosion de notre atmosphère.
 
-Exercice 1 : Appariement Termes et Définitions (page 9)
-Associe chaque mot de la colonne 1 à sa définition dans la colonne 2 :
-- Colonne 1 :
-  1. Assainissement
-  2. Aménagement public
-  3. Cadre de Vie
-  4. Voirie Urbaine
-  5. Espace Public
-- Colonne 2 :
-  a) Partie de l'environnement intimement liée aux espaces de vie.
-  b) Partie du domaine public non bâti affecté à des usages publics.
-  c) Action visant la collecte, le transport et le traitement des déchets solides ou liquides.
-  d) Ensemble d'actions concertées visant à disposer avec ordre les activités, les constructions, les équipements et les moyens de communication sur l'étendue du territoire.
-  e) Ensemble des espaces urbains réservés à la circulation.
-Corrigé officiel : 1 - c ; 2 - d ; 3 - a ; 4 - e ; 5 - b.
+III. COMPARAISON PLANÉTOLOGIQUE DE LA TERRE AVEC SES VOISINES ROCHEUSES :
+- Mercure : Trop proche du Soleil (58 millions de km), dépourvue d'atmosphère protectrice. Les températures varient de +430°C le jour à -180°C la nuit. Absence d'eau liquide.
+- Vénus : Taille similaire à la Terre, mais atmosphère hyperdense (pression 90 fois supérieure à la Terre) composée à 96% de CO₂. L'effet de serre y est extrême et incontrôlable, maintenant une température infernale de +465°C jour et nuit. Absence d'eau liquide.
+- Mars : Plus petite et plus éloignée (228 millions de km). Atmosphère extrêmement ténue composée à 95% de CO₂, incapable de retenir la chaleur. Température moyenne de -63°C. L'eau y existe uniquement sous forme de glace polaire ou souterraine, sans eau liquide stable en surface en raison de la faible pression.
 
-Exercice 2 : Définitions scientifiques
-- Banlieue : Zone urbaine périphérique entourant une grande ville centre.
-- Voirie nationale : Ensemble du réseau routier d'intérêt national géré par les pouvoirs publics.
-- Rénovation urbaine : Opération d'aménagement visant à moderniser, assainir et réhabiliter un quartier dégradé.
-- Réseau d'assainissement : Système de canalisations souterraines collectant et évacuant les eaux usées et pluviales vers une station d'épuration.
-- Aménagement : Organisation spatiale concertée de l'habitat, des voies de transport et des équipements d'une région.
+IV. VOCABULAIRE SCIENTIFIQUE ET NOTIONS CLÉS :
+- Zone d'habitabilité : Région de l'espace autour d'une étoile où la température permet la présence stable d'eau liquide à la surface d'une planète.
+- Planète tellurique : Planète rocheuse formée de métaux et de silicates possédant une surface solide (Mercure, Vénus, Terre, Mars).
+- Effet de serre naturel : Phénomène physique thermique par lequel l'atmosphère terrestre retient une fraction de l'énergie infrarouge émise par le sol, réchauffant la biosphère.
+- Magnétosphère : Enveloppe magnétique entourant la Terre et la protégeant des flux de particules nocives du vent solaire.
 
-Exercice 3 : QCM
-1) Les caractéristiques de l'espace urbain sont : a (infrastructures routières et hospitalières) et c (nombreux supermarchés).
-2) Causes de la dégradation en zone urbaine : a (exode rural), b (surpeuplement) et c (promiscuité).
-3) Types d'aménagement en zone rurale : b (cases et cases de santé) et d (beaucoup d'espaces cultivables).
-
-Exercice 4 : Chassez l'intrus
-1) Aménagement - embouteillage - case de santé - hôtel cinq étoiles -> Intrus : embouteillage (problème de circulation et non équipement structurant).
-2) Autoroute - cadre de vie - arbre à palabre - université -> Intrus : arbre à palabre (élément du paysage rural traditionnel).
-3) Champ - piste de production - hôpital - habitat en paille -> Intrus : hôpital (infrastructure lourde urbaine).
-
-IV. COMPÉTENCES MÉTHODOLOGIQUES (PAGES 10-11) :
-
-Exercice 1 (Texte du lac unique du village) :
-Texte : « Un village dispose d'un seul lac comme source d'approvisionnement en eau pour les hommes et les animaux, lieu de baignade et de lavage du linge. »
-1. Explication de la dégradation : Le mélange des activités (déjections animales, savons et lessives chimiques contenant des phosphates, baignades humaines polluant l'eau par des germes pathogènes) contamine l'unique réserve d'eau potable. Cette eau souillée propage des maladies hydriques (diarrhée, bilharziose, choléra) et dégrade l'écosystème aquatique.
-2. Solutions d'amélioration : Créer des zones sectorisées étanches ; forer un puits ou forage d'eau potable sécurisé pour la boisson humaine ; aménager un abreuvoir séparé pour le bétail et une zone de lavoir isolée avec puisard.
-
-Exercice 2 (Inondation dans un bas-fond à Dakar) :
-a. Situation prévisible ? Oui, car les bas-fonds constituent des zones d'écoulement et de réceptacle naturel des eaux de pluie (zones non constructibles). Lorsque l'urbanisation sauvage y installe des habitations sans réseau d'évacuation, toute pluie importante entraîne une stagnation inévitable des eaux.
-b. Solutions : Relogement des familles hors des zones inondables, aménagement de bassins de rétention des eaux pluviales et construction de canalisations d'évacuation à grand débit.
-
-Exercice 3 (Les causes de la déforestation) :
-1. Passages indiquant les causes : « besoin de terres agricoles, pour les cultures ou pour l'élevage », « défrichement par le feu (le brûlis) », « création d'immenses domaines pour l'élevage bovin extensif », « manque de bois de chauffage... puiser leur énergie domestique dans les forêts ».
-2. Passages indiquant les conséquences : « les forêts qui, de ce fait, reculent rapidement ».`,
+V. EXERCICES D'APPLICATION ET QUESTIONS DE SYNTHÈSE :
+Exercice 1 : Questions à réponses courtes
+1. Pourquoi la Terre est-elle qualifiée de « Planète Bleue » ?
+Réponse : Parce que plus de 70 % de sa surface est recouverte d'eau liquide (océans et mers), lui conférant une couleur bleue caractéristique vue depuis l'espace.
+2. Quelle serait la température moyenne à la surface de la Terre sans atmosphère et sans effet de serre naturel ?
+Réponse : Elle serait d'environ -18°C au lieu des +15°C actuels, ce qui gèlerait l'ensemble des océans.
+3. Citez deux gaz atmosphériques indispensables aux êtres vivants et précisez leur rôle.
+Réponse : Le dioxygène (O₂), indispensable à la respiration cellulaire des animaux et végétaux ; le dioxyde de carbone (CO₂), indispensable à la photosynthèse des plantes chlorophylliennes.`,
   sections: [
     {
-      title: 'I. Comparaison Espace Urbain vs Espace Rural',
-      content: [
-        'Espace urbain : forte densité, infrastructures modernes (routes, hôpitaux, écoles, banques), imperméabilisation des sols, forte production de déchets et nuisances sonores.',
-        'Espace rural : habitat traditionnel groupé ou dispersé, prédominance des cultures et de la végétation, pistes en banco, cases de santé, lien étroit avec la nature.'
+      title: 'I. La position de la Terre et la zone d’habitabilité',
+      subsections: [
+        {
+          subtitle: '1. Une orbite stable et une distance idéale',
+          content: [
+            'La Terre gravite à 150 millions de kilomètres du Soleil sur une orbite quasi circulaire, garantissant une stabilité thermique saisonnière sur des milliards d’années.',
+            'Cette position correspond à la zone d’habitabilité circumstellaire où l’eau peut subsister durablement sous forme liquide sans s’évaporer ni geler totalement.'
+          ]
+        },
+        {
+          subtitle: '2. Comparaison des planètes rocheuses du système solaire',
+          content: [
+            'Le tableau ci-dessous met en évidence les particularités physiques qui font de la Terre un astre habitable d’exception comparé à ses voisines immédiates.'
+          ],
+          table: {
+            headers: ['Planète', 'Distance au Soleil', 'Atmosphère', 'Température moyenne', 'État de l\'eau'],
+            rows: [
+              ['Mercure', '58 millions km', 'Quasi nulle', '+167°C (-180°C à +430°C)', 'Absente'],
+              ['Vénus', '108 millions km', '96% CO₂ (90 bars)', '+465°C', 'Absente (vapeur perdue)'],
+              ['Terre', '150 millions km', '78% N₂, 21% O₂ (1 bar)', '+15°C', 'Liquide, solide, gazeux'],
+              ['Mars', '228 millions km', '95% CO₂ ténue (0,006 bar)', '-63°C', 'Glace et vapeur']
+            ]
+          }
+        }
       ]
     },
     {
-      title: 'II. Causes et Conséquences des Dégradations',
-      content: [
-        'En ville : exode rural, promiscuité, constructions anarchiques dans les bas-fonds inondables, défaillance des canalisations d\'évacuation.',
-        'En campagne : feux de brousse, déboisement intensif pour le bois de cuisson, érosion éolienne et appauvrissement de la terre.'
-      ]
-    },
-    {
-      title: 'III. Exercices et Corrigés de Méthodologie',
-      content: [
-        'Exercice 1 : Sécurisation de l\'approvisionnement en eau villageoise (séparation boisson humaine, abreuvoir et lavoir).',
-        'Exercice 2 : Prévention des inondations urbaines (respect des zones non constructibles, bassins de rétention).',
-        'Exercice 3 : Analyse des causes et impacts de la déforestation.'
+      title: 'II. Les enveloppes protectrices terrestres',
+      subsections: [
+        {
+          subtitle: '1. L\'atmosphère et l\'effet de serre naturel',
+          content: [
+            'L\'atmosphère filtre les rayonnements mortels du Soleil : la haute atmosphère et la couche d\'ozone arrêtent les rayons gamma, X et ultraviolets nocifs.',
+            'L\'effet de serre naturel, induit par la vapeur d\'eau (H₂O) et le dioxyde de carbone (CO₂), élève la température moyenne de -18°C à +15°C, empêchant des écarts mortels entre le jour et la nuit.'
+          ]
+        },
+        {
+          subtitle: '2. La magnétosphère et la tectonique active',
+          content: [
+            'Le noyau terrestre liquide génère un champ magnétique (magnétosphère) qui repousse le vent solaire et empêche la destruction de l’enveloppe gazeuse.',
+            'L\'activité interne de la Terre (tectonique et volcanisme) recycle en continu les éléments chimiques essentiels comme le carbone par le biais du cycle géochimique.'
+          ]
+        }
       ]
     }
   ],
   diagram: {
-    title: 'Organisation et Préservation du Cadre de Vie',
-    root: 'Le Cadre de Vie',
+    title: 'ARCHITECTURE DES PARTICULARITÉS DE LA PLANÈTE TERRE',
+    root: 'LA TERRE : PLANÈTE DE LA VIE',
     branches: [
       {
-        name: 'Milieu Urbain',
-        subtitle: 'Ville aménagée',
-        items: ['Routes, hôpitaux & écoles', 'Risques : inondations en bas-fond', 'Déchets & assainissement']
+        name: 'Position orbitale',
+        subtitle: 'Zone d\'habitabilité',
+        items: [
+          'Distance de 150 millions km (1 UA)',
+          'Énergie solaire modérée et continue',
+          'Température moyenne globale de +15°C'
+        ]
       },
       {
-        name: 'Milieu Rural',
-        subtitle: 'Campagne & nature',
-        items: ['Champs & élevage', 'Pistes de production & cases', 'Risques : déforestation & érosion']
+        name: 'Présence d\'eau',
+        subtitle: 'Les 3 états physiques',
+        items: [
+          'Océans liquides couvrant 71% du globe',
+          'Glaces polaires et haute montagne',
+          'Vapeur atmosphérique et cycle de l\'eau'
+        ]
       },
       {
-        name: 'Actions Durables',
-        subtitle: 'Solutions citoyennes',
-        items: ['Aménagement concerté', 'Canaux d\'assainissement', 'Reboisement & éco-gestes']
+        name: 'Atmosphère & Protection',
+        subtitle: 'Composition et magnétosphère',
+        items: [
+          '21% Dioxygène (O₂) & 78% Diazote (N₂)',
+          'Couche d\'ozone filtrant les UV nocifs',
+          'Effet de serre naturel régulateur'
+        ]
       }
     ]
   },
-  conclusion: `La préservation de notre cadre de vie exige une gestion rigoureuse de l'urbanisme, l'arrêt des constructions dans les bas-fonds inondables et la protection active de nos forêts contre la déforestation.`
+  conclusion: `En conclusion, la Terre est une planète exceptionnelle dont l'équilibre repose sur une combinaison rare de facteurs astronomiques et géologiques : son orbite dans la zone d'habitabilité, la présence d'eau liquide permanente et son atmosphère protectrice. Cet équilibre biosphérique précieux et fragile a permis le développement et le maintien de la biodiversité que l'humanité a aujourd'hui la responsabilité absolue de préserver.`
 };
 
-// =========================================================================
-// LEÇON 2 (SVT 5ÈME) : LES POLLUTIONS ET LEURS CONSÉQUENCES
-// Fascicule officiel ADEM-Dakar / Ministère de l'Éducation Nationale (p. 12-15)
-// =========================================================================
+// -------------------------------------------------------------------------
+// LEÇON 2 : LES PHÉNOMÈNES MÉTÉOROLOGIQUES (DYNAMIQUE DES MASSES D'AIR ET D'EAU)
+// -------------------------------------------------------------------------
 export const LESSON_2_SVT_5EME: LessonContent = {
   id: 'svt-5eme-lecon-2',
   number: 'LEÇON 2 (5ÈME)',
-  title: 'LES POLLUTIONS ET LEURS CONSÉQUENCES',
+  title: 'LES PHÉNOMÈNES MÉTÉOROLOGIQUES (DYNAMIQUE DES MASSES D\'AIR ET D\'EAU)',
   subject: 'SVT',
   classLevel: '5ème',
-  introduction: `La pollution est la dégradation d'un milieu naturel par l'introduction directe ou indirecte de substances chimiques, physiques ou biologiques nocives. Cette leçon étudie les différentes formes de pollutions (eau, air, sol, sonore), leurs mécanismes écologiques (bioaccumulation, eutrophisation, asphyxie des poissons) et les moyens de lutte préventifs et curatifs.`,
-  fullText: `FASCICULE SCIENCES DE LA VIE ET DE LA TERRE – 5ème (ADEM DAKAR)
-THÈME N° 1 : ENVIRONNEMENT
-LEÇON 2 : LES POLLUTIONS ET LEURS CONSÉQUENCES
+  introduction: `Chaque jour, nous consultons les prévisions météorologiques pour connaître la température, la force du vent ou l'arrivée des pluies. Mais d'où viennent ces mouvements incessants de l'atmosphère et de l'océan ? La météorologie étudie l'état de l'atmosphère à court terme sur une zone donnée. À l'échelle du globe, l'inégale répartition de l'énergie solaire reçue engendre de puissants contrastes thermiques. Ces différences de température provoquent des variations de pression qui mettent en mouvement les masses d'air (les vents) et les masses d'eau (les courants océaniques), participant à une redistribution vitale de la chaleur entre les tropiques et les pôles.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 2 : LES PHÉNOMÈNES MÉTÉOROLOGIQUES (DYNAMIQUE DES MASSES D'AIR ET D'EAU)
 
-I. OBJECTIFS SPÉCIFIQUES OFFICIELS :
-- Identifier les différentes formes de pollution (eau, air, sol, sonore).
-- Identifier les différentes causes et conséquences écologiques et sanitaires des pollutions.
-- Rédiger un compte rendu structuré sur une situation de pollution locale.
-- Proposer des moyens techniques et comportementaux de lutte contre les pollutions.
-- Sensibiliser activement les populations riveraines.
+I. L'INÉGALE RÉPARTITION DE L'ÉNERGIE SOLAIRE À LA SURFACE DU GLOBE :
+1. La forme sphérique de la Terre et l'inclinaison des rayons solaires :
+La Terre étant une sphère, les rayons solaires n'atteignent pas sa surface avec le même angle d'incidence selon la latitude :
+- À l'équateur et dans la zone intertropicale, les rayons solaires arrivent de façon quasi perpendiculaire (verticale). L'énergie solaire se concentre sur une surface restreinte, entraînant un échauffement maximal du sol et de l'air.
+- Aux pôles et dans les hautes latitudes, les rayons solaires frappent la surface de manière très oblique. La même quantité d'énergie solaire est alors étalée sur une surface beaucoup plus vaste, et une grande partie de la chaleur est réfléchie par la glace (albédo élevé). L'échauffement est donc minime, et le froid y est intense.
 
-II. CONTENU SCIENTIFIQUE DU COURS :
-1. Typologie des pollutions :
-- Pollution de l'eau : rejets d'eaux usées domestiques sans traitement, marées noires (hydrocarbures), engrais chimiques et pesticides agricoles, métaux lourds industriels (plomb, mercure).
-- Pollution de l'air : émissions de gaz à effet de serre (CO₂), de particules fines par les tuyaux d'échappement vétustes des véhicules, fumées d'usines et brûlage sauvage des ordures.
-- Pollution du sol : plastiques non biodégradables, dépôts anarchiques d'ordures ménagères, produits phytosanitaires.
-- Pollution sonore : décibels excessifs générés par le trafic routier, les tam-tams nocturnes en zone résidentielle, les ateliers mécaniques et les chantiers.
+2. Conséquence thermique fondamentale :
+Il existe un excédent permanent de chaleur au niveau des régions intertropicales et un déficit thermique permanent au niveau des régions polaires. La dynamique des fluides terrestres (air et eau) a pour rôle fondamental de rééquilibrer ces écarts de température.
 
-2. Les mécanismes écologiques majeurs :
-- L'eutrophisation et l'asphyxie aquatique : les matières organiques et sels minéraux (nitrates, phosphates) déversés dans les lacs ou fleuves favorisent la prolifération excessive des algues en surface. Lorsque ces végétaux meurent, les bactéries décomposeurs prolifèrent et consomment tout le dioxygène dissous dans l'eau, provoquant l'asphyxie et la mort massive des poissons.
-- La bioaccumulation / bioamplification : des polluants chimiques persistants (comme les insecticides de type DDT ou les métaux lourds) ne sont pas dégradés par les organismes. Leur concentration augmente à chaque niveau de la chaîne trophique (du plancton jusqu'aux poissons carnivores et aux oiseaux prédateurs tels que les grèbes).
+II. LA DYNAMIQUE DES MASSES D'AIR (L'ORIGINE DU VENT) :
+1. Relation entre température et pression atmosphérique :
+La pression atmosphérique est le poids exercé par la colonne d'air au-dessus d'une surface donnée (mesurée en hectopascals, hPa, à l'aide d'un baromètre).
+- Lorsqu'une masse d'air s'échauffe (comme à l'équateur), ses molécules s'écartent : l'air se dilate, devient moins dense (plus léger) et s'élève en altitude. Ce mouvement ascendant laisse un vide relatif au sol, créant une zone de basse pression appelée dépression (pression inférieure à 1 013 hPa). En montant, l'air chaud se refroidit, l'humidité qu'il contient se condense en nuages et provoque d'abondantes précipitations.
+- À l'inverse, au-dessus des pôles ou des zones froides, l'air refroidi devient plus dense (plus lourd) et plonge vers le sol dans un mouvement descendant (subsidence). Cette accumulation d'air comprime la surface et crée une zone de haute pression appelée anticyclone (pression supérieure à 1 013 hPa). L'air y est stable, sec et le ciel est dégagé.
 
-III. EXERCICES DE MAÎTRISE DES CONNAISSANCES (PAGE 12) :
+2. Le vent, mouvement horizontal régulateur :
+Pour combler le déficit d'air provoqué par les dépressions, l'air se déplace horizontalement depuis les zones de haute pression (anticyclones) vers les zones de basse pression (dépressions). Ce déplacement horizontal des masses d'air constitue le vent.
+Sous l'effet de la rotation de la Terre sur elle-même (force de Coriolis), ces vents ne se déplacent pas en ligne droite mais sont déviés vers la droite dans l'hémisphère Nord et vers la gauche dans l'hémisphère Sud (alizés, vents d'Ouest tempérés).
 
-Exercice 1 : Association type de pollution
-- A (Eaux usées) -> 3 (Pollution de l'eau)
-- B (Tam-tam) -> 1 (Pollution sonore)
-- C (Ordures ménagères) -> 2 (Pollution du sol)
-- D (Gaz émis par les usines) -> 4 (Pollution de l'air)
-- E (Marées noires) -> 3 (Pollution de l'eau)
+III. LA DYNAMIQUE DES MASSES D'EAU (LES COURANTS OCÉANIQUES) :
+1. Les courants marins de surface :
+Les vents dominants qui soufflent de manière constante à la surface des océans entraînent les masses d'eau superficielles par frottement, créant de gigantesques courants marins de surface.
+- Les courants chauds (comme le Gulf Stream dans l'Atlantique Nord) partent de la zone équatoriale et transportent d'immenses quantités de chaleur vers les côtes de l'Europe du Nord, adoucissant leur climat.
+- Les courants froids (comme le courant des Canaries longeant les côtes du Sénégal et du Maroc) descendent des pôles vers les tropiques, rafraîchissant les zones littorales.
 
-Exercice 2 : Définitions
-- Pollution : Altération défavorable de l'environnement due à des substances ou perturbations d'origine anthropique.
-- Polluant : Tout agent physique, chimique ou biologique qui entraîne une pollution.
-- Pollueur : Personne physique ou entité industrielle dont les activités génèrent une pollution.
-- Pollution diffuse : Pollution sans point de rejet unique et localisé, dispersée sur de vastes surfaces (ex. ruissellement des pesticides agricoles).
-- Pollution chronique : Pollution continue et répétée dans le temps, même à faibles doses régulières.
+2. Les courants profonds et la circulation thermohaline :
+En profondeur, les masses d'eau se déplacent sous l'effet de différences de densité provoquées par la température et la salinité (d'où le terme « thermohalin ») :
+- Une eau froide et salée est plus dense et plus lourde qu'une eau chaude et douce.
+- Dans les régions polaires (ex. océan Arctique près du Groenland), l'eau de mer de surface gèle pour former la banquise. La glace rejette le sel dans l'eau liquide environnante, qui devient à la fois glaciale et ultra-salée. Cette eau extrêmement dense plonge vers les grands fonds marins (jusqu'à 4 000 m de profondeur) et amorce un gigantesque tapis roulant océanique mondial qui parcourt tous les océans de la Terre en près de 1 000 ans.
 
-Exercice 3 : Vrai / Faux avec correction
-a) Faux. Il existe une pollution de l'air notable au Sénégal, particulièrement à Dakar en raison de la circulation automobile dense, des particules de poussière du désert et des unités industrielles.
-b) Vrai. Les activités domestiques, industrielles et agricoles libèrent d'importantes quantités de gaz et de particules.
-c) Faux. Le CO₂ (dioxyde de carbone) émis en excès est un gaz polluant majeur responsable du réchauffement climatique planétaire.
-d) Faux. Le transport routier et maritime est l'une des principales sources d'émission d'oxydes d'azote, de monoxyde de carbone et de particules fines.
+IV. TABLEAU COMPARATIF : ANTICYCLONE VS DÉPRESSION :
+- Anticyclone : Air froid et lourd / Mouvement descendant (subsidence) / Pression > 1013 hPa / Ciel dégagé, beau temps sec / Vent centrifuge (sort de la zone).
+- Dépression : Air chaud et léger / Mouvement ascendant / Pression < 1013 hPa / Formation de nuages et pluies / Vent centripète (converge vers le centre).
 
-IV. COMPÉTENCES MÉTHODOLOGIQUES ET EXPLOITATION DE DONNÉES (PAGES 13-15) :
+V. VOCABULAIRE CLÉ ET DÉFINITIONS :
+- Météorologie : Science qui étudie les conditions atmosphériques (température, humidité, pression, vent) à un instant donné et à court terme (quelques jours).
+- Dépression : Zone atmosphérique où la pression est basse, caractérisée par de l'air ascendant chaud provoquant la nébulosité et les pluies.
+- Anticyclone : Zone atmosphérique de haute pression où l'air froid descend, bloquant la formation de nuages et assurant un temps ensoleillé.
+- Circulation thermohaline : Système mondial de circulation océanique profonde actionné par les gradients de température et de salinité des masses d'eau.
 
-Exercice 1 (Texte sur les égouts et la mort des poissons) :
-1. Deux catégories rejetées dans les égouts : Polluants chimiques et matières organiques.
-2. Aliment des plantes d'après le texte : Les sels minéraux dissous.
-3. Explication de l'asphyxie : Les végétaux verts meurent et s'accumulent au fond. Les décomposeurs s'en nourrissent en proliférant de façon exponentielle, ce qui consomme la totalité du dioxygène dissous (O₂) présent dans l'eau ; privés d'O₂, les poissons meurent asphyxiés.
-
-Exercice 2 (Pollution de l'eau en deux étapes) :
-1. Causes indiquées : Déchets organiques humains et animaux, résidus de fibres végétales, rejets industriels d'usines et métaux lourds / pesticides chimiques non biodégradables.
-2. Solutions : Création de stations d'épuration modernes, réglementation stricte des rejets industriels et recours à des alternatives agroécologiques non toxiques.
-
-Exercice 3 (L'Homme est-il responsable de tous les maux ? - Batraciens) :
-1. Première hypothèse : La pollution humaine (amincissement de la couche d'ozone entraînant une hausse des rayons UV létaux pour les embryons, pesticides agricoles, métaux lourds).
-2. Agents polluants mis en cause : Rayons ultraviolets (UV), pesticides agricoles, métaux lourds.
-3. Véritable cause découverte : Un champignon microscopique parasite de la famille des Chytridiomycètes provoquant une mycose cutanée qui étouffe les grenouilles qui respirent par la peau.
-
-Exercice 4 (Bioaccumulation de l'insecticide dans le lac Clear Lake) :
-1. Évolution de la quantité d'insecticide : Du plancton (5 mg/kg) jusqu'aux grèbes (2500 mg/kg dans les graisses), la concentration en insecticide augmente considérablement à chaque maillon de la chaîne alimentaire.
-2. Cause de la mort des grèbes : La toxicité aiguë liée à la dose phénoménale de poison concentrée dans leurs graisses (2500 mg/kg), entraînant mortalité et stérilité chez les survivants.
-3. Consommation prudente des grèbes ? Absolument non, car la chair et les graisses des oiseaux contiennent des doses d'insecticide toxiques mortelles pour l'être humain.
-
-Situation d'intégration (Theme Environnement) :
-Rédaction d'une lettre au Maire : Alerte sur le péril sanitaire causé par la submersion pluviale mêlée aux refoulements d'égouts et décharges sauvages, prévenant du risque imminent d'épidémies de gastro-entérites, choléra et dermatoses chez les enfants baigneurs. Demande urgente de motopompes, désinfection au chlore et ramassage sécurisé des ordures.`,
+VI. EXERCICES D'APPLICATION ET CORRECTION :
+Exercice : Analyse de document
+Énoncé : Expliquez pourquoi le vent souffle des Açores (zone anticyclonique à 1 030 hPa) vers l'Islande (zone dépressionnaire à 990 hPa).
+Correction : L'air se déplace toujours naturellement des zones de haute pression (où l'air s'accumule) vers les zones de basse pression (où l'air s'élève). Ce gradient de pression génère un déplacement horizontal d'air qui constitue le vent d'Ouest soufflant des Açores vers l'Islande.`,
   sections: [
     {
-      title: 'I. Les 4 grandes formes de pollution',
-      content: [
-        'Pollution de l\'eau : eaux usées non traitées, déversements industriels, métaux lourds et pesticides.',
-        'Pollution de l\'air : échappement des véhicules, fumées d\'usines, gaz à effet de serre (CO₂), poussières fines.',
-        'Pollution du sol : plastique non dégradable, ordures ménagères en décharges sauvages, produits chimiques agricoles.',
-        'Pollution sonore : bruits excessifs urbains, circulation, fêtes nocturnes et ateliers industriels.'
+      title: 'I. Inégale répartition de la chaleur et pressions atmosphériques',
+      subsections: [
+        {
+          subtitle: '1. Le bilan thermique planétaire',
+          content: [
+            'L\'énergie solaire chauffe la Terre de façon inégale : l\'angle des rayons solaires avec le sol varie avec la latitude, créant un pôle chaud à l\'équateur et deux pôles froids aux extrémités du globe.',
+            'L\'atmosphère et les océans fonctionnent comme un immense moteur thermodynamique dont la mission est d\'évacuer l\'excès de chaleur tropical vers les zones polaires.'
+          ]
+        },
+        {
+          subtitle: '2. Mécanisme de formation du vent',
+          content: [
+            'L\'air chaud équatorial, moins dense, s\'élève : c\'est l\'ascendance créant une dépression au sol.',
+            'L\'air froid polaire, plus dense, plonge vers le sol : c\'est la subsidence créant un anticyclone.',
+            'Le vent naît du déplacement horizontal d\'air comblant le déficit des dépressions depuis les anticyclones.'
+          ],
+          table: {
+            headers: ['Caractéristique', 'Anticyclone (Haute Pression)', 'Dépression (Basse Pression)'],
+            rows: [
+              ['Valeur de la pression', 'Supérieure à 1 013 hPa', 'Inférieure à 1 013 hPa'],
+              ['Mouvement vertical de l\'air', 'Descendant (affaissement)', 'Ascendant (élévation)'],
+              ['Température de l\'air au départ', 'Froid et dense', 'Chaud et dilaté'],
+              ['Conditions météorologiques', 'Ciel clair, temps sec et calme', 'Condensation, nuages et pluies'],
+              ['Mouvement horizontal de l\'air', 'L\'air quitte la zone', 'L\'air converge vers le centre']
+            ]
+          }
+        }
       ]
     },
     {
-      title: 'II. Les mécanismes écologiques d\'impact',
-      content: [
-        'Eutrophisation : prolifération d\'algues due aux sels minéraux et matières organiques -> surconsommation d\'O₂ par les décomposeurs -> mort des poissons par asphyxie.',
-        'Bioaccumulation : augmentation exponentielle des doses de polluants toxiques (pesticides, métaux lourds) du bas vers le sommet des chaînes alimentaires.'
-      ]
-    },
-    {
-      title: 'III. Exercices résolus et Situation d\'intégration',
-      content: [
-        'Analyse méthodique du phénomène d\'asphyxie des cours d\'eau.',
-        'Étude chiffrée de la bioamplification du DDT jusqu\'aux oiseaux aquatiques.',
-        'Proposition de courriers éco-citoyens et stratégies sanitaires municipales.'
+      title: 'II. Les courants océaniques régulateurs',
+      subsections: [
+        {
+          subtitle: '1. Courants de surface et courants abyssaux',
+          content: [
+            'Les vents dominants poussent les eaux de surface, générant des courants chauds (comme le Gulf Stream) ou froids (comme le courant des Canaries).',
+            'La circulation thermohaline profonde plonge aux pôles car l’eau froide et salée devient plus lourde, créant un immense tapis roulant océanique qui redistribue la chaleur sur toute la planète.'
+          ]
+        }
       ]
     }
   ],
   diagram: {
-    title: 'Chaîne des Pollutions et Conséquences',
-    root: 'Les Pollutions',
+    title: 'SCHÉMA DU CYCLE DES MASSES D\'AIR ET D\'EAU',
+    root: 'DYNAMIQUE MÉTÉOROLOGIQUE',
     branches: [
       {
-        name: 'Sources polluantes',
-        subtitle: 'Origines humaines',
-        items: ['Rejets domestiques (égouts)', 'Émissions industrielles & autos', 'Pesticides & métaux lourds']
+        name: 'Énergie Solaire Inégale',
+        subtitle: 'Moteur initial',
+        items: [
+          'Équateur : Rayons verticaux = Excès de chaleur',
+          'Pôles : Rayons obliques = Déficit thermique',
+          'Nécessité d\'un rééquilibrage thermodynamique'
+        ]
       },
       {
-        name: 'Milieux touchés',
-        subtitle: 'Vecteurs',
-        items: ['Eau : lacs, fleuves, mers', 'Air : atmosphère & gaz', 'Sol & Nappe phréatique']
+        name: 'Masses d\'Air (Atmosphère)',
+        subtitle: 'Vents et pressions',
+        items: [
+          'Air chaud monte -> Dépression (Nuages/Pluie)',
+          'Air froid descend -> Anticyclone (Temps sec)',
+          'Vents : Déplacement Anticyclone vers Dépression'
+        ]
       },
       {
-        name: 'Conséquences',
-        subtitle: 'Impacts vitaux',
-        items: ['Asphyxie aquatique (O₂ nul)', 'Bioamplification trophique', 'Maladies & épidémies']
+        name: 'Masses d\'Eau (Océans)',
+        subtitle: 'Courants marins',
+        items: [
+          'Courants de surface : Poussés par les vents',
+          'Circulation thermohaline : Eau froide/salée plonge',
+          'Transfert global de chaleur vers les pôles'
+        ]
       }
     ]
   },
-  conclusion: `La lutte contre les pollutions repose sur le traitement systématique des eaux usées en station d'épuration, la transition vers des énergies propres et l'adoption d'un comportement éco-responsable individuel et collectif.`
+  conclusion: `En résumé, les phénomènes météorologiques sont le résultat spectaculaire des mouvements compensatoires de l'atmosphère et de l'hydrosphère. En déplaçant continuellement des milliards de tonnes d'air chaud et d'eaux tropicales vers les pôles froids, les vents et les courants marins régulent le climat planétaire et rendent la Terre habitable sur la quasi-totalité de ses latitudes.`
 };
 
-// =========================================================================
-// LEÇON 3 (SVT 5ÈME) : L'ALIMENTATION CHEZ LES ANIMAUX
-// Fascicule officiel ADEM-Dakar / Ministère de l'Éducation Nationale (p. 17-19)
-// =========================================================================
+// -------------------------------------------------------------------------
+// LEÇON 3 : LE CLIMAT ET SON ÉVOLUTION À GRANDE ÉCHELLE
+// -------------------------------------------------------------------------
 export const LESSON_3_SVT_5EME: LessonContent = {
   id: 'svt-5eme-lecon-3',
   number: 'LEÇON 3 (5ÈME)',
-  title: 'L’ALIMENTATION CHEZ LES ANIMAUX : ADAPTATION AUX RÉGIMES ALIMENTAIRES',
+  title: 'LE CLIMAT ET SON ÉVOLUTION À GRANDE ÉCHELLE',
   subject: 'SVT',
   classLevel: '5ème',
-  introduction: `Chaque espèce animale possède un régime alimentaire propre qui détermine ses comportements et son anatomie. L'appareil buccal, la dentition et le tube digestif présentent des adaptations remarquables selon que l'animal est herbivore, carnivore, omnivore ou consommateur de liquides. La rumination chez la vache illustre une spécialisation digestive poussée.`,
-  fullText: `FASCICULE SCIENCES DE LA VIE ET DE LA TERRE – 5ème (ADEM DAKAR)
-THÈME N° 2 : FONCTION DE NUTRITION
-LEÇON 3 : L'ALIMENTATION CHEZ LES ANIMAUX : ADAPTATION AUX DIFFÉRENTS RÉGIMES ALIMENTAIRES
+  introduction: `Quelle différence existe-t-il entre le temps qu'il fait aujourd'hui et le climat d'une région ? Alors que la météorologie étudie des variations atmosphériques à court terme (quelques jours), la climatologie analyse les moyennes statistiques de grandeurs atmosphériques sur de très longues périodes, au moins 30 ans. À l'échelle de la planète, la Terre est découpée en grandes zones climatiques. Cependant, ce climat global n'est pas figé : il a connu de multiples fluctuations naturelles au cours des temps géologiques. Aujourd'hui, notre planète fait face à un changement climatique d'origine humaine sans précédent par sa rapidité, bouleversant les équilibres écologiques et humains.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 3 : LE CLIMAT ET SON ÉVOLUTION À GRANDE ÉCHELLE
 
-I. OBJECTIFS SPÉCIFIQUES OFFICIELS :
-- Identifier la diversité des régimes alimentaires chez les animaux (herbivore, carnivore, omnivore, granivore, etc.).
-- Expliquer le fonctionnement de l'appareil buccal de la vache (absence d'incisives supérieures, bourrelet corné, mouvement de mastication).
-- Décrire avec précision le trajet de l'herbe dans le tube digestif à 4 poches de la vache (panse, bonnet, feuillet, caillette).
-- Expliquer la notion d'adaptation au régime herbivore.
-- Expliquer la notion d'adaptation convergente chez les différentes espèces.
-- Expliquer l'adaptation au régime carnivore (crocs, dents carnassières, tube digestif court).
-- Expliquer les adaptations chez les omnivores et les consommateurs de liquides (moustique, papillon).
+I. DISTINCTION FONDAMENTALE : MÉTÉOROLOGIE VS CLIMATOLOGIE :
+1. Définition de la météorologie :
+La météorologie mesure et décrit les paramètres de l'atmosphère (température, humidité, pression atmosphérique, vitesse du vent, précipitations) à un endroit précis et à un moment donné, avec des prévisions à court terme (de quelques heures à une dizaine de jours).
 
-II. CONTENU SCIENTIFIQUE :
-1. Diversité des régimes alimentaires :
-- Herbivores (phytophages) : se nourrissent exclusivement de végétaux (herbe, feuilles, racines). Sous-groupes : frugivores (fruits), granivores (graines), nectarivores.
-- Carnivores (zoophages) : se nourrissent d'aliments d'origine animale. Sous-groupes : prédateurs (chassent des proies vivantes), piscivores (poissons), insectivores (insectes), charognards (cadavres).
-- Omnivores : consomment à la fois des aliments d'origine animale et végétale (ex. Homme, porc, singe).
+2. Définition de la climatologie :
+La climatologie étudie ces mêmes grandeurs atmosphériques, mais calculées sous forme de moyennes statistiques sur de longues périodes de référence (définies internationalement par l'Organisation Météorologique Mondiale comme une période minimale de 30 ans). Elle définit les climats régionaux et mondiaux.
 
-2. L'adaptation de l'appareil buccal et de la dentition :
-- Chez le carnivore (ex. lion, panthère) : dentition complète et spécialisée. Les canines sont de longs crocs pointus pour poignarder et déchirer ; les molaires carnassières découpent la viande comme des ciseaux ; la mâchoire ne bouge que de haut en bas.
-- Chez l'herbivore non ruminant (ex. cheval) ou ruminant (ex. vache, mouton) : la mâchoire supérieure de la vache n'a pas d'incisives mais un bourrelet corné rigide. Les incisives inférieures en biseau pincent l'herbe contre le bourrelet. Entre les incisives et les molaires se trouve un espace sans dents appelé la barre (ou diastème). Les molaires à crêtes d'émail broient les végétaux grâce à des mouvements circulaires latéraux de la mâchoire.
-- Chez l'omnivore (ex. Homme) : dentition équilibrée (incisives pour couper, canines courtes pour déchirer, molaires larges à tubercules mousses pour écraser).
+II. LES GRANDES ZONES CLIMATIQUES DE LA TERRE :
+En fonction de la latitude et de la quantité d'énergie solaire annuelle reçue, la Terre se divise en trois grandes zones climatiques fondamentales :
+1. La zone intertropicale (chaude) :
+Située entre le tropique du Cancer (23°27' N) et le tropique du Capricorne (23°27' S), elle se caractérise par des températures moyennes élevées toute l'année (souvent supérieures à 20°C). Elle englobe des climats équatoriaux (pluies abondantes toute l'année), tropicaux humides et secs (avec alternance d'une saison des pluies/hivernage et d'une saison sèche, comme au Sénégal) et désertiques (précipitations annuelles inférieures à 100 mm).
 
-3. Le tube digestif du ruminant (la vache) :
-L'estomac volumineux de la vache comprend quatre poches distinctes :
-1. La panse (ou rumen) : très grande poche de stockage et de fermentation où les bactéries dégradent la cellulose.
-2. Le bonnet (ou réseau) : forme de petites pelotes d'herbe qui sont renvoyées vers la bouche lors de la rumination pour une seconde mastication soignée.
-3. Le feuillet (ou omasum) : absorbe l'eau et les acides gras.
-4. La caillette (ou abomasum) : le véritable estomac sécrétant le suc gastrique acide pour la digestion chimique.
-L'herbe passe ensuite dans l'intestin grêle très long (adaptation à une digestion lente de la matière végétale).
+2. Les zones tempérées (boréale et australe) :
+Situées entre les tropiques et les cercles polaires (entre 30° et 60° de latitude). Elles présentent une alternance très marquée de quatre saisons bien distinctes (printemps, été, automne, hiver), avec des températures et précipitations modérées.
 
-III. EXERCICES DU FASCICULE OFFICIEL (PAGES 17-19) :
+3. Les zones polaires (froides) :
+Situées au-delà des cercles polaires arctique (66°33' N) et antarctique (66°33' S). Les températures y sont glaciales toute l'année, le sol reste gelé en permanence en profondeur (pergélisol) et les précipitations sont rares, tombant sous forme de neige.
 
-Exercice 1 : Association animal et nourriture
-- A (Lion) -> 2 (Antilope) -> Régime carnivore (zoophage)
-- B (Chèvre) -> 1 (Paille / Herbe) -> Régime herbivore (phytophage)
-- C (Porc) -> 3 (Herbe et viande) -> Régime omnivore
-Définitions des régimes :
-- Carnivore : Animal se nourrissant exclusivement de matières d'origine animale.
-- Herbivore : Animal se nourrissant exclusivement d'aliments d'origine végétale.
-- Omnivore : Animal consommant indifféremment des aliments d'origine végétale et animale.
+III. L'ÉVOLUTION NATURELLE DU CLIMAT AU COURS DES TEMPS GÉOLOGIQUES :
+Le climat de la Terre n'a jamais été statique. L'étude des carottes de glace forées en Antarctique et au Groenland (qui emprisonnent de minuscules bulles d'air fossile) et l'analyse des sédiments marins révèlent que la Terre a connu au cours du Quaternaire une alternance régulière :
+- De périodes glaciaires (durant environ 100 000 ans) : la température moyenne mondiale chutait de 5 à 6°C, d'immenses calottes glaciaires de plusieurs kilomètres d'épaisseur recouvraient le Nord de l'Europe et de l'Amérique, et le niveau des mers était jusqu'à 120 mètres plus bas qu'aujourd'hui.
+- De périodes interglaciaires plus douces (durant environ 15 000 à 20 000 ans) : climat chaud similaire à notre époque actuelle.
+Ces cycles naturels étaient déclenchés par des variations astronomiques périodiques de l'orbite terrestre (cycles de Milankovitch : excentricité de l'orbite, inclinaison de l'axe et précession).
 
-Exercice 2 : Texte à trous
-« L'ensemble des aliments consommés par un animal constitue son régime alimentaire. Certains animaux se nourrissent d'aliments d'origine végétale ce sont des végétariens (ou herbivores), d'autres se nourrissent d'aliments d'origine animale ce sont des carnivores, d'autres mangent à la fois des aliments d'origine animale et d'origine végétale ce sont des omnivores. »
+IV. LE RÉCHAUFFEMENT CLIMATIQUE CONTEMPORAIN ET L'ACTION HUMAINE :
+1. Un réchauffement rapide inédit d'origine anthropique :
+Depuis la Révolution Industrielle (vers 1850), les activités humaines (combustion massive de charbon, pétrole et gaz naturel pour l'industrie et les transports, déforestation massive, élevage intensif) ont libéré des quantités colossales de gaz à effet de serre (GES).
+- La concentration en dioxyde de carbone (CO₂) est passée de 280 parties par million (ppm) à plus de 420 ppm aujourd'hui.
+- La concentration en méthane (CH₄) et protoxyde d'azote (N₂O) a également explosé.
+Ce surplus de gaz emprisonne excessivement le rayonnement infrarouge, provoquant une hausse de la température moyenne globale de plus de 1,1°C en un siècle.
 
-Exercice 3 : Vrai ou Faux avec justifications
-a. Vrai. Le régime alimentaire peut varier au fil des saisons (ex. fruits en hivernage, graines ou écorces en saison sèche).
-b. Faux. Un zoophage ne mange que des aliments d'origine animale.
-c. Vrai. Un insectivore se nourrit spécifiquement d'insectes.
-d. Vrai. La forme de la denture et la longueur du tube digestif sont adaptées au régime.
-e. Faux. L'estomac de la vache comprend 4 poches (panse, bonnet, feuillet, caillette).
+2. Conséquences écologiques et humaines majeures :
+- Fonte accélérée des glaciers de montagne et des calottes glaciaires (Antarctique, Groenland).
+- Dilatation thermique des océans et montée du niveau moyen de la mer (menace directe pour les villes côtières comme Saint-Louis et Dakar au Sénégal).
+- Multiplication et intensification des événements météorologiques extrêmes (sécheresses sévères au Sahel, inondations dévastatrices, vagues de chaleur intenses, cyclones tropicaux plus puissants).
+- Acidification des océans due à la dissolution du CO₂, menaçant les récifs coralliens et la faune marine à coquille calcaire.
 
-Exercice 4 : Dentition comparée
-A. Association :
-1. Les incisives -> b (déchiqueter et couper en petits morceaux)
-2. Les molaires -> c (broyer)
-3. Les canines (crocs) -> a (tuer et déchirer des lambeaux de chair)
-B. Texte d'application :
-- « Je suis un mouton, je mange de l'herbe, je suis un herbivore (végétarien). Ma dentition est constituée d'incisives et de molaires. Je n'ai pas d'incisive à la mâchoire supérieure. Mais à leur place j'ai une barre (bourrelet) qui constitue avec mes incisives une pince puissante. »
-- « Je suis un lion. Je mange de la viande. Je suis donc un carnivore. Ma dentition est constituée d'incisives, de canines et de molaires. »
-- « Je suis un homme, je mange des aliments d'origine végétale et des aliments d'origine animale. Je suis donc un omnivore. »
+V. TABLEAU DES GAZ À EFFET DE SERRE RESPONSABLES :
+- Dioxyde de carbone (CO₂) : Durée dans l'air ~ 100 ans / Source : Combustion du pétrole, gaz, charbon et déforestation / Part dans le réchauffement ~ 65%.
+- Méthane (CH₄) : Durée dans l'air ~ 12 ans / Source : Digestion des ruminants, rizières inondées, décharges d'ordures / Pouvoir réchauffant 28 fois supérieur au CO₂.
+- Protoxyde d'azote (N₂O) : Durée dans l'air ~ 114 ans / Source : Engrais chimiques azotés en agriculture intensive / Pouvoir réchauffant 298 fois supérieur au CO₂.
 
-Exercice 5 : Tableau des régimes spécifiques
-- Vache : Herbivore
-- Grenouille : Insectivore / Carnivore
-- Tigre : Carnivore
-- Poule : Granivore / Omnivore
-- Antilope : Herbivore
-- Panthère : Carnivore
-- Cheval : Herbivore
-- Requin : Piscivore / Carnivore
-- Singe : Omnivore / Frugivore
-- Vautour : Charognard
-- Lézard : Insectivore
-
-Exercice 6 : Schéma et trajet chez la vache (page 19)
-1. Annotation : Œsophage (entrée), Panse (1ère poche volumineuse), Bonnet (2e poche), Feuillet (3e poche), Caillette (4e poche sécrétrice), Intestin.
-2. Régime de la vache : Herbivore ruminant.
-3. Trajet de l'herbe : L'herbe fauchée est avalée sans mâcher -> arrive dans la Panse (fermentation) -> passe dans le Bonnet -> régurgitée dans la bouche par bol alimentaire pour la rumination (mastication lente) -> réavalée directement dans le Feuillet -> digérée chimiquement dans la Caillette -> absorbée dans l'Intestin.
-4. Caractères d'adaptation convergente : Mastication circulaire, dents à croissance continue ou à crêtes, long caecum et estomac compartimenté retrouvés chez divers herbivores (ovins, bovins, caprins, cervidés).`,
+VI. VOCABULAIRE SCIENTIFIQUE ET NOTIONS CLÉS :
+- Climatologie : Étude scientifique des moyennes des grandeurs atmosphériques sur des durées longues d'au moins 30 ans.
+- Gaz à effet de serre (GES) : Gaz atmosphériques capables d'absorber le rayonnement infrarouge émis par la Terre et de le réémettre vers le sol.
+- Période glaciaire : Période géologique froide caractérisée par l'extension massive des glaciers et la baisse du niveau marin.
+- Anthropique : Qualifie un phénomène, une action ou une modification causée par l'être humain.`,
   sections: [
     {
-      title: 'I. Les grands régimes alimentaires',
-      content: [
-        'Herbivores (végétaux) : frugivores, granivores, herbivores ruminants.',
-        'Carnivores (animaux) : prédateurs, charognards, insectivores, piscivores.',
-        'Omnivores : alimentation mixte animale et végétale (Homme, porc).'
+      title: 'I. Climatologie et répartition planétaire des climats',
+      subsections: [
+        {
+          subtitle: '1. Échelle de temps de la climatologie',
+          content: [
+            'La météo décrit le temps au jour le jour, tandis que le climat synthétise les tendances atmosphériques sur 30 ans minimum.',
+            'L\'inégale courbure terrestre délimite trois grands domaines climatiques : chaud intertropical, tempéré à 4 saisons, et polaire glacial.'
+          ]
+        },
+        {
+          subtitle: '2. Les composantes des zones climatiques',
+          content: [
+            'Le tableau suivant synthétise les trois grands domaines climatiques mondiaux.'
+          ],
+          table: {
+            headers: ['Zone climatique', 'Latitude', 'Températures', 'Précipitations', 'Végétation type'],
+            rows: [
+              ['Intertropicale (chaude)', '0° à 23° N / S', 'Moyenne > 20°C', 'De très fortes à très faibles', 'Forêt dense, savane, steppe, désert'],
+              ['Tempérée', '23° à 66° N / S', 'Modérées (4 saisons)', 'Régulières toute l\'année', 'Forêt tempérée, prairies'],
+              ['Polaire (froide)', '66° à 90° N / S', 'Moyenne < 0°C', 'Très faibles (neige)', 'Toundra, sol gelé (pergélisol), inlandsis']
+            ]
+          }
+        }
       ]
     },
     {
-      title: 'II. Adaptations anatomiques comparées',
-      content: [
-        'Carnivore : mâchoire verticale, canines transformées en crocs tranchants, molaires carnassières, tube digestif court.',
-        'Herbivore : mouvements latéraux, bourrelet corné et incisives en biseau, molaires broyeuses à crêtes, tube digestif très long.',
-        'Vache : estomac à 4 poches (panse, bonnet, feuillet, caillette) permettant la rumination.'
-      ]
-    },
-    {
-      title: 'III. Exercices et Corrigés d\'évaluation',
-      content: [
-        'Tableau d\'identification des régimes spécifiques (11 espèces animales).',
-        'Annotation complète du tube digestif de la vache et description du cycle de rumination.',
-        'Adaptation convergente chez les herbivores.'
+      title: 'II. Changement climatique contemporain d\'origine humaine',
+      subsections: [
+        {
+          subtitle: '1. L\'amplification artificielle de l\'effet de serre',
+          content: [
+            'La combustion d\'énergies fossiles (pétrole, charbon, gaz naturel) libère des milliards de tonnes de CO₂ dans l\'atmosphère.',
+            'L\'effet de serre renforcé emprisonne les rayons infrarouges, provoquant une augmentation globale de la température moyenne terrestre.'
+          ]
+        },
+        {
+          subtitle: '2. Conséquences environnementales au Sénégal et dans le monde',
+          content: [
+            'Élévation du niveau de la mer menaçant les villes côtières (ex. avancée de l\'océan à Saint-Louis et sur la Petite Côte).',
+            'Avancée de la désertification et sécheresses accrues dans la région sahélienne, nécessitant des adaptations d\'urgence.'
+          ]
+        }
       ]
     }
   ],
   diagram: {
-    title: 'Adaptation de l\'Appareil Digestif selon le Régime',
-    root: 'Régimes Alimentaires',
+    title: 'ARCHITECTURE DU CHANGEMENT CLIMATIQUE',
+    root: 'LE SYSTÈME CLIMATIQUE',
     branches: [
       {
-        name: 'Carnivores (Lion)',
-        subtitle: 'Proies animales',
-        items: ['Crocs pointus développés', 'Molaires carnassières coupantes', 'Tube digestif court & simple']
+        name: 'Climatologie Globale',
+        subtitle: 'Statistiques sur 30 ans',
+        items: [
+          'Zone Intertropicale : Chaude toute l\'année',
+          'Zone Tempérée : 4 saisons bien marquées',
+          'Zone Polaire : Froid extrême et glaces'
+        ]
       },
       {
-        name: 'Herbivores (Vache)',
-        subtitle: 'Plantes & cellulose',
-        items: ['Bourrelet corné & barre', 'Molaires à crêtes broyeuses', 'Estomac 4 poches (rumination)']
+        name: 'Causes Anthropiques',
+        subtitle: 'Activités humaines depuis 1850',
+        items: [
+          'Combustion d\'énergies fossiles (pétrole/charbon)',
+          'Déforestation et élevage intensif',
+          'Hausse brutale du CO₂ et du CH₄'
+        ]
       },
       {
-        name: 'Omnivores (Homme)',
-        subtitle: 'Alimentation mixte',
-        items: ['Dentition complète équilibrée', 'Incisives, canines, molaires', 'Tube digestif de longueur moyenne']
+        name: 'Impacts Observés',
+        subtitle: 'Bouleversements écologiques',
+        items: [
+          'Fonte des calottes glaciaires et des glaciers',
+          'Élévation du niveau marin et érosion côtière',
+          'Multiplication des sécheresses et canicules'
+        ]
       }
     ]
   },
-  conclusion: `L'anatomie dentaire et digestive des animaux est le fruit d'une remarquable adaptation évolutive à la nature physique et chimique des aliments consommés.`
+  conclusion: `En conclusion, l'étude du climat montre que si la Terre a connu des variations naturelles par le passé, le réchauffement planétaire actuel se distingue par sa cause anthropique et sa vitesse fulgurante. La limitation de ce dérèglement constitue le défi environnemental majeur du 21ème siècle, exigeant une transition rapide vers les énergies renouvelables et la préservation rigoureuse des écosystèmes.`
 };
 
-// =========================================================================
-// LEÇON 4 (SVT 5ÈME) : BESOINS DE L'ORGANISME ET ALIMENTATION HUMAINE
-// Fascicule officiel ADEM-Dakar / Ministère de l'Éducation Nationale (p. 20-23)
-// =========================================================================
+// -------------------------------------------------------------------------
+// LEÇON 4 : LES RISQUES NATURELS (PRÉVENTION FACE AUX TEMPÊTES ET INONDATIONS)
+// -------------------------------------------------------------------------
 export const LESSON_4_SVT_5EME: LessonContent = {
   id: 'svt-5eme-lecon-4',
   number: 'LEÇON 4 (5ÈME)',
-  title: 'LES BESOINS DE L’ORGANISME ET CONSÉQUENCES D’UNE MAUVAISE ALIMENTATION',
+  title: 'LES RISQUES NATURELS (PRÉVENTION FACE AUX TEMPÊTES ET INONDATIONS)',
   subject: 'SVT',
   classLevel: '5ème',
-  introduction: `Le corps humain exige des apports continus en matière et en énergie pour assurer son entretien, sa croissance et ses activités physiques. Une ration alimentaire équilibrée doit fournir des glucides, des lipides, des protides, de l'eau, des sels minéraux et des vitamines. À l'inverse, la malnutrition par défaut (carence, kwashiorkor, goitre) ou par excès (obésité) engendre de graves désordres physiologiques.`,
-  fullText: `FASCICULE SCIENCES DE LA VIE ET DE LA TERRE – 5ème (ADEM DAKAR)
-THÈME N° 2 : FONCTION DE NUTRITION
-LEÇON 4 : LES BESOINS DE L'ORGANISME ET CONSÉQUENCES D'UNE MAUVAISE ALIMENTATION CHEZ L'ESPÈCE HUMAINE
+  introduction: `Chaque année, les actualités rapportent des tempêtes destructrices, des inondations dévastatrices et des glissements de terrain causant des pertes humaines et matérielles colossales. Pour les géologues et les scientifiques, un risque naturel n'est pas simplement un phénomène naturel spectaculaire : c'est la rencontre entre un événement physique dangereux (l'aléa) et des populations ou infrastructures vulnérables (les enjeux). Comprendre les mécanismes des tempêtes et des inondations, évaluer la vulnérabilité des territoires et mettre en œuvre des mesures de prévention efficaces permet de protéger les sociétés humaines et de bâtir une véritable culture du risque.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 4 : LES RISQUES NATURELS (PRÉVENTION FACE AUX TEMPÊTES ET INONDATIONS)
 
-I. OBJECTIFS SPÉCIFIQUES OFFICIELS :
-- Identifier les constituants des aliments (glucides, lipides, protides, eau, sels minéraux, vitamines).
-- Identifier le rôle de chaque catégorie d'aliments (bâtisseurs, énergétiques, fonctionnels/protecteurs).
-- Calculer avec précision la valeur énergétique d'un repas en Kilojoules (KJ).
-- Identifier les besoins énergétiques selon l'âge, le sexe, l'état physiologique et l'activité.
-- Définir la notion de ration alimentaire et ses variations.
-- Identifier les caractéristiques d'une ration saine et équilibrée.
-- Identifier les manifestations de maladies nutritionnelles (kwashiorkor, marasme, scorbut, rachitisme, goitre, obésité).
+I. LA NOTION FONDAMENTALE DE RISQUE GÉOLOGIQUE ET NATUREL :
+1. L'équation du risque :
+En sciences de la Terre, le risque naturel est défini par une relation mathématique et conceptuelle rigoureuse :
+Risque Naturel = Aléa × Vulnérabilité (Enjeux)
+- L'aléa : C'est la probabilité qu'un phénomène naturel potentiellement dangereux (tempête, cyclone, crue torrentielle, séisme) se produise dans une zone géographique donnée avec une intensité donnée sur une période donnée.
+- Les enjeux (vulnérabilité) : Ce sont les personnes, les habitations, les hôpitaux, les ponts, les réseaux électriques et les activités économiques exposés à l'aléa.
+Exemple fondamental : Si un cyclone tropical d'une violence extrême frappe un îlot désertique au milieu de l'océan, l'aléa est fort mais l'enjeu est nul, donc le risque est nul. En revanche, si une tempête modérée frappe une métropole densément peuplée comme Dakar, Pikine ou Rufisque construite dans des bas-fonds inondables, l'enjeu et la vulnérabilité sont immenses : le risque est critique.
 
-II. CONTENU SCIENTIFIQUE DU COURS :
-1. Rôles des constituants alimentaires :
-- Aliments bâtisseurs (ou constructeurs) : Les protides (viandes, poissons, œufs, légumineuses) et le calcium (lait, arêtes) sont indispensables à la fabrication de nouveaux tissus et à la croissance du squelette.
-- Aliments énergétiques : Les glucides (amidon, sucres rapides, céréales, tubercules) et les lipides (huiles, graisses, beurre) constituent le carburant de l'organisme.
-- Aliments protecteurs et fonctionnels : L'eau, les vitamines (A, B, C, D) et les sels minéraux (fer, iode) assurent le bon fonctionnement cellulaire et la défense immunitaire.
+II. LES TEMPÊTES ET CYCLONES : MÉCANISMES ET CONSÉQUENCES :
+1. Mécanisme de formation d'une tempête :
+Une tempête est une perturbation atmosphérique majeure caractérisée par une chute brutale de la pression atmosphérique (dépression très creuse) et des vents violents dépassant 89 km/h (force 10 sur l'échelle de Beaufort).
+Les cyclones tropicaux (appelés aussi ouragans dans l'Atlantique ou typhons dans le Pacifique) naissent au-dessus des eaux océaniques chaudes (température supérieure à 26,5°C sur au moins 50 mètres de profondeur). L'évaporation massive de cette eau chaude alimente une colonne d'air ascendante géante qui tourbillonne sous l'effet de la force de Coriolis.
 
-2. Les équivalences énergétiques fondamentales :
-- 1 g de glucides fournit 17 kJ (ou 4 kcal).
-- 1 g de protides (protéines) fournit 17 kJ (ou 4 kcal).
-- 1 g de lipides fournit 37,5 kJ (ou 9 kcal).
-Une ration journalière saine doit respecter les proportions suivantes de l'apport énergétique global : environ 55 à 60 % de glucides, 25 à 30 % de lipides et 12 à 15 % de protides.
+2. Dégâts associés aux tempêtes :
+- Vents destructeurs arrachant toitures, arbres et pylônes électriques.
+- Ondes de tempête et submersions marines : le vent pousse la masse d'eau océanique vers le rivage, provoquant une montée brutale de la mer qui inonde les quartiers côtiers.
+- Précipitations diluviennes provoquant des crues éclair et des glissements de terrain.
 
-3. Variations de la ration alimentaire :
-- Ration d'entretien : quantité minimale d'aliments assurant le maintien du poids et des fonctions vitales chez un adulte au repos.
-- Ration de croissance : ration enrichie en protéines et calcium adaptée aux nourrissons, enfants et adolescents pour bâtir leurs tissus.
-- Ration de travail : ration riche en glucides et lipides adaptée aux efforts physiques intenses (sportifs, cultivateurs, maçons).
-- Ration de maternité : besoins accrus en énergie, protéines, calcium et vitamine A chez la femme enceinte et la mère allaitante.
+III. LES INONDATIONS : TYPOLOGIE ET FACTEURS AGGRAVANTS :
+1. Les différents types d'inondations :
+L'inondation est la submersion temporaire par l'eau de terres habituellement émergées. On distingue :
+- Les inondations par débordement de cours d'eau (crues lentes) : les pluies continues sur l'ensemble d'un bassin versant font monter le niveau d'un fleuve (ex. les crues du fleuve Sénégal ou de la Gambie) jusqu'à ce qu'il déborde de son lit mineur pour envahir son lit majeur.
+- Les inondations par ruissellement urbain (crues éclairs) : des pluies d'orage intenses s'abattent sur des sols urbains bitumés et bétonnés incapables d'absorber l'eau.
+- Les inondations par remontée de nappe phréatique : après des semaines de pluies abondantes, la nappe souterraine sature et affleure à la surface du sol dans les dépressions topographiques (bas-fonds).
 
-4. Les maladies nutritionnelles :
-- Le Kwashiorkor : carence sévère en protéines chez le jeune enfant sevré brutalement (œdèmes au ventre et aux membres, cheveux décolorés et cassants, apathie).
-- Le Marasme : sous-alimentation globale (manque de calories et de protéines) entraînant une maigreur extrême (peau sur les os).
-- L'Avitaminose : maladie liée à la carence d'une vitamine spécifique (ex. scorbut par carence en vit. C, cécité crépusculaire par manque de vit. A, rachitisme par manque de vit. D et calcium).
-- Le Goitre : hypertrophie de la glande thyroïde au niveau du cou causée par une carence en iode, pouvant induire un retard mental chez l'enfant.
-- L'Obésité : surcharge pondérale causée par un excès calorique continu associé à la sédentarité.
+2. Le rôle aggravant des activités humaines :
+- L'imperméabilisation des sols par le béton, l'asphalte et les constructions empêche l'infiltration naturelle de l'eau dans le sous-sol et multiplie par 5 à 10 le volume des eaux de ruissellement.
+- La déforestation des bassins versants : sans la couverture végétale et les racines des arbres pour retenir la terre et pomper l'eau, les pluies dévalent les pentes avec violence.
+- L'urbanisation anarchique dans les zones inondables : la construction d'habitations dans d'anciens lits de fleuves asséchés ou dans des cuvettes marécageuses sans canalisation d'évacuation expose directement les populations.
 
-III. EXERCICES DE MAÎTRISE DES CONNAISSANCES (PAGE 20) :
+IV. LA GESTION ET LA PRÉVENTION DES RISQUES NATURELS :
+On ne peut pas empêcher un aléa météorologique de se produire, mais on peut réduire drastiquement la vulnérabilité des populations grâce à trois piliers :
+1. La prévision et la surveillance en temps réel :
+- Utilisation des satellites météorologiques (Météosat) et des radars de pluie pour suivre la trajectoire et l'intensité des dépressions en temps réel.
+- Modélisation informatique pour émettre des bulletins d'alerte météo gradués (codes couleur : vert, jaune, orange, rouge).
 
-Exercice 1 : Définitions
-- Ration alimentaire : Quantité totale d'aliments qu'un individu doit consommer en une journée (24 heures) pour couvrir tous ses besoins physiologiques.
-- Carence alimentaire : Manque ou insuffisance grave d'un ou plusieurs nutriments indispensables dans l'alimentation.
-- Obésité : Excès important de masse grasse corporelle ayant des conséquences néfastes sur la santé.
-- Kwashiorkor : Maladie nutritionnelle infantile causée par une carence aiguë en protides.
+2. L'aménagement préventif du territoire :
+- Établissement de Plans de Prévention des Risques d'Inondation (PPRI) qui délimitent les zones inconstructibles (zones rouges) où tout nouveau bâtiment est strictement interdit.
+- Réalisation d'ouvrages de protection : digues de contention, bassins de rétention et d'écrêtement des crues, canaux collecteurs d'eaux pluviales régulièrement curés.
+- Reboisement des berges et des collines pour stabiliser les sols.
 
-Exercice 2 : Vrai ou Faux
-a. Faux. Les aliments bâtisseurs (protides, calcium) favorisent la croissance ; les aliments énergétiques fournissent l'énergie de travail.
-b. Vrai. L'eau est présente en proportion élevée dans la majorité des aliments.
-c. Faux. L'eau ne contient pas de vitamines, mais des sels minéraux dissous.
-d. Faux. Un adolescent en pleine croissance a des besoins énergétiques et bâtisseurs supérieurs à ceux d'un adulte sédentaire de 50 ans.
-e. Faux. La sous-alimentation est un déficit global de l'apport énergétique et protéique.
+3. L'éducation et la culture du risque chez les citoyens :
+- Réalisation régulière d'exercices d'évacuation dans les écoles et les quartiers.
+- Connaissance des réflexes qui sauvent en cas d'inondation : ne pas s'engager en voiture ou à pied sur une voie inondée, couper le gaz et l'électricité, monter dans les étages supérieurs avec de l'eau potable et des documents d'identité, écouter les consignes officielles à la radio.
 
-Exercice 3 : Questions directes
-1. Ration d'entretien : Ration assurant l'équilibre vital d'un individu sain sans gain ni perte de poids.
-2. Ration de croissance : Ration quantitativement et qualitativement renforcée en protides et sels minéraux pour permettre l'accroissement des tissus.
-3. Sous-alimentation : Insuffisance quantitative globale de nourriture ne couvrant pas la dépense énergétique journalière.
-4. Avitaminose : Trouble pathologique causé par l'absence ou la carence prononcée d'une vitamine essentielle.
-
-Exercice 4 : Vrai / Faux (page 21)
-a -> Vrai ; b -> Faux (il y a aussi des protides végétaux dans le soja, l'arachide, le haricot) ; c -> Vrai ; d -> Faux (les protides peuvent aussi être dégradés pour l'énergie en cas de besoin) ; e -> Faux (l'excès favorise aussi le diabète, l'hypertension et les maladies cardiovasculaires).
-
-IV. COMPÉTENCES MÉTHODOLOGIQUES ET CALCULS (PAGES 21-23) :
-
-Exercice 1 : Calcul de l'apport énergétique comparé
-- Homme sédentaire :
-  * Glucides : 370 g x 17 kJ = 6290 kJ
-  * Protéines : 100 g x 17 kJ = 1700 kJ
-  * Lipides : 93 g x 37,5 kJ = 3487,5 kJ
-  * Total = 6290 + 1700 + 3487,5 = 11 477,5 kJ.
-- Homme sportif :
-  * Glucides : 482 g x 17 kJ = 8194 kJ
-  * Protéines : 134 g x 17 kJ = 2278 kJ
-  * Lipides : 110 g x 37,5 kJ = 4125 kJ
-  * Total = 8194 + 2278 + 4125 = 14 597 kJ.
-Conclusion : Le sportif dépense davantage d'énergie mécanique, sa ration alimentaire apporte donc 3119,5 kJ de plus que celle de l'homme sédentaire.
-
-Exercice 2 : Besoins journaliers en protéines par âge
-1. Comparaison : Les besoins relatifs en protéines (g/kg) diminuent avec l'âge : Bébé (3,5 g/kg) > Enfant (2,5 g/kg) > Adolescent (1,7 g/kg) > Adulte (1 g/kg).
-2. Explication : Le bébé et l'enfant sont en phase de multiplication cellulaire et de croissance très rapide, nécessitant proportionnellement beaucoup plus de matériaux bâtisseurs qu'un adulte dont le corps est déjà formé.
-
-Exercice 3 : Évolution pondérale du fœtus au jeune enfant
-1. Analyse : Le fœtus passe de 300 g à 3 mois à 3100 g à la naissance, puis le bébé atteint 12,4 kg à 2 ans.
-2. Période clé pour la mère : Durant le dernier trimestre de grossesse (de 6 à 9 mois), le fœtus passe de 600 g à 3100 g (+2500 g). La mère doit donc recevoir une ration très riche en protides pour bâtir les organes du futur bébé.
-
-Exercice 4 : Besoins de la femme enceinte et allaitante
-1. Comparaison : Femme allaitante (11 000 kJ, 85 g prot., 1200 mg Ca) > Femme enceinte (9600 kJ, 80 g prot., 1100 mg Ca) > Femme non enceinte (9000 kJ, 70 g prot., 800 mg Ca).
-2. Hypothèse énergétique : La femme enceinte doit nourrir le fœtus en développement, et la femme allaitante doit produire quotidiennement du lait maternel riche en calories.
-3. Hypothèse protéines, calcium et vit. A : Ces éléments sont sécrétés dans le lait pour la formation des os du nourrisson (calcium), sa vision et son immunité (vitamine A).
-
-Exercice 5 : Carence en iode et goitre (page 23)
-a. D'après le texte :
-- Causes : Manque d'iode dans l'eau et les aliments locaux.
-- Conséquences : Apparition du goitre (gorge enflée), retard mental et nanisme chez les enfants.
-- Solutions : Interdiction du sel non iodé et distribution générale obligatoire de sel enrichi en iode.
-b. Arguments scientifiques : L'iode est indispensable à la synthèse des hormones thyroïdiennes qui régissent la croissance et le développement cérébral. Le sel de cuisine étant consommé chaque jour par toutes les familles, l'iodation du sel est le moyen le plus simple, universel et économique pour éradiquer cette carence.`,
+V. VOCABULAIRE CLÉ ET NOTIONS À RETENIR :
+- Aléa naturel : Événement naturel potentiellement dangereux dont on peut estimer la probabilité d'apparition.
+- Vulnérabilité / Enjeux : Niveau de fragilité des vies humaines, des constructions et des biens économiques face à un aléa.
+- Bassin de rétention : Ouvrage artificiel destiné à stocker temporairement les eaux de ruissellement lors des fortes pluies pour éviter l'inondation des quartiers avoisinants.
+- Lit majeur d'un cours d'eau : Zone inondable occupée par les eaux d'un fleuve uniquement lors de ses crues exceptionnelles.`,
   sections: [
     {
-      title: 'I. Les constituants alimentaires et leurs rôles',
-      content: [
-        'Bâtisseurs : protides et calcium pour la construction cellulaire et osseuse.',
-        'Énergétiques : glucides (17 kJ/g) et lipides (37,5 kJ/g) pour le mouvement et la chaleur.',
-        'Protecteurs : eau, vitamines et oligo-éléments pour la régulation physiologique.'
+      title: 'I. Notion de risque naturel : Aléa et Vulnérabilité',
+      subsections: [
+        {
+          subtitle: '1. Définition et formule fondamentale',
+          content: [
+            'Le risque naturel est le produit de la probabilité d\'un événement naturel dangereux (aléa) par les personnes et biens exposés (enjeux).',
+            'Sans population ni installation humaine, un aléa même très violent ne constitue aucun risque.'
+          ],
+          table: {
+            headers: ['Terme', 'Définition scientifique', 'Exemple concret'],
+            rows: [
+              ['Aléa', 'Phénomène naturel imprévisible et potentiellement violent', 'Pluie torrentielle de 150 mm en 2 heures'],
+              ['Enjeu / Vulnérabilité', 'Présence humaine, biens matériels et fragilité des infrastructures', 'Habitations en banco bâties dans un bas-fond'],
+              ['Risque', 'Conjonction de l\'aléa et de l\'enjeu (dégâts potentiels)', 'Inondation dramatique du quartier avec sinistrés']
+            ]
+          }
+        }
       ]
     },
     {
-      title: 'II. Rations alimentaires et variations',
-      content: [
-        'Ration d\'entretien : équilibre métabolique chez l\'adulte.',
-        'Ration de croissance : forte proportion de protéines chez l\'enfant et l\'adolescent.',
-        'Ration de travail : apport énergétique majoré chez le travailleur de force et le sportif.',
-        'Ration de maternité : suppléments en calcium, vitamines et protéines chez la femme enceinte et allaitante.'
-      ]
-    },
-    {
-      title: 'III. Maladies de carence et prévention',
-      content: [
-        'Kwashiorkor : œdèmes et fonte musculaire par manque de protéines.',
-        'Goitre : hypertrophie thyroïdienne prévenue par l\'iodation du sel de cuisine.',
-        'Surconsommation : obésité et risques cardiovasculaires.'
+      title: 'II. Mécanismes des inondations et actions humaines',
+      subsections: [
+        {
+          subtitle: '1. Facteurs déclenchants et facteurs aggravants',
+          content: [
+            'Facteurs naturels : pluies orageuses excessives, débordement de fleuves, saturation du sol.',
+            'Facteurs anthropiques : bétonnage et imperméabilisation des sols, obstruction des canaux par des ordures ménagères, occupation spontanée des bas-fonds inondables.'
+          ]
+        },
+        {
+          subtitle: '2. Mesures de prévention et réflexes de sécurité',
+          content: [
+            'Aménagement : respect des zones non constructibles, creusement de bassins de rétention, entretien des réseaux de voirie.',
+            'Consignes citoyennes : couper le disjoncteur électrique, surélever les meubles, ne jamais traverser une zone d\'eau en crue.'
+          ]
+        }
       ]
     }
   ],
   diagram: {
-    title: 'Équilibre et Besoins Nutritionnels Humains',
-    root: 'Nutrition Humaine',
+    title: 'STRUCTURE DE GESTION DU RISQUE D\'INONDATION',
+    root: 'PRÉVENTION DU RISQUE NATUREL',
     branches: [
       {
-        name: 'Aliments Bâtisseurs',
-        subtitle: 'Construction & Os',
-        items: ['Protides (viande, poisson, soja)', 'Calcium (lait, arêtes)', 'Indispensables à la croissance']
+        name: 'Composantes du Risque',
+        subtitle: 'Aléa × Vulnérabilité',
+        items: [
+          'Aléa : Forte pluie / Cyclone / Crue',
+          'Enjeux : Vies humaines / Maisons / Routes',
+          'Risque = Danger effectif pour la société'
+        ]
       },
       {
-        name: 'Aliments Énergétiques',
-        subtitle: 'Carburant vital',
-        items: ['Glucides : 17 kJ / gramme', 'Lipides : 37,5 kJ / gramme', 'Adaptés à l\'effort physique']
+        name: 'Facteurs Aggravants',
+        subtitle: 'Causes humaines',
+        items: [
+          'Imperméabilisation des sols (bétonnage)',
+          'Déforestation et érosion des versants',
+          'Urbanisation anarchique des zones basses'
+        ]
       },
       {
-        name: 'Aliments Protecteurs',
-        subtitle: 'Défense & Santé',
-        items: ['Eau & Vitamines (A, B, C, D)', 'Sels minéraux (Fer, Iode)', 'Prévention des carences (goitre)']
+        name: 'Stratégies de Prévention',
+        subtitle: 'Protection durable',
+        items: [
+          'Surveillance satellite et alertes météo',
+          'Digues et bassins de rétention d\'eau',
+          'Plans de prévention et consignes d\'urgence'
+        ]
       }
     ]
   },
-  conclusion: `Une alimentation équilibrée associe quotidiennement aliments bâtisseurs, énergétiques et protecteurs, adaptée à l'âge et à l'activité, pour préserver la santé et garantir une croissance harmonieuse.`
+  conclusion: `En conclusion, le risque d'inondation et de tempête résulte de la rencontre entre des processus climatiques naturels et une vulnérabilité accrue par l'aménagement humain. Seule une politique rigoureuse alliant respect des zones inconstructibles, infrastructures de drainage adaptées et éducation civique aux gestes de sauvegarde permet de protéger durablement les populations.`
 };
 
-// =========================================================================
-// LEÇON 5 (SVT 5ÈME) : LA RESPIRATION CHEZ LES ANIMAUX
-// Fascicule officiel ADEM-Dakar / Ministère de l'Éducation Nationale (p. 24-26)
-// =========================================================================
+// -------------------------------------------------------------------------
+// LEÇON 5 : LES SÉISMES (CAUSES, MANIFESTATIONS ET RISQUES ASSOCIÉS)
+// -------------------------------------------------------------------------
 export const LESSON_5_SVT_5EME: LessonContent = {
   id: 'svt-5eme-lecon-5',
   number: 'LEÇON 5 (5ÈME)',
-  title: 'LA RESPIRATION CHEZ LES ANIMAUX : ADAPTATION AUX DIFFÉRENTS MILIEUX',
+  title: 'LES SÉISMES (CAUSES, MANIFESTATIONS ET RISQUES ASSOCIÉS)',
   subject: 'SVT',
   classLevel: '5ème',
-  introduction: `Tous les animaux respirent : ils absorbent du dioxygène (O₂) et rejettent du dioxyde de carbone (CO₂). Cependant, les organes respiratoires diffèrent profondément selon que le dioxygène est prélevé directement dans l'air (respiration pulmonaire, trachéenne ou cutanée) ou dissous dans l'eau (respiration branchiale). Certains animaux comme la grenouille présentent une remarquable double adaptation.`,
-  fullText: `FASCICULE SCIENCES DE LA VIE ET DE LA TERRE – 5ème (ADEM DAKAR)
-THÈME N° 2 : FONCTION DE NUTRITION
-LEÇON 5 : LA RESPIRATION CHEZ LES ANIMAUX : ADAPTATION AUX DIFFÉRENTS MILIEUX
+  introduction: `Un séisme, ou tremblement de terre, est l'un des phénomènes géologiques les plus impressionnants et destructeurs de notre planète. En quelques secondes à peine, des secousses brutales peuvent modifier le paysage, lézarder le sol, effondrer des édifices et déclencher des raz-de-marée colossaux. D'où provient cette énergie gigantesque libérée soudainement ? Pourquoi la Terre tremble-t-elle ? Comment enregistre-t-on ces vibrations et comment l'Homme peut-il se protéger de ce risque imprévisible à court terme ? Cette leçon détaille l'origine profonde, les modes de propagation et les moyens modernes de prévention sismique.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 5 : LES SÉISMES (CAUSES, MANIFESTATIONS ET RISQUES ASSOCIÉS)
 
-I. OBJECTIFS SPÉCIFIQUES OFFICIELS :
-- Citer des animaux respirant le dioxygène atmosphérique.
-- Identifier les organes respiratoires des animaux terrestres (poumons, trachées, peau).
-- Expliquer la notion d'adaptation à la respiration aérienne.
-- Citer des animaux respirant le dioxygène dissous dans l'eau.
-- Identifier les organes respiratoires chez les animaux aquatiques (branchies).
-- Expliquer la notion d'adaptation à la respiration aquatique.
+I. LES MANIFESTATIONS D'UN SÉISME EN SURFACE :
+Un séisme se traduit à la surface de la Terre par des vibrations courtes et brutales du sol (d'une durée allant de quelques secondes à plus d'une minute). Ces secousses provoquent :
+- Des mouvements de panique chez les populations et des déformations visibles du paysage.
+- La fissuration ou l'effondrement des bâtiments, des ponts et la rupture des canalisations de gaz et d'eau (entraînant des incendies secondaires).
+- L'apparition de failles et de décalages du sol pouvant atteindre plusieurs mètres.
+- Des glissements de terrain sur les pentes instables.
+- Des tsunamis (raz-de-marée) lorsque le foyer du séisme est situé sous le fond des océans : une onde marine traverse la mer à 800 km/h et forme des vagues géantes de 10 à 30 mètres de haut dévastant les côtes.
 
-II. CONTENU SCIENTIFIQUE DU COURS :
-1. La diversité des organes respiratoires :
-- Respiration pulmonaire (milieu aérien) : Chez les mammifères (Homme, vache, mouton), les oiseaux, les reptiles et les amphibiens adultes. L'air entre par les narines, descend par la trachée-artère jusqu'aux poumons richement vascularisés où s'opèrent les échanges gazeux avec le sang.
-- Respiration trachéenne (milieu aérien) : Chez les insectes (criquet, papillon, abeille). L'air entre par des stigmates (orifices situés sur les côtés de l'abdomen) et circule dans un réseau de tubes ramifiés très fins, les trachées et trachéoles, qui apportent le dioxygène directement aux cellules sans passer par le sang.
-- Respiration branchiale (milieu aquatique) : Chez les poissons (tilapia, carpe, requin) et les mollusques. Les branchies sont constituées de fins filaments branchiaux rouges (très riches en sang) fixés sur des arcs branchiaux osseux. Le poisson avale de l'eau par la bouche et la fait ressortir par les ouïes en passant à travers les branchies qui captent le dioxygène dissous et rejettent le CO₂.
-- Respiration cutanée (mixte air/eau) : Chez la grenouille et le ver de terre. Les gaz traversent directement une peau fine et constamment maintenue humide par du mucus.
+II. L'ORIGINE GÉOLOGIQUE PROFONDE DU SÉISME :
+1. Les contraintes tectoniques et la rupture des roches :
+À l'intérieur de la lithosphère, les mouvements lents des plaques tectoniques soumettent continuellement les roches solides à des contraintes gigantesques (compression, extension ou coulissage).
+- Dans un premier temps, les roches se déforment élastiquement sous l'effet de ces forces, accumulant une énergie mécanique colossale, comme un élastique tendu à l'extrême.
+- Lorsque les contraintes accumulées dépassent la limite de résistance mécanique de la roche, celle-ci casse brutalement le long d'une zone de fracture préexistante ou nouvelle appelée une faille.
 
-2. Les mécanismes d'échanges gazeux respiratoires :
-Dans tous les cas, les surfaces d'échanges respiratoires possèdent trois caractéristiques universelles :
-- Une très grande surface de contact.
-- Une paroi extrêmement mince pour faciliter la diffusion des gaz.
-- Une humidité constante et, pour les poumons et branchies, une riche irrigation sanguine.
+2. Foyer et Épicentre :
+- Le foyer (ou hypocentre) : C'est le lieu précis en profondeur où se produit la rupture initiale de la roche et le déblocage de la faille. Il peut se situer entre quelques kilomètres (foyer superficiel très destructeur) et plus de 600 km de profondeur.
+- L'épicentre : C'est le point de la surface terrestre situé exactement à la verticale du foyer. C'est à l'épicentre que les ondes sismiques arrivent en premier et que l'intensité des dégâts et la violence des secousses sont généralement les plus élevées.
 
-III. EXERCICES DE MAÎTRISE DES CONNAISSANCES (PAGE 24) :
+III. PROPAGATION ET ENREGISTREMENT DES ONDES SISMIQUES :
+1. La propagation des ondes sismiques :
+Dès l'instant de la rupture au niveau du foyer, l'énergie libérée se propage dans toutes les directions à travers le globe terrestre sous forme d'ondes sismiques élastiques :
+- Les ondes P (Primaires) : Ondes longitudinales de compression-dilatation (comme un ressort). Elles sont les plus rapides (environ 6 km/s dans la croûte) et traversent tous les milieux (solides et liquides).
+- Les ondes S (Secondaires) : Ondes transversales de cisaillement (comme une corde secouée). Moins rapides que les ondes P (environ 3,5 km/s), elles ne se propagent que dans les solides et ne traversent pas les liquides.
+- Les ondes de surface (ondes L de Love et de Rayleigh) : Ondes générées à la surface de la Terre. Plus lentes mais de grande amplitude, ce sont elles qui causent l'essentiel des destructions matérielles.
 
-Exercice 1 : Vrai / Faux avec correction
-a- Faux. Les insectes respirent par des trachées, les poissons par des branchies et les vers par la peau.
-b- Faux. Certains mammifères marins (baleine, dauphin) respirent avec des poumons tout en vivant dans l'eau.
-c- Faux. Certains animaux aquatiques respirent de l'air à la surface grâce à des poumons (dauphin, tortue marine) ou des trachées (larve de moustique).
-d- Vrai. Les branchies permettent d'extraire le dioxygène dissous dans l'eau.
-e- Faux. La grenouille adulte respire dans l'eau par sa peau (respiration cutanée) et non par des branchies (seuls les têtards ont des branchies).
+2. L'enregistrement par le sismomètre :
+Les mouvements du sol sont enregistrés avec une extrême précision par des stations équipées de sismomètres (ou sismographes). Le tracé obtenu est un sismogramme.
+Le décalage de temps d'arrivée entre la première onde P et la première onde S permet de calculer avec exactitude la distance séparant la station de l'épicentre. En croisant les données d'au moins trois stations réparties sur le globe (méthode de triangulation), on localise l'épicentre.
 
-Exercice 2 : Construction de phrases logiques
-- Liste 1 : Les êtres vivants réalisent des échanges respiratoires avec leur milieu de vie.
-- Liste 2 : L'animal absorbe du dioxygène présent dans son milieu de vie au cours de la respiration.
-- Liste 3 : Au cours de la respiration, l'animal rejette du dioxyde de carbone dans son milieu de vie.
-- Liste 4 : La grenouille adulte possède une double respiration cutanée et pulmonaire.
+IV. MESURE DE LA PUISSANCE D'UN SÉISME : MAGNITUDE VS INTENSITÉ :
+Il est capital de ne pas confondre la magnitude et l'intensité d'un séisme :
+1. La magnitude (Échelle de Richter ou magnitude de moment Mw) :
+Elle mesure la quantité réelle d'énergie libérée au niveau du foyer par la rupture des roches. C'est une valeur logarithmique unique pour un séisme donné (une augmentation de 1 point sur l'échelle de Richter correspond à une énergie multipliée par environ 32). L'échelle est ouverte et n'a pas de limite théorique maximale (le plus grand séisme enregistré a atteint 9,5 au Chili en 1960).
 
-Exercice 3 : Appariement Colonne A et Colonne B
-- a (Trachées) -> 4 (Voies respiratoires des insectes)
-- b (Poumons) -> 5 (Organes respiratoires des mammifères)
-- c (Dioxyde de carbone) -> 1 (Gaz rejeté au cours de la respiration)
-- d (Branchies) -> 2 (Organe respiratoire aquatique)
-- e (Dioxygène) -> 3 (Gaz absorbé au cours de la respiration)
+2. L'intensité (Échelle MSK ou EMS-98 graduée de I à XII en chiffres romains) :
+Elle évalue les dégâts visibles causés aux constructions et les effets ressentis par la population en un lieu géographique précis. Contrairement à la magnitude, l'intensité varie selon la distance à l'épicentre et la qualité des bâtiments (elle est maximale à l'épicentre et décroît au fur et à mesure que l'on s'en éloigne).
 
-Exercice 4 : Chassez l'intrus (page 25)
-- Liste 1 (Poissons - respiration - vertébrés - poumons - branchie) -> Intrus : Poumons (les poissons adultes respirent par des branchies).
-- Liste 2 (Animal - respiration - criquet - branchie - air) -> Intrus : Branchie (le criquet respire de l'air par des trachées).
-- Liste 3 (Grenouille - trachée - poumon - peau - respiration) -> Intrus : Trachée (la grenouille ne possède pas de trachées).
+V. LA PRÉVENTION DU RISQUE SISMIQUE :
+Il est aujourd'hui scientifiquement impossible de prédire la date, l'heure et le lieu exacts d'un séisme à court terme. La protection repose donc exclusivement sur des mesures de prévention active et passive :
+1. La construction parasismique :
+- Fondation sur des sols rocheux solides et stables.
+- Chaînage en béton armé reliant rigoureusement les murs, les planchers et la toiture.
+- Utilisation d'amortisseurs hydrauliques ou d'élastomères en sous-sol pour dissiper l'énergie des ondes et empêcher la résonance du bâtiment.
 
-IV. COMPÉTENCES MÉTHODOLOGIQUES ET EXPLOITATION DE DONNÉES (PAGES 25-26) :
+2. L'éducation des populations aux consignes de sécurité :
+- Pendant la secousse : ne pas paniquer, ne pas se précipiter dans les escaliers ni prendre les ascenseurs, se réfugier sous une table solide ou dans l'angle d'un mur porteur, s'éloigner des fenêtres et des câbles électriques.
+- Après la secousse : couper immédiatement l'eau, l'électricité et le gaz, évacuer prudemment le bâtiment vers un espace découvert dégagé en se préparant aux répliques sismiques.
 
-Exercice 1 : Analyse des gaz chez le poisson
-Tableau des mesures :
-- Eau entrant par la bouche : O₂ = 5 cm³/L ; CO₂ = 45 cm³/L.
-- Eau sortant des ouïes : O₂ = 1 cm³/L ; CO₂ = 49 cm³/L.
-1. Comparaison de l'O₂ : La quantité de dioxygène diminue de 5 cm³/L à 1 cm³/L (perte de 4 cm³/L).
-2. Comparaison du CO₂ : La quantité de dioxyde de carbone augmente de 45 cm³/L à 49 cm³/L (gain de 4 cm³/L).
-3. Explication : Au niveau des branchies, le dioxygène dissous quitte l'eau pour entrer dans le sang du poisson, tandis que le dioxyde de carbone du sang est rejeté dans l'eau.
-4. Conclusion : Le poisson respire en prélevant l'O₂ dissous dans l'eau et en rejetant du CO₂ au niveau de ses branchies.
-
-Exercice 2 : Expériences sur la grenouille
-1. Expérience 2 vs Expérience 1 sous l'eau : Dans l'eau, la grenouille ne peut pas utiliser ses poumons. Elle survit uniquement grâce aux échanges gazeux à travers sa peau nue humide (respiration cutanée). Lorsque sa peau est recouverte de vernis imperméable, les gaz ne peuvent plus diffuser et la grenouille meurt asphyxiée.
-2. Expérience 3 à l'air libre : À l'air libre, même avec la peau vernie, la grenouille peut ouvrir ses narines et ventiler ses poumons (respiration pulmonaire). Elle reste donc en vie.
-3. Déduction : La grenouille utilise une respiration cutanée prépondérante dans l'eau et une respiration pulmonaire complémentaire dans l'air.
-
-Exercice 3 : Consommation de dioxygène chez le poisson dans un bocal clos
-Données oxymétriques : 0 min = 12 mg/L ; 2 min = 11 mg/L ; 4 min = 9,8 mg/L ; 6 min = 9,4 mg/L ; 8 min = 9 mg/L ; 10 min = 7,8 mg/L.
-1. Allure de la courbe : Courbe descendante continue de 12 à 7,8 mg/L.
-2. Description : La concentration en dioxygène dissous diminue régulièrement au cours du temps.
-3. Explication : Le poisson enfermé dans un volume d'eau limité consomme continuellement le dioxygène pour ses besoins respiratoires métaboliques, ce qui appauvrit progressivement le milieu.`,
+VI. VOCABULAIRE SCIENTIFIQUE FONDAMENTAL :
+- Foyer (hypocentre) : Lieu en profondeur où se produit la rupture des roches initiant le séisme.
+- Épicentre : Point de la surface terrestre à la verticale exacte du foyer où les secousses sont ressenties avec l'intensité maximale.
+- Faille : Fracture de la croûte terrestre le long de laquelle deux blocs rocheux glissent l'un par rapport à l'autre.
+- Sismogramme : Enregistrement graphique des vibrations du sol produit par un sismomètre.`,
   sections: [
     {
-      title: 'I. Les différents modes respiratoires dans le règne animal',
-      content: [
-        'Respiration branchiale (aquatique) : filtration de l\'eau par les branchies rouges richement vascularisées chez les poissons.',
-        'Respiration pulmonaire (aérienne) : poumons alvéolés chez les mammifères, oiseaux, reptiles et amphibiens.',
-        'Respiration trachéenne (aérienne) : stigmates et trachées menant l\'air directement aux organes chez les insectes.',
-        'Respiration cutanée (aérienne/aquatique) : diffusion des gaz à travers une peau fine et humide (vers de terre, grenouilles).'
+      title: 'I. Naissance et transmission des ondes sismiques',
+      subsections: [
+        {
+          subtitle: '1. Du foyer en profondeur jusqu’à l’épicentre',
+          content: [
+            'Les contraintes tectoniques s\'accumulent dans les roches jusqu\'au point de rupture : la cassure au niveau du foyer libère brutalement l\'énergie emmagasinée.',
+            'L\'onde se propage à partir du foyer ; l\'épicentre est le point de surface le plus proche où les secousses sont maximales.'
+          ]
+        },
+        {
+          subtitle: '2. Types d\'ondes sismiques enregistrées',
+          content: [
+            'Ondes P (primaires) : très rapides, de compression, se propagent dans les solides et les fluides.',
+            'Ondes S (secondaires) : plus lentes, de cisaillement perpendiculaire, arrêtées par les fluides.',
+            'Ondes de surface (Love et Rayleigh) : lentes mais destructrices, se déplaçant le long de la surface terrestre.'
+          ]
+        }
       ]
     },
     {
-      title: 'II. Analyse expérimentale et données chiffrées',
-      content: [
-        'Mesures respiratoires comparées de l\'eau buccale et de l\'eau operculaire chez le poisson.',
-        'Rôle vital de la peau chez la grenouille immergée (expériences d\'enduit au vernis).',
-        'Suivi cinétique de l\'appauvrissement en O₂ d\'un milieu clos par oxymétrie.'
+      title: 'II. Évaluation et prévention du risque sismique',
+      subsections: [
+        {
+          subtitle: '1. Comparaison entre Magnitude et Intensité',
+          content: [
+            'Le tableau suivant synthétise la distinction fondamentale entre la mesure de l\'énergie intrinsèque d\'un séisme et celle de ses dégâts réels observés.'
+          ],
+          table: {
+            headers: ['Critère', 'Magnitude (Échelle de Richter)', 'Intensité (Échelle EMS-98 / MSK)'],
+            rows: [
+              ['Ce qui est mesuré', 'Énergie réelle libérée au foyer', 'Dégâts matériels et ressentis humains'],
+              ['Outil de mesure', 'Calculée à partir des sismogrammes', 'Enquêtes de terrain et observations directes'],
+              ['Graduation', 'Nombres décimaux continus (ex: 7,2)', 'Chiffres romains de I à XII'],
+              ['Valeur sur le globe', 'Une valeur UNIQUE par séisme', 'Varie selon la distance à l\'épicentre'],
+              ['Facteur d\'influence', 'Taille de la faille rompue', 'Nature du sol et qualité des constructions']
+            ]
+          }
+        },
+        {
+          subtitle: '2. Mesures de protection parasismique',
+          content: [
+            'Normes parasismiques : armature en acier, fondations articulées avec amortisseurs, matériaux flexibles.',
+            'Comportements de sauvegarde : s\'abriter sous un meuble robuste, couper le gaz, ne jamais utiliser d\'ascenseur.'
+          ]
+        }
       ]
     }
   ],
   diagram: {
-    title: 'Adaptation des Organes Respiratoires au Milieu',
-    root: 'Respiration Animale',
+    title: 'MÉCANISME ET DÉROULEMENT D\'UN SÉISME',
+    root: 'DYNAMIQUE SISMIQUE',
     branches: [
       {
-        name: 'Milieu Aquatique',
-        subtitle: 'O₂ dissous dans l\'eau',
-        items: ['Branchies chez les poissons', 'Circulation bouche -> ouïes', 'Riche réseau sanguin capillaire']
+        name: 'Origine en Profondeur',
+        subtitle: 'Foyer et faille',
+        items: [
+          'Contraintes tectoniques accumulées',
+          'Rupture brutale des roches au Foyer',
+          'Libération d\'énergie sous forme d\'ondes'
+        ]
       },
       {
-        name: 'Milieu Aérien',
-        subtitle: 'O₂ de l\'air atmosphérique',
-        items: ['Poumons (Mammifères, Oiseaux)', 'Trachées (Insectes comme criquet)', 'Stigmates respiratoires latéraux']
+        name: 'Propagation des Ondes',
+        subtitle: 'De l\'hypocentre à la surface',
+        items: [
+          'Ondes P (rapides) et Ondes S (cisaillement)',
+          'Épicentre : Point vertical de dégâts maximaux',
+          'Ondes de surface causant l\'effondrement du bâti'
+        ]
       },
       {
-        name: 'Respiration Cutanée',
-        subtitle: 'Peau fine et humide',
-        items: ['Grenouille sous l\'eau', 'Ver de terre dans le sol', 'Nécessite une humidité permanente']
+        name: 'Mesure et Prévention',
+        subtitle: 'Surveillance et protection',
+        items: [
+          'Magnitude (énergie) vs Intensité (dégâts)',
+          'Enregistrement continu par les sismomètres',
+          'Constructions parasismiques et exercices citoyens'
+        ]
       }
     ]
   },
-  conclusion: `Qu'ils vivent sur terre, dans les airs ou au fond des eaux, tous les animaux adaptent leurs surfaces respiratoires pour capter efficacement le dioxygène indispensable à leur vie.`
+  conclusion: `En conclusion, les séismes sont l'expression brutale de la mobilité interne de notre planète vivante. Puisqu'il est impossible d'empêcher la rupture des roches en profondeur ou d'anticiper l'instant précis de la secousse, seule l'application intransigeante des règles de construction parasismique et la préparation rigoureuse des citoyens permettent de réduire la vulnérabilité et de sauver des vies humaines.`
+};
+
+// -------------------------------------------------------------------------
+// LEÇON 6 : LE VOLCANISME ET LA TECTONIQUE DES PLAQUES
+// -------------------------------------------------------------------------
+export const LESSON_6_SVT_5EME: LessonContent = {
+  id: 'svt-5eme-lecon-6',
+  number: 'LEÇON 6 (5ÈME)',
+  title: 'LE VOLCANISME ET LA TECTONIQUE DES PLAQUES',
+  subject: 'SVT',
+  classLevel: '5ème',
+  introduction: `Le volcanisme est l'un des phénomènes géologiques les plus spectaculaires de la Terre, témoignant de l'intense chaleur régnant dans ses profondeurs. Il correspond à la montée et à l'épanchement en surface d'un matériau magmatique liquide, de gaz et de projections solides. Loin d'être répartis au hasard, la quasi-totalité des volcans actifs du globe sont localisés le long de gigantesques frontières géologiques sous-marines ou continentales. Cette leçon étudie la genèse des magmas, les deux grands types d'éruptions volcaniques (effusives et explosives) et leur lien direct avec la dynamique globale de la tectonique des plaques.`,
+  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
+THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+LEÇON 6 : LE VOLCANISME ET LA TECTONIQUE DES PLAQUES
+
+I. QU'EST-CE QU'UN VOLCAN ET COMMENT SE FORME LE MAGMA ?
+1. Définition du magma :
+Le magma est de la roche en fusion à très haute température (entre 700°C et 1 200°C), riche en gaz dissous sous haute pression (vapeur d'eau, dioxyde de carbone, dioxyde de soufre). Il se forme en profondeur dans l'asthénosphère ou la croûte terrestre par fusion partielle de roches solides préexistantes (péridotites du manteau ou roches crustales).
+
+2. La remontée magmatique et la chambre magmatique :
+Moins dense que les roches solides environnantes, le magma liquide remonte lentement vers la surface à travers des fractures de la lithosphère. Il peut s'accumuler temporairement dans un réservoir intermédiaire situé à quelques kilomètres de profondeur appelé chambre magmatique. À ce niveau, les gaz sous pression s'accumulent. Lorsque la pression des gaz devient supérieure à la résistance du toit rocheux de la chambre, l'éruption se déclenche et le magma est expulsé par une ou plusieurs cheminées volcaniques débouchant sur un cratère.
+À l'air libre, le magma perd la majorité de ses gaz : il prend alors le nom de lave.
+
+II. LES DEUX GRANDS TYPES D'ÉRUPTIONS VOLCANIQUES :
+Selon la composition chimique du magma (particulièrement sa teneur en silice, SiO₂) et sa teneur en gaz, les dynamiques éruptives sont radicalement différentes :
+1. Le volcanisme effusif (les « volcans rouges ») :
+- Caractéristiques du magma : Magma fluide, pauvre en silice (environ 45 à 50% de SiO₂, typiquement basaltique) et très chaud (> 1 100°C).
+- Mécanisme éruptif : Les gaz dissous s'échappent facilement et sans violence du liquide fluide. L'éruption se caractérise par des fontaines de lave spectaculaires et de très longues coulées de lave rougeoyante qui dévalent les pentes du volcan à des vitesses de plusieurs kilomètres par heure.
+- Forme de l'édifice : Les coulées fluides s'étalent largement avant de se solidifier, édifiant des volcans aux pentes très douces et à base immense appelés « volcans-boucliers » (exemples : le Piton de la Fournaise à l'île de la Réunion, le Kilauea à Hawaï).
+- Dangerosité : Faible pour les vies humaines car les coulées sont lentes et prévisibles, permettant l'évacuation des populations. En revanche, les biens matériels et cultures sont détruits par le passage de la lave.
+
+2. Le volcanisme explosif (les « volcans gris ») :
+- Caractéristiques du magma : Magma très visqueux, riche en silice (> 65% de SiO₂, typiquement andésitique ou rhyolitique) et plus froid (entre 700°C et 900°C).
+- Mécanisme éruptif : En raison de la viscosité extrême, les bulles de gaz restent piégées et ne peuvent pas s'échapper. La pression monte de façon colossale jusqu'à la pulvérisation du dôme de lave obstruant le cratère.
+- Phénomènes associés : De gigantesques explosions projettent dans l'atmosphère des panaches de cendres cinétiques, de lapillis et de bombes volcaniques montant jusqu'à 30 km d'altitude. L'effondrement de la colonne éruptive engendre des nuées ardentes (mélanges dévastateurs de gaz brûlants à plus de 500°C, de cendres et de blocs rocheux dévalant les flancs à plus de 300 km/h et anéantissant toute vie sur leur passage).
+- Forme de l'édifice : Volcans coniques aux pentes raides appelés « stratovolcans » ou dômes pointus (exemples : la Montagne Pelée en Martinique, le mont Saint Helens aux États-Unis, le Vésuve en Italie).
+- Dangerosité : Extrêmement mortelle et catastrophique.
+
+III. VOLCANISME ET TECTONIQUE DES PLAQUES :
+1. La structure de la couche externe de la Terre :
+La surface du globe est découpée en une douzaine de plaques lithosphériques rigides d'environ 100 km d'épaisseur (les plaques tectoniques), mobiles les unes par rapport aux autres et flottant sur l'asthénosphère déformable.
+L'immense majorité des volcans actifs du globe sont situés aux frontières de ces plaques :
+
+2. Le volcanisme aux frontières divergentes (les dorsales océaniques) :
+Au fond des océans, deux plaques s'écartent l'une de l'autre (divergence). Cette décompression favorise la fusion partielle du manteau : du basalte fluide remonte continuellement et s'épanche en laves en coussins (pillow lavas), créant de la nouvelle croûte océanique (accrétion). C'est un volcanisme effusif sous-marin qui forme la plus grande chaîne volcanique de la Terre (plus de 65 000 km de long).
+
+3. Le volcanisme aux frontières convergentes (les zones de subduction) :
+Lorsqu'une plaque océanique dense plonge sous une plaque continentale ou une autre plaque océanique (subduction), elle s'enfonce dans le manteau chaud et libère de l'eau. Cette hydratation déclenche la fusion partielle des roches de la plaque chevauchante, générant des magmas visqueux très riches en gaz. Cela donne naissance au redoutable volcanisme explosif qui forme la « Ceinture de Feu du Pacifique » et les arcs insulaires.
+
+4. Le volcanisme intraplaque (les points chauds) :
+Certains volcans naissent au milieu d'une plaque tectonique, au-dessus d'un panache thermique profond montant du manteau inférieur : c'est un point chaud (ex. Hawaï, La Réunion). Au fur et à mesure que la plaque se déplace au-dessus du point chaud immobile, une chaîne alignée d'îles volcaniques se forme.
+
+IV. TABLEAU COMPARATIF : VOLCANISME EFFUSIF VS VOLCANISME EXPLOSIF :
+- Magma : Fluide et basaltique (Effusif) / Visqueux et riche en silice (Explosif).
+- Teneur en gaz : Gaz libérés facilement / Gaz piégés sous pression extrême.
+- Type de lave : Coulées de lave fluide incandescentes / Dôme visqueux bouchant le cratère.
+- Projections : Fontaines de lave, projections courtes / Panaches de cendres, nuées ardentes.
+- Contexte tectonique : Dorsales océaniques, points chauds / Zones de subduction.
+- Édifice volcanique : Volcan-bouclier aux pentes douces / Stratovolcan conique aux pentes raides.
+
+V. VOCABULAIRE CLÉ ET NOTIONS À RETENIR :
+- Magma : Roche en fusion riche en gaz dissous formée en profondeur.
+- Lave : Magma dégazé s'écoulant à la surface de la Terre après l'éruption.
+- Nuée ardente : Nuage brûlant de gaz toxiques, de cendres et de blocs de roches dévalant les pentes d'un volcan explosif à très grande vitesse.
+- Subduction : Enfoncement d'une plaque lithosphérique océanique dense sous une autre plaque dans le manteau terrestre.
+- Dorsale océanique : Chaîne de montagnes sous-marine où deux plaques divergent et où naît la croûte océanique.`,
+  sections: [
+    {
+      title: 'I. Genèse du magma et dynamiques éruptives',
+      subsections: [
+        {
+          subtitle: '1. Du réservoir magmatique à la surface',
+          content: [
+            'Le magma naît de la fusion partielle de roches profondes ; moins dense, il s\'accumule dans une chambre magmatique avant d\'être expulsé sous la pression des gaz.',
+            'La lave correspond au magma arrivé en surface ayant perdu la majeure partie de ses gaz dissous.'
+          ]
+        },
+        {
+          subtitle: '2. Tableau comparatif des deux types de volcanisme',
+          content: [
+            'Les propriétés chimiques du magma (teneur en silice et viscosité) conditionnent directement le style de l\'éruption.'
+          ],
+          table: {
+            headers: ['Caractéristique', 'Volcanisme Effusif (Rouge)', 'Volcanisme Explosif (Gris)'],
+            rows: [
+              ['Type de magma', 'Fluide, très chaud (>1 100°C)', 'Visqueux, plus froid (800°C)'],
+              ['Comportement des gaz', 'Dégazage calme et facile', 'Gaz piégés sous forte pression'],
+              ['Manifestation principale', 'Longues coulées de lave fluide', 'Nuées ardentes, panaches de cendres'],
+              ['Forme de l\'édifice', 'Volcan-bouclier aplati', 'Stratovolcan / dôme conique raide'],
+              ['Contexte géologique', 'Dorsales et points chauds', 'Zones de subduction (Ceinture du Pacifique)']
+            ]
+          }
+        }
+      ]
+    },
+    {
+      title: 'II. Volcanisme et mobilité des plaques tectoniques',
+      subsections: [
+        {
+          subtitle: '1. Localisation aux frontières de plaques',
+          content: [
+            'Dorsales océaniques : divergence des plaques, fusion mantellique et création continue de croûte basaltique sous-marine.',
+            'Zones de subduction : convergence et plongée d\'une plaque océanique, provoquant le volcanisme explosif le plus meurtrier de la planète.',
+            'Points chauds : remontées thermiques profondes fixes créant des alignements d\'îles volcaniques comme Hawaï.'
+          ]
+        }
+      ]
+    }
+  ],
+  diagram: {
+    title: 'ORGANISATION DU VOLCANISME ET TECTONIQUE',
+    root: 'DYNAMIQUE DU VOLCANISME',
+    branches: [
+      {
+        name: 'Origine Magmatique',
+        subtitle: 'Chambre et gaz',
+        items: [
+          'Fusion partielle de roches en profondeur',
+          'Montée et stockage dans la chambre magmatique',
+          'Pression des gaz moteur de l\'éruption'
+        ]
+      },
+      {
+        name: 'Deux Types d\'Éruptions',
+        subtitle: 'Effusif vs Explosif',
+        items: [
+          'Effusif : Magma fluide, coulées de lave rouge',
+          'Explosif : Magma visqueux, nuées ardentes et cendres',
+          'Formes : Volcan-bouclier vs Stratovolcan'
+        ]
+      },
+      {
+        name: 'Cadre Tectonique',
+        subtitle: 'Mouvement des plaques',
+        items: [
+          'Dorsales : Écartement et volcanisme sous-marin',
+          'Subduction : Plongée de plaque et Ceinture de Feu',
+          'Points chauds : Panaches mantelliques profonds'
+        ]
+      }
+    ]
+  },
+  conclusion: `En conclusion, le volcanisme est intimement lié à la dynamique de la tectonique des plaques. Qu'il s'agisse de l'accrétion calme et continue au niveau des dorsales océaniques ou des explosions cataclysmiques le long des zones de subduction, les volcans constituent la soupape thermique de notre Terre en perpétuelle activité.`
 };

@@ -19,6 +19,7 @@ export interface LessonContent {
         url: string;
         alt: string;
         caption?: string;
+        svgContent?: string;
       };
     }[];
     content?: string[];
@@ -30,6 +31,7 @@ export interface LessonContent {
       url: string;
       alt: string;
       caption?: string;
+      svgContent?: string;
     };
     jobCards?: {
       jobTitle: string;

@@ -741,15 +741,27 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                     )}
 
                     {section.image && (
-                      <div className="my-4 overflow-hidden rounded-2xl border border-current/15 shadow-sm bg-black/5 dark:bg-black/20">
-                        <img
-                          src={section.image.url}
-                          alt={section.image.alt || section.title}
-                          className="w-full max-h-80 object-cover object-center"
-                          referrerPolicy="no-referrer"
-                        />
+                      <div className="my-4 overflow-hidden rounded-2xl border border-current/15 shadow-sm bg-white dark:bg-slate-900/90">
+                        {section.image.svgContent ? (
+                          <div
+                            className="w-full p-3 sm:p-5 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                            dangerouslySetInnerHTML={{ __html: section.image.svgContent }}
+                          />
+                        ) : section.image.url && section.image.url.trim().startsWith('<svg') ? (
+                          <div
+                            className="w-full p-3 sm:p-5 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                            dangerouslySetInnerHTML={{ __html: section.image.url }}
+                          />
+                        ) : (
+                          <img
+                            src={section.image.url}
+                            alt={section.image.alt || section.title}
+                            className={`w-full ${section.image.url?.includes('data:image/svg') || section.image.url?.endsWith('.svg') ? 'max-h-96 object-contain p-3 sm:p-5' : 'max-h-80 object-cover'} object-center`}
+                            referrerPolicy="no-referrer"
+                          />
+                        )}
                         {section.image.caption && (
-                          <div className="p-2.5 text-xs text-center font-medium opacity-80 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
+                          <div className="p-2.5 text-xs text-center font-medium opacity-90 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
                             {section.image.caption}
                           </div>
                         )}
@@ -945,15 +957,27 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                             </div>
 
                             {sub.image && (
-                              <div className="my-3 overflow-hidden rounded-xl border border-current/15 shadow-xs bg-black/5 dark:bg-black/20">
-                                <img
-                                  src={sub.image.url}
-                                  alt={sub.image.alt || sub.subtitle}
-                                  className="w-full max-h-72 object-cover object-center"
-                                  referrerPolicy="no-referrer"
-                                />
+                              <div className="my-3 overflow-hidden rounded-xl border border-current/15 shadow-xs bg-white dark:bg-slate-900/90">
+                                {sub.image.svgContent ? (
+                                  <div
+                                    className="w-full p-2 sm:p-4 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                                    dangerouslySetInnerHTML={{ __html: sub.image.svgContent }}
+                                  />
+                                ) : sub.image.url && sub.image.url.trim().startsWith('<svg') ? (
+                                  <div
+                                    className="w-full p-2 sm:p-4 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                                    dangerouslySetInnerHTML={{ __html: sub.image.url }}
+                                  />
+                                ) : (
+                                  <img
+                                    src={sub.image.url}
+                                    alt={sub.image.alt || sub.subtitle}
+                                    className={`w-full ${sub.image.url?.includes('data:image/svg') || sub.image.url?.endsWith('.svg') ? 'max-h-96 object-contain p-2 sm:p-4' : 'max-h-72 object-cover'} object-center`}
+                                    referrerPolicy="no-referrer"
+                                  />
+                                )}
                                 {sub.image.caption && (
-                                  <div className="p-2 text-xs text-center font-medium opacity-80 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
+                                  <div className="p-2 text-xs text-center font-medium opacity-90 italic bg-black/5 dark:bg-white/5 border-t border-current/10">
                                     {sub.image.caption}
                                   </div>
                                 )}
