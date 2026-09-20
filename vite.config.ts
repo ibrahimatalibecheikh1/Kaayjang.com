@@ -4,9 +4,30 @@ import path from 'path';
 import {defineConfig} from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+function safeHmrPlugin() {
+  return {
+    name: 'safe-hmr-transport',
+    transform(code: string, id: string) {
+      if (id.includes('client.mjs') || id.includes('@vite/client')) {
+        return code
+          .replace(
+            'ws.send(JSON.stringify(data));',
+            'if (ws && ws.readyState === ws.OPEN) { ws.send(JSON.stringify(data)); }'
+          )
+          .replace(
+            'wsTransport.send(data);',
+            'wsTransport?.send?.(data);'
+          );
+      }
+      return null;
+    },
+  };
+}
+
 export default defineConfig(() => {
   return {
     plugins: [
+      safeHmrPlugin(),
       react(), 
       tailwindcss(),
       VitePWA({

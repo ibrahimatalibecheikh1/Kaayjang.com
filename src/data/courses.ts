@@ -44,7 +44,7 @@ export interface LessonContent {
       toolsAndPlaces: string;
     }[];
   }[];
-  diagram: {
+  diagram?: {
     title: string;
     root: string;
     branches: {

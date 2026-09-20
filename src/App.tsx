@@ -41,11 +41,17 @@ import { COURSES_HISTOIRE_5EME, HISTOIRE_5EME_PARTS } from './data/courses_5eme_
 import { COURSES_HISTOIRE_4EME, HISTOIRE_4EME_PARTS } from './data/courses_4eme_histoire_index';
 import { COURSES_GEOGRAPHIE_6EME, GEOGRAPHIE_6EME_FILTER_PARTS } from './data/courses_6eme_geographie';
 import { COURSES_GEOGRAPHIE_5EME, GEOGRAPHIE_5EME_FILTER_PARTS } from './data/courses_5eme_geographie';
+import { COURSES_GEOGRAPHIE_4EME, GEOGRAPHIE_4EME_FILTER_PARTS } from './data/courses_4eme_geographie';
 import { COURSES_ANGLAIS_5EME, ANGLAIS_5EME_FILTER_PARTS } from './data/courses_5eme_anglais';
+import { COURSES_ANGLAIS_4EME, ANGLAIS_4EME_FILTER_PARTS } from './data/courses_4eme_anglais';
 import { COURSES_MATH_6EME, MATH_6EME_FILTER_CHAPTERS } from './data/courses_6eme_math';
 import { COURSES_MATH_4EME, MATH_4EME_FILTER_THEMES } from './data/courses_4eme_math_index';
 import { COURSES_MATH_5EME, MATH_5EME_FILTER_THEMES } from './data/courses_5eme_math_index';
 import { COURSES_PC_4EME, PC_4EME_FILTER_THEMES } from './data/courses_4eme_pc_index';
+import { COURSES_SVT_3EME, SVT_3EME_FILTER_THEMES } from './data/courses_3eme_svt_index';
+import { COURSES_EDUCATION_CIVIQUE_4EME, CIVIQUE_4EME_PARTS } from './data/courses_4eme_education_civique';
+import { COURSES_EDUCATION_CIVIQUE_3EME, CIVIQUE_3EME_PARTS } from './data/courses_3eme_education_civique';
+import { COURSES_FRANCAIS_3EME, FRANCAIS_3EME_PARTS } from './data/courses_3eme_francais_index';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -125,13 +131,19 @@ export default function App() {
   const [selectedHistoire4emePart, setSelectedHistoire4emePart] = useState<string>('all');
   const [selectedGeographiePart, setSelectedGeographiePart] = useState<string>('all');
   const [selectedGeographie5emePart, setSelectedGeographie5emePart] = useState<string>('all');
+  const [selectedGeographie4emePart, setSelectedGeographie4emePart] = useState<string>('all');
   const [selectedAnglaisPart, setSelectedAnglaisPart] = useState<string>('all');
+  const [selectedAnglais4emePart, setSelectedAnglais4emePart] = useState<string>('all');
   const [selectedMathChapter, setSelectedMathChapter] = useState<string>('all');
   const [selectedSvt5emeTheme, setSelectedSvt5emeTheme] = useState<string>('all');
   const [selectedSvt4emeTheme, setSelectedSvt4emeTheme] = useState<string>('all');
   const [selectedMath4emePart, setSelectedMath4emePart] = useState<string>('all');
   const [selectedMath5emePart, setSelectedMath5emePart] = useState<string>('all');
   const [selectedPc4emeTheme, setSelectedPc4emeTheme] = useState<string>('all');
+  const [selectedSvt3emeTheme, setSelectedSvt3emeTheme] = useState<string>('all');
+  const [selectedCivique4emePart, setSelectedCivique4emePart] = useState<string>('all');
+  const [selectedCivique3emePart, setSelectedCivique3emePart] = useState<string>('all');
+  const [selectedFrancais3emePart, setSelectedFrancais3emePart] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -157,9 +169,9 @@ export default function App() {
           return false;
         }
       }
-      // Éducation civique en classes de 5ème (programme officiel avec introductions et conclusions) et 6ème
+      // Éducation civique pour tout le cycle Collège (6ème, 5ème, 4ème et 3ème / BFEM)
       if (subject.name === 'Éducation civique') {
-        if (className !== '5ème' && className !== '6ème') {
+        if (className !== '6ème' && className !== '5ème' && className !== '4ème' && className !== '3ème') {
           return false;
         }
       }
@@ -209,10 +221,15 @@ export default function App() {
     setSelectedCiviqueChapter('all');
     setSelectedGeographiePart('all');
     setSelectedGeographie5emePart('all');
+    setSelectedGeographie4emePart('all');
     setSelectedAnglaisPart('all');
     setSelectedMathChapter('all');
     setSelectedSvt5emeTheme('all');
     setSelectedSvt4emeTheme('all');
+    setSelectedSvt3emeTheme('all');
+    setSelectedCivique4emePart('all');
+    setSelectedCivique3emePart('all');
+    setSelectedFrancais3emePart('all');
     setSelectedMath4emePart('all');
     setSelectedMath5emePart('all');
     setSelectedPc4emeTheme('all');
@@ -503,6 +520,11 @@ export default function App() {
       ];
     }
 
+    // Matière SVT pour la classe de 3ème (Programme officiel complet - 26 leçons exhaustives avec schémas scientifiques SVG)
+    if (selectedSubject === 'SVT' && selectedClass === '3ème') {
+      return COURSES_SVT_3EME;
+    }
+
     // Matière SVT pour la classe de 4ème (Livret de cours officiel complet - 15 leçons intégrales)
     if (selectedSubject === 'SVT' && selectedClass === '4ème') {
       return COURSES_SVT_4EME;
@@ -511,6 +533,21 @@ export default function App() {
     // Matière SVT pour la classe de 5ème (Fascicule officiel ADEM-Dakar / Inspection d'Académie de Dakar - 12 leçons intégrales)
     if (selectedSubject === 'SVT' && selectedClass === '5ème') {
       return COURSES_SVT_5EME;
+    }
+
+    // Matière Français pour la classe de 3ème (Programme officiel intégral sans résumé - 22 leçons exhaustives de préparation au BFEM)
+    if (selectedSubject === 'Français' && selectedClass === '3ème') {
+      return COURSES_FRANCAIS_3EME;
+    }
+
+    // Matière Éducation civique pour la classe de 3ème (Préparation BFEM - 8 leçons complètes et approfondies)
+    if (selectedSubject === 'Éducation civique' && selectedClass === '3ème') {
+      return COURSES_EDUCATION_CIVIQUE_3EME;
+    }
+
+    // Matière Éducation civique pour la classe de 4ème (Programme officiel sénégalais - 8 leçons complètes)
+    if (selectedSubject === 'Éducation civique' && selectedClass === '4ème') {
+      return COURSES_EDUCATION_CIVIQUE_4EME;
     }
 
     // Matière Éducation civique pour la classe de 5ème (Programme officiel sénégalais - 8 leçons avec Introductions et Conclusions)
@@ -650,6 +687,11 @@ export default function App() {
       return COURSES_ANGLAIS_5EME;
     }
 
+    // Matière Anglais pour la classe de 4ème (Programme officiel complet - 30 leçons intégrales avec explications approfondies et exercices corrigés)
+    if (selectedSubject === 'Anglais' && selectedClass === '4ème') {
+      return COURSES_ANGLAIS_4EME;
+    }
+
     // Matière Histoire pour la classe de 6ème (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
     if (selectedSubject === 'Histoire' && selectedClass === '6ème') {
       return COURSES_HISTOIRE_6EME;
@@ -711,6 +753,11 @@ export default function App() {
     // Matière Géographie pour la classe de 5ème (Programme officiel complet conforme au document officiel du Ministère - 10 leçons intégrales approfondies avec introduction & conclusion)
     if (selectedSubject === 'Géographie' && selectedClass === '5ème') {
       return COURSES_GEOGRAPHIE_5EME;
+    }
+
+    // Matière Géographie pour la classe de 4ème (Programme officiel complet - 17 leçons intégrales avec figures, diagrammes, graphiques et exercices d'application)
+    if (selectedSubject === 'Géographie' && selectedClass === '4ème') {
+      return COURSES_GEOGRAPHIE_4EME;
     }
 
     // Matière Géographie (autres classes)
@@ -861,6 +908,15 @@ export default function App() {
       (selectedGeographie5emePart === 'chapitre-1' && item.badge?.includes('Chapitre I')) ||
       (selectedGeographie5emePart === 'chapitre-2' && item.badge?.includes('Chapitre II')) ||
       (selectedGeographie5emePart === 'chapitre-3' && item.badge?.includes('Chapitre III'));
+    const matchesGeographie4emePart =
+      selectedSubject !== 'Géographie' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedGeographie4emePart === 'all' ||
+      (selectedGeographie4emePart === 'part-1' && (item.badge?.includes('Partie I') || item.badge?.includes('Méthodologie') || item.badge?.includes('Représentations'))) ||
+      (selectedGeographie4emePart === 'part-2' && (item.badge?.includes('Partie II') || item.badge?.includes('Afrique Physique'))) ||
+      (selectedGeographie4emePart === 'part-3' && (item.badge?.includes('Partie III') || item.badge?.includes('Humain & Économie'))) ||
+      (selectedGeographie4emePart === 'part-4' && (item.badge?.includes('Partie IV') || item.badge?.includes('Économie Régionale') || item.badge?.includes('Environnement')));
     const matchesAnglaisPart =
       selectedSubject !== 'Anglais' ||
       selectedClass !== '5ème' ||
@@ -873,6 +929,15 @@ export default function App() {
       (selectedAnglaisPart === 'partie-2' && (item.badge?.includes('Quotidien') || item.badge?.includes('Partie 2'))) ||
       (selectedAnglaisPart === 'partie-3' && (item.badge?.includes('Orthographe') || item.badge?.includes('Partie 3'))) ||
       (selectedAnglaisPart === 'partie-4' && (item.badge?.includes('Méthodologie') || item.badge?.includes('Partie 4')));
+    const matchesAnglais4emePart =
+      selectedSubject !== 'Anglais' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedAnglais4emePart === 'all' ||
+      (selectedAnglais4emePart === 'part-1' && (item.badge?.includes('Part 1') || item.badge?.includes('Noms & Déterminants'))) ||
+      (selectedAnglais4emePart === 'part-2' && (item.badge?.includes('Part 2') || item.badge?.includes('Passé, Futur & Question Tags'))) ||
+      (selectedAnglais4emePart === 'part-3' && (item.badge?.includes('Part 3') || item.badge?.includes('Modaux, Relatives & Passif'))) ||
+      (selectedAnglais4emePart === 'part-4' && (item.badge?.includes('Part 4') || item.badge?.includes('Thèmes, Culture & Examen')));
     const matchesMathChapter =
       selectedSubject !== 'Mathématiques' ||
       selectedClass !== '6ème' ||
@@ -903,6 +968,41 @@ export default function App() {
       (selectedSvt4emeTheme === 'theme-1' && item.badge?.includes('Thème 1')) ||
       (selectedSvt4emeTheme === 'theme-2' && item.badge?.includes('Thème 2')) ||
       (selectedSvt4emeTheme === 'theme-3' && item.badge?.includes('Thème 3'));
+    const matchesSvt3emeTheme =
+      selectedSubject !== 'SVT' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedSvt3emeTheme === 'all' ||
+      (selectedSvt3emeTheme === 'theme-1' && item.badge?.includes('Thème 1')) ||
+      (selectedSvt3emeTheme === 'theme-2' && item.badge?.includes('Thème 2')) ||
+      (selectedSvt3emeTheme === 'theme-3' && item.badge?.includes('Thème 3')) ||
+      (selectedSvt3emeTheme === 'theme-4' && item.badge?.includes('Thème 4')) ||
+      (selectedSvt3emeTheme === 'theme-5' && item.badge?.includes('Thème 5'));
+    const matchesCivique4emePart =
+      selectedSubject !== 'Éducation civique' ||
+      selectedClass !== '4ème' ||
+      activeTab !== 'cours' ||
+      selectedCivique4emePart === 'all' ||
+      (selectedCivique4emePart === 'partie-1' && item.badge?.includes('Partie 1')) ||
+      (selectedCivique4emePart === 'partie-2' && item.badge?.includes('Partie 2')) ||
+      (selectedCivique4emePart === 'partie-3' && item.badge?.includes('Partie 3'));
+    const matchesCivique3emePart =
+      selectedSubject !== 'Éducation civique' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedCivique3emePart === 'all' ||
+      (selectedCivique3emePart === 'partie-1' && item.badge?.includes('Partie 1')) ||
+      (selectedCivique3emePart === 'partie-2' && item.badge?.includes('Partie 2')) ||
+      (selectedCivique3emePart === 'partie-3' && item.badge?.includes('Partie 3'));
+    const matchesFrancais3emePart =
+      selectedSubject !== 'Français' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedFrancais3emePart === 'all' ||
+      (selectedFrancais3emePart === 'part-1' && item.badge?.includes('Syntaxe')) ||
+      (selectedFrancais3emePart === 'part-2' && (item.badge?.includes('Grammaire') || item.badge?.includes('Conjugaison'))) ||
+      (selectedFrancais3emePart === 'part-3' && (item.badge?.includes('Orthographe') || item.badge?.includes('Vocabulaire') || item.badge?.includes('Littéraire'))) ||
+      (selectedFrancais3emePart === 'part-4' && (item.badge?.includes('Littérature') || item.badge?.includes('BFEM')));
     const matchesMath4emePart =
       selectedSubject !== 'Mathématiques' ||
       selectedClass !== '4ème' ||
@@ -937,7 +1037,7 @@ export default function App() {
       (selectedPc4emeTheme === 'atomes-reactions' && (item.id === 'pc-4eme-chimie-c3' || item.id === 'pc-4eme-chimie-c5')) ||
       (selectedPc4emeTheme === 'physique' && (item.badge?.includes('Physique') || item.badge?.includes('Électricité'))) ||
       (selectedPc4emeTheme === 'eau-matiere' && item.badge?.includes('Eau'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesGeographiePart && matchesGeographie5emePart && matchesAnglaisPart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -1472,6 +1572,52 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle par thèmes pour SVT 3ème */}
+      {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-emerald-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-emerald-700" />
+                Programme officiel SVT 3ème : 26 leçons complètes avec schémas scientifiques SVG
+              </span>
+              <p className="text-[11px] text-emerald-800/80 mt-0.5">
+                Système nerveux, Immunologie, Grandes endémies & IST, Tectonique des plaques, Nutrition & Digestion
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-full border border-emerald-200 shadow-2xs">
+              Classe de 3ème / BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {SVT_3EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedSvt3emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedSvt3emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700/20'
+                      : 'bg-white text-gray-700 hover:bg-emerald-100/70 border border-emerald-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par thèmes pour Mathématiques 5ème */}
       {selectedSubject === 'Mathématiques' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-blue-50 via-cyan-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1702,6 +1848,144 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle pour l'Éducation Civique 4ème */}
+      {selectedSubject === 'Éducation civique' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-teal-50 via-emerald-50 to-teal-50 border border-teal-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-teal-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-teal-700" />
+                Programme officiel sénégalais : 8 leçons réparties en 3 parties
+              </span>
+              <p className="text-[11px] text-teal-800/80 mt-0.5">
+                Droits de l'Homme, Démocratie, Institutions de la République, Bien commun et Protection de la jeunesse
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-teal-800 bg-white px-2.5 py-1 rounded-full border border-teal-200 shadow-2xs">
+              Classe de 4ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {CIVIQUE_4EME_PARTS.map(part => {
+              const isSelected = selectedCivique4emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedCivique4emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-teal-700 text-white shadow-sm ring-2 ring-teal-700/20'
+                      : 'bg-white text-gray-700 hover:bg-teal-100/70 border border-teal-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour l'Éducation Civique 3ème */}
+      {selectedSubject === 'Éducation civique' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-teal-50 via-emerald-50 to-teal-50 border border-teal-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-teal-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-teal-700" />
+                Programme officiel sénégalais : 8 leçons réparties en 3 parties (Préparation BFEM)
+              </span>
+              <p className="text-[11px] text-teal-800/80 mt-0.5">
+                L'État, la Constitution, la Séparation des pouvoirs, la Décentralisation, l'Intégration africaine et l'ONU
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-teal-800 bg-white px-2.5 py-1 rounded-full border border-teal-200 shadow-2xs">
+              Classe de 3ème / BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {CIVIQUE_3EME_PARTS.map(part => {
+              const isSelected = selectedCivique3emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedCivique3emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-teal-700 text-white shadow-sm ring-2 ring-teal-700/20'
+                      : 'bg-white text-gray-700 hover:bg-teal-100/70 border border-teal-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour le Français 3ème / BFEM */}
+      {selectedSubject === 'Français' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-950 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel complet de Français 3ème (22 leçons exhaustives sans résumé - BFEM)
+              </span>
+              <p className="text-[11px] text-amber-900/80 mt-0.5">
+                Syntaxe & subordonnées, Morphosyntaxe, Système verbal, Orthographe grammaticale, Figures de style et Rédaction BFEM
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-900 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de 3ème / BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {FRANCAIS_3EME_PARTS.map(part => {
+              const isSelected = selectedFrancais3emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedFrancais3emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-900'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par parties pour l'Histoire 6ème */}
       {selectedSubject === 'Histoire' && selectedClass === '6ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1773,6 +2057,52 @@ export default function App() {
                 <button
                   key={part.id}
                   onClick={() => setSelectedHistoire5emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par chapitres pour l'Histoire 4ème */}
+      {selectedSubject === 'Histoire' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 13 leçons réparties en 3 chapitres
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Histoire 4ème : Cours intégraux sans résumé avec figures et schémas vectoriels explicatifs
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-800 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de 4ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {HISTOIRE_4EME_PARTS.map(part => {
+              const isSelected = selectedHistoire4emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedHistoire4emePart(part.id)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                     isSelected
                       ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
@@ -1886,6 +2216,52 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle pour la Géographie 4ème */}
+      {selectedSubject === 'Géographie' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-orange-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-orange-700" />
+                Programme officiel sénégalais : 17 leçons réparties en 4 parties
+              </span>
+              <p className="text-[11px] text-orange-800/80 mt-0.5">
+                Géographie 4ème : Cours intégraux sans résumé avec figures, diagrammes, graphiques, cartes et exercices corrigés
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-orange-800 bg-white px-2.5 py-1 rounded-full border border-orange-200 shadow-2xs">
+              Classe de 4ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {GEOGRAPHIE_4EME_FILTER_PARTS.map(part => {
+              const isSelected = selectedGeographie4emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedGeographie4emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-orange-700 text-white shadow-sm ring-2 ring-orange-700/20'
+                      : 'bg-white text-gray-700 hover:bg-orange-100/70 border border-orange-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-orange-100 text-orange-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle pour l'Anglais 5ème */}
       {selectedSubject === 'Anglais' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-sky-50 via-blue-50 to-sky-50 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1921,6 +2297,52 @@ export default function App() {
                   <span
                     className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
                       isSelected ? 'bg-white/20 text-white' : 'bg-sky-100 text-sky-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par parties pour Anglais 4ème (Programme officiel complet - 30 leçons) */}
+      {selectedSubject === 'Anglais' && selectedClass === '4ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-teal-50 via-cyan-50 to-teal-50 border border-teal-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-teal-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-teal-700" />
+                Programme officiel complet d'Anglais 4ème : 30 leçons intégrales
+              </span>
+              <p className="text-[11px] text-teal-800/80 mt-0.5">
+                Cours exhaustifs rédigés en français — Règles claires, tableaux comparatifs, structures verbales, exemples bilingues et exercices corrigés
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-teal-800 bg-white px-2.5 py-1 rounded-full border border-teal-200 shadow-2xs">
+              Classe de 4ème uniquement
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {ANGLAIS_4EME_FILTER_PARTS.map(part => {
+              const isSelected = selectedAnglais4emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedAnglais4emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-teal-700 text-white shadow-sm ring-2 ring-teal-700/20'
+                      : 'bg-white text-gray-700 hover:bg-teal-100/70 border border-teal-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-teal-100 text-teal-800'
                     }`}
                   >
                     {part.count}
@@ -2034,8 +2456,50 @@ export default function App() {
               </div>
             )}
 
+            {/* Séparateurs thématiques pour SVT 3ème */}
+            {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && selectedSvt3emeTheme === 'all' && item.id === 'svt-3eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 1 : SYSTÈME NERVEUX, ORGANES DES SENS & MOTRICITÉ (Leçons 1 à 7)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && selectedSvt3emeTheme === 'all' && item.id === 'svt-3eme-lecon-8' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 2 : MICROBES & SYSTÈME IMMUNITAIRE (Leçons 8 à 14)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && selectedSvt3emeTheme === 'all' && item.id === 'svt-3eme-lecon-15' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 3 : GRANDES ENDÉMIES & INFECTIONS SEXUELLEMENT TRANSMISSIBLES (Leçons 15 à 17)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && selectedSvt3emeTheme === 'all' && item.id === 'svt-3eme-lecon-18' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 4 : SCIENCES DE LA TERRE, TECTONIQUE DES PLAQUES & GÉODYNAMIQUE (Leçons 18 à 22)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && selectedClass === '3ème' && activeTab === 'cours' && selectedSvt3emeTheme === 'all' && item.id === 'svt-3eme-lecon-23' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>THÈME 5 : NUTRITION, DIGESTION & RATION ALIMENTAIRE (Leçons 23 à 26)</span>
+                </div>
+              </div>
+            )}
+
             {/* Séparateurs thématiques de chapitres pour l'Éducation Civique */}
-            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-1' && (
+            {selectedSubject === 'Éducation civique' && selectedClass === '6ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-1' && (
               <div className="pt-2 pb-1">
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-teal-600"></span>
@@ -2043,7 +2507,7 @@ export default function App() {
                 </div>
               </div>
             )}
-            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-4' && (
+            {selectedSubject === 'Éducation civique' && selectedClass === '6ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-4' && (
               <div className="pt-4 pb-1">
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-teal-600"></span>
@@ -2051,11 +2515,123 @@ export default function App() {
                 </div>
               </div>
             )}
-            {selectedSubject === 'Éducation civique' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-8' && (
+            {selectedSubject === 'Éducation civique' && selectedClass === '6ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-6eme-lecon-8' && (
               <div className="pt-4 pb-1">
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-teal-600"></span>
                   <span>CHAPITRE 3 : LA NATION ET LA CITOYENNETÉ SÉNÉGALAISE (Leçons 8 à 10)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour l'Éducation Civique 5ème */}
+            {selectedSubject === 'Éducation civique' && selectedClass === '5ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-5eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PREMIÈRE PARTIE : LA DÉMOCRATIE ET LES LIBERTÉS (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '5ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-5eme-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>DEUXIÈME PARTIE : LES INSTITUTIONS DE BASE ET LA VIE EN SOCIÉTÉ (Leçons 4 et 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '5ème' && activeTab === 'cours' && selectedCiviqueChapter === 'all' && item.id === 'civique-5eme-lecon-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>TROISIÈME PARTIE : ENVIRONNEMENT, SANTÉ ET DÉVELOPPEMENT (Leçons 6 à 8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour l'Éducation Civique 4ème */}
+            {selectedSubject === 'Éducation civique' && selectedClass === '4ème' && activeTab === 'cours' && selectedCivique4emePart === 'all' && item.id === 'civique-4eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PREMIÈRE PARTIE : DROITS DE L'HOMME, DÉMOCRATIE & CITOYENNETÉ (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '4ème' && activeTab === 'cours' && selectedCivique4emePart === 'all' && item.id === 'civique-4eme-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>DEUXIÈME PARTIE : INSTITUTIONS RÉPUBLICAINES & PROCESSUS ÉLECTORAL (Leçons 4 et 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '4ème' && activeTab === 'cours' && selectedCivique4emePart === 'all' && item.id === 'civique-4eme-lecon-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>TROISIÈME PARTIE : BIEN COMMUN, TRAVAIL & PROTECTION DE LA JEUNESSE (Leçons 6 à 8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour l'Éducation Civique 3ème */}
+            {selectedSubject === 'Éducation civique' && selectedClass === '3ème' && activeTab === 'cours' && selectedCivique3emePart === 'all' && item.id === 'civique-3eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PREMIÈRE PARTIE : L'ÉTAT, LA CONSTITUTION & LES POUVOIRS PUBLICS (Leçons 1 à 4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '3ème' && activeTab === 'cours' && selectedCivique3emePart === 'all' && item.id === 'civique-3eme-lecon-5' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>DEUXIÈME PARTIE : LA DÉCENTRALISATION & LA DÉMOCRATIE LOCALE (Leçon 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Éducation civique' && selectedClass === '3ème' && activeTab === 'cours' && selectedCivique3emePart === 'all' && item.id === 'civique-3eme-lecon-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>TROISIÈME PARTIE : INTÉGRATION AFRICAINE, MULTILATÉRALISME & ENJEUX DU XXIE SIÈCLE (Leçons 6 à 8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour le Français 3ème */}
+            {selectedSubject === 'Français' && selectedClass === '3ème' && activeTab === 'cours' && selectedFrancais3emePart === 'all' && item.id === 'fr-3eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIÈRE PARTIE : SYNTAXE DE LA PHRASE & PROPOSITIONS SUBORDONNÉES (Leçons 1 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && selectedClass === '3ème' && activeTab === 'cours' && selectedFrancais3emePart === 'all' && item.id === 'fr-3eme-lecon-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME PARTIE : FONCTIONS GRAMMATICALES, VOIX & DISCOURS RAPPORTÉS (Leçons 7 à 12)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && selectedClass === '3ème' && activeTab === 'cours' && selectedFrancais3emePart === 'all' && item.id === 'fr-3eme-lecon-13' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : ORTHOGRAPHE GRAMMATICALE, LEXIQUE & FIGURES DE STYLE (Leçons 13 à 18)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && selectedClass === '3ème' && activeTab === 'cours' && selectedFrancais3emePart === 'all' && item.id === 'fr-3eme-lecon-19' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>QUATRIÈME PARTIE : GENRES LITTÉRAIRES & MÉTHODOLOGIES RÉDACTION BFEM (Leçons 19 à 22)</span>
                 </div>
               </div>
             )}
@@ -2234,6 +2810,40 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-sky-100/80 rounded-xl border border-sky-300/80 text-sky-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-sky-600"></span>
                   <span>VOLUME 2 • PARTIE 4 : EXPRESSION ÉCRITE, MÉTHODOLOGIE & ORAL (Leçons 30 à 33)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques par parties pour Anglais 4ème */}
+            {selectedSubject === 'Anglais' && selectedClass === '4ème' && activeTab === 'cours' && selectedAnglais4emePart === 'all' && item.id === 'anglais-4eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PARTIE 1 : GRAMMAIRE FONDAMENTALE & SYSTÈME DU PRÉSENT (Leçons 1 à 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Anglais' && selectedClass === '4ème' && activeTab === 'cours' && selectedAnglais4emePart === 'all' && item.id === 'anglais-4eme-lecon-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PARTIE 2 : SYSTÈME DU PASSÉ, DU FUTUR ET STRUCTURES INTERROGATIVES (Leçons 9 à 15)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Anglais' && selectedClass === '4ème' && activeTab === 'cours' && selectedAnglais4emePart === 'all' && item.id === 'anglais-4eme-lecon-16' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PARTIE 3 : MODAUX, PROPOSITIONS RELATIVES ET VOIX PASSIVE (Leçons 16 à 21)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Anglais' && selectedClass === '4ème' && activeTab === 'cours' && selectedAnglais4emePart === 'all' && item.id === 'anglais-4eme-lecon-22' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-teal-100/80 rounded-xl border border-teal-300/80 text-teal-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-teal-600"></span>
+                  <span>PARTIE 4 : THÉMATIQUES, CULTURE, VOCABULAIRE & PRÉPARATION AUX EXAMENS (Leçons 22 à 30)</span>
                 </div>
               </div>
             )}
