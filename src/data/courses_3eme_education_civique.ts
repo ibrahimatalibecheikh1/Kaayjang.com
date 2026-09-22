@@ -1,547 +1,962 @@
 import { ContentData, LessonContent } from './courses';
 
 // =========================================================================
-// PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME
-// MODÈLE SÉNÉGALAIS POUR LA PRÉPARATION DU BFEM (BREVET DE FIN D’ÉTUDES MOYENNES)
-// 8 Leçons exhaustives et approfondies sur les Institutions, la Décentralisation et les Relations Internationales
+// RÉPUBLIQUE DU SÉNÉGAL
+// COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (TROISIÈME)
+// Programme officiel intégral pour la préparation à l'examen du BFEM
+// Conforme au document officiel : 3 Chapitres, 11 Leçons détaillées et 2 Dossiers officiels
 // =========================================================================
+
+// -------------------------------------------------------------------------
+// CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+// -------------------------------------------------------------------------
 
 export const LESSON_1_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-1',
   number: 'LEÇON 1',
-  title: 'LA CONSTITUTION DE LA RÉPUBLIQUE DU SÉNÉGAL',
+  title: 'LE PATRIMOINE NATUREL : TYPOLOGIE',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "La Constitution est la loi suprême, fondamentale et inviolable d’un État. Elle détermine la forme de l’État (républicain, laïque, démocratique et social), proclame les droits et libertés inaliénables des citoyens, organise la séparation et l’équilibre des pouvoirs publics et fixe les modalités de leur transmission démocratique. Au Sénégal, l’histoire constitutionnelle témoigne de la volonté constante de consolider l’État de droit.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 1 : LA CONSTITUTION DE LA RÉPUBLIQUE DU SÉNÉGAL
+  introduction: "Le patrimoine naturel englobe l'ensemble des biens dont les richesses sont issues de la nature : les formations géologiques, physiographiques, les zones délimitées constituant l'habitat d'espèces animales et végétales menacées, ainsi que les sites naturels ayant une valeur universelle exceptionnelle du point de vue de la science, de la conservation ou de la beauté naturelle. Au Sénégal, ce patrimoine constitue non seulement une richesse biologique indispensable à l'équilibre des écosystèmes, mais aussi un pilier économique à travers des secteurs majeurs comme le tourisme, la pêche et l'artisanat.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
-I. DÉFINITION ET CARACTÈRE SUPRÊME DE LA CONSTITUTION
-1. Qu’est-ce qu’une Constitution ?
-C’est le texte juridique fondamental qui fonde juridiquement et politiquement l’État.
-2. Le principe de la hiérarchie des normes (la pyramide de Kelsen) :
-La Constitution trône au sommet de l’ordre juridique :
-- Niveau 1 : La Constitution (Norme suprême).
-- Niveau 2 : Les Traités et conventions internationaux ratifiés.
-- Niveau 3 : Les Lois votées par l’Assemblée Nationale (lois organiques et lois ordinaires).
-- Niveau 4 : Les Règlements administratifs (Décrets du Président ou du Premier Ministre, Arrêtés ministériels, préfectoraux et municipaux).
-Aucune règle inférieure ne peut contredire une norme supérieure : c’est le principe de constitutionnalité garanti par le Conseil Constitutionnel.
+Leçon 1 : Le patrimoine naturel : typologie
 
-II. L’HISTOIRE CONSTITUTIONNELLE DU SÉNÉGAL
-Depuis l’indépendance, le Sénégal a connu plusieurs révisions et constitutions majeures :
-- La Constitution de 1960 (régime parlementaire avec un Président de la République et un Président du Conseil des Ministres, Mamadou Dia).
-- La Constitution de 1963 : adoption d’un régime présidentiel après la crise politique de décembre 1962.
-- La Constitution de 2001 : adoptée par référendum après l’alternance de 2000, elle renforce les libertés publiques, le multipartisme et limite le nombre de mandats présidentiels.
-- Les révisions majeures (notamment la révision constitutionnelle de mars 2016 par référendum instaurant le mandat de 5 ans renouvelable une seule fois, la création de nouveaux droits citoyens et l’intangibilité de clauses d’éternité).
+I. Définition et fondements du patrimoine naturel
+Le patrimoine naturel englobe l'ensemble des biens dont les richesses sont issues de la nature : les formations géologiques, physiographiques, les zones délimitées constituant l'habitat d'espèces animales et végétales menacées, ainsi que les sites naturels ayant une valeur universelle exceptionnelle du point de vue de la science, de la conservation ou de la beauté naturelle.
+Au Sénégal, ce patrimoine constitue non seulement une richesse biologique indispensable à l'équilibre des écosystèmes, mais aussi un pilier économique à travers des secteurs majeurs comme le tourisme, la pêche et l'artisanat.
 
-III. LES CLAUSES D’ÉTERNITÉ ET LA RÉVISION CONSTITUTIONNELLE
-1. Les modalités de révision de la Constitution (Article 103) :
-Une modification constitutionnelle peut être initiée par le Président de la République ou par les députés. Elle doit être soit approuvée par le peuple par Référendum, soit adoptée par le Parlement réuni en Congrès à la majorité qualifiée des 3/5 des suffrages exprimés.
-2. Les limites absolues à la révision (Clauses intangibles) :
-La Constitution stipule solennellement que la forme républicaine et laïque de l’État, le mode d’élection au suffrage universel direct, la durée et le nombre consécutif des mandats du Président de la République (limité à deux mandats) et l’intégrité du territoire ne peuvent faire l’objet d’aucune révision.`,
+II. Typologie des ressources naturelles du Sénégal
+1. Le patrimoine faunique : Le Sénégal abrite une faune sauvage riche mais fortement menacée. On y retrouve de grands mammifères (lions, éléphants, léopards, hippopotames), une avifaune exceptionnelle (oiseaux migrateurs et sédentaires) et des espèces marines variées. Cette faune est concentrée dans des espaces protégés pour éviter son extinction face au braconnage.
+2. Le patrimoine floristique : Il comprend le couvert végétal national, subdivisé en plusieurs zones éco-géographiques. Au nord, la steppe sahélienne domine avec des espèces résilientes comme l'acacia. Au centre se déploie la savane arborée. Au sud, la Casamance abrite des forêts denses et d'importantes zones de mangrove (palétuviers) indispensables à la reproduction des espèces marines.
+3. Le patrimoine hydrique et géologique : Les fleuves Sénégal, Gambie et Casamance, associés à des lacs comme le Lac de Guiers ou le Lac Rose, forment le réseau hydraulique. Le patrimoine géologique se manifeste par des sites remarquables tels que les Îles de la Madeleine, les mamelles de Dakar ou les falaises de Bandafassi.
+
+III. Les grands sanctuaires de la biodiversité nationale
+Pour préserver cette diversité, l'État a classé plusieurs zones érigées en parcs nationaux et réserves :
+• Le Parc National du Niokolo-Koba (PNNK) : Situé au sud-est, c'est le plus grand parc du pays. Il protège la grande faune africaine et est classé patrimoine mondial de l'UNESCO.
+• Le Parc National des Oiseaux du Djoudj (PNOD) : Situé dans le delta du fleuve Sénégal, c'est le troisième sanctuaire ornithologique au monde, accueillant des millions d'oiseaux migrateurs chaque année.
+• La Réserve de Biosphère du Delta du Saloum (RBDS) : Zone humide d'importance internationale, elle se caractérise par ses réseaux de bolongs, ses îles et sa riche biodiversité marine.`,
   sections: [
     {
-      title: 'I. La Hiérarchie des Normes et la Suprématie Constitutionnelle',
+      title: 'I. Définition et fondements du patrimoine naturel',
       content: [
-        'La Constitution est la clé de voûte juridique s’imposant aux lois, décrets et traités.',
-        'Le contrôle de conformité exercé par le Conseil Constitutionnel protège la République de toute dérive législative.'
+        "Le patrimoine naturel rassemble les ressources biologiques, géologiques et paysagères créées par la nature sans intervention de l'homme.",
+        "Il possède une triple valeur :",
+        "• Valeur écologique : maintien de la biodiversité, régulation du climat, préservation des nappes phréatiques et cycle des éléments nutritifs.",
+        "• Valeur économique : base de subsistance pour des millions de citoyens (agriculture, pêche artisanale, élevage pastoral, pharmacopée traditionnelle) et levier du tourisme écologique.",
+        "• Valeur culturelle et scientifique : support de recherche, patrimoine identitaire et cadre de vie des communautés."
       ]
     },
     {
-      title: 'II. Évolution des Constitutions Sénégalaises de 1960 à nos Jours',
+      title: 'II. Typologie des ressources naturelles du Sénégal',
       content: [
-        'Du régime parlementaire de 1960 au régime présidentiel de 1963, puis aux réformes démocratiques de 2001 et 2016.',
-        'La limitation des mandats présidentiels à deux consécutifs garantit la respiration démocratique.'
-      ]
+        "1. Le patrimoine faunique :",
+        "• Grands mammifères menacés : éléphants de brousse, lions d'Afrique de l'Ouest, léopards, hippopotames, buffles, élands de Derby (la plus grande antilope du monde, endémique du Niokolo-Koba).",
+        "• Avifaune remarquable : pélicans blancs, flamants roses, cormorans, hérons, passereaux et rapaces migrateurs venus d'Europe et d'Asie.",
+        "• Faune ichtyologique et marine : mérous (thiof), capitaines, crevettes, tortues marines, lamantins d'Afrique de l'Ouest.",
+        "2. Le patrimoine floristique :",
+        "• Zone sahélienne (Nord) : steppes arbustives à Acacia raddiana, balanites et graminées épineuses adaptées au stress hydrique.",
+        "• Zone soudanienne (Centre) : savanes arborées dominées par le baobab (Adansonia digitata), le rônier, le néré et le caïlcédrat.",
+        "• Zone guinéenne (Sud - Casamance) : forêts denses humides, fromagers géants, tecks et mangroves à Rhizophora le long des estuaires.",
+        "3. Le patrimoine hydrique et géologique :",
+        "• Réseau hydrographique : les fleuves Sénégal (1 790 km), Gambie et Casamance, les cours d'eau temporaires et les lacs majeurs (Lac de Guiers, réserve d'eau potable de Dakar, et Lac Rose à forte salinité).",
+        "• Curiosités géologiques : les falaises de grès de Bandafassi et d'Iwol (Pays Bassari), les volcans éteints des Mamelles de la presqu'île du Cap-Vert, l'archipel volcanique des Îles de la Madeleine."
+      ],
+      table: {
+        headers: ['Branche du Patrimoine', 'Composantes au Sénégal', 'Menaces Principales'],
+        rows: [
+          ["Patrimoine Faunique", "Élands de Derby, lions, pélicans, lamantins, thiof", "Braconnage, surpêche, fragmentation des habitats."],
+          ["Patrimoine Floristique", "Forêts de Casamance, mangroves, baobabs, acacias", "Coupe illégale de bois précieux, feux de brousse, sécheresse."],
+          ["Patrimoine Hydrique & Géologique", "Fleuves Sénégal et Gambie, Lac de Guiers, Mamelles", "Pollution industrielle, ensablement, prélèvements excessifs."]
+        ]
+      }
     },
     {
-      title: 'III. Les Clauses d’Éternité Intangibles (Article 103)',
+      title: 'III. Les grands sanctuaires de la biodiversité nationale',
       content: [
-        'La laïcité, la forme républicaine, l’intégrité territoriale et la limitation des mandats ne peuvent être abrogées.'
+        "• Le Parc National du Niokolo-Koba (PNNK) : Couvre plus de 913 000 hectares dans les régions de Tambacounda et Kédougou. Sanctuaire majeur pour l'éland de Derby, le lion d'Afrique de l'Ouest et les chimpanzés de savane. Classé réserve de biosphère et patrimoine mondial par l'UNESCO.",
+        "• Le Parc National des Oiseaux du Djoudj (PNOD) : Situé dans le delta du fleuve Sénégal sur 16 000 hectares. 3ème réserve ornithologique au monde, étape migratoire vitale pour 3 millions d'oiseaux (pélicans, spatules, canards d'Europe).",
+        "• La Réserve de Biosphère du Delta du Saloum (RBDS) : Réseau complexe d'îles sableuses, d'estuaires, d'amas coquilliers ancestraux et de bolongs bordés de palétuviers abritant une faune marine et aviaire exceptionnelle.",
+        "• Autres aires protégées : Parc National de la Langue de Barbarie (Saint-Louis), Parc National des Îles de la Madeleine (Dakar), Réserve Spéciale de Faune de Guembeul."
       ]
     }
   ],
-  conclusion: "La Constitution est le pacte sacré qui unit tous les Sénégalais. Son respect par les gouvernants et les gouvernés est la condition sine qua non de la paix civile et de la longévité de nos institutions républicaines."
+  conclusion: "La préservation du patrimoine naturel est une obligation constitutionnelle et morale inscrite à l'article 25-2 de la Constitution sénégalaise. Chaque élève doit devenir un éco-citoyen vigilant pour protéger ce trésor menacé."
 };
 
 export const LESSON_2_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-2',
   number: 'LEÇON 2',
-  title: 'LE POUVOIR EXÉCUTIF AU SÉNÉGAL',
+  title: 'PROTECTION DU PATRIMOINE NATUREL : LES CODES',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Le pouvoir exécutif est la branche de l’État chargée de faire appliquer les lois votées par le Parlement, de conduire la politique de la nation, d’assurer la sécurité intérieure et extérieure et de gérer l’administration publique au quotidien. Au Sénégal, l’exécutif est bicéphale, articulé autour du Président de la République, chef suprême de l’État, et du Premier Ministre, chef du Gouvernement.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 2 : LE POUVOIR EXÉCUTIF AU SÉNÉGAL
+  introduction: "L'exploitation abusive des ressources, la déforestation, la pollution urbaine et le braconnage nécessitent une réglementation stricte. L'État du Sénégal a mis en place un arsenal juridique contraignant composé de plusieurs codes sectoriels afin de sanctionner les comportements destructeurs et promouvoir un développement durable.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
-I. LE PRÉSIDENT DE LA RÉPUBLIQUE : CLÉ DE VOÛTE DES INSTITUTIONS
-1. Élection et mandat :
-- Élu au suffrage universel direct au scrutin uninominal majoritaire à deux tours pour un mandat de 5 ans renouvelable une seule fois.
-- Prête serment solennellement devant le Conseil Constitutionnel avant son entrée en fonction.
-2. Attributions et pouvoirs constitutionnels majeurs :
-- Chef de l’État et symbole de l’unité nationale : il est le garant de la Constitution, de l’indépendance nationale et du respect des traités.
-- Chef suprême des Armées : il préside le Conseil Supérieur de la Défense Nationale.
-- Domaine des relations extérieures : il nomme les ambassadeurs et négocie les traités internationaux.
-- Pouvoir de nomination : il nomme le Premier Ministre, les ministres, les hauts magistrats, les gouverneurs de région et les directeurs généraux des entreprises publiques.
-- Pouvoir de grâce : il exerce le droit de grâce présidentielle dispensant un condamné de subir sa peine.
-- Promulgation des lois : il signe et promulgue les lois votées par l’Assemblée Nationale dans les 15 jours.
-- Pouvoirs exceptionnels (Article 52) : en cas de menace grave et immédiate contre les institutions ou l’intégrité du territoire, il dispose de pouvoirs exceptionnels après consultation des présidents de l’Assemblée et du Conseil Constitutionnel.
+Leçon 2 : Protection du patrimoine naturel : les codes
 
-II. LE PREMIER MINISTRE ET LE GOUVERNEMENT
-1. Le Premier Ministre :
-- Nommé par le Président de la République qui met fin à ses fonctions.
-- Chef du Gouvernement : il coordonne et anime l’action ministérielle, propose les membres de son gouvernement et dispose de l’administration publique.
-- Déclaration de Politique Générale (DPG) : après sa nomination, il présente devant l’Assemblée Nationale les grandes orientations de son programme de gouvernement, suivie d’un vote de confiance.
-2. Les Ministres et Secrétaires d’État :
-Chaque ministre dirige un département ministériel précis (Éducation, Santé, Finances, Justice, Défense, etc.). Le Conseil des Ministres se réunit chaque mercredi au Palais de la République sous la présidence effective du Chef de l’État.`,
+I. Justification de la protection juridique
+L'exploitation abusive des ressources, la déforestation, la pollution urbaine et le braconnage nécessitent une réglementation stricte. L'État du Sénégal a mis en place un arsenal juridique contraignant composé de plusieurs codes sectoriels afin de sanctionner les comportements destructeurs et promouvoir un développement durable.
+
+II. Analyse des codes sectoriels de protection
+1. Le Code de l'Environnement : Il fixe les règles fondamentales visant à prévenir, réduire et lutter contre les pollutions et nuisances. Il impose notamment des études d'impact environnemental (EIE) avant la réalisation de tout grand projet industriel ou d'infrastructure.
+2. Le Code Forestier : Il régit la gestion, l'exploitation et la protection des ressources forestières. Il interdit la coupe illégale de bois, réglemente le charbonnage et définit le domaine forestier de l'État tout en fixant de lourdes peines pour les contrevenants.
+3. Le Code Minier : Il encadre la recherche et l'exploitation des substances minérales. Il oblige les entreprises minières à respecter les normes environnementales, à réhabiliter les sites après exploitation et à verser des compensations aux communautés locales.
+4. Le Code de l'Eau et le Code de l'Hygiène : Le Code de l'eau protège la ressource contre le gaspillage et la pollution industrielle. Le Code de l'hygiène réglemente la salubrité publique, la gestion des déchets ménagers et industriels, et sanctionne le dépôt sauvage d'ordures.
+
+III. Le rôle des citoyens et des structures communautaires
+La loi seule ne suffit pas. La protection de l'environnement requiert un civisme actif : participation aux campagnes de reboisement, dénonciation des délits environnementaux et adoption de comportements éco-responsables au quotidien.`,
   sections: [
     {
-      title: 'I. Statut et Prérogatives du Président de la République',
+      title: 'I. Justification de la protection juridique de la nature',
       content: [
-        'Élu pour 5 ans au suffrage universel direct, il incarne la souveraineté et l’unité nationale.',
-        'Chef suprême des armées, garant de la Constitution et premier diplomate de l’État.'
+        "Face à la pression démographique, aux changements climatiques et à la prédation économique, les ressources naturelles ne peuvent survivre sans encadrement légal strict.",
+        "Le Sénégal s'est doté d'une législation moderne articulée autour du principe pollueur-payeur et de la responsabilité environnementale.",
+        "L'article 25-2 de la Constitution dispose : « Chacun a droit à un environnement sain. La défense, la préservation et l'amélioration de l'environnement incombent aux pouvoirs publics et à chaque citoyen. »"
       ]
     },
     {
-      title: 'II. Rôle du Premier Ministre et Conseil des Ministres',
+      title: 'II. Analyse approfondie des codes sectoriels de protection',
       content: [
-        'Le Premier Ministre anime l’action gouvernementale et prononce sa Déclaration de Politique Générale (DPG).',
-        'Le Conseil des Ministres hebdomadaire arbitre les grandes réformes et adopte les projets de lois.'
+        "1. Le Code de l'Environnement (Loi n° 2001-01) :",
+        "• Définit la politique globale de prévention des pollutions de l'air, des sols et des eaux continentales et marines.",
+        "• Obligation d'Étude d'Impact Environnemental et Social (EIES) : aucun projet d'autoroute, d'usine chimique, de centrale électrique ou d'hôtel ne peut démarrer sans autorisation du ministère chargé de l'Environnement.",
+        "2. Le Code Forestier (Loi n° 2018-25) :",
+        "• Distingue le domaine forestier classé de l'État (forêts classées, parcs nationaux) et le domaine forestier protégé des collectivités territoriales.",
+        "• Répression sévère du trafic de bois : emprisonnement ferme pour la coupe d'espèces protégées (comme le ptérocarpe ou bois de rose en Casamance, le caïlcédrat, le vène).",
+        "• Réglementation stricte des permis de coupe et des quotas de fabrication de charbon de bois.",
+        "3. Le Code Minier (Loi n° 2016-32) :",
+        "• Obligation légale de restauration et de réhabilitation des sols après l'extraction (mines d'or de Kédougou, phosphates de Taïba, carrières de calcaire et de basalte de Thiès).",
+        "• Alimentation obligatoire d'un fonds de développement local au bénéfice direct des populations riveraines des mines.",
+        "4. Le Code de l'Eau (Loi n° 81-13) et le Code de l'Hygiène (Loi n° 83-71) :",
+        "• Le Code de l'Eau garantit un accès équitable aux ressources hydriques et interdit tout rejet toxique dans les nappes souterraines ou les cours d'eau.",
+        "• Le Code de l'Hygiène fixe les règles de salubrité publique, sanctionne les dépôts anarchiques d'immondices et impose la propreté des établissements recevant du public."
+      ],
+      table: {
+        headers: ['Code Sectoriel', 'Champs d’Application', 'Mesure Phare / Sanction'],
+        rows: [
+          ["Code de l'Environnement", "Pollutions, nuisances, installations classées", "Étude d'impact environnemental (EIES) préalable obligatoire."],
+          ["Code Forestier", "Forêts, faune, charbonnage, bois d'œuvre", "Peines de prison et confiscation pour trafic illégal de bois."],
+          ["Code Minier", "Or, phosphates, zircon, carrières", "Obligation de réhabilitation écologique et fonds communautaires."],
+          ["Code de l'Eau & de l'Hygiène", "Eaux de surface, nappes, salubrité urbaine", "Interdiction des rejets toxiques et répression des dépôts sauvages."]
+        ]
+      }
+    },
+    {
+      title: 'III. Le rôle des citoyens et des structures communautaires',
+      content: [
+        "L'efficacité des textes législatifs repose sur l'appropriation populaire :",
+        "• Civisme environnemental : tri et gestion rationnelle des ordures ménagères, économie d'eau et d'énergie.",
+        "• Mobilisation citoyenne : participation assidue aux campagnes nationales de reboisement (Grande Muraille Verte, Journée nationale de l'Arbre).",
+        "• Veille et alerte : signalement des coupes illégales, des feux allumés imprudemment et des pollutions aux brigades des Eaux et Forêts et à la gendarmerie environnementale.",
+        "• Implication des ASC et associations de quartier dans les initiatives communautaires durables."
       ]
     }
   ],
-  conclusion: "L’exécutif guide la marche quotidienne du Sénégal avec la responsabilité permanente de traduire les aspirations des citoyens en réalisations concrètes de développement."
+  conclusion: "Les codes de protection constituent le bouclier juridique du Sénégal contre la prédation écologique. La loi combinée au civisme communautaire est la seule garantie d'un développement durable et équitable."
 };
 
 export const LESSON_3_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-3',
   number: 'LEÇON 3',
-  title: 'LE POUVOIR LÉGISLATIF : L’ASSEMBLÉE NATIONALE DU SÉNÉGAL',
+  title: 'LE PATRIMOINE HISTORIQUE ET CULTUREL : TYPOLOGIE, PROTECTION ET STRATÉGIES DE PROMOTION',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Le pouvoir législatif est le pilier de la démocratie représentative où s’expriment les voix du peuple souverain à travers ses représentants élus : les Députés. Au Sénégal, le parlement est monocaméral (une seule chambre) et incarné par l’Assemblée Nationale siégeant à la Place Soweto à Dakar. L’Assemblée a deux missions constitutionnelles cardinales : voter la loi et contrôler l’action du gouvernement.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 3 : LE POUVOIR LÉGISLATIF : L’ASSEMBLÉE NATIONALE DU SÉNÉGAL
+  introduction: "Le patrimoine historique et culturel se compose des biens matériels et immatériels hérités du passé, qui témoignent de l'histoire, des valeurs, des croyances et du génie créateur des populations du Sénégal. Il forge l'identité nationale et favorise la cohésion sociale.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
-I. COMPOSITION ET ORGANISATION DE L’ASSEMBLÉE NATIONALE
-1. Élection des députés :
-- L’Assemblée Nationale compte 165 députés élus pour un mandat de 5 ans au suffrage universel direct selon un scrutin mixte (au scrutin majoritaire dans les départements et à la proportionnelle sur la liste nationale, avec une représentation dédiée aux Sénégalais de l’extérieur).
-- La Loi sur la Parité absolue (2010) : impose obligatoirement l’alternance stricte homme-femme sur toutes les listes de candidatures, faisant du Sénégal l’un des pays les plus avancés au monde pour la féminisation du Parlement.
-2. Organisation interne :
-- Le Président de l’Assemblée Nationale : élu pour la durée de la législature (5 ans), deuxième personnalité de l’État dans l’ordre protocolaire républicain.
-- Le Bureau de l’Assemblée et la Conférence des Présidents.
-- Les Groupes Parlementaires : regroupements de députés par affinité politique (minimum de 10 députés pour former un groupe).
-- Les Commissions Techniques Permanentes (Finances, Lois, Éducation, Défense, etc.) qui étudient en détail chaque texte de loi avant son passage en séance plénière.
+Leçon 3 : Le patrimoine historique et culturel : typologie, protection et stratégies de promotion
 
-II. LES DEUX MISSIONS MAJEURES DU POUVOIR LÉGISLATIF
-1. Le Vote des Lois :
-- L’initiative de la loi appartient conjointement au Président de la République (Projet de loi) et aux députés (Proposition de loi).
-- Procédure législative : dépôt du texte -> examen en commission technique -> débat contradictoire et vote article par article en séance plénière publique -> transmission au Président de la République pour promulgation.
-- Vote du Budget annuel de l’État (Loi de Finances) : acte législatif décisif autorisant les recettes et dépenses de la nation pour l’année à venir.
-2. Le Contrôle de l’Action Gouvernementale :
-L’Assemblée surveille l’exécutif pour éviter tout abus grâce à :
-- Les Questions orales et questions écrites posées directement aux ministres.
-- Les Commissions d’enquête parlementaire sur des sujets d’intérêt national.
-- La Motion de Censure : arme constitutionnelle ultime permettant aux députés de renverser le Premier Ministre et son gouvernement en cas de désaccord majeur. En contrepartie, le Président de la République peut dissoudre l’Assemblée Nationale après deux ans de législature.`,
+I. Définition et distinctions conceptuelles
+Le patrimoine historique et culturel se compose des biens matériels et immatériels hérités du passé, qui témoignent de l'histoire, des valeurs, des croyances et du génie créateur des populations du Sénégal. Il forge l'identité nationale et favorise la cohésion sociale.
+
+II. Typologie du patrimoine culturel
+1. Le patrimoine matériel : Il comprend les monuments historiques, les bâtiments d'architecture coloniale (Saint-Louis, Gorée), les sites archéologiques (les cercles mégalithiques de Sénégambie), les objets d'art et les manuscrits anciens exposés dans les musées.
+2. Le patrimoine immatériel : Il regroupe les traditions orales, les contes, les épopées (comme celle de Soundiata Keïta), les musiques traditionnelles, les danses, les savoir-faire artisanaux, les rites initiatiques (le Kankourang en Casamance) et les valeurs sociétales telles que la Teranga.
+
+III. Stratégies de protection, de conservation et de promotion
+Le ministère de la Culture, en partenariat avec des organisations internationales comme l'UNESCO, procède à l'inventaire et au classement des sites menacés. La promotion passe par le développement du tourisme culturel, l'introduction de ces thématiques dans les programmes scolaires et l'organisation de festivals nationaux et internationaux pour valoriser le génie sénégalais.`,
   sections: [
     {
-      title: 'I. Élection des Députés et Révolution de la Parité Absolue',
+      title: 'I. Définition et distinctions conceptuelles',
       content: [
-        '165 députés représentent la nation entière et non leur seule circonscription d’origine.',
-        'La loi historique de parité de 2010 garantit une présence équitaire des femmes à l’hémicycle.'
+        "Le patrimoine culturel représente l'héritage matériel et spirituel légué par les générations antérieures.",
+        "Il incarne la mémoire collective, raffermit le sentiment d'appartenance à la communauté nationale et transmet des repères éthiques aux jeunes générations.",
+        "La convention de l'UNESCO de 1972 (patrimoine matériel) et celle de 2003 (patrimoine immatériel) fournissent le cadre juridique international de sa protection."
       ]
     },
     {
-      title: 'II. La Fabrique de la Loi et le Vote de la Loi de Finances',
+      title: 'II. Typologie du patrimoine culturel sénégalais',
       content: [
-        'Examen minutieux en commissions permanentes et débats contradictoires en séance plénière.',
-        'Le vote du budget souverain décide des investissements pour les routes, lycées et hôpitaux.'
-      ]
+        "1. Le patrimoine culturel matériel (tangible) :",
+        "• L'Île de Gorée : Mémoire universelle de la traite négrière transatlantique, inscrite au patrimoine mondial depuis 1978 (Maison des Esclaves, fortifications).",
+        "• L'Île de Saint-Louis : Première capitale coloniale du Sénégal et de l'AOF, célèbre pour son architecture coloniale métisse, son plan en damier et le Pont Faidherbe.",
+        "• Les cercles mégalithiques de Sénégambie (Sine Ngayène, Wanar) : Vestiges archéologiques funéraires millénaires uniques en Afrique de l'Ouest.",
+        "• Le Pays Bassari, paysages culturels Bassari, Peul et Bédik : Habitats perchés, terrasses de culture et sanctuaires dans la région de Kédougou.",
+        "• Les objets d'art, poteries, masques et manuscrits anciens conservés au Musée des Civilisations Noires de Dakar et à l'IFAN.",
+        "2. Le patrimoine culturel immatériel (intangible) :",
+        "• Le Kankourang : Rite d'initiation et figure mythique mandingue protectrice de l'ordre moral et des initiés en Casamance et à Mbour, inscrit par l'UNESCO.",
+        "• Les traditions orales et épopées : Les récits des griots (Guéweul) chantant l'épopée de Soundiata Keïta, les hauts faits d'El Hadj Omar Tall, de Lat Dior ou d'Aline Sitoé Diatta.",
+        "• Les savoir-faire artisanaux : Tissage du pagne traditionnel (Serrou Rabal), travail du cuir, poterie de Joal, piroguerie d'art.",
+        "• Les valeurs cardinales de société : La Teranga (hospitalité légendaire), le Kersa (retenue et pudeur), le Jom (dignité et courage moral) et le Sutura (discrétion bienveillante)."
+      ],
+      table: {
+        headers: ['Catégorie', 'Exemples Notables au Sénégal', 'Reconnaissance'],
+        rows: [
+          ["Patrimoine Matériel Bâti", "Île de Gorée, Île de Saint-Louis, Pont Faidherbe", "Patrimoine Mondial UNESCO."],
+          ["Patrimoine Archéologique", "Cercles mégalithiques de Sine Ngayène et Wanar", "Patrimoine Mondial UNESCO."],
+          ["Patrimoine Immatériel Rituel", "Le Kankourang (rites mandingues d'initiation)", "Chef-d'œuvre du patrimoine oral et immatériel."],
+          ["Valeurs & Traditions", "Teranga, Kersa, Jom, contes des griots", "Héritage moral et identitaire national."]
+        ]
+      }
     },
     {
-      title: 'III. Les Outils de Contrôle : Questions, Enquêtes et Motion de Censure',
+      title: 'III. Stratégies de protection, de conservation et de promotion',
       content: [
-        'Les questions d’actualité obligent les ministres à rendre des comptes devant la représentation nationale.',
-        'L’équilibre démocratique repose sur la possibilité de censure gouvernementale ou de dissolution de l’Assemblée.'
+        "• L'inventaire national et le classement par la Direction du Patrimoine Culturel du ministère de la Culture.",
+        "• La restauration architecturale des bâtiments historiques menacés de ruine à Saint-Louis et à Gorée.",
+        "• La transmission scolaire et universitaire pour enraciner la jeunesse dans ses racines culturelles authentiques.",
+        "• Le rayonnement international à travers les grands événements : Biennale de l'Art africain contemporain (Dak'Art), Festival National des Arts et de la Culture (FESNAC)."
       ]
     }
   ],
-  conclusion: "L’Assemblée Nationale est le cœur battant du débat démocratique au Sénégal. Par la loi et le contrôle, les députés veillent à ce que l’action publique serve loyalement l’intérêt exclusif des populations."
+  conclusion: "Un peuple qui oublie son patrimoine culturel perd son âme et ses repères. La préservation de notre héritage historique est le ciment de l'unité nationale et le tremplin de notre émergence."
 };
+
+export const DOSSIER_1_CIVIQUE_3EME: LessonContent = {
+  id: 'civique-3eme-dossier-1',
+  number: 'DOSSIER AC 1',
+  title: 'LE DÉBOISEMENT ET LA LUTTE CONTRE LES FEUX DE BROUSSE',
+  subject: 'Éducation civique',
+  classLevel: '3ème',
+  introduction: "Ce dossier analyse le phénomène de la déforestation au Sénégal, accentué par la coupe clandestine de bois de chauffe et de bois d'œuvre (notamment le réseau de trafic de bois de rose en Casamance). Les feux de brousse, souvent provoqués par l'imprudence humaine ou des pratiques agricoles inadaptées, détruisent chaque année des milliers d'hectares de tapis végétal, appauvrissent les sols et entraînent l'exode des espèces animales. Les solutions résident dans les techniques de pare-feux, le renforcement de la surveillance par les agents des Eaux et Forêts, et la sensibilisation des comités villageois de vigilance.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+
+Dossier AC 1 : Le déboisement et la lutte contre les feux de brousse
+
+Ce dossier analyse le phénomène de la déforestation au Sénégal, accentué par la coupe clandestine de bois de chauffe et de bois d'œuvre (notamment le réseau de trafic de bois de rose en Casamance). Les feux de brousse, souvent provoqués par l'imprudence humaine ou des pratiques agricoles inadaptées, détruisent chaque année des milliers d'hectares de tapis végétal, appauvrissent les sols et entraînent l'exode des espèces animales. Les solutions résident dans les techniques de pare-feux, le renforcement de la surveillance par les agents des Eaux et Forêts, et la sensibilisation des comités villageois de vigilance.`,
+  sections: [
+    {
+      title: 'I. Les causes majeures du déboisement au Sénégal',
+      content: [
+        "1. La surexploitation pour l'énergie domestique : Plus de 80% des ménages en zone rurale et périurbaine dépendent encore du bois de chauffe et du charbon de bois pour la cuisson quotidienne.",
+        "2. Le trafic criminel de bois d'œuvre : Pillage massif des forêts de Casamance (bois de rose / Pterocarpus erinaceus, vène) alimentant des réseaux transfrontaliers clandestins.",
+        "3. L'expansion agricole et pastorale non maîtrisée : Défrichements anarchiques par brûlis, avancée des zones de culture sur les forêts classées."
+      ]
+    },
+    {
+      title: 'II. L’impact dévastateur des feux de brousse',
+      content: [
+        "• Destruction du couvert végétal : Chaque saison sèche, entre 200 000 et 400 000 hectares de pâturages et de forêts partent en fumée.",
+        "• Dégradation et stérilisation des sols : Disparition de la matière organique superficielle, accélération de l'érosion éolienne et hydrique.",
+        "• Menace vitale pour la faune : Destruction des nids, mort de petits mammifères et disparition des zones de pâturage pour le bétail.",
+        "• Bilan économique lourd : Perte de stocks de foin, destruction de vergers et incendies accidentels de concessions villageoises."
+      ]
+    },
+    {
+      title: 'III. Les solutions durables et stratégies de riposte',
+      content: [
+        "• Aménagement de réseaux de pare-feux : Bandes de terre défrichées et nettoyées de 10 à 20 mètres de large pour stopper net la progression des flammes.",
+        "• Renforcement opérationnel des services des Eaux, Forêts et Chasses : Patrouilles armées, contrôles routiers rigoureux et application sans faiblesse du Code Forestier.",
+        "• Mobilisation des Comités Villageois de Vigilance : Implication directe des jeunes et des femmes dans l'alerte précoce et l'extinction rapide des départs de feu.",
+        "• Promotion des énergies alternatives : Vulgarisation du biogaz, des foyers améliorés à haut rendement et de l'énergie solaire thermique."
+      ]
+    }
+  ],
+  conclusion: "La lutte contre le déboisement et les feux de brousse est une urgence de sécurité nationale. Préserver les forêts du Sénégal, c'est garantir l'eau, la fertilité des terres et l'avenir des générations futures."
+};
+
+// -------------------------------------------------------------------------
+// CHAPITRE II : VIVRE ENSEMBLE
+// -------------------------------------------------------------------------
 
 export const LESSON_4_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-4',
   number: 'LEÇON 4',
-  title: 'LE POUVOIR JUDICIAIRE ET L’INDÉPENDANCE DE LA JUSTICE',
+  title: 'LA CULTURE DE LA PAIX',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Le pouvoir judiciaire est le garant ultime des libertés individuelles et collectives, de l’égalité de tous devant la loi et de la paix sociale. Dans une véritable république, la justice doit être indépendante du pouvoir politique et de l’argent afin de trancher les litiges en toute impartialité. Au Sénégal, l’autorité judiciaire est exercée par des cours et tribunaux dont les décisions sont rendues solennellement « Au nom du Peuple Sénégalais ».",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 4 : LE POUVOIR JUDICIAIRE ET L’INDÉPENDANCE DE LA JUSTICE
+  introduction: "La culture de la paix est un ensemble de valeurs, d'attitudes et de comportements qui rejettent la violence et préviennent les conflits en s'attaquant à leurs causes profondes par le dialogue et la négociation. Elle repose sur le respect des droits fondamentaux de la personne humaine.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE II : VIVRE ENSEMBLE
 
-I. LES PRINCIPES FONDAMENTAUX DE LA JUSTICE SÉNÉGALAISE
-1. L’indépendance de la justice :
-Consacrée par l’Article 90 de la Constitution : "Le pouvoir judiciaire est indépendant du pouvoir législatif et du pouvoir exécutif. Les magistrats du siège ne sont soumis dans l’exercice de leurs fonctions qu’à l’autorité de la loi. Ils sont inamovibles".
-2. Les garanties du justiciable :
-- La gratuité apparente de la justice (les juges sont payés par l’État et non par les plaideurs).
-- Le droit à un procès équitable et contradictoire avec assistance obligatoire d’un avocat pour les crimes.
-- La présomption d’innocence : toute personne accusée est présumée innocente jusqu’à ce que sa culpabilité ait été légalement démontrée par un tribunal.
-- Le principe du double degré de juridiction : droit de faire appel d’une décision de justice devant une juridiction supérieure pour être rejugé.
+Leçon 4 : La culture de la paix
 
-II. L’ORGANISATION DES COURS ET TRIBUNAUX AU SÉNÉGAL
-L’ordre judiciaire comprend deux corps de magistrats : les magistrats du siège (les juges qui tranchent) et les magistrats du parquet (les procureurs qui défendent l’intérêt de la société).
-1. Les Juridictions de base :
-- Les Tribunaux d’Instance : présents dans chaque département (litiges civils simples, état civil, petites infractions).
-- Les Tribunaux de Grande Instance : jugent les litiges plus importants et les délits pénaux (Tribunal correctionnel) et les crimes graves (Chambres criminelles).
-- Les Tribunaux du Travail et les Tribunaux de Commerce.
-2. Les Juridictions d’Appel :
-Les Cours d’Appel (Dakar, Thiès, Saint-Louis, Kaolack, Ziguinchor) rejugent les affaires en fait et en droit en cas de contestation d’un premier jugement.
+I. Les fondements de la culture de la paix
+La culture de la paix est un ensemble de valeurs, d'attitudes et de comportements qui rejettent la violence et préviennent les conflits en s'attaquant à leurs causes profondes par le dialogue et la négociation. Elle repose sur le respect des droits fondamentaux de la personne humaine.
 
-III. LES HAUTES JURIDICTIONS DE L’ÉTAT
-1. Le Conseil Constitutionnel (7 Sages) :
-Juge de la conformité des lois à la Constitution, tranche le contentieux des élections nationales et proclame les résultats définitifs.
-2. La Cour Suprême :
-Plus haute juridiction administrative et judiciaire. Elle ne rejuge pas les faits mais contrôle la bonne application du droit par les cours et tribunaux (juge de cassation).
-3. La Cour des Comptes :
-Vérifie la régularité des comptes publics de l’État, des collectivités locales et des entreprises publiques pour lutter contre la mauvaise gestion et le détournement de deniers publics.
-4. L’OFNAC (Office National de Lutte contre la Fraude et la Corruption) :
-Organe administratif indépendant chargé de recevoir les déclarations de patrimoine des gestionnaires de fonds publics et de traquer les actes de corruption.`,
+II. Le dialogue socio-culturel et interreligieux au Sénégal
+Le Sénégal est souvent cité en exemple pour sa stabilité sociale. Cette paix repose sur des mécanismes endogènes puissants :
+Le cousinage à plaisanterie (Kal ou Déenkkou) : Un outil de régulation sociale permettant à différents groupes ethniques (Sérères-Diolas, Peuls-Forgerons) de désamorcer les tensions par l'humour.
+La tolérance interreligieuse : Une coexistence pacifique exemplaire entre la majorité musulmane et la minorité chrétienne, illustrée par le respect mutuel des fêtes religieuses, des cimetières mixtes dans certaines localités et le dialogue permanent entre les chefs confrériques et l'Église.
+
+III. Les menaces contemporaines à la cohésion sociale
+Malgré ces acquis, la paix sociale fait face à de nouveaux défis : la montée des discours identitaires et communautaristes, l'usage irresponsable des réseaux sociaux véhiculant la désinformation et la haine, ainsi que la précarité économique des jeunes qui alimente les tensions politiques.`,
   sections: [
     {
-      title: 'I. L’Inamovibilité des Juges et les Garanties du Justiciable',
+      title: 'I. Les fondements universels de la culture de la paix',
       content: [
-        'L’indépendance statutaire des magistrats du siège garantit qu’ils ne peuvent être sanctionnés pour leurs décisions.',
-        'La présomption d’innocence et le droit d’appel consacrent les droits fondamentaux de la défense.'
+        "Selon l'UNESCO, la culture de la paix consiste à transformer les réflexes de violence en réflexes de dialogue, d'écoute et de coopération.",
+        "Elle implique :",
+        "• Le respect inconditionnel de la vie humaine et de la dignité de chacun.",
+        "• Le règlement pacifique et concerté des différends par la médiation plutôt que par la force.",
+        "• L'égalité réelle entre les hommes et les femmes et la participation démocratique."
       ]
     },
     {
-      title: 'II. Cartographie Judiciaire : De l’Instance à la Cour Suprême',
+      title: 'II. Les mécanismes sénégalais de cohésion sociale',
       content: [
-        'Tribunaux d’Instance et de Grande Instance de proximité jusqu’aux Cours d’Appel régionales.',
-        'La Cour Suprême régule l’uniformité de la jurisprudence sur l’ensemble du territoire national.'
-      ]
+        "Le Sénégal dispose de remparts culturels historiques uniques au monde :",
+        "1. Le cousinage de plaisanterie (Kal, Déenkkou ou Sanankuya) :",
+        "• Pacte séculaire liant Sérères et Diolas, Peuls et Sérères, ou encore certaines familles (Ndiaye et Diop, Fall et Wade).",
+        "• Permet de désamorcer instantanément des querelles potentiellement graves par la dérision amicale, l'insulte rituelle non agressive et le rappel du pacte d'assistance mutuelle.",
+        "2. La concorde interreligieuse harmonieuse :",
+        "• Près de 95% de musulmans et 5% de chrétiens coexistent en parfaite fraternité, formant souvent des familles mixtes.",
+        "• Célébration partagée des fêtes : les chrétiens offrent le Ngallakh de Pâques à leurs voisins musulmans, qui partagent la viande de Tabaski en retour.",
+        "• Présence de cimetières mixtes où reposent ensemble musulmans et chrétiens (comme dans l'île aux coquillages de Fadiouth).",
+        "• Concertation permanente et médiation bienveillante des guides des grandes confréries soufies (Tidianiyya, Mouridiyya, Qadiriyya, Layeniyya) et de l'Archevêché de Dakar."
+      ],
+      table: {
+        headers: ['Mécanisme de Paix', 'Modalités au Sénégal', 'Effet Social'],
+        rows: [
+          ["Cousinage à plaisanterie (Kal)", "Alliances Sérères-Diolas, Peuls-Sérères, patrons", "Désamorce les rancœurs et proscrit l'affrontement."],
+          ["Dialogue Interreligieux", "Partage des fêtes (Ngallakh, Tabaski), familles mixtes", "Cimente l'unité nationale au-dessus des confessions."],
+          ["Médiation des Guides", "Appels à la paix des Khalifes généraux et Évêques", "Apaise les tensions politiques et préserve la concorde."]
+        ]
+      }
     },
     {
-      title: 'III. Conseil Constitutionnel, Cour des Comptes et OFNAC',
+      title: 'III. Les menaces contemporaines à la cohésion nationale',
       content: [
-        'Le Conseil Constitutionnel arbitre les litiges constitutionnels et électoraux suprêmes.',
-        'La Cour des Comptes et l’OFNAC veillent sur l’intégrité des deniers publics et la reddition des comptes.'
+        "• La dérive communautariste : Tentation chez certains acteurs d'instrumentaliser l'appartenance ethnique ou régionale à des fins politiques partisanes.",
+        "• Les dérives numériques sur les réseaux sociaux : Propagation instantanée de fausses nouvelles (fake news), de discours d'incitation à la haine, de cyber-harcèlement et d'intolérance.",
+        "• La vulnérabilité socio-économique : Le chômage des jeunes et les inégalités criantes créent un terreau propice aux explosions de colère urbaine."
       ]
     }
   ],
-  conclusion: "Sans justice forte, intègre et indépendante, il ne peut y avoir d’État de droit ni de démocratie véritable. La justice protège les faibles contre les puissants et assure la cohésion républicaine."
+  conclusion: "La paix n'est pas un acquis définitif mais une construction quotidienne. Il appartient à chaque jeune citoyen sénégalais de cultiver la tolérance, de vérifier les informations avant de les relayer et de préserver le vivre-ensemble."
 };
 
 export const LESSON_5_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-5',
   number: 'LEÇON 5',
-  title: 'LA DÉCENTRALISATION ET LA DÉMOCRATIE LOCALE AU SÉNÉGAL',
+  title: 'SOLIDARITÉ ET INTÉGRATION EN AFRIQUE',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Pour rapprocher l’administration des citoyens et promouvoir un développement économique équilibré sur l’ensemble du territoire national, l’État sénégalais a fait le choix stratégique de la Décentralisation. Depuis la réforme historique de l’Acte III de la décentralisation en 2013, le Sénégal est organisé en collectivités territoriales dotées de compétences propres et dirigées par des élus locaux.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 5 : LA DÉCENTRALISATION ET LA DÉMOCRATIE LOCALE AU SÉNÉGAL
+  introduction: "L'intégration régionale et continentale repose sur le constat que les micro-États africains, hérités de la colonisation, ne peuvent faire face isolément aux défis de la mondialisation. S'unir devient une obligation économique, politique et sécuritaire pour assurer le développement de l'Afrique.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE II : VIVRE ENSEMBLE
 
-I. COMPRENDRE LA DIFFÉRENCE : DÉCONCENTRATION ET DÉCENTRALISATION
-1. La Déconcentration :
-L’État nomme des représentants administratifs locaux pour agir en son nom en région ou en département (le Gouverneur de Région, le Préfet de Département, le Sous-préfet d’Arrondissement). Ils sont soumis à l’autorité hiérarchique directe du gouvernement (Ministre de l’Intérieur).
-2. La Décentralisation :
-L’État transfère des compétences de gestion et des moyens financiers à des Collectivités Territoriales autonomes, juridiquement distinctes de l’État, administrées par des conseils élus au suffrage universel par les populations locales.
+Leçon 5 : Solidarité et intégration en Afrique
 
-II. L’ACTE III DE LA DÉCENTRALISATION ET LES COLLECTIVITÉS TERRITORIALES
-Promulguée en 2013, la réforme de l’Acte III vise à « construire des territoires viables, compétitifs et porteurs de développement durable ».
-Elle repose sur deux niveaux de collectivités territoriales :
-1. Le Département :
-- Collectivité territoriale intermédiaire regroupant plusieurs communes.
-- Géré par le Conseil Départemental avec à sa tête un Président de Conseil Départemental élu par ses pairs.
-- Compétences phares : gestion et entretien des collèges et lycées, action sociale départementale, aménagement du territoire intercommunal.
-2. La Commune :
-- Cellule de base de la démocratie locale (ex : commune de Thiès-Nord, commune de Médina à Dakar, commune de Podor).
-- Dirigée par le Maire et la Municipalité sous le contrôle délibératif du Conseil Municipal élu.
-- Compétences de proximité : gestion des écoles primaires et préscolaires, gestion des postes de santé communautaires, état civil (actes de naissance, mariages, décès), éclairage public, voirie communale, marchés et salubrité publique.
+I. L'idéal panafricain et la nécessité de l'intégration
+L'intégration régionale et continentale repose sur le constat que les micro-États africains, hérités de la colonisation, ne peuvent faire face isolément aux défis de la mondialisation. S'unir devient une obligation économique, politique et sécuritaire pour assurer le développement de l'Afrique.
 
-III. LES COMPÉTENCES TRANSFÉRÉES ET LA PARTICIPATION CITOYENNE
-1. Les 9 domaines de compétences transférées par l’État :
-L’éducation, la santé, l’urbanisme et l’habitat, l’environnement et la gestion des ressources naturelles, la jeunesse et les sports, la culture, le plan et le développement économique, l’action sociale, la gestion des terres du domaine national.
-2. Le Budget participatif et l’engagement citoyen :
-La démocratie locale ne s’arrête pas au vote des maires tous les 5 ans. Elle encourage la participation active des citoyens :
-- Le Budget Participatif : processus démocratique permettant aux délégués de quartiers, associations de femmes et jeunes de choisir directement les priorités d’investissement de leur commune.
-- Le paiement des taxes municipales (taxe d’enlèvement des ordures, patentes des commerces) indispensable pour financer les travaux publics de quartier.`,
+II. L'Union Africaine (UA)
+Succédant à l'OUA en 2002, l'UA a pour objectif de promouvoir l'unité, la solidarité africaine, et d'accélérer l'intégration politique et socio-économique du continent. Elle dispose d'institutions comme la Commission de l'UA, le Conseil de paix et de sécurité, et oeuvre pour la mise en place de la ZLECAf (Zone de libre-échange continentale africaine).
+
+III. Les organisations d'intégration sous-régionale
+1. La CEDEAO (Communauté Économique des États de l'Afrique de l'Ouest) : Créée en 1975, elle vise la libre circulation des personnes, des biens et des capitaux. Au-delà de l'économie, elle joue un rôle crucial dans la gestion des crises politiques et le maintien de la paix via ses forces d'interposition.
+2. L'UEMOA (Union Économique et Monétaire Ouest-Africaine) : Regroupant les États ayant en commun l'usage du franc CFA, elle vise l'harmonisation des politiques fiscales, juridiques et monétaires pour créer un marché commun intégré.
+3. L'OMVS (Organisation pour la Mise en Valeur du Fleuve Sénégal) : Exemple réussi de coopération inter-États (Sénégal, Mali, Mauritanie, Guinée) pour la gestion partagée des ressources hydrauliques, la production d'énergie hydroélectrique et le développement de l'agriculture irriguée.`,
   sections: [
     {
-      title: 'I. Déconcentration Administrative vs Décentralisation Démocratique',
+      title: "I. L'idéal panafricain et la nécessité vitale de l'intégration",
       content: [
-        'Le Préfet représente l’État déconcentré avec autorité hiérarchique.',
-        'Le Maire et le Conseil Municipal représentent les citoyens décentralisés avec autonomie de gestion.'
+        "Les frontières actuelles de l'Afrique résultent du partage colonial opéré lors de la conférence de Berlin (1884-1885).",
+        "Ces frontières artificielles ont morcelé le continent en micro-marchés étroits, sans poids géopolitique suffisant face aux blocs mondiaux (Union Européenne, États-Unis, Chine).",
+        "L'intégration africaine vise à créer un espace uni de plus de 1,4 milliard d'habitants permettant de peser dans le commerce mondial et de garantir la sécurité collective."
       ]
     },
     {
-      title: 'II. L’Acte III : Départements et Communes de Proximité',
+      title: "II. L'Union Africaine (UA) et ses ambitions",
       content: [
-        'Le Département pilote les collèges et lycées et la planification territoriale.',
-        'La Commune gère le quotidien vital : état civil, écoles primaires, dispensaires, voirie et salubrité.'
+        "• Création : Fondée en 2002 à Durban (Afrique du Sud), l'UA succède à l'Organisation de l'Unité Africaine (OUA créée en 1963 à Addis-Abeba).",
+        "• Objectifs majeurs : Réaliser l'unité politique du continent, accélérer l'intégration socio-économique, éradiquer la pauvreté et instaurer la paix.",
+        "• Organes clés :",
+        "  - La Conférence des Chefs d'État et de Gouvernement (organe suprême de décision).",
+        "  - La Commission de l'UA (organe exécutif siégeant à Addis-Abeba).",
+        "  - Le Conseil de Paix et de Sécurité (CPS) chargé de la gestion des conflits.",
+        "• La ZLECAf (Zone de Libre-Échange Continentale Africaine) : Projet phare éliminant progressivement les droits de douane entre pays africains pour doper le commerce intra-africain."
       ]
     },
     {
-      title: 'III. Les 9 Domaines Transférés et la Démocratie Participative',
+      title: "III. Les organisations d'intégration sous-régionale en Afrique de l'Ouest",
       content: [
-        'De l’éducation à la santé et l’environnement, les élus locaux ont la responsabilité du développement.',
-        'Le budget participatif et les comités de quartier impliquent les habitants dans les décisions de leur cité.'
-      ]
+        "1. La CEDEAO (Traité de Lagos de 1975) :",
+        "• 15 pays membres initiaux formant un espace de libre circulation des personnes et des biens sans visa grâce au passeport CEDEAO.",
+        "• Dimension sécuritaire et maintien de l'ordre constitutionnel (forces de maintien de la paix, médiations diplomatiques).",
+        "2. L'UEMOA (Traité de Dakar de 1994) :",
+        "• 8 États membres d'Afrique de l'Ouest partageant une monnaie commune (le Franc CFA émis par la BCEAO).",
+        "• Harmonisation fiscale, convergence macro-économique et reconnaissance mutuelle des diplômes.",
+        "3. L'OMVS (créée en 1972) :",
+        "• Regroupe le Sénégal, le Mali, la Mauritanie et la Guinée.",
+        "• Gestion commune exemplaire des barrages de Diama (anti-sel) et de Manantali (hydroélectricité et retenue d'irrigation)."
+      ],
+      table: {
+        headers: ['Organisation', 'Création & Siège', 'Missions Principales'],
+        rows: [
+          ["Union Africaine (UA)", "2002 • Addis-Abeba (Éthiopie)", "Unité politique, paix continentale, ZLECAf."],
+          ["CEDEAO", "1975 • Abuja (Nigeria)", "Libre circulation sans visa, marché unique, paix."],
+          ["UEMOA", "1994 • Ouagadougou (Burkina Faso)", "Zone monétaire CFA, union douanière et convergence."],
+          ["OMVS", "1972 • Dakar (Sénégal)", "Gestion partagée de l'eau, barrages de Diama et Manantali."]
+        ]
+      }
     }
   ],
-  conclusion: "La décentralisation donne aux citoyens les moyens de devenir les artisans de leur propre développement local. Participer aux affaires de sa commune est le premier pas de la responsabilité civique."
+  conclusion: "L'engagement du Sénégal pour l'unité africaine est historique : l'article 84 de notre Constitution prévoit expressément que le Sénégal peut céder tout ou partie de sa souveraineté pour réaliser l'unité africaine."
 };
+
+// -------------------------------------------------------------------------
+// CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+// -------------------------------------------------------------------------
 
 export const LESSON_6_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-6',
   number: 'LEÇON 6',
-  title: 'LE SÉNÉGAL ET LES ORGANISATIONS INTERNATIONALES (ONU, UA, CEDEAO)',
+  title: 'L’ORGANISATION DU POUVOIR LÉGISLATIF',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Dans un monde globalisé interdépendant, aucun pays ne peut vivre en autarcie ni résoudre seul les défis transnationaux de la sécurité, de la pauvreté, du climat ou des épidémies. Dès son accession à la souveraineté internationale en 1960, le Sénégal a fait le choix constant du multilatéralisme, de l’intégration régionale africaine et du respect du droit international, se forgeant une réputation diplomatique de premier plan.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 6 : LE SÉNÉGAL ET LES ORGANISATIONS INTERNATIONALES
+  introduction: "Le pouvoir législatif au Sénégal est exercé par un parlement monocaméral représenté par l'Assemblée nationale. Les députés sont élus au suffrage universel direct pour un mandat de cinq ans, selon un système combinant le scrutin majoritaire départemental et le scrutin proportionnel national.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
-I. L’ORGANISATION DES NATIONS UNIES (ONU)
-1. Création et objectifs fondamentaux :
-Fondée en 1945 à San Francisco au lendemain de la Seconde Guerre mondiale (Charte de l’ONU).
-Ses 4 missions cardinales : préserver la paix et la sécurité internationales, développer des relations amicales entre nations fondées sur l’égalité souveraine, réaliser la coopération internationale face aux crises économiques, sanitaires et humanitaires, et promouvoir le respect universel des droits de l’Homme.
-2. Les organes principaux :
-- L’Assemblée Générale : parlement mondial réunissant les 193 États membres (un État = une voix).
-- Le Conseil de Sécurité : organe exécutif chargé du maintien de la paix (15 membres dont 5 permanents disposant du droit de veto : USA, Russie, Chine, France, Royaume-Uni).
-- La Cour Internationale de Justice (CIJ) à La Haye.
-- Les Agences spécialisées : UNICEF (enfance), UNESCO (éducation, science, culture), OMS (santé mondiale), HCR (réfugiés), FAO (alimentation et agriculture).
-3. Le rôle remarquable du Sénégal à l’ONU :
-Le Sénégal est l’un des plus grands contributeurs de troupes aux opérations de maintien de la paix des Casques Bleus (Missions de l’ONU en RDC, Mali, Centrafrique, Côte d’Ivoire). De nombreuses personnalités sénégalaises ont dirigé des institutions prestigieuses (Amadou Mahtar Mbow à l’UNESCO, Jacques Diouf à la FAO).
+Leçon 6 : L’organisation du pouvoir législatif
 
-II. L’UNION AFRICAINE (UA) ET LE RÊVE D’INTÉGRATION DU CONTINENT
-1. De l’OUA à l’UA :
-Succédant à l’Organisation de l’Unité Africaine (créée à Addis-Abeba en 1963 sous l’impulsion des pères fondateurs pour décoloniser le continent), l’Union Africaine est née à Durban en 2002 pour accélérer l’intégration politique et économique de l’Afrique et réaliser l’Agenda 2063.
-2. Objectifs de l’UA :
-Défendre la souveraineté des 55 pays africains, éradiquer les conflits armés ("Faire taire les armes"), promouvoir la démocratie et la bonne gouvernance contre les coups d’État (suspension immédiate des régimes putschistes), et bâtir la Zone de Libre-Échange Continentale Africaine (ZLECAF).
+I. Le statut et la composition de l'Assemblée nationale
+Le pouvoir législatif au Sénégal est exercé par un parlement monocaméral représenté par l'Assemblée nationale. Les députés sont élus au suffrage universel direct pour un mandat de cinq ans, selon un système combinant le scrutin majoritaire départemental et le scrutin proportionnel national.
 
-III. LA CEDEAO (COMMUNAUTÉ ÉCONOMIQUE DES ÉTATS DE L’AFRIQUE DE L’OUEST)
-Créée par le Traité de Lagos en 1975, la CEDEAO réunit les pays ouest-africains avec des acquis majeurs :
-- Libre circulation totale des personnes et des biens sans visa grâce au Passeport biométrique CEDEAO.
-- Droit de résidence et d’établissement pour tout ressortissant de l’espace communautaire.
-- L’ECOMOG / Force en attente : intervention pour rétablir la paix lors des guerres civiles au Libéria, en Sierra Leone et en Gambie en 2017.
-- Objectif monétaire : création progressive d’une monnaie unique régionale (l’Éco).`,
+II. Les missions fondamentales du pouvoir législatif
+1. Le vote de la loi : L'Assemblée nationale examine et vote les projets de loi (déposés par le gouvernement) et les propositions de loi (déposées par les députés). Elle vote également la loi de finances (budget de l'État).
+2. Le contrôle de l'action gouvernementale : Les députés contrôlent le travail des ministres à travers des questions orales, des questions écrites, des commissions d'enquête parlementaires et le vote d'une éventuelle motion de censure.
+
+III. Le fonctionnement et les garanties d'indépendance
+L'Assemblée est dirigée par un Bureau avec à sa tête le Président de l'Assemblée nationale. Pour garantir leur liberté d'expression et de vote, les députés bénéficient de l'immunité parlementaire, ce qui empêche qu'ils soient poursuivis ou arrêtés pour des opinions émises dans l'exercice de leurs fonctions, sauf en cas de flagrant délit.`,
   sections: [
     {
-      title: 'I. L’ONU et l’Engagement Militaire et Diplomatique du Sénégal',
+      title: "I. Le statut et la composition de l'Assemblée nationale",
       content: [
-        'L’ONU garantit la paix mondiale et la sécurité collective à travers ses Casques Bleus.',
-        'L’armée sénégalaise s’illustre par son professionnalisme légendaire dans les missions de paix onusiennes.'
+        "Le parlement sénégalais est monocaméral : il est composé d'une chambre unique, l'Assemblée Nationale (165 députés).",
+        "Mode d'élection mixte :",
+        "• Scrutin majoritaire à un tour dans les départements (dont la diaspora à l'étranger).",
+        "• Scrutin proportionnel au plus fort reste sur une liste nationale.",
+        "• Application stricte de la loi sur la parité absolue de 2010 : alternance obligatoire homme/femme sur chaque liste déposée."
       ]
     },
     {
-      title: 'II. L’Union Africaine : De la Décolonisation à la ZLECAF',
+      title: 'II. Les missions fondamentales du pouvoir législatif',
       content: [
-        'De l’OUA de 1963 à l’UA de 2002 : bâtir une Afrique unie, démocratique et prospère.',
-        'L’UA sanctionne les ruptures de l’ordre constitutionnel et promeut le marché unique africain.'
+        "1. Le vote de la loi :",
+        "• Les textes examinés sont soit des « projets de loi » (émanant du Premier ministre et du Président), soit des « propositions de loi » (émanant des députés).",
+        "• Le vote annuel de la Loi de Finances détermine les recettes (impôts) et les dépenses publiques de la République.",
+        "2. Le contrôle rigoureux de l'action du Gouvernement :",
+        "• Les questions d'actualité, questions orales et écrites adressées aux ministres.",
+        "• Les commissions d'enquête parlementaires pour faire la lumière sur des affaires publiques.",
+        "• La motion de censure : moyen par lequel l'Assemblée peut renverser le Gouvernement en cas de désaccord majeur sur sa politique."
       ]
     },
     {
-      title: 'III. La CEDEAO et l’Intégration Ouest-Africaine au Quotidien',
+      title: "III. Le fonctionnement et les garanties d'indépendance",
       content: [
-        'Le passeport CEDEAO et la libre circulation permettent aux citoyens de commercer et voyager librement.',
-        'La solidarité régionale reste le levier majeur pour faire face aux menaces terroristes sahéliennes.'
+        "• Le Bureau de l'Assemblée Nationale : Composé du Président de l'Assemblée, de vice-présidents, de questeurs et de secrétaires élus.",
+        "• Les commissions techniques permanentes (Finances, Lois, Éducation, Défense, Affaires étrangères...).",
+        "• L'immunité parlementaire : Protège le député contre toute arrestation ou poursuite judiciaire pour les propos tenus à l'hémicycle afin d'assurer l'indépendance absolue de son mandat."
       ]
     }
   ],
-  conclusion: "Panafricaniste convaincu et acteur respecté du multilatéralisme, le Sénégal démontre que la coopération internationale est la clé pour relever les défis du XXIe siècle."
+  conclusion: "L'Assemblée nationale est le temple de la démocratie représentative au Sénégal. Elle exprime la souveraineté du peuple à travers la confection des lois et la surveillance attentive de l'Exécutif."
 };
 
 export const LESSON_7_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-7',
   number: 'LEÇON 7',
-  title: 'LA CULTURE DE LA PAIX, LA TOLÉRANCE ET LA RÉSOLUTION PACIFIQUE DES CONFLITS',
+  title: 'L’ORGANISATION DU POUVOIR JUDICIAIRE',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "« Les guerres prenant naissance dans l’esprit des hommes, c’est dans l’esprit des hommes que doivent être élevées les défenses de la paix » proclame le préambule de l’UNESCO. Au Sénégal, la paix n’est pas seulement l’absence de guerre : elle est un mode de vie séculaire, un trésor culturel cultivé par le dialogue des religions, la concorde ethnique et des mécanismes traditionnels de régulation sociale réputés dans le monde entier.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 7 : LA CULTURE DE LA PAIX, LA TOLÉRANCE ET LA RÉSOLUTION PACIFIQUE DES CONFLITS
+  introduction: "Le pouvoir judiciaire est indépendant des pouvoirs exécutif et législatif. La justice est rendue au nom du peuple sénégalais sur toute l'étendue du territoire. Elle repose sur des principes clés : l'égalité de tous devant la loi, la gratuité des procédures (les juges étant payés par l'État), le droit à un procès équitable et la présomption d'innocence.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
-I. LA NOTION DE CULTURE DE LA PAIX ET DE TOLÉRANCE
-1. Définition selon l’ONU :
-Une culture de paix est un ensemble de valeurs, d’attitudes, de modes de comportement et de modes de vie qui rejettent la violence et préviennent les conflits en s’attaquant à leurs causes profondes par le dialogue et la négociation.
-2. La Tolérance :
-La tolérance n’est ni la complaisance ni l’indifférence. C’est le respect, l’acceptation et l’appréciation de la riche diversité des cultures de notre monde, de nos formes d’expression et de nos manières d’exprimer notre qualité d’être humain.
+Leçon 7 : L’organisation du pouvoir judiciaire
 
-II. LE MODÈLE DE CONCORDE ET DE TOLÉRANCE DU SÉNÉGAL
-Le Sénégal se distingue sur le plan international par une harmonie sociétale exceptionnelle reposant sur trois piliers :
-1. Le dialogue islamo-chrétien exemplaire :
-Musulmans (environ 95 % de la population) et Chrétiens (environ 5 %) vivent en parfaite osmose fraternelle dans les mêmes familles, célèbrent ensemble la Korité, la Tabaski, Noël et Pâques, et reposent parfois dans les mêmes cimetières mixtes (comme le cimetière de Joal-Fadiouth).
-2. La Parenté à plaisanterie (Kalir ou Kalou en wolof / Sene-Kouma) :
-Pacte d’alliance historique multiséculaire liant différentes ethnies (ex : Sérères et Toucouleurs, Diolas et Peuls) et différents patronymes (Ndiaye et Diop, Cissé et Touré). Cette tradition autorise les invectives et moqueries bienveillantes, désamorce instantanément les rancœurs et interdit formellement l’effusion de sang entre alliés.
-3. Le rôle régulateur des guides religieux et chefs coutumiers :
-Califes généraux des confréries musulmanes et clergé catholique interviennent régulièrement pour apaiser les tensions politiques et sociales lors des crises électorales.
+I. Les principes fondamentaux de la justice
+Le pouvoir judiciaire est indépendant des pouvoirs exécutif et législatif. La justice est rendue au nom du peuple sénégalais sur toute l'étendue du territoire. Elle repose sur des principes clés : l'égalité de tous devant la loi, la gratuité des procédures (les juges étant payés par l'État), le droit à un procès équitable et la présomption d'innocence.
 
-III. LES MÉTHODES DIPLOMATIQUES ET PACIFIQUES DE RÈGLEMENT DES CONFLITS
-La Charte des Nations Unies (Article 33) énumère les modes pacifiques de règlement des différends :
-- La Négociation directe entre les parties.
-- Les Bons Offices et la Médiation : intervention d’un tiers neutre pour rapprocher les points de vue.
-- L’Arbitrage et le Règlement judiciaire devant les tribunaux internationaux (CIJ).
-- L’exemple du processus de paix en Casamance : engagement constant pour la réconciliation nationale, le désarmement volontaire et le développement solidaire du Sud du Sénégal.`,
+II. L'architecture judiciaire sénégalaise
+Le système judiciaire comporte plusieurs paliers :
+Les juridictions de base : Les Tribunaux d'Instance et de Grande Instance (TGI) qui tranchent les litiges du quotidien (civils, commerciaux, correctionnels).
+Les Cours d'Appel : Elles réexaminent les affaires déjà jugées en premier ressort lorsque l'une des parties n'est pas satisfaite du verdict.
+Les Hautes Juridictions : La Cour Suprême (qui contrôle la légalité des décisions des cours inférieures), le Conseil Constitutionnel (qui juge de la conformité des lois à la Constitution et valide les élections) et la Cour des Comptes (qui contrôle les finances publiques).
+
+III. Le Conseil Supérieur de la Magistrature et l'indépendance
+Pour garantir l'impartialité des juges, la Constitution consacre l'inamovibilité des magistrats du siège. Le Conseil Supérieur de la Magistrature gère la carrière, les nominations et la discipline des magistrats.`,
   sections: [
     {
-      title: 'I. Définition Onusienne de la Culture de la Paix',
+      title: 'I. Les principes cardinaux régissant la justice',
       content: [
-        'La paix se construit par le rejet de la violence, l’éducation civique et la justice sociale.',
-        'La tolérance enrichit la société par l’acceptation sincère des différences d’opinions et de croyances.'
+        "• L'indépendance de la justice : Les juges ne reçoivent d'ordres d'aucun pouvoir politique dans leurs jugements.",
+        "• L'égalité devant la loi : Tout justiciable, riche ou pauvre, puissant ou démuni, est soumis aux mêmes règles.",
+        "• La présomption d'innocence : Tout accusé est réputé innocent tant que sa culpabilité n'a pas été légalement établie lors d'un procès équitable.",
+        "• La gratuité de la justice : Les justiciables ne rémunèrent pas les juges ; la justice est un service public républicain."
       ]
     },
     {
-      title: 'II. Les Trésors de la Concorde Sénégalaise : Kalir et Dialogue Interreligieux',
+      title: "II. L'organisation pyramidale des cours et tribunaux",
       content: [
-        'La parenté à plaisanterie (Kalir) désamorce les conflits par l’humour et la fraternité ancestrale.',
-        'La communion entre musulmans et chrétiens constitue l’âme tolérante de la Teranga sénégalaise.'
-      ]
+        "1. Juridictions de premier degré (juridictions de base) :",
+        "• Tribunaux d'Instance (au niveau des départements) : litiges de moindre gravité, petits délits, état civil.",
+        "• Tribunaux de Grande Instance (TGI) : affaires pénales graves (crimes jugés par la chambre criminelle), litiges civils et commerciaux importants.",
+        "2. Juridictions de second degré :",
+        "• Les Cours d'Appel (Dakar, Saint-Louis, Kaolack, Thiès, Ziguinchor) : rejugent le litige en fait et en droit sur recours d'une partie insatisfaite.",
+        "3. Les Hautes Juridictions républicaines :",
+        "• La Cour Suprême : juge la conformité au droit des décisions rendues en dernier ressort (juge de la légalité, ne rejuge pas les faits).",
+        "• Le Conseil Constitutionnel : contrôle la constitutionnalité des lois et proclame les résultats définitifs des élections présidentielles et législatives.",
+        "• La Cour des Comptes : juge les comptes des comptables publics et contrôle la bonne utilisation des deniers de l'État."
+      ],
+      table: {
+        headers: ['Niveau Juridictionnel', 'Institutions', 'Rôle & Compétence'],
+        rows: [
+          ["1er Degré (Base)", "Tribunaux d'Instance & TGI", "Tranchent les litiges civils, délits et crimes en 1ère instance."],
+          ["2ème Degré", "Cours d'Appel", "Réexaminent totalement l'affaire si appel interjeté."],
+          ["Sommet Judiciaire", "Cour Suprême", "Contrôle la stricte conformité aux lois des cours inférieures."],
+          ["Contrôle Spécialisé", "Conseil Constitutionnel & Cour des Comptes", "Conformité constitutionnelle, élections et gestion des fonds publics."]
+        ]
+      }
     },
     {
-      title: 'III. Médiation, Justice Internationale et Paix en Casamance',
+      title: "III. Le Conseil Supérieur de la Magistrature et l'inamovibilité",
       content: [
-        'Privilégier la médiation et la négociation diplomatique face à toute crise.',
-        'L’apaisement en Casamance démontre la force de la main tendue et du pardon fraternel.'
+        "• Règle de l'inamovibilité : Les magistrats du siège ne peuvent être révoqués, suspendus ou déplacés sans leur consentement ou sans faute disciplinaire grave.",
+        "• Rôle du Conseil Supérieur de la Magistrature : Organe constitutionnel garant de la gestion des carrières, nominations et indépendance statutaire des magistrats."
       ]
     }
   ],
-  conclusion: "La paix est l’héritage le plus précieux que nous ont légué nos ancêtres. Il appartient à chaque jeune collégien de préserver ce trésor en rejetant tout fanatisme et en incarnant au quotidien l’esprit de la Teranga."
+  conclusion: "Une justice indépendante et impartiale est le garant ultime de la paix sociale et du respect des droits de l'homme dans un État de droit."
 };
 
 export const LESSON_8_CIVIQUE_3EME: LessonContent = {
   id: 'civique-3eme-lecon-8',
   number: 'LEÇON 8',
-  title: 'LES ENJEUX DU XXIe SIÈCLE : ENVIRONNEMENT, CYBERCITOYENNETÉ ET MONDIALISATION',
+  title: 'L’ÉTAT DE DROIT ET LA BONNE GOUVERNANCE',
   subject: 'Éducation civique',
   classLevel: '3ème',
-  introduction: "Le citoyen du XXIe siècle ne vit plus seulement dans les frontières de son pays : il est devenu un citoyen du monde confronté à des bouleversements écologiques sans précédent, à l’essor spectaculaire du monde numérique et aux mutations de la mondialisation. Comprendre ces défis globaux permet d’adopter des comportements éco-responsables et une éthique numérique indispensable à la survie de la planète et de nos démocraties.",
-  fullText: `PROGRAMME D’ÉDUCATION CIVIQUE - CLASSE DE 3ÈME (BFEM)
-LEÇON 8 : LES ENJEUX DU XXIe SIÈCLE : ENVIRONNEMENT, CYBERCITOYENNETÉ ET MONDIALISATION
+  introduction: "Un État de droit est un système institutionnel dans lequel la puissance publique est soumise au droit. Les gouvernants, tout comme les citoyens, doivent respecter les lois en vigueur. Il implique l'existence d'une hiérarchie des normes juridiques (la Constitution étant au sommet) et la possibilité de contester un acte de l'administration devant les tribunaux.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
-I. L’URGENCE ENVIRONNEMENTALE ET LE CHANGEMENT CLIMATIQUE AU SÉNÉGAL
-1. La crise écologique globale :
-Les émissions massives de gaz à effet de serre (CO2, méthane) issues des énergies fossiles provoquent le réchauffement climatique mondial, la fonte des calottes glaciaires et la multiplication d’événements climatiques extrêmes (sécheresses, canicules, inondations).
-2. Les impacts directs sur le Sénégal :
-- La désertification et la dégradation des terres arables au Sahel et dans le bassin arachidier.
-- L’érosion côtière dramatique dévorant les côtes sableuses de Saint-Louis (Langue de Barbarie), Rufisque, Bargny et Saly.
-- La salinisation des terres agricoles dans les îles du Saloum et en Casamance.
-3. Les initiatives écologiques :
-- Le projet panafricain de la Grande Muraille Verte : barrière végétale d’arbres reliant Dakar à Djibouti sur plus de 7 000 km pour freiner l’avancée du désert du Sahara.
-- La transition énergétique vers le solaire et l’éolien (centrales solaires de Bokhol, Malicounda).
-- Les gestes éco-citoyens au quotidien : interdiction du plastique à usage unique, reboisement scolaire, économie de l’eau et tri des déchets.
+Leçon 8 : L’État de droit et la bonne gouvernance
 
-II. LA CYBERCITOYENNETÉ ET L’ÉTHIQUE DU NUMÉRIQUE
-1. L’ère des réseaux sociaux (TikTok, WhatsApp, Facebook, Instagram, X) :
-Internet offre des opportunités d’apprentissage colossales, mais véhicule des dérives graves :
-- Les Fausses nouvelles (Fake news ou désinformation) semant la panique ou manipulant l’opinion publique.
-- Le cyberharcèlement, les injures et discours de haine ethnique ou religieuse punis sévèrement par le Code Pénal sénégalais.
-- L’atteinte à la vie privée et le piratage des données personnelles.
-2. Les devoirs du Cybercitoyen responsable :
-- Toujours vérifier la source d’une information avant de la partager ("Je tourne mon doigt 7 fois avant de cliquer").
-- Bannir tout propos injurieux ou diffamatoire dans les groupes de discussion.
-- Protéger ses mots de passe et ne jamais divulguer d’images intimes.
+I. Concept de l'État de droit
+Un État de droit est un système institutionnel dans lequel la puissance publique est soumise au droit. Les gouvernants, tout comme les citoyens, doivent respecter les lois en vigueur. Il implique l'existence d'une hiérarchie des normes juridiques (la Constitution étant au sommet) et la possibilité de contester un acte de l'administration devant les tribunaux.
 
-III. CITOYENNETÉ NATIONALE ET CITOYENNETÉ MONDIALE
-Être citoyen du monde, c’est comprendre que les problèmes de l’humanité (pandémies, pauvreté, pollution des océans) sont interconnectés.
-C’est s’ouvrir aux autres cultures sans jamais renier son identité culturelle sénégalaise, et agir localement pour un impact positif global : "Penser globalement, agir localement".`,
+II. Les principes fondamentaux de la bonne gouvernance
+La bonne gouvernance est la gestion responsable, transparente et efficace des ressources publiques et des affaires de l'État. Elle se caractérise par :
+• La transparence et l'obligation de rendre des comptes.
+• L'efficacité de l'administration publique au service des citoyens.
+• La lutte active contre la corruption, le népotisme et le détournement de deniers publics.
+
+III. Les organes de contrôle et de régulation au Sénégal
+Pour matérialiser ces principes, le Sénégal s'est doté d'institutions spécialisées : l'OFNAC (Office national de lutte contre la Fraude et la Corruption), la CENTIF (Cellule Nationale de Traitement des Informations Financières) et la Cour des Comptes.`,
   sections: [
     {
-      title: 'I. Changement Climatique au Sahel et Grande Muraille Verte',
+      title: "I. Les fondements juridiques de l'État de droit",
       content: [
-        'L’érosion côtière et la désertification menacent directement les populations sénégalaises.',
-        'La Grande Muraille Verte et les énergies renouvelables traduisent l’ambition écologique nationale.'
+        "Dans l'État de droit, nul n'est au-dessus de la loi : ni le Président de la République, ni les ministres, ni les hauts dignitaires.",
+        "Critères indispensables :",
+        "• Séparation nette des trois pouvoirs (exécutif, législatif, judiciaire).",
+        "• Soumission de l'administration publique au contrôle de la légalité.",
+        "• Respect effectif des droits humains et des libertés fondamentales garantis par des juges indépendants."
       ]
     },
     {
-      title: 'II. Les Règles d’Or de la Cybercitoyenneté et Lutte contre les Fake News',
+      title: 'II. Les piliers de la bonne gouvernance républicaine',
       content: [
-        'Vérifier les sources, respecter la vie privée et refuser les discours de haine sur les réseaux sociaux.',
-        'La responsabilité pénale s’applique intégralement aux publications et partages numériques.'
+        "• Transparence budgétaire et obligation de rendre des comptes (redevabilité) envers le peuple souverain.",
+        "• Intégrité morale des gestionnaires publics et dénonciation des conflits d'intérêts.",
+        "• Déclaration obligatoire de patrimoine pour les hautes autorités de l'État lors de leur prise de fonction et à leur départ.",
+        "• Sanction impartiale de la corruption, de la concussion et du gaspillage des deniers publics."
       ]
     },
     {
-      title: 'III. L’Éco-citoyen et le Citoyen du Monde',
+      title: 'III. Les institutions de contrôle et de régulation au Sénégal',
       content: [
-        'Allier fidélité aux valeurs patriotiques et solidarité universelle pour les générations futures.'
+        "• L'OFNAC (Office National de Lutte contre la Fraude et la Corruption) : Reçoit les plaintes des citoyens, diligente des enquêtes et recueille les déclarations de patrimoine des gestionnaires de fonds publics.",
+        "• La CENTIF (Cellule Nationale de Traitement des Informations Financières) : Lutte contre le blanchiment de capitaux et le financement occulte ou terroriste.",
+        "• La Cour des Comptes et l'IGE (Inspection Générale d'État) : Audits exhaustifs des ministères, agences nationales et sociétés d'État pour débusquer les fautes de gestion."
+      ],
+      table: {
+        headers: ['Organe de Contrôle', 'Nature Juridique', 'Mission Principale'],
+        rows: [
+          ["OFNAC", "Autorité administrative indépendante", "Prévention et répression de la fraude et corruption."],
+          ["CENTIF", "Cellule de renseignement financier", "Lutte contre le blanchiment d'argent et les flux illicites."],
+          ["Cour des Comptes", "Haute juridiction financière", "Contrôle de la régularité des dépenses et comptes publics."],
+          ["IGE", "Corps de contrôle supérieur d'État", "Vérification administrative et managériale sous l'autorité du Président."]
+        ]
+      }
+    }
+  ],
+  conclusion: "L'État de droit et la bonne gouvernance sont les deux piliers indispensables pour attirer les investissements, éradiquer la pauvreté et garantir le développement équitable du Sénégal."
+};
+
+export const LESSON_9_CIVIQUE_3EME: LessonContent = {
+  id: 'civique-3eme-lecon-9',
+  number: 'LEÇON 9',
+  title: 'LES DROITS DE L’HOMME',
+  subject: 'Éducation civique',
+  classLevel: '3ème',
+  introduction: "Les Droits de l'Homme sont des prérogatives inhérentes à la nature humaine, universelles, inaliénables et sacrées. Ils se sont construits progressivement à travers l'histoire pour protéger l'individu contre l'arbitraire du pouvoir.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+
+Leçon 9 : Les Droits de l’Homme
+
+I. Évolution historique et philosophique
+Les Droits de l'Homme sont des prérogatives inhérentes à la nature humaine, universelles, inaliénables et sacrées. Ils se sont construits progressivement à travers l'histoire pour protéger l'individu contre l'arbitraire du pouvoir.
+
+II. Analyse des textes fondamentaux
+1. La Déclaration des Droits de l'Homme et du Citoyen (1789) : Texte fondateur de la Révolution française, il proclame la liberté et l'égalité des droits des citoyens dès la naissance.
+2. La Déclaration Universelle des Droits de l'Homme (DUDH - 1948) : Adoptée par l'ONU au lendemain de la Seconde Guerre mondiale, elle pose le socle des droits civils, politiques, économiques et culturels applicables à tous les êtres humains.
+3. La Charte Africaine des Droits de l'Homme et des Peuples (CADHP - 1981) : Elle intègre les spécificités culturelles africaines en liant les droits individuels aux devoirs envers la famille et la communauté, et en insistant sur le droit des peuples à disposer d'eux-mêmes.
+
+III. Les mécanismes de protection et de promotion
+La protection est assurée au niveau national par les tribunaux et le Comité Sénégalais des Droits de l'Homme (CSDH), et au niveau international par les agences de l'ONU et des ONG telles qu'Amnesty International.`,
+  sections: [
+    {
+      title: 'I. Évolution historique et trois générations de droits',
+      content: [
+        "• 1ère génération (Droits civils et politiques) : Droit à la vie, liberté d'opinion, liberté de circulation, droit de vote (issus des révolutions du XVIIIe siècle).",
+        "• 2ème génération (Droits économiques et sociaux) : Droit au travail, droit à la santé, à l'éducation et à la grève (issus des luttes ouvrières du XIXe siècle).",
+        "• 3ème génération (Droits de solidarité) : Droit à la paix, au développement et à un environnement sain (affirmés au XXe siècle)."
+      ]
+    },
+    {
+      title: 'II. Analyse des trois textes internationaux et régionaux majeurs',
+      content: [
+        "1. Déclaration de 1789 : Article 1er : « Les hommes naissent et demeurent libres et égaux en droits ».",
+        "2. DUDH de 1948 (Paris, ONU) : 30 articles universels protégeant l'intégrité de la personne contre la torture, l'esclavage et la discrimination.",
+        "3. Charte de Banjul (CADHP 1981) : Spécificité africaine remarquable combinant droits individuels, respect des aînés, devoirs envers la communauté et droit des peuples au développement."
+      ],
+      table: {
+        headers: ['Texte Fondateur', 'Date & Cadre', 'Apport Spécifique'],
+        rows: [
+          ["DDHC", "1789 • Révolution française", "Proclamation universelle de l'égalité et de la liberté naturelle."],
+          ["DUDH", "1948 • Assemblée générale ONU", "Socle universel des droits civils, économiques et culturels."],
+          ["CADHP", "1981 • OUA / Banjul", "Union des droits et devoirs, préservation des valeurs de solidarité africaine."]
+        ]
+      }
+    },
+    {
+      title: 'III. Mécanismes de surveillance et de défense',
+      content: [
+        "• Au Sénégal : Le Comité Sénégalais des Droits de l'Homme (CSDH), les tribunaux républicains et la Raddho (Rencontre Africaine pour la Défense des Droits de l'Homme).",
+        "• À l'échelle internationale : Le Conseil des Droits de l'Homme de l'ONU (Genève), la Cour Africaine des Droits de l'Homme et des Peuples (Arusha) et les grandes ONG mondiales (Amnesty International, Human Rights Watch)."
       ]
     }
   ],
-  conclusion: "Face aux défis colossaux du climat et du numérique, la jeunesse sénégalaise détient les clés du changement. En devenant des éco-citoyens responsables et des internautes éclairés, vous bâtissez le monde de demain."
+  conclusion: "Défendre les droits de l'homme, c'est préserver la paix et l'humanité en chacun de nous. Nul ne peut être libre tant qu'un seul être humain subit l'injustice ou l'oppression."
 };
 
+export const LESSON_10_CIVIQUE_3EME: LessonContent = {
+  id: 'civique-3eme-lecon-10',
+  number: 'LEÇON 10',
+  title: 'LES DROITS DE LA FEMME',
+  subject: 'Éducation civique',
+  classLevel: '3ème',
+  introduction: "Historiquement, les pesanteurs sociales, les traditions mal interprétées et le manque d'accès à l'instruction ont maintenu les femmes dans une situation de vulnérabilité et de dépendance. La reconnaissance de leurs droits est un enjeu de justice sociale et de développement économique.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+
+Leçon 10 : Les droits de la femme
+
+I. Le contexte socio-culturel et les inégalités de genre
+Historiquement, les pesanteurs sociales, les traditions mal interprétées et le manque d'accès à l'instruction ont maintenu les femmes dans une situation de vulnérabilité et de dépendance. La reconnaissance de leurs droits est un enjeu de justice sociale et de développement économique.
+
+II. Les instruments juridiques de protection
+Au niveau international, le Sénégal a ratifié la CEDEF (Convention sur l'élimination de toutes les formes de discrimination à l'égard des femmes) et le Protocole de Maputo en Afrique. La Constitution sénégalaise proclame l'égalité des citoyens devant la loi sans distinction de sexe, garantissant aux femmes le droit d'accès à la propriété foncière et à un salaire égal.
+
+III. La loi sur la parité au Sénégal
+Adoptée le 14 mai 2010, la loi instituant la parité absolue homme-femme oblige toutes les listes de candidatures pour les institutions totalement ou partiellement électives (Assemblée nationale, conseils municipaux, conseils départementaux) à comporter alternativement des candidats des deux sexes, sous peine de rejet de la liste. C'est une avancée majeure pour la représentativité politique des femmes.`,
+  sections: [
+    {
+      title: 'I. Le contexte socio-culturel et les discriminations persistantes',
+      content: [
+        "• Pesanteurs traditionnelles : Mariages précoces ou forcés, violences basées sur le genre (VBG), surcharge des travaux domestiques non rémunérés.",
+        "• Obstacles économiques : Difficulté d'accès au crédit bancaire, limitation coutumière de l'accès à la propriété de la terre en milieu rural.",
+        "• L'autonomisation des femmes est le moteur du développement : éduquer une fille, c'est éduquer une nation entière."
+      ]
+    },
+    {
+      title: 'II. Le cadre juridique international et constitutionnel',
+      content: [
+        "• La CEDEF (1979) : Traité fondamental interdisant toute distinction, exclusion ou restriction fondée sur le sexe.",
+        "• Le Protocole de Maputo (2003) : Protocole panafricain garantissant les droits politiques, économiques et reproductifs des femmes en Afrique.",
+        "• La Constitution du Sénégal (article 7 et article 25) : Égalité solennelle en droits, droit à un salaire égal pour un travail de valeur égale, criminalisation du viol et des violences faites aux femmes."
+      ]
+    },
+    {
+      title: 'III. La loi historique sur la parité absolue de 2010',
+      content: [
+        "• Loi n° 2010-11 du 28 mai 2010 : Instaure la parité absolue hommes-femmes dans toutes les institutions totalement ou partiellement électives.",
+        "• Mécanisme contraignant du « zippage » : Les listes de candidatures doivent alterner strictement homme/femme/homme ou femme/homme/femme ; toute liste ne respectant pas cette règle est purement et simplement rejetée par la direction générale des élections.",
+        "• Résultat spectaculaire : Le Sénégal s'est hissé parmi les pays au monde ayant le plus fort taux de femmes parlementaires (plus de 40% de députées à l'Assemblée nationale)."
+      ],
+      table: {
+        headers: ['Niveau Juridique', 'Instrument', 'Règle / Avancée Majeure'],
+        rows: [
+          ["International", "CEDEF (ONU - 1979)", "Élimination de toutes les discriminations à l'égard des femmes."],
+          ["Africain", "Protocole de Maputo (2003)", "Protection des droits fondamentaux des femmes africaines."],
+          ["Constitutionnel", "Constitution sénégalaise", "Égalité hommes-femmes, droit au salaire égal et accès foncier."],
+          ["Législatif National", "Loi sur la parité (2010)", "Parité absolue alternée sur toutes les listes électorales."]
+        ]
+      }
+    }
+  ],
+  conclusion: "La pleine émancipation de la femme sénégalaise n'est pas seulement un impératif de justice morale, c'est la condition sine qua non de l'essor économique et de l'équilibre démocratique de notre nation."
+};
+
+export const LESSON_11_CIVIQUE_3EME: LessonContent = {
+  id: 'civique-3eme-lecon-11',
+  number: 'LEÇON 11',
+  title: 'LES DROITS DE L’ENFANT',
+  subject: 'Éducation civique',
+  classLevel: '3ème',
+  introduction: "En raison de son manque de maturité physique et intellectuelle, l'enfant a besoin d'une protection spéciale et de soins particuliers, y compris d'une protection juridique appropriée, avant comme après la naissance.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+
+Leçon 11 : Les droits de l’enfant
+
+I. Vulnérabilité spécifique de l'enfant
+En raison de son manque de maturité physique et intellectuelle, l'enfant a besoin d'une protection spéciale et de soins particuliers, y compris d'une protection juridique appropriée, avant comme après la naissance.
+
+II. Les instruments internationaux de protection
+1. La Convention relative aux Droits de l'Enfant (CDE - 1989) : Adoptée par l'ONU, elle repose sur quatre principes fondamentaux : la non-discrimination, l'intérêt supérieur de l'enfant, le droit à la vie, à la survie et au développement, et le respect des opinions de l'enfant.
+2. La Charte Africaine des Droits et du Bien-être de l'Enfant (CADBEE) : Elle adapte ces principes aux réalités du continent africain.
+
+III. Les défis de la protection de l'enfance au Sénégal
+Le Sénégal fait face à des problématiques majeures : la mendicité forcée de certains enfants talibés, le travail précoce des enfants dans les marchés ou les sites d'orpaillage clandestins, les mariages des enfants et les violences physiques ou sexuelles. L'État et la société civile luttent à travers des programmes de scolarisation obligatoire et des centres de sauvegarde pour mineurs.`,
+  sections: [
+    {
+      title: "I. La vulnérabilité spécifique et définition de l'enfant",
+      content: [
+        "• Définition juridique : Selon la CDE, est considéré comme enfant tout être humain âgé de moins de dix-huit (18) ans.",
+        "• Vulnérabilité biologique et psychologique nécessitant l'intervention protectrice de la famille, de l'école et de l'État.",
+        "• L'enfant est titulaire de droits opposables aux adultes et aux pouvoirs publics."
+      ]
+    },
+    {
+      title: 'II. Les instruments internationaux de protection de l’enfance',
+      content: [
+        "1. La Convention relative aux Droits de l'Enfant (CDE de 1989) : Traité international le plus largement ratifié au monde.",
+        "Quatre principes piliers fondamentaux :",
+        "• 1. La non-discrimination (aucun enfant ne doit souffrir d'inégalité de traitement).",
+        "• 2. L'intérêt supérieur de l'enfant (doit guider toute décision judiciaire, administrative ou parentale).",
+        "• 3. Le droit à la vie, à la survie et au plein développement physique, mental et moral.",
+        "• 4. Le droit de participation et de liberté d'expression (l'avis de l'enfant doit être écouté selon son âge et sa maturité).",
+        "2. La Charte Africaine des Droits et du Bien-être de l'Enfant (CADBEE de 1990) :",
+        "• Insiste sur la responsabilité de la communauté et protège les enfants contre les pratiques traditionnelles néfastes (mutilations génitales, mariages d'enfants)."
+      ],
+      table: {
+        headers: ['Principe CDE', 'Signification Concrète', 'Mise en Œuvre au Sénégal'],
+        rows: [
+          ["Non-discrimination", "Mêmes droits pour tous les enfants sans distinction.", "Égalité d'accès aux écoles et structures de santé."],
+          ["Intérêt supérieur", "La décision doit toujours privilégier le bien-être de l'enfant.", "Priorité dans les décisions du juge des enfants."],
+          ["Survie & Développement", "Vaccination, nutrition saine et scolarité garantie.", "Programmes de santé maternelle et scolarité obligatoire jusqu'à 16 ans."],
+          ["Participation", "Droit de s'exprimer et d'être entendu.", "Création de parlements et clubs d'enfants dans les collèges."]
+        ]
+      }
+    },
+    {
+      title: "III. Les défis majeurs de la protection de l'enfance au Sénégal",
+      content: [
+        "• Le drame des enfants talibés errants et la mendicité forcée : Nécessité de moderniser les daaras et de punir les réseaux d'exploitation.",
+        "• Le travail précoce et dangereux : Présence d'enfants dans les marchés, ateliers de mécanique ou sites d'orpaillage artisanal à Kédougou.",
+        "• Les mariages d'enfants et grossesses précoces privant les jeunes filles de leur droit fondamental à poursuivre leurs études.",
+        "• Les dispositifs de riposte de l'État : Brigade des mineurs, centres de premier accueil, numéros verts gratuits de signalement (116) et stratégie nationale de protection de l'enfance."
+      ]
+    }
+  ],
+  conclusion: "Protéger les enfants, c'est garantir l'avenir de la République. Aucun sacrifice n'est de trop pour assurer à chaque enfant sénégalais un toit, de l'amour, des soins et une éducation de qualité."
+};
+
+export const DOSSIER_2_3_CIVIQUE_3EME: LessonContent = {
+  id: 'civique-3eme-dossier-2-3',
+  number: 'DOSSIER AC 2 & 3',
+  title: 'LA CONSTITUTION SÉNÉGALAISE ET LE CODE ÉLECTORAL',
+  subject: 'Éducation civique',
+  classLevel: '3ème',
+  introduction: "La Constitution est la Loi Fondamentale qui organise l'État, définit la forme de la République (laïque, démocratique et sociale), fixe la séparation des pouvoirs et garantit les libertés publiques. Le Code électoral, quant à lui, est l'ensemble des règles qui régissent l'organisation des scrutins, l'inscription sur les listes électorales, le déroulement du vote, la transparence du dépouillement et la proclamation des résultats par les instances habilitées (CENA, Conseil Constitutionnel). Ces deux outils sont les piliers de l'expression démocratique au Sénégal.",
+  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
+CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+
+Dossier AC 2 & AC 3 : La Constitution sénégalaise et le Code électoral
+
+La Constitution est la Loi Fondamentale qui organise l'État, définit la forme de la République (laïque, démocratique et sociale), fixe la séparation des pouvoirs et garantit les libertés publiques. Le Code électoral, quant à lui, est l'ensemble des règles qui régissent l'organisation des scrutins, l'inscription sur les listes électorales, le déroulement du vote, la transparence du dépouillement et la proclamation des résultats par les instances habilitées (CENA, Conseil Constitutionnel). Ces deux outils sont les piliers de l'expression démocratique au Sénégal.`,
+  sections: [
+    {
+      title: "I. La Constitution sénégalaise : Clé de voûte institutionnelle",
+      content: [
+        "• Définition : Texte juridique suprême trônant au sommet de la hiérarchie des normes (principe de constitutionnalité).",
+        "• Contenu fondamental :",
+        "  - La forme de l'État : République laïque, démocratique, indivisible et sociale.",
+        "  - La séparation stricte des trois pouvoirs : Exécutif, Législatif et Judiciaire.",
+        "  - Le catalogue des droits fondamentaux inaliénables des citoyens.",
+        "  - Les clauses d'éternité (Article 103) interdisant toute révision sur la forme républicaine, la laïcité et la limitation des mandats présidentiels à deux consécutifs."
+      ]
+    },
+    {
+      title: 'II. Le Code électoral : Instrument technique de la démocratie',
+      content: [
+        "Le Code électoral régit l'ensemble des opérations électorales pour garantir des scrutins libres, sincères et transparents :",
+        "• L'inscription biométrique sur les listes électorales et la délivrance de la carte d'électeur sécurisée.",
+        "• Les règles strictes de campagne électorale et l'égal accès des candidats aux médias publics (contrôlé par le CNRA).",
+        "• Le déroulement du scrutin : présence d'enveloppes opaques, passage obligatoire par l'isoloir, trempage du doigt dans l'encre indélébile.",
+        "• Le dépouillement public dans les bureaux de vote sous le regard des représentants des candidats, des observateurs indépendants et de la société civile."
+      ]
+    },
+    {
+      title: 'III. Les instances de contrôle et de proclamation des résultats',
+      content: [
+        "• La CENA (Commission Électorale Nationale Autonome) : Supervise et contrôle l'ensemble des opérations électorales avec des délégués dans chaque bureau de vote.",
+        "• Les Commissions départementales et nationales de recensement des votes : Centralisent et vérifient les procès-verbaux.",
+        "• Le Conseil Constitutionnel : Seule juridiction compétente pour examiner les recours électoraux et proclamer les résultats définitifs de l'élection présidentielle et des élections législatives."
+      ],
+      table: {
+        headers: ['Institution Électorale', 'Statut', 'Rôle Clé'],
+        rows: [
+          ["CENA", "Structure indépendante permanente", "Supervision, contrôle et arbitrage du scrutin."],
+          ["Commission Nationale", "Magistrats et représentants de partis", "Recensement provisoire des votes."],
+          ["Conseil Constitutionnel", "Haute juridiction constitutionnelle", "Contentieux électoral et proclamation définitive des résultats."]
+        ]
+      }
+    }
+  ],
+  conclusion: "La Constitution et le Code électoral sont les deux piliers qui assurent la stabilité légendaire et les alternances démocratiques pacifiques du Sénégal. Leur respect scrupuleux par tous est le garant de la paix civile."
+};
+
+// -------------------------------------------------------------------------
+// EXPORTATION COMPLÈTE DU PROGRAMME OFFICIEL POUR L'APPLICATION
+// -------------------------------------------------------------------------
+
 export const COURSES_EDUCATION_CIVIQUE_3EME: ContentData[] = [
+  // CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
   {
     id: 'civique-3eme-lecon-1',
-    title: 'LEÇON 1 : LA CONSTITUTION DE LA RÉPUBLIQUE DU SÉNÉGAL',
+    title: 'LEÇON 1 : LE PATRIMOINE NATUREL : TYPOLOGIE',
     type: 'cours',
-    badge: 'Partie 1 • L’État, la Constitution & les Pouvoirs',
-    description: 'Norme juridique suprême, pyramide de Kelsen, évolutions de 1960 à 2016, clauses d’éternité intangibles (article 103) et limitation des mandats.',
+    badge: 'Partie 1 • Environnement & Patrimoine',
+    description: 'Définition et fondements du patrimoine naturel, typologie des ressources fauniques, floristiques et hydriques du Sénégal, et grands sanctuaires (PNNK, PNOD, Delta du Saloum).',
     lessonData: LESSON_1_CIVIQUE_3EME
   },
   {
     id: 'civique-3eme-lecon-2',
-    title: 'LEÇON 2 : LE POUVOIR EXÉCUTIF AU SÉNÉGAL',
+    title: 'LEÇON 2 : PROTECTION DU PATRIMOINE NATUREL : LES CODES',
     type: 'cours',
-    badge: 'Partie 1 • L’État, la Constitution & les Pouvoirs',
-    description: 'Président de la République garant de l’unité nationale, chef suprême des armées, et Premier Ministre chef du Gouvernement conduisant la politique nationale.',
+    badge: 'Partie 1 • Environnement & Patrimoine',
+    description: 'Justification de la protection légale, analyse des codes sectoriels (Environnement, Forestier, Minier, Eau, Hygiène) et rôle citoyen éco-responsable.',
     lessonData: LESSON_2_CIVIQUE_3EME
   },
   {
     id: 'civique-3eme-lecon-3',
-    title: 'LEÇON 3 : LE POUVOIR LÉGISLATIF : L’ASSEMBLÉE NATIONALE DU SÉNÉGAL',
+    title: 'LEÇON 3 : LE PATRIMOINE HISTORIQUE ET CULTUREL : TYPOLOGIE, PROTECTION ET STRATÉGIES DE PROMOTION',
     type: 'cours',
-    badge: 'Partie 1 • L’État, la Constitution & les Pouvoirs',
-    description: '165 députés, loi historique sur la parité absolue (2010), processus de vote de la loi et de la Loi de Finances, et contrôle du gouvernement (censure, commissions).',
+    badge: 'Partie 1 • Environnement & Patrimoine',
+    description: 'Patrimoine matériel (Gorée, Saint-Louis, mégalithes) et immatériel (Kankourang, Teranga, traditions orales), sauvegarde et valorisation internationale UNESCO.',
     lessonData: LESSON_3_CIVIQUE_3EME
   },
   {
-    id: 'civique-3eme-lecon-4',
-    title: 'LEÇON 4 : LE POUVOIR JUDICIAIRE ET L’INDÉPENDANCE DE LA JUSTICE',
+    id: 'civique-3eme-dossier-1',
+    title: 'DOSSIER AC 1 : LE DÉBOISEMENT ET LA LUTTE CONTRE LES FEUX DE BROUSSE',
     type: 'cours',
-    badge: 'Partie 1 • L’État, la Constitution & les Pouvoirs',
-    description: 'Inamovibilité des magistrats du siège, Conseil Constitutionnel, Cour Suprême, Cour des Comptes, tribunaux d’instance et OFNAC pour la transparence des deniers publics.',
+    badge: 'Partie 1 • Environnement & Patrimoine',
+    description: 'Causes de la déforestation, trafic de bois en Casamance, conséquences désastreuses des feux de brousse et solutions (pare-feux, comités de vigilance villageois).',
+    lessonData: DOSSIER_1_CIVIQUE_3EME
+  },
+
+  // CHAPITRE II : VIVRE ENSEMBLE
+  {
+    id: 'civique-3eme-lecon-4',
+    title: 'LEÇON 4 : LA CULTURE DE LA PAIX',
+    type: 'cours',
+    badge: 'Partie 2 • Vivre Ensemble & Intégration',
+    description: 'Fondements de la culture de la paix, dialogue socio-culturel et cousinage à plaisanterie (Kal/Déenkkou), concorde interreligieuse et menaces contemporaines.',
     lessonData: LESSON_4_CIVIQUE_3EME
   },
   {
     id: 'civique-3eme-lecon-5',
-    title: 'LEÇON 5 : LA DÉCENTRALISATION ET LA DÉMOCRATIE LOCALE AU SÉNÉGAL',
+    title: 'LEÇON 5 : SOLIDARITÉ ET INTÉGRATION EN AFRIQUE',
     type: 'cours',
-    badge: 'Partie 2 • Décentralisation & Gouvernance Locale',
-    description: 'L’Acte III de la décentralisation de 2013, compétences des Départements (collèges/lycées) et Communes (état civil, santé), 9 domaines transférés et budget participatif.',
+    badge: 'Partie 2 • Vivre Ensemble & Intégration',
+    description: 'Idéal panafricain, Union Africaine (UA) et ZLECAf, intégration sous-régionale ouest-africaine (CEDEAO, UEMOA, OMVS).',
     lessonData: LESSON_5_CIVIQUE_3EME
   },
+
+  // CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
   {
     id: 'civique-3eme-lecon-6',
-    title: 'LEÇON 6 : LE SÉNÉGAL ET LES ORGANISATIONS INTERNATIONALES (ONU, UA, CEDEAO)',
+    title: 'LEÇON 6 : L’ORGANISATION DU POUVOIR LÉGISLATIF',
     type: 'cours',
-    badge: 'Partie 3 • Intégration Africaine & Monde',
-    description: 'Maintien de la paix de l’ONU et Casques Bleus sénégalais, Union Africaine et ZLECAF, CEDEAO avec passeport communautaire et libre circulation ouest-africaine.',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: "Statut et composition de l'Assemblée nationale (165 députés, parité), vote de la loi et de la loi de finances, contrôle gouvernemental et immunité parlementaire.",
     lessonData: LESSON_6_CIVIQUE_3EME
   },
   {
     id: 'civique-3eme-lecon-7',
-    title: 'LEÇON 7 : LA CULTURE DE LA PAIX, LA TOLÉRANCE ET LA RÉSOLUTION PACIFIQUE DES CONFLITS',
+    title: 'LEÇON 7 : L’ORGANISATION DU POUVOIR JUDICIAIRE',
     type: 'cours',
-    badge: 'Partie 3 • Intégration Africaine & Monde',
-    description: 'Concorde musulmans-chrétiens au Sénégal, parenté à plaisanterie (Kalir) médiatrice séculaire, régulation des guides religieux et réconciliation nationale.',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'Principes de la justice, juridictions de base (Tribunaux d’Instance, TGI), Cours d’Appel, Hautes Juridictions (Cour Suprême, Conseil Constitutionnel) et Conseil de la Magistrature.',
     lessonData: LESSON_7_CIVIQUE_3EME
   },
   {
     id: 'civique-3eme-lecon-8',
-    title: 'LEÇON 8 : LES ENJEUX DU XXIe SIÈCLE : ENVIRONNEMENT, CYBERCITOYENNETÉ ET MONDIALISATION',
+    title: 'LEÇON 8 : L’ÉTAT DE DROIT ET LA BONNE GOUVERNANCE',
     type: 'cours',
-    badge: 'Partie 3 • Intégration Africaine & Monde',
-    description: 'Changement climatique au Sahel, érosion côtière, Grande Muraille Verte, lutte contre les fake news et le cyberharcèlement, devoirs du citoyen du monde.',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'Concept de l’État de droit, principes de transparence et de redevabilité, organes de contrôle spécialisés au Sénégal (OFNAC, CENTIF, Cour des Comptes, IGE).',
     lessonData: LESSON_8_CIVIQUE_3EME
+  },
+  {
+    id: 'civique-3eme-lecon-9',
+    title: 'LEÇON 9 : LES DROITS DE L’HOMME',
+    type: 'cours',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'Évolution philosophique, 3 générations de droits, analyse des textes clés (DDHC 1789, DUDH 1948, Charte Africaine de Banjul 1981) et mécanismes de protection.',
+    lessonData: LESSON_9_CIVIQUE_3EME
+  },
+  {
+    id: 'civique-3eme-lecon-10',
+    title: 'LEÇON 10 : LES DROITS DE LA FEMME',
+    type: 'cours',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'Inégalités de genre, instruments juridiques de protection (CEDEF, Protocole de Maputo, Constitution) et loi sur la parité absolue de 2010.',
+    lessonData: LESSON_10_CIVIQUE_3EME
+  },
+  {
+    id: 'civique-3eme-lecon-11',
+    title: 'LEÇON 11 : LES DROITS DE L’ENFANT',
+    type: 'cours',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'Vulnérabilité spécifique, 4 principes piliers de la CDE (1989), Charte Africaine (CADBEE) et défis de protection au Sénégal (talibés, travail précoce, mariages d’enfants).',
+    lessonData: LESSON_11_CIVIQUE_3EME
+  },
+  {
+    id: 'civique-3eme-dossier-2-3',
+    title: 'DOSSIER AC 2 & AC 3 : LA CONSTITUTION SÉNÉGALAISE ET LE CODE ÉLECTORAL',
+    type: 'cours',
+    badge: "Partie 3 • Démocratie, État & Droits de l'Homme",
+    description: 'La Constitution comme Loi Fondamentale suprême et le Code électoral garant des scrutins transparents supervisés par la CENA et le Conseil Constitutionnel.',
+    lessonData: DOSSIER_2_3_CIVIQUE_3EME
   }
 ];
 
 export const CIVIQUE_3EME_PARTS = [
-  { id: 'all', label: 'Toutes les leçons (3ème/BFEM)', count: 8 },
-  { id: 'part-1', label: '1ère Partie : État, Constitution & Pouvoirs', count: 4 },
-  { id: 'part-2', label: '2ème Partie : Décentralisation', count: 1 },
-  { id: 'part-3', label: '3ème Partie : Intégration Africaine & Monde', count: 3 }
+  { id: 'all', label: 'Toutes les leçons & dossiers (3ème/BFEM)', count: 13 },
+  { id: 'part-1', label: 'Chapitre 1 : Environnement & Patrimoine', count: 4 },
+  { id: 'part-2', label: 'Chapitre 2 : Vivre Ensemble & Intégration', count: 2 },
+  { id: 'part-3', label: "Chapitre 3 : Démocratie, État & Droits de l'Homme", count: 7 }
 ];
-
