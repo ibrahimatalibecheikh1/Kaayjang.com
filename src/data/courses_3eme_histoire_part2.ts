@@ -1,4 +1,5 @@
 import { LessonContent } from './courses';
+import { SVG_RESISTANCES_OUEST_AFRICAIN } from './diagrams_3eme_histoire';
 
 // =========================================================================
 // HISTOIRE 3ÈME - SÉNÉGAL (PROGRAMME OFFICIEL INTÉGRAL BFEM)
@@ -54,7 +55,13 @@ Bien que vaincues militairement, les résistances africaines revêtent une port�
         "• Résistance confrérique et islamique : Cheikh Ahmadou Bamba Mbacké (fondateur du Mouridisme au Sénégal) qui oppose la non-violence, le travail sanctifié et l'indépendance spirituelle malgré ses déportations au Gabon (1895-1902) et en Mauritanie (1903-1907) ; El Hadji Malick Sy qui implante un puissant réseau de zawiyas tidjanes pour former les esprits.",
         "• Résistance des peuples sans État centralisé : chez les Diolas de Casamance (refus de payer l'impôt, fuite dans les forêts sacrées, rôle de la prêtresse Aline Sitoé Diatta face aux réquisitions coloniales).",
         "• Boycott des cultures de rente imposées (comme l'arachide ou le coton) et refus d'envoyer les enfants à l'école coloniale assimilatrice."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Résistances héroïques en Afrique de l\'Ouest',
+        caption: 'Figure 5 : Figures de proue et formes de résistances anticoloniales',
+        svgContent: SVG_RESISTANCES_OUEST_AFRICAIN
+      }
     },
     {
       title: 'II. Figures emblématiques des résistances armées',

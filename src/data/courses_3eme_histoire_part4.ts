@@ -1,4 +1,8 @@
 import { LessonContent } from './courses';
+import {
+  SVG_GUERRE_FROIDE_BIPOLARISME,
+  SVG_SENEGAL_POLITIQUE_1944_1962
+} from './diagrams_3eme_histoire';
 
 // =========================================================================
 // HISTOIRE 3ÈME - SÉNÉGAL (PROGRAMME OFFICIEL INTÉGRAL BFEM)
@@ -51,7 +55,13 @@ Qu'elle ait été le fruit de négociations ou de luttes armées, la décolonisa
         "  - Les États-Unis : ancienne colonie émancipée, ils exigent l'ouverture commerciale des marchés captifs des empires coloniaux.",
         "  - L'URSS : par fidélité à la doctrine léniniste sur l'impérialisme, apporte une aide financière, diplomatique et militaire directe aux mouvements de libération nationale.",
         "• La tribune internationale de l'Organisation des Nations Unies (ONU) : l'article 1er alinéa 2 de la Charte de San Francisco proclame solennellement « le principe de l'égalité de droits des peuples et de leur droit à disposer d'eux-mêmes »."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'La Guerre Froide et le Monde Bipolaire',
+        caption: 'Figure 9 : L\'affrontement Est-Ouest (1947-1991) et le soutien aux décolonisations',
+        svgContent: SVG_GUERRE_FROIDE_BIPOLARISME
+      }
     },
     {
       title: 'II. Les deux grandes trajectoires de l’émancipation coloniale',
@@ -356,7 +366,13 @@ La crise de décembre 1962 marque un tournant fondamental dans l'histoire politi
         "• Aux élections législatives de 1951 et 1956, le BDS terrasse la SFIO de Lamine Guèye.",
         "3. L'application de la Loi-cadre Defferre (1956-1957) :",
         "• Mamadou Dia devient Vice-Président du Conseil de Gouvernement territorial du Sénégal, organisant l'administration locale autonome et le transfert de la capitale de Saint-Louis à Dakar en 1957."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Vie politique sénégalaise de 1944 à 1962',
+        caption: 'Figure 10 : De la Conférence de Brazzaville à l\'indépendance et la crise de 1962',
+        svgContent: SVG_SENEGAL_POLITIQUE_1944_1962
+      }
     },
     {
       title: 'II. La Fédération du Mali et la Proclamation de l’Indépendance (1959-1960)',

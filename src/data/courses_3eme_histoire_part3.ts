@@ -1,4 +1,9 @@
 import { LessonContent } from './courses';
+import {
+  SVG_PREMIERE_GUERRE_MONDIALE,
+  SVG_CRISE_1929,
+  SVG_SECONDE_GUERRE_MONDIALE
+} from './diagrams_3eme_histoire';
 
 // =========================================================================
 // HISTOIRE 3ÈME - SÉNÉGAL (PROGRAMME OFFICIEL INTÉGRAL BFEM)
@@ -50,7 +55,13 @@ La Première Guerre mondiale marque le déclin de l'hégémonie européenne au p
         "• Le 28 juin 1914, à Sarajevo (Bosnie), l'archiduc héritier François-Ferdinand et son épouse sont assassinés par Gavrilo Princip, un étudiant nationaliste serbe de la société secrète « La Main Noire ».",
         "• Ultimatum autrichien à la Serbie le 23 juillet, suivi de la déclaration de guerre le 28 juillet.",
         "• Par le jeu des alliances automatiques et des mobilisations générales, toute l'Europe s'embrase au début du mois d'août 1914."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'La Première Guerre mondiale et les Tirailleurs sénégalais',
+        caption: 'Figure 6 : Alliances, phases du conflit et engagement des Tirailleurs',
+        svgContent: SVG_PREMIERE_GUERRE_MONDIALE
+      }
     },
     {
       title: 'II. Les conséquences planétaires du premier conflit mondial',
@@ -213,7 +224,13 @@ La crise des années 30 marque la fin du capitalisme sauvage et impose l'idée d
         "• Faillite de milliers de banques incapables de récupérer leurs prêts.",
         "• Faillite de dizaines de milliers d'entreprises : arrêt des investissements, fermetures d'usines et licenciements massifs.",
         "• Chômage de masse : 13 à 15 millions de chômeurs aux États-Unis (25 % de la population active) vivant dans des bidonvilles ironiquement baptisés « Hoovervilles »."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'La crise de 1929 et le New Deal',
+        caption: 'Figure 7 : La spirale déflationniste du krach de Wall Street et la relance keynésienne',
+        svgContent: SVG_CRISE_1929
+      }
     },
     {
       title: 'II. Mondialisation de la crise et retentissements politiques',
@@ -319,7 +336,13 @@ La Seconde Guerre mondiale clôt l'ère de la domination européenne. Le traumat
         "• Débarquements de Normandie (6 juin 1944 - Opération Overlord) et de Provence (15 août 1944 avec participation glorieuse de l'Armée B comprenant de nombreux Tirailleurs africains).",
         "• Prise de Berlin par l'Armée rouge et capitulation sans condition de l'Allemagne nazie le 8 mai 1945.",
         "• Capitulation du Japon le 2 septembre 1945, suite aux bombardements atomiques ordonnés par le président Truman sur Hiroshima (6 août) et Nagasaki (9 août)."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'La Seconde Guerre mondiale',
+        caption: 'Figure 8 : Forces en présence, tournants militaires et bilan de 1939 à 1945',
+        svgContent: SVG_SECONDE_GUERRE_MONDIALE
+      }
     },
     {
       title: 'III. Les conséquences mondiales : déclin européen et monde bipolaire',

@@ -1,4 +1,10 @@
 import { LessonContent } from './courses';
+import {
+  SVG_REV_IND_ENERGIES,
+  SVG_CAPITALISME_CONCENTRATION,
+  SVG_DOCTRINES_SOCIALES,
+  SVG_CONFERENCE_BERLIN
+} from './diagrams_3eme_histoire';
 
 // =========================================================================
 // HISTOIRE 3ÈME - SÉNÉGAL (PROGRAMME OFFICIEL INTÉGRAL BFEM)
@@ -52,7 +58,13 @@ La deuxième révolution industrielle a jeté les bases d'une économie mondiale
         "• L'électricité devient transportable grâce à l'invention de la dynamo industrielle par Zénobe Gramme (1871) et de la lampe à incandescence par Thomas Edison (1879).",
         "• Le pétrole connaît son premier forage industriel moderne à Titusville (Pennsylvanie, 1859). Il alimente le moteur à combustion interne développé par Nikolaus Otto et le moteur à huile lourde de Rudolf Diesel (1892).",
         "• L'avènement de l'acier : les convertisseurs Bessemer (1856), Martin-Siemens et Thomas-Gilchrist permettent d'épurer la fonte pour produire de l'acier massif et bon marché, indispensable aux voies ferrées, coques de navires et gratte-ciels."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Les piliers de la Deuxième Révolution Industrielle',
+        caption: 'Figure 1 : Énergies, métallurgie et méthode scientifique au XIXe siècle',
+        svgContent: SVG_REV_IND_ENERGIES
+      }
     },
     {
       title: 'II. Les mutations économiques et l’organisation de la production',
@@ -128,7 +140,13 @@ Le capitalisme a généré une richesse matérielle inégalée, mais au détrime
         "• Concentration horizontale (Cartels en Allemagne) : accords de limitation de production et fixation concertée des prix entre firmes d'un même secteur pour éliminer la concurrence.",
         "• Concentration verticale (Trusts aux États-Unis) : contrôle de l'ensemble de la chaîne de valeur, des gisements miniers et puits de pétrole jusqu'aux raffineries, réseaux de transport et points de vente (ex. la Standard Oil de John D. Rockefeller ou l'US Steel de J.P. Morgan).",
         "• Holdings : sociétés de portefeuille détenant des participations majoritaires de contrôle dans des entreprises aux activités multiples."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Concentration industrielle et financière',
+        caption: 'Figure 2 : De l\'entreprise familiale au Trust et à la Haute Banque',
+        svgContent: SVG_CAPITALISME_CONCENTRATION
+      }
     },
     {
       title: 'II. Les mutations sociales : Bourgeoisie triomphante et Prolétariat exploité',
@@ -207,7 +225,13 @@ Le socialisme et le syndicalisme ont profondément humanisé le système industr
         "  - Dépérissement progressif de l'État pour parvenir à la société communiste : sans classes sociales, sans exploitation de l'homme par l'homme.",
         "3. L'Anarchisme (Proudhon, Bakounine) :",
         "• Rejette tout pouvoir politique et autorité étatique (« Ni Dieu ni Maître »). Prône l'action directe et l'autogestion ouvrière fédérée."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Les Doctrines Sociales : Utopisme, Marxisme et Syndicalisme',
+        caption: 'Figure 3 : Panorama comparatif des doctrines sociales du XIXe siècle',
+        svgContent: SVG_DOCTRINES_SOCIALES
+      }
     },
     {
       title: 'II. Le syndicalisme et les conquêtes ouvrières',
@@ -365,7 +389,13 @@ Le Congrès de Berlin a institutionnalisé le viol de la souveraineté africaine
         "• Liberté intégrale de navigation sur les deux artères stratégiques que sont le fleuve Congo et le fleuve Niger.",
         "• Attribution de l'État Indépendant du Congo (EIC) à titre personnel à Léopold II de Belgique (vaste territoire au cœur de l'Afrique exploité sauvagement pour l'ivoire et le caoutchouc).",
         "• La clause de l'occupation effective : pour prétendre posséder une côte ou une terre de l'hinterland, il faut une présence militaire réelle, des bâtiments administratifs et une notification officielle aux autres chancelleries."
-      ]
+      ],
+      image: {
+        url: '',
+        alt: 'Le Congrès de Berlin et le partage de l\'Afrique',
+        caption: 'Figure 4 : Principes et conséquences du Congrès de Berlin (1884-1885)',
+        svgContent: SVG_CONFERENCE_BERLIN
+      }
     },
     {
       title: 'II. Les conséquences immédiates et le « Scramble for Africa »',

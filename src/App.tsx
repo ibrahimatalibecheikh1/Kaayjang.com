@@ -44,15 +44,20 @@ import { COURSES_GEOGRAPHIE_5EME, GEOGRAPHIE_5EME_FILTER_PARTS } from './data/co
 import { COURSES_GEOGRAPHIE_4EME, GEOGRAPHIE_4EME_FILTER_PARTS } from './data/courses_4eme_geographie';
 import { COURSES_ANGLAIS_5EME, ANGLAIS_5EME_FILTER_PARTS } from './data/courses_5eme_anglais';
 import { COURSES_ANGLAIS_4EME, ANGLAIS_4EME_FILTER_PARTS } from './data/courses_4eme_anglais';
+import { COURSES_ANGLAIS_3EME } from './data/courses_3eme_anglais_index';
 import { COURSES_MATH_6EME, MATH_6EME_FILTER_CHAPTERS } from './data/courses_6eme_math';
 import { COURSES_MATH_4EME, MATH_4EME_FILTER_THEMES } from './data/courses_4eme_math_index';
 import { COURSES_MATH_5EME, MATH_5EME_FILTER_THEMES } from './data/courses_5eme_math_index';
+import { COURSES_MATH_3EME, MATH_3EME_FILTER_THEMES } from './data/courses_3eme_math_index';
 import { COURSES_PC_4EME, PC_4EME_FILTER_THEMES } from './data/courses_4eme_pc_index';
+import { COURSES_PC_3EME, PC_3EME_FILTER_THEMES } from './data/courses_3eme_pc_index';
 import { COURSES_SVT_3EME, SVT_3EME_FILTER_THEMES } from './data/courses_3eme_svt_index';
 import { COURSES_EDUCATION_CIVIQUE_4EME, CIVIQUE_4EME_PARTS } from './data/courses_4eme_education_civique';
 import { COURSES_EDUCATION_CIVIQUE_3EME, CIVIQUE_3EME_PARTS } from './data/courses_3eme_education_civique';
 import { COURSES_FRANCAIS_3EME, FRANCAIS_3EME_PARTS } from './data/courses_3eme_francais_index';
 import { COURSES_HISTOIRE_3EME, HISTOIRE_3EME_PARTS } from './data/courses_3eme_histoire_index';
+import { COURSES_3EME_GEOGRAPHIE, GEOGRAPHIE_3EME_PARTS } from './data/courses_3eme_geographie_index';
+import { COURSES_SVT_2NDE, SVT_2NDE_FILTER_THEMES } from './data/courses_2nde_svt_index';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -140,12 +145,16 @@ export default function App() {
   const [selectedSvt4emeTheme, setSelectedSvt4emeTheme] = useState<string>('all');
   const [selectedMath4emePart, setSelectedMath4emePart] = useState<string>('all');
   const [selectedMath5emePart, setSelectedMath5emePart] = useState<string>('all');
+  const [selectedMath3emeTheme, setSelectedMath3emeTheme] = useState<string>('all');
   const [selectedPc4emeTheme, setSelectedPc4emeTheme] = useState<string>('all');
+  const [selectedPc3emeTheme, setSelectedPc3emeTheme] = useState<string>('all');
   const [selectedSvt3emeTheme, setSelectedSvt3emeTheme] = useState<string>('all');
   const [selectedCivique4emePart, setSelectedCivique4emePart] = useState<string>('all');
   const [selectedCivique3emePart, setSelectedCivique3emePart] = useState<string>('all');
   const [selectedFrancais3emePart, setSelectedFrancais3emePart] = useState<string>('all');
   const [selectedHistoire3emePart, setSelectedHistoire3emePart] = useState<string>('all');
+  const [selectedGeographie3emePart, setSelectedGeographie3emePart] = useState<string>('all');
+  const [selectedSvt2ndeTheme, setSelectedSvt2ndeTheme] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -233,9 +242,11 @@ export default function App() {
     setSelectedCivique3emePart('all');
     setSelectedFrancais3emePart('all');
     setSelectedHistoire3emePart('all');
+    setSelectedGeographie3emePart('all');
     setSelectedMath4emePart('all');
     setSelectedMath5emePart('all');
     setSelectedPc4emeTheme('all');
+    setSelectedSvt2ndeTheme('all');
     setScreen('content');
   };
 
@@ -528,6 +539,11 @@ export default function App() {
       return COURSES_SVT_3EME;
     }
 
+    // Matière SVT pour la classe de Seconde S (Fascicule officiel IA Louga - Lycée de Diokoul - 11 leçons intégrales sans résumé)
+    if (selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_SVT_2NDE;
+    }
+
     // Matière SVT pour la classe de 4ème (Livret de cours officiel complet - 15 leçons intégrales)
     if (selectedSubject === 'SVT' && selectedClass === '4ème') {
       return COURSES_SVT_4EME;
@@ -695,6 +711,11 @@ export default function App() {
       return COURSES_ANGLAIS_4EME;
     }
 
+    // Matière Anglais pour la classe de 3ème (Programme officiel complet BFEM - 18 leçons intégrales avec grammaire approfondie, argumentation et exercices résolus)
+    if (selectedSubject === 'Anglais' && selectedClass === '3ème') {
+      return COURSES_ANGLAIS_3EME;
+    }
+
     // Matière Histoire pour la classe de 6ème (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
     if (selectedSubject === 'Histoire' && selectedClass === '6ème') {
       return COURSES_HISTOIRE_6EME;
@@ -768,6 +789,11 @@ export default function App() {
       return COURSES_GEOGRAPHIE_4EME;
     }
 
+    // Matière Géographie pour la classe de 3ème (Programme officiel complet du BFEM - 13 leçons intégrales avec figures, schémas vectoriels explicatifs, cartes et fiches méthodologiques)
+    if (selectedSubject === 'Géographie' && selectedClass === '3ème') {
+      return COURSES_3EME_GEOGRAPHIE;
+    }
+
     // Matière Géographie (autres classes)
     if (selectedSubject === 'Géographie') {
       return [
@@ -829,9 +855,19 @@ export default function App() {
       return COURSES_MATH_4EME;
     }
 
+    // Matière Mathématiques pour la classe de 3ème (Programme officiel complet BFEM - 12 leçons intégrales avec figures géométriques et exercices résolus sans résumé)
+    if (selectedSubject === 'Mathématiques' && selectedClass === '3ème') {
+      return COURSES_MATH_3EME;
+    }
+
     // Matière Physique-Chimie pour la classe de 4ème (Programme officiel complet : Physique/Électricité et Chimie/Matière avec figures et schémas vectoriels obligatoires)
     if (selectedSubject === 'Physique-Chimie' && selectedClass === '4ème') {
       return COURSES_PC_4EME;
+    }
+
+    // Matière Physique-Chimie pour la classe de 3ème (Programme officiel BFEM complet : Chimie 1-6 et Physique 7-15 avec figures et protocoles expérimentaux obligatoires)
+    if (selectedSubject === 'Physique-Chimie' && selectedClass === '3ème') {
+      return COURSES_PC_3EME;
     }
 
     // Autres matières
@@ -935,6 +971,15 @@ export default function App() {
       (selectedGeographie4emePart === 'part-2' && (item.badge?.includes('Partie II') || item.badge?.includes('Afrique Physique'))) ||
       (selectedGeographie4emePart === 'part-3' && (item.badge?.includes('Partie III') || item.badge?.includes('Humain & Économie'))) ||
       (selectedGeographie4emePart === 'part-4' && (item.badge?.includes('Partie IV') || item.badge?.includes('Économie Régionale') || item.badge?.includes('Environnement')));
+    const matchesGeographie3emePart =
+      selectedSubject !== 'Géographie' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedGeographie3emePart === 'all' ||
+      (selectedGeographie3emePart === 'part-1' && (item.badge?.includes('Partie 1') || item.id === 'geo-senegal-interactive-map-3eme')) ||
+      (selectedGeographie3emePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedGeographie3emePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedGeographie3emePart === 'part-4' && item.badge?.includes('Partie 4'));
     const matchesAnglaisPart =
       selectedSubject !== 'Anglais' ||
       selectedClass !== '5ème' ||
@@ -1055,7 +1100,33 @@ export default function App() {
       (selectedPc4emeTheme === 'atomes-reactions' && (item.id === 'pc-4eme-chimie-c3' || item.id === 'pc-4eme-chimie-c5')) ||
       (selectedPc4emeTheme === 'physique' && (item.badge?.includes('Physique') || item.badge?.includes('Électricité'))) ||
       (selectedPc4emeTheme === 'eau-matiere' && item.badge?.includes('Eau'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesPc4emeTheme;
+    const matchesPc3emeTheme =
+      selectedSubject !== 'Physique-Chimie' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedPc3emeTheme === 'all' ||
+      (selectedPc3emeTheme === 'chimie-solutions' && (item.id === 'pc-3eme-lecon-1' || item.id === 'pc-3eme-lecon-2')) ||
+      (selectedPc3emeTheme === 'chimie-reactions' && (item.id === 'pc-3eme-lecon-3' || item.id === 'pc-3eme-lecon-4' || item.id === 'pc-3eme-lecon-5' || item.id === 'pc-3eme-lecon-4-5' || item.id === 'pc-3eme-lecon-6')) ||
+      (selectedPc3emeTheme === 'physique-optique' && (item.id === 'pc-3eme-lecon-7' || item.id === 'pc-3eme-lecon-8' || item.id === 'pc-3eme-lecon-9' || item.id === 'pc-3eme-lecon-8-9')) ||
+      (selectedPc3emeTheme === 'physique-mecanique' && (item.id === 'pc-3eme-lecon-10' || item.id === 'pc-3eme-lecon-11' || item.id === 'pc-3eme-lecon-10-11' || item.id === 'pc-3eme-lecon-12' || item.id === 'pc-3eme-lecon-13' || item.id === 'pc-3eme-lecon-12-13')) ||
+      (selectedPc3emeTheme === 'physique-electricite' && (item.id === 'pc-3eme-lecon-14' || item.id === 'pc-3eme-lecon-15' || item.id === 'pc-3eme-lecon-14-15'));
+    const matchesMath3emeTheme =
+      selectedSubject !== 'Mathématiques' ||
+      selectedClass !== '3ème' ||
+      activeTab !== 'cours' ||
+      selectedMath3emeTheme === 'all' ||
+      (selectedMath3emeTheme === 'numerique' && item.badge?.includes('Numériques')) ||
+      (selectedMath3emeTheme === 'geometrique' && item.badge?.includes('Géométriques'));
+    const matchesSvt2ndeTheme =
+      selectedSubject !== 'SVT' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedSvt2ndeTheme === 'all' ||
+      (selectedSvt2ndeTheme === 'ecologie-fondamentale' && item.badge?.includes('Écologie Fondamentale')) ||
+      (selectedSvt2ndeTheme === 'ressources-naturelles' && item.badge?.includes('Ressources Naturelles')) ||
+      (selectedSvt2ndeTheme === 'amenagement-espace' && item.badge?.includes('Aménagement de l\'Espace')) ||
+      (selectedSvt2ndeTheme === 'espece-evolution' && item.badge?.includes('Espèce, Variation & Évolution'));
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -1636,6 +1707,52 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle par parties pour SVT Seconde S */}
+      {selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-emerald-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-emerald-700" />
+                Programme officiel SVT Seconde S : 11 leçons intégrales sans résumé (Fascicule IA Louga)
+              </span>
+              <p className="text-[11px] text-emerald-800/80 mt-0.5">
+                Écologie fondamentale & Méthodologie, Ressources naturelles (Sols, Eau, Énergie), Aménagement de l'espace & Évolution des êtres vivants
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-full border border-emerald-200 shadow-2xs">
+              Classe de Seconde S • Lycée
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {SVT_2NDE_FILTER_THEMES.map(theme => {
+              const isSelected = selectedSvt2ndeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedSvt2ndeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700/20'
+                      : 'bg-white text-gray-700 hover:bg-emerald-100/70 border border-emerald-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par thèmes pour Mathématiques 5ème */}
       {selectedSubject === 'Mathématiques' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-blue-50 via-cyan-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1728,6 +1845,52 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle pour Mathématiques 3ème (BFEM Sénégal) */}
+      {selectedSubject === 'Mathématiques' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-blue-700" />
+                Mathématiques 3ème : 12 leçons intégrales avec figures géométriques et exercices résolus
+              </span>
+              <p className="text-[11px] text-blue-800/80 mt-0.5">
+                Activités Numériques (Leçons 1 à 6) & Activités Géométriques (Leçons 7 à 12) — Cours complets sans résumé
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+              Classe de 3ème / BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {MATH_3EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedMath3emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedMath3emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                      : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle pour Physique-Chimie 4ème */}
       {selectedSubject === 'Physique-Chimie' && selectedClass === '4ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-amber-50 via-purple-50 to-indigo-50 border border-purple-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -1753,6 +1916,52 @@ export default function App() {
                 <button
                   key={theme.id}
                   onClick={() => setSelectedPc4emeTheme(theme.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-purple-700 text-white shadow-sm ring-2 ring-purple-700/20'
+                      : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/70'
+                  }`}
+                >
+                  <span>{theme.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-800'
+                    }`}
+                  >
+                    {theme.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour Physique-Chimie 3ème (BFEM Sénégal) */}
+      {selectedSubject === 'Physique-Chimie' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-purple-50 via-indigo-50 to-purple-50 border border-purple-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-purple-900 uppercase tracking-wider flex items-center gap-1.5">
+                <FlaskConical className="w-4 h-4 text-purple-700" />
+                Physique-Chimie 3ème (BFEM) : Cours complet de Chimie (Leçons 1 à 6) & Physique (Leçons 7 à 15)
+              </span>
+              <p className="text-[11px] text-purple-800/80 mt-0.5">
+                Figures vectorielles obligatoires (Fig 1 à 10), protocoles expérimentaux détaillés, observations, interprétations, équations de réactions et annales résolues pas-à-pas du BFEM.
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-purple-800 bg-white px-2.5 py-1 rounded-full border border-purple-200 shadow-2xs">
+              Classe de 3ème / BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {PC_3EME_FILTER_THEMES.map(theme => {
+              const isSelected = selectedPc3emeTheme === theme.id;
+              return (
+                <button
+                  key={theme.id}
+                  onClick={() => setSelectedPc3emeTheme(theme.id)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
                     isSelected
                       ? 'bg-purple-700 text-white shadow-sm ring-2 ring-purple-700/20'
@@ -2326,7 +2535,51 @@ export default function App() {
         </div>
       )}
 
-      {/* Organisation officielle pour l'Anglais 5ème */}
+      {/* Organisation officielle pour la Géographie 3ème / BFEM */}
+      {selectedSubject === 'Géographie' && selectedClass === '3ème' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-orange-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-orange-700" />
+                Programme officiel sénégalais : 13 leçons réparties en 4 grandes parties (Préparation BFEM)
+              </span>
+              <p className="text-[11px] text-orange-800/80 mt-0.5">
+                Géographie 3ème : Cours intégraux sans résumé avec figures, diagrammes, graphiques, cartes interactives et fiches de révision
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-orange-800 bg-white px-2.5 py-1 rounded-full border border-orange-200 shadow-2xs">
+              Classe de 3ème • BFEM
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {GEOGRAPHIE_3EME_PARTS.map(part => {
+              const isSelected = selectedGeographie3emePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedGeographie3emePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-orange-700 text-white shadow-sm ring-2 ring-orange-700/20'
+                      : 'bg-white text-gray-700 hover:bg-orange-100/70 border border-orange-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-orange-100 text-orange-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
       {selectedSubject === 'Anglais' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-sky-50 via-blue-50 to-sky-50 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -2558,6 +2811,40 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
                   <span>THÈME 5 : NUTRITION, DIGESTION & RATION ALIMENTAIRE (Leçons 23 à 26)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour SVT Seconde S */}
+            {selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedSvt2ndeTheme === 'all' && item.id === 'svt-2ndes-lecon-intro' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>PREMIÈRE PARTIE : NOTIONS FONDAMENTALES D'ÉCOLOGIE & SORTIE (Intro & Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedSvt2ndeTheme === 'all' && item.id === 'svt-2ndes-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>DEUXIÈME PARTIE : LES RESSOURCES NATURELLES ET LEUR GESTION (Leçons 4 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedSvt2ndeTheme === 'all' && item.id === 'svt-2ndes-lecon-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>TROISIÈME PARTIE : AMÉNAGEMENT DE L'ESPACE (Leçons 7 & 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedSvt2ndeTheme === 'all' && item.id === 'svt-2ndes-lecon-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>QUATRIÈME PARTIE : L'ESPÈCE - LA VARIATION - L'ÉVOLUTION (Leçons 9 & 10)</span>
                 </div>
               </div>
             )}
@@ -2862,6 +3149,40 @@ export default function App() {
               </div>
             )}
 
+            {/* Séparateurs thématiques de parties pour la Géographie 3ème / BFEM */}
+            {selectedSubject === 'Géographie' && selectedClass === '3ème' && activeTab === 'cours' && selectedGeographie3emePart === 'all' && item.id === 'geo-3eme-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>PREMIÈRE PARTIE : LES DYNAMIQUES DÉMOGRAPHIQUES ET L'URBANISATION MONDIALE (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '3ème' && activeTab === 'cours' && selectedGeographie3emePart === 'all' && item.id === 'geo-3eme-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>DEUXIÈME PARTIE : LES DYNAMIQUES ÉCONOMIQUES ET LA MONDIALISATION (Leçons 4 à 7)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '3ème' && activeTab === 'cours' && selectedGeographie3emePart === 'all' && item.id === 'geo-3eme-lecon-8' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>TROISIÈME PARTIE : GÉOGRAPHIE DU SÉNÉGAL - LE SECTEUR PRIMAIRE (Leçons 8 à 10)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && selectedClass === '3ème' && activeTab === 'cours' && selectedGeographie3emePart === 'all' && item.id === 'geo-3eme-lecon-11' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-orange-100/80 rounded-xl border border-orange-300/80 text-orange-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-orange-600"></span>
+                  <span>QUATRIÈME PARTIE : GÉOGRAPHIE DU SÉNÉGAL - LES SECTEURS SECONDAIRE ET TERTIAIRE (Leçons 11 à 13)</span>
+                </div>
+              </div>
+            )}
+
             {/* Séparateurs thématiques de parties pour l'Anglais 5ème */}
             {selectedSubject === 'Anglais' && selectedClass === '5ème' && activeTab === 'cours' && selectedAnglaisPart === 'all' && item.id === 'anglais-5eme-lecon-1' && (
               <div className="pt-2 pb-1">
@@ -3037,7 +3358,7 @@ export default function App() {
                       <Maximize2 className="w-4 h-4" />
                       <span>Lire en plein écran</span>
                     </button>
-                  ) : item.id === 'geo-senegal-interactive-map' ? (
+                  ) : item.id === 'geo-senegal-interactive-map' || item.id === 'geo-senegal-interactive-map-3eme' ? (
                     <button
                       onClick={() => setIsMapModalOpen(true)}
                       className="w-full sm:w-auto px-4 py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-bold text-xs sm:text-sm transition flex items-center justify-center gap-2 shadow-sm"
