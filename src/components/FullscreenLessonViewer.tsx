@@ -17,7 +17,11 @@ import {
   BookOpen,
   FileText,
   CheckCircle2,
-  Network
+  Network,
+  Copy,
+  Check,
+  Award,
+  ShieldCheck
 } from 'lucide-react';
 import { LessonContent, LESSON_1_SVT_6EME } from '../data/courses';
 import { SenegalMap } from './SenegalMap';
@@ -378,6 +382,16 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
   const [theme, setTheme] = useState<'light' | 'sepia' | 'dark'>('light');
   const [lessonTab, setLessonTab] = useState<'structured' | 'diagram' | 'exercises' | 'raw'>('structured');
+  const [rawCopied, setRawCopied] = useState(false);
+  const [rawFontSize, setRawFontSize] = useState<'normal' | 'large'>('normal');
+
+  const handleCopyRaw = () => {
+    if (lesson.fullText && navigator.clipboard) {
+      navigator.clipboard.writeText(lesson.fullText);
+      setRawCopied(true);
+      setTimeout(() => setRawCopied(false), 2500);
+    }
+  };
 
   const toggleFullscreen = () => {
     setIsFullscreen(!isFullscreen);
@@ -591,11 +605,134 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
           </div>
 
           {lessonTab === 'raw' ? (
-            /* Raw Text View as given by the user, preserving exact spaces & layout */
-            <div className="space-y-4">
-              <pre className="whitespace-pre-wrap font-sans text-xs sm:text-sm md:text-base leading-relaxed overflow-x-auto p-3 sm:p-4 rounded-xl bg-black/5 dark:bg-black/30 border border-current/10">
-                {lesson.fullText}
-              </pre>
+            /* Affichage du Texte Brut Officiel : Stylé et magnifique dans un fond blanc */
+            <div className="space-y-6">
+              <div className="bg-white text-slate-900 border border-slate-200/90 shadow-2xl rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 transition-all relative overflow-hidden">
+                {/* Ruban tricolore officiel de la République du Sénégal */}
+                <div className="absolute top-0 left-0 right-0 h-2.5 bg-gradient-to-r from-emerald-600 via-amber-400 to-rose-600" />
+
+                {/* En-tête officiel du document ministériel */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0 shadow-xs">
+                      <span className="text-2xl">🇸🇳</span>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="font-black text-xs sm:text-sm tracking-wider text-slate-900 uppercase">
+                          RÉPUBLIQUE DU SÉNÉGAL
+                        </span>
+                        <span className="text-amber-500 font-black">★</span>
+                      </div>
+                      <p className="text-[11px] font-serif italic text-slate-500">Un Peuple — Un But — Une Foi</p>
+                      <p className="text-xs font-bold text-emerald-800 uppercase tracking-wide mt-0.5">
+                        MINISTÈRE DE L'ÉDUCATION NATIONALE
+                      </p>
+                      <p className="text-[11px] text-slate-500">Direction de l'Enseignement Moyen et Secondaire Général</p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap md:flex-col md:items-end gap-1.5 self-start md:self-auto">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200">
+                      {lesson.classLevel ? `${lesson.classLevel} • ${lesson.subject}` : 'DOCUMENT OFFICIEL'}
+                    </span>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Texte Intégral Sans Résumé</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Barre d'outils du document sur fond blanc */}
+                <div className="flex flex-wrap items-center justify-between gap-3 py-4 my-2 border-b border-slate-100 bg-slate-50/70 -mx-5 sm:-mx-8 md:-mx-12 px-5 sm:px-8 md:px-12">
+                  <div className="flex items-center gap-4 text-xs font-semibold text-slate-600">
+                    <span className="flex items-center gap-1.5">
+                      <FileText className="w-4 h-4 text-emerald-600" />
+                      <span>{lesson.fullText.trim().split(/\s+/).filter(Boolean).length.toLocaleString('fr-FR')} mots</span>
+                    </span>
+                    <span className="text-slate-300">•</span>
+                    <span className="flex items-center gap-1.5">
+                      <BookOpen className="w-4 h-4 text-amber-600" />
+                      <span>~{Math.max(1, Math.ceil(lesson.fullText.trim().split(/\s+/).filter(Boolean).length / 180))} min de lecture</span>
+                    </span>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    {/* Sélecteur de taille de texte */}
+                    <div className="flex items-center bg-white rounded-xl border border-slate-200 p-0.5 shadow-2xs">
+                      <button
+                        onClick={() => setRawFontSize('normal')}
+                        className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-colors ${
+                          rawFontSize === 'normal' ? 'bg-slate-800 text-white' : 'text-slate-600 hover:bg-slate-100'
+                        }`}
+                        title="Taille de texte normale"
+                      >
+                        A
+                      </button>
+                      <button
+                        onClick={() => setRawFontSize('large')}
+                        className={`px-2.5 py-1 text-xs font-bold rounded-lg transition-colors ${
+                          rawFontSize === 'large' ? 'bg-slate-800 text-white' : 'text-slate-600 hover:bg-slate-100'
+                        }`}
+                        title="Agrandir la police"
+                      >
+                        A+
+                      </button>
+                    </div>
+
+                    {/* Bouton Copier */}
+                    <button
+                      onClick={handleCopyRaw}
+                      className="px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 shadow-2xs cursor-pointer"
+                      title="Copier tout le texte officiel"
+                    >
+                      {rawCopied ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700 font-extrabold">Copié !</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-3.5 h-3.5 text-slate-500" />
+                          <span>Copier</span>
+                        </>
+                      )}
+                    </button>
+
+                    {/* Bouton Imprimer / PDF */}
+                    <button
+                      onClick={handlePrint}
+                      className="px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white shadow-2xs cursor-pointer"
+                      title="Imprimer ou enregistrer en PDF"
+                    >
+                      <Printer className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">Imprimer / PDF</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Corps du texte officiel sur fond blanc immaculé */}
+                <div className="pt-4">
+                  <pre
+                    className={`whitespace-pre-wrap font-sans text-slate-900 select-text leading-relaxed md:leading-loose tracking-normal overflow-x-auto ${
+                      rawFontSize === 'large'
+                        ? 'text-sm sm:text-base md:text-lg'
+                        : 'text-xs sm:text-sm md:text-base'
+                    }`}
+                  >
+                    {lesson.fullText}
+                  </pre>
+                </div>
+
+                {/* Pied de page certifié */}
+                <div className="mt-10 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Document pédagogique officiel conforme aux programmes des lycées du Sénégal</span>
+                  </div>
+                  <span className="font-semibold text-slate-700">Texte Intégral National — République du Sénégal</span>
+                </div>
+              </div>
             </div>
           ) : lessonTab === 'diagram' && lesson.diagram ? (
             /* Diagramme & Schéma Tab */

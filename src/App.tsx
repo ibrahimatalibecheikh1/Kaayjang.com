@@ -58,6 +58,10 @@ import { COURSES_FRANCAIS_3EME, FRANCAIS_3EME_PARTS } from './data/courses_3eme_
 import { COURSES_HISTOIRE_3EME, HISTOIRE_3EME_PARTS } from './data/courses_3eme_histoire_index';
 import { COURSES_3EME_GEOGRAPHIE, GEOGRAPHIE_3EME_PARTS } from './data/courses_3eme_geographie_index';
 import { COURSES_SVT_2NDE, SVT_2NDE_FILTER_THEMES } from './data/courses_2nde_svt_index';
+import { COURSES_HISTOIRE_1ERE, HISTOIRE_1ERE_PARTS } from './data/courses_1ere_histoire_index';
+import { COURSES_FRANCAIS_2NDE, FRANCAIS_2NDE_MODULES } from './data/courses_2nde_francais_index';
+import { COURSES_HISTOIRE_2NDE, HISTOIRE_2NDE_PARTS } from './data/courses_2nde_histoire_index';
+import { COURSES_GEOGRAPHIE_2NDE, GEOGRAPHIE_2NDE_PARTS } from './data/courses_2nde_geographie_index';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -155,6 +159,10 @@ export default function App() {
   const [selectedHistoire3emePart, setSelectedHistoire3emePart] = useState<string>('all');
   const [selectedGeographie3emePart, setSelectedGeographie3emePart] = useState<string>('all');
   const [selectedSvt2ndeTheme, setSelectedSvt2ndeTheme] = useState<string>('all');
+  const [selectedHistoire1erePart, setSelectedHistoire1erePart] = useState<string>('all');
+  const [selectedFrancais2ndeModule, setSelectedFrancais2ndeModule] = useState<string>('all');
+  const [selectedHistoire2ndePart, setSelectedHistoire2ndePart] = useState<string>('all');
+  const [selectedGeographie2ndePart, setSelectedGeographie2ndePart] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -247,6 +255,10 @@ export default function App() {
     setSelectedMath5emePart('all');
     setSelectedPc4emeTheme('all');
     setSelectedSvt2ndeTheme('all');
+    setSelectedHistoire1erePart('all');
+    setSelectedFrancais2ndeModule('all');
+    setSelectedHistoire2ndePart('all');
+    setSelectedGeographie2ndePart('all');
     setScreen('content');
   };
 
@@ -539,7 +551,7 @@ export default function App() {
       return COURSES_SVT_3EME;
     }
 
-    // Matière SVT pour la classe de Seconde S (Fascicule officiel IA Louga - Lycée de Diokoul - 11 leçons intégrales sans résumé)
+    // Matière SVT pour la classe de Seconde S (Programme officiel complet - 11 leçons intégrales sans résumé)
     if (selectedSubject === 'SVT' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
       return COURSES_SVT_2NDE;
     }
@@ -552,6 +564,11 @@ export default function App() {
     // Matière SVT pour la classe de 5ème (Fascicule officiel ADEM-Dakar / Inspection d'Académie de Dakar - 12 leçons intégrales)
     if (selectedSubject === 'SVT' && selectedClass === '5ème') {
       return COURSES_SVT_5EME;
+    }
+
+    // Matière Français pour la classe de Seconde (Séries L & S - Programme officiel national complet - 20 leçons exhaustives sans résumé)
+    if (selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_FRANCAIS_2NDE;
     }
 
     // Matière Français pour la classe de 3ème (Programme officiel intégral sans résumé - 22 leçons exhaustives de préparation au BFEM)
@@ -736,6 +753,16 @@ export default function App() {
       return COURSES_HISTOIRE_3EME;
     }
 
+    // Matière Histoire pour la classe de Seconde (Séries L & S - Programme officiel national complet - 24 leçons intégrales sans résumé)
+    if (selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_HISTOIRE_2NDE;
+    }
+
+    // Matière Histoire pour la classe de Première (Programme officiel intégral sans résumé - 14 leçons complètes réparties en 4 parties)
+    if (selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère')) {
+      return COURSES_HISTOIRE_1ERE;
+    }
+
     // Matière Histoire (autres classes)
     if (selectedSubject === 'Histoire') {
       return [
@@ -792,6 +819,11 @@ export default function App() {
     // Matière Géographie pour la classe de 3ème (Programme officiel complet du BFEM - 13 leçons intégrales avec figures, schémas vectoriels explicatifs, cartes et fiches méthodologiques)
     if (selectedSubject === 'Géographie' && selectedClass === '3ème') {
       return COURSES_3EME_GEOGRAPHIE;
+    }
+
+    // Matière Géographie pour la classe de Seconde (Séries L & S - Programme officiel national complet - 20 leçons intégrales sans résumé)
+    if (selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_GEOGRAPHIE_2NDE;
     }
 
     // Matière Géographie (autres classes)
@@ -1126,7 +1158,44 @@ export default function App() {
       (selectedSvt2ndeTheme === 'ressources-naturelles' && item.badge?.includes('Ressources Naturelles')) ||
       (selectedSvt2ndeTheme === 'amenagement-espace' && item.badge?.includes('Aménagement de l\'Espace')) ||
       (selectedSvt2ndeTheme === 'espece-evolution' && item.badge?.includes('Espèce, Variation & Évolution'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme;
+    const matchesHistoire1erePart =
+      selectedSubject !== 'Histoire' ||
+      (selectedClass !== 'Première' && selectedClass !== '1ère') ||
+      activeTab !== 'cours' ||
+      selectedHistoire1erePart === 'all' ||
+      (selectedHistoire1erePart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedHistoire1erePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedHistoire1erePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedHistoire1erePart === 'part-4' && item.badge?.includes('Partie 4'));
+    const matchesFrancais2ndeModule =
+      selectedSubject !== 'Français' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedFrancais2ndeModule === 'all' ||
+      (selectedFrancais2ndeModule === 'module-1' && item.badge?.includes('Module 1')) ||
+      (selectedFrancais2ndeModule === 'module-2' && item.badge?.includes('Module 2')) ||
+      (selectedFrancais2ndeModule === 'module-3' && item.badge?.includes('Module 3')) ||
+      (selectedFrancais2ndeModule === 'module-4' && item.badge?.includes('Module 4')) ||
+      (selectedFrancais2ndeModule === 'module-5' && item.badge?.includes('Module 5'));
+    const matchesHistoire2ndePart =
+      selectedSubject !== 'Histoire' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedHistoire2ndePart === 'all' ||
+      (selectedHistoire2ndePart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedHistoire2ndePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedHistoire2ndePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedHistoire2ndePart === 'part-4' && item.badge?.includes('Partie 4'));
+    const matchesGeographie2ndePart =
+      selectedSubject !== 'Géographie' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedGeographie2ndePart === 'all' ||
+      (selectedGeographie2ndePart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedGeographie2ndePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedGeographie2ndePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedGeographie2ndePart === 'part-4' && item.badge?.includes('Partie 4'));
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -2397,6 +2466,144 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle par parties pour l'Histoire Première (Séries L & S) */}
+      {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 14 leçons réparties en 4 grandes parties
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Histoire Première : Cours officiels intégraux sans résumé — Révolution industrielle, Impérialisme en Afrique, Nouveaux Impérialismes, Conflits du XXe siècle
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-800 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de Première (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {HISTOIRE_1ERE_PARTS.map(part => {
+              const isSelected = selectedHistoire1erePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedHistoire1erePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par parties pour l'Histoire Seconde (Séries L & S) */}
+      {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 24 leçons réparties en 4 grandes parties (Séries L & S)
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Histoire Seconde : Cours intégraux sans résumé — Méthodologie & Préhistoire, Civilisations antiques africaines, Grands empires & Sénégambie, Traites & Révolutions
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-800 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de Seconde (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {HISTOIRE_2NDE_PARTS.map(part => {
+              const isSelected = selectedHistoire2ndePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedHistoire2ndePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle par modules pour Français Seconde (Séries L & S) */}
+      {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel sénégalais : 20 leçons réparties en 5 grands modules (Séries L & S)
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Français Seconde : Cours intégraux sans résumé — Méthodologie du Bac, Genres littéraires, Théâtre & Apologue, Langue & Stylistique, Œuvres intégrales
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-900 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de Seconde (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {FRANCAIS_2NDE_MODULES.map(mod => {
+              const isSelected = selectedFrancais2ndeModule === mod.id;
+              return (
+                <button
+                  key={mod.id}
+                  onClick={() => setSelectedFrancais2ndeModule(mod.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-amber-800 text-white shadow-sm ring-2 ring-amber-800/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{mod.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {mod.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par parties pour la Géographie 6ème */}
       {selectedSubject === 'Géographie' && selectedClass === '6ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 border border-orange-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -2580,6 +2787,53 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* Organisation officielle pour la Géographie Seconde (Séries L & S) */}
+      {selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 border border-emerald-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-emerald-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-emerald-700" />
+                Programme officiel sénégalais : 20 leçons réparties en 4 grandes parties (Séries L & S)
+              </span>
+              <p className="text-[11px] text-emerald-800/80 mt-0.5">
+                Géographie Seconde : Cours intégraux sans résumé — Terre & Géodynamique, Atmosphère & Climat, Hydrosphère & Eau, Populations & Urbanisation
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-emerald-800 bg-white px-2.5 py-1 rounded-full border border-emerald-200 shadow-2xs">
+              Classe de Seconde (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {GEOGRAPHIE_2NDE_PARTS.map(part => {
+              const isSelected = selectedGeographie2ndePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedGeographie2ndePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-emerald-700 text-white shadow-sm ring-2 ring-emerald-700/20'
+                      : 'bg-white text-gray-700 hover:bg-emerald-100/70 border border-emerald-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-emerald-100 text-emerald-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {selectedSubject === 'Anglais' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-sky-50 via-blue-50 to-sky-50 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -2845,6 +3099,150 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
                   <span>QUATRIÈME PARTIE : L'ESPÈCE - LA VARIATION - L'ÉVOLUTION (Leçons 9 & 10)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Histoire Première (Séries L & S) */}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedHistoire1erePart === 'all' && item.id === 'histoire-1ere-lecon-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIÈRE PARTIE : L'EUROPE ET LA RÉVOLUTION INDUSTRIELLE AU XIXe SIÈCLE (Leçons 1 à 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedHistoire1erePart === 'all' && item.id === 'histoire-1ere-lecon-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME PARTIE : L'IMPÉRIALISME EN AFRIQUE ET LE PARTAGE DU CONTINENT (Leçons 4 à 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedHistoire1erePart === 'all' && item.id === 'histoire-1ere-lecon-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : L'IMPÉRIALISME DANS LE RESTE DU MONDE (ASIE & AMÉRIQUE) (Leçons 9 et 10)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedHistoire1erePart === 'all' && item.id === 'histoire-1ere-lecon-11' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>QUATRIÈME PARTIE : LES MUTATIONS ET LES CRISES DU DÉBUT DU XXe SIÈCLE (Leçons 11 à 14)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Français Seconde (Séries L & S) */}
+            {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedFrancais2ndeModule === 'all' && item.id === 'francais-2nde-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>MODULE 1 : MÉTHODOLOGIE DES ÉPREUVES DU SECOND CYCLE (BACCALAURÉAT) (Leçons 1 à 4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedFrancais2ndeModule === 'all' && item.id === 'francais-2nde-cours-5' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>MODULE 2 : LES GENRES LITTÉRAIRES ET LEUR ÉVOLUTION (Leçons 5 à 8)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedFrancais2ndeModule === 'all' && item.id === 'francais-2nde-cours-9' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>MODULE 3 : LE THÉÂTRE ET L'APOLOGUE (Leçons 9 à 11)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedFrancais2ndeModule === 'all' && item.id === 'francais-2nde-cours-12' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>MODULE 4 : OUTILS DE LA LANGUE, STYLISTIQUE ET ANALYSE LITTÉRAIRE (Leçons 12 à 18)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedFrancais2ndeModule === 'all' && item.id === 'francais-2nde-cours-19' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>MODULE 5 : ÉTUDE DES ŒUVRES INTÉGRALES AU PROGRAMME SÉNÉGALAIS (Leçons 19 & 20)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Histoire Seconde (Séries L & S) */}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedHistoire2ndePart === 'all' && item.id === 'histoire-2nde-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIÈRE PARTIE : MÉTHODOLOGIE, SOURCES ET PRÉHISTOIRE DE L'AFRIQUE ET DU SÉNÉGAL (Leçons 1 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedHistoire2ndePart === 'all' && item.id === 'histoire-2nde-cours-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME PARTIE : LES CIVILISATIONS ANTIQUES AFRICAINES ET MÉDITERRANÉENNES (Leçons 7 à 11)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedHistoire2ndePart === 'all' && item.id === 'histoire-2nde-cours-12' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : LES GRANDS EMPIRES SOUDANAIS ET LES FORMATIONS POLITIQUES DE SÉNÉGAMBIE (Leçons 12 à 16)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedHistoire2ndePart === 'all' && item.id === 'histoire-2nde-cours-17' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>QUATRIÈME PARTIE : LES TRAITES NÉGRIÈRES, RÉVOLUTIONS POLITIQUES ET MOUVEMENTS RELIGIEUX (Leçons 17 à 24)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Géographie Seconde (Séries L & S) */}
+            {selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedGeographie2ndePart === 'all' && item.id === 'geo-2nde-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>PREMIÈRE PARTIE : LA TERRE DANS L'UNIVERS, GÉODYNAMIQUE ET RELIEFS TERRESTRES (Leçons 1 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedGeographie2ndePart === 'all' && item.id === 'geo-2nde-cours-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>DEUXIÈME PARTIE : L'ATMOSPHÈRE, LE CLIMAT ET LES ZONES BIOCLIMATIQUES DU GLOBE (Leçons 7 à 11)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedGeographie2ndePart === 'all' && item.id === 'geo-2nde-cours-12' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>TROISIÈME PARTIE : L'HYDROSPHÈRE ET LES RESSOURCES EN EAU (Leçons 12 à 14)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Géographie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedGeographie2ndePart === 'all' && item.id === 'geo-2nde-cours-15' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>QUATRIÈME PARTIE : LES POPULATIONS, L'URBANISATION ET LA MÉTHODOLOGIE GÉOGRAPHIQUE (Leçons 15 à 20)</span>
                 </div>
               </div>
             )}
