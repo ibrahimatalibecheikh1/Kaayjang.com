@@ -563,7 +563,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
               <span>Cours Structuré</span>
             </button>
 
-            {lesson.diagram && (
+            {(lesson.diagram || lesson.image) && (
               <button
                 onClick={() => setLessonTab('diagram')}
                 className={`px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-1.5 ${
@@ -573,7 +573,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                 }`}
               >
                 <Network className="w-3.5 h-3.5" />
-                <span>Schéma & Diagramme</span>
+                <span>Figure & Schéma</span>
               </button>
             )}
 
@@ -734,45 +734,93 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                 </div>
               </div>
             </div>
-          ) : lessonTab === 'diagram' && lesson.diagram ? (
+          ) : lessonTab === 'diagram' && (lesson.diagram || lesson.image) ? (
             /* Diagramme & Schéma Tab */
             <div className="space-y-6">
-              <div className="p-4 sm:p-6 rounded-xl border-2 border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/50 dark:bg-indigo-950/20">
-                <div className="text-center mb-6">
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/50 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">
-                    Schéma Bilan Pédagogique
-                  </span>
-                  <h3 className="text-base sm:text-lg md:text-xl font-black text-gray-900 dark:text-gray-100 mt-2">
-                    {lesson.diagram.title}
-                  </h3>
-                  <div className="inline-block mt-3 px-4 py-2 bg-indigo-600 text-white font-black text-xs sm:text-sm rounded-xl shadow-xs">
-                    {lesson.diagram.root}
+              {lesson.image && (
+                <div className="p-4 sm:p-6 rounded-2xl border-2 border-indigo-200 dark:border-indigo-900/60 bg-white dark:bg-slate-900 shadow-md">
+                  <div className="text-center mb-4">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/50 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">
+                      Figure Scientifique Officielle Obligatoire
+                    </span>
+                    <h3 className="text-base sm:text-lg font-black text-gray-900 dark:text-gray-100 mt-2">
+                      {lesson.title}
+                    </h3>
                   </div>
+                  {lesson.image.svgContent ? (
+                    <div
+                      className="w-full flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100 p-2 sm:p-4"
+                      dangerouslySetInnerHTML={{ __html: lesson.image.svgContent }}
+                    />
+                  ) : lesson.image.url && lesson.image.url.trim().startsWith('<svg') ? (
+                    <div
+                      className="w-full flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100 p-2 sm:p-4"
+                      dangerouslySetInnerHTML={{ __html: lesson.image.url }}
+                    />
+                  ) : (
+                    <img
+                      src={lesson.image.url}
+                      alt={lesson.image.alt || lesson.title}
+                      className="w-full max-h-96 object-contain p-2 mx-auto"
+                    />
+                  )}
+                  {lesson.image.caption && (
+                    <p className="mt-3 text-xs sm:text-sm text-center font-bold text-slate-600 dark:text-slate-300 italic">
+                      {lesson.image.caption}
+                    </p>
+                  )}
                 </div>
+              )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {lesson.diagram.branches.map((branch, bIdx) => (
-                    <div key={bIdx} className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-indigo-100 dark:border-indigo-900 shadow-xs">
-                      <h4 className="font-extrabold text-xs sm:text-sm text-indigo-700 dark:text-indigo-300">
-                        {branch.name}
-                      </h4>
-                      {branch.subtitle && (
-                        <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium mb-3">
-                          {branch.subtitle}
-                        </p>
-                      )}
-                      <ul className="space-y-1.5 text-xs">
-                        {branch.items.map((it, itIdx) => (
-                          <li key={itIdx} className="flex items-start gap-1.5">
-                            <span className="text-indigo-500 font-bold">•</span>
-                            <span className="text-gray-700 dark:text-gray-300 font-medium">{it}</span>
-                          </li>
-                        ))}
-                      </ul>
+              {lesson.diagram && (
+                <div className="p-4 sm:p-6 rounded-xl border-2 border-indigo-200 dark:border-indigo-900/60 bg-indigo-50/50 dark:bg-indigo-950/20">
+                  <div className="text-center mb-6">
+                    <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/50 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">
+                      Schéma Bilan Pédagogique
+                    </span>
+                    <h3 className="text-base sm:text-lg md:text-xl font-black text-gray-900 dark:text-gray-100 mt-2">
+                      {lesson.diagram.title}
+                    </h3>
+                    {lesson.diagram.root && (
+                      <div className="inline-block mt-3 px-4 py-2 bg-indigo-600 text-white font-black text-xs sm:text-sm rounded-xl shadow-xs">
+                        {lesson.diagram.root}
+                      </div>
+                    )}
+                  </div>
+
+                  {lesson.diagram.svgContent && (
+                    <div
+                      className="w-full flex justify-center items-center overflow-x-auto p-4 mb-4"
+                      dangerouslySetInnerHTML={{ __html: lesson.diagram.svgContent }}
+                    />
+                  )}
+
+                  {lesson.diagram.branches && lesson.diagram.branches.length > 0 && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {lesson.diagram.branches.map((branch, bIdx) => (
+                        <div key={bIdx} className="p-4 rounded-xl bg-white dark:bg-gray-800 border border-indigo-100 dark:border-indigo-900 shadow-xs">
+                          <h4 className="font-extrabold text-xs sm:text-sm text-indigo-700 dark:text-indigo-300">
+                            {branch.name}
+                          </h4>
+                          {branch.subtitle && (
+                            <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 font-medium mb-3">
+                              {branch.subtitle}
+                            </p>
+                          )}
+                          <ul className="space-y-1.5 text-xs">
+                            {branch.items.map((it, itIdx) => (
+                              <li key={itIdx} className="flex items-start gap-1.5">
+                                <span className="text-indigo-500 font-bold">•</span>
+                                <span className="text-gray-700 dark:text-gray-300 font-medium">{it}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
-              </div>
+              )}
 
               {/* Arborescence Structurée en caractères (uniquement pour SVT de 6ème) */}
               {isSvt6eme(lesson.id) && (
@@ -799,11 +847,17 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                     </h3>
                     {section.content && (
                       <div className="space-y-2">
-                        {section.content.map((p, pIdx) => (
-                          <p key={pIdx} className="leading-relaxed font-medium">
-                            {p}
-                          </p>
-                        ))}
+                        {Array.isArray(section.content) ? (
+                          section.content.map((p, pIdx) => (
+                            <p key={pIdx} className="leading-relaxed font-medium">
+                              {p}
+                            </p>
+                          ))
+                        ) : (
+                          <div className="leading-relaxed font-medium whitespace-pre-line text-sm sm:text-base">
+                            {section.content}
+                          </div>
+                        )}
                       </div>
                     )}
                     {section.subsections && (
@@ -849,6 +903,44 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                 />
               )}
 
+              {/* FIGURE SCIENTIFIQUE OFFICIELLE DE LA LEÇON */}
+              {lesson.image && (
+                <div className="my-5 overflow-hidden rounded-2xl border-2 border-indigo-200 dark:border-indigo-850 shadow-md bg-white dark:bg-slate-900/95">
+                  <div className="bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50 dark:from-indigo-950/70 dark:to-slate-900 px-4 py-2.5 border-b border-indigo-200/80 dark:border-indigo-800/80 flex items-center justify-between">
+                    <span className="text-xs font-black uppercase tracking-wider text-indigo-900 dark:text-indigo-200 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                      Figure Scientifique Officielle Obligatoire
+                    </span>
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-indigo-600 text-white shadow-2xs">
+                      Schéma Conforme Seconde S
+                    </span>
+                  </div>
+                  {lesson.image.svgContent ? (
+                    <div
+                      className="w-full p-3 sm:p-6 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                      dangerouslySetInnerHTML={{ __html: lesson.image.svgContent }}
+                    />
+                  ) : lesson.image.url && lesson.image.url.trim().startsWith('<svg') ? (
+                    <div
+                      className="w-full p-3 sm:p-6 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
+                      dangerouslySetInnerHTML={{ __html: lesson.image.url }}
+                    />
+                  ) : (
+                    <img
+                      src={lesson.image.url}
+                      alt={lesson.image.alt || lesson.title}
+                      className={`w-full ${lesson.image.url?.includes('data:image/svg') || lesson.image.url?.endsWith('.svg') ? 'max-h-96 object-contain p-3 sm:p-5' : 'max-h-80 object-cover'} object-center mx-auto`}
+                      referrerPolicy="no-referrer"
+                    />
+                  )}
+                  {lesson.image.caption && (
+                    <div className="p-3 text-xs sm:text-sm text-center font-bold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-slate-800/80 border-t border-indigo-100 dark:border-indigo-900/60">
+                      {lesson.image.caption}
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* DYNAMIC SECTIONS & DIAGRAM */}
               {lesson.sections.map((section, sIdx) => {
                 const sectionColorClasses = [
@@ -869,11 +961,17 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
 
                     {section.content && (
                       <div className="space-y-2">
-                        {section.content.map((p, pIdx) => (
-                          <p key={pIdx} className="opacity-90 leading-relaxed">
-                            {p}
-                          </p>
-                        ))}
+                        {Array.isArray(section.content) ? (
+                          section.content.map((p, pIdx) => (
+                            <p key={pIdx} className="opacity-90 leading-relaxed">
+                              {p}
+                            </p>
+                          ))
+                        ) : (
+                          <div className="opacity-90 leading-relaxed whitespace-pre-line text-sm sm:text-base">
+                            {section.content}
+                          </div>
+                        )}
                       </div>
                     )}
 
@@ -1023,7 +1121,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                          {lesson.diagram.branches.map((branch, bIdx) => (
+                          {lesson.diagram.branches && lesson.diagram.branches.map((branch, bIdx) => (
                             <div
                               key={bIdx}
                               className="p-4 rounded-xl border border-indigo-200 dark:border-indigo-800 bg-white/70 dark:bg-gray-900/70 shadow-xs"

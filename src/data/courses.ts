@@ -1,11 +1,16 @@
 export interface LessonContent {
   id: string;
-  number: string;
+  number?: string;
   title: string;
-  subject: string;
-  classLevel: string;
-  fullText: string;
-  introduction: string;
+  subject?: string;
+  classLevel?: string;
+  module?: string;
+  level?: string;
+  readTime?: string;
+  description?: string;
+  fullText?: string;
+  introduction?: string;
+  conclusion?: string;
   sections: {
     title: string;
     subsections?: {
@@ -22,7 +27,7 @@ export interface LessonContent {
         svgContent?: string;
       };
     }[];
-    content?: string[];
+    content?: string[] | string;
     table?: {
       headers: string[];
       rows: string[][];
@@ -44,12 +49,20 @@ export interface LessonContent {
       toolsAndPlaces: string;
     }[];
   }[];
+  image?: {
+    url?: string;
+    alt?: string;
+    caption?: string;
+    svgContent?: string;
+  };
   diagram?: {
-    title: string;
-    root: string;
-    branches: {
+    title?: string;
+    root?: string;
+    caption?: string;
+    svgContent?: string;
+    branches?: {
       name: string;
-      subtitle: string;
+      subtitle?: string;
       items: string[];
     }[];
   };
@@ -59,7 +72,6 @@ export interface LessonContent {
     description?: string;
     highlightedFeatures?: string[];
   };
-  conclusion: string;
   pdfUrl?: string;
 }
 

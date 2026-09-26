@@ -20,7 +20,8 @@ import {
   MapPin,
   Map,
   Zap,
-  FlaskConical
+  FlaskConical,
+  Calculator
 } from 'lucide-react';
 import { PWAInstallButton } from './PWAInstallButton';
 import { OfflineIndicator } from './OfflineIndicator';
@@ -62,6 +63,12 @@ import { COURSES_HISTOIRE_1ERE, HISTOIRE_1ERE_PARTS } from './data/courses_1ere_
 import { COURSES_FRANCAIS_2NDE, FRANCAIS_2NDE_MODULES } from './data/courses_2nde_francais_index';
 import { COURSES_HISTOIRE_2NDE, HISTOIRE_2NDE_PARTS } from './data/courses_2nde_histoire_index';
 import { COURSES_GEOGRAPHIE_2NDE, GEOGRAPHIE_2NDE_PARTS } from './data/courses_2nde_geographie_index';
+import { COURSES_PC_2NDE_L, PC_2NDE_L_PARTS } from './data/courses_2nde_pc_l_index';
+import { COURSES_PC_2NDE_S, PC_2NDE_S_PARTS } from './data/courses_2nde_pc_s_index';
+import { COURSES_FRANCAIS_1ERE, FRANCAIS_1ERE_PARTS } from './data/courses_1ere_francais_index';
+import { COURSES_PHILOSOPHIE_1ERE, PHILOSOPHIE_1ERE_PARTS } from './data/courses_1ere_philo_index';
+import { COURSES_MATH_2NDE_L, MATH_2NDE_L_PARTS } from './data/courses_2nde_math_l_index';
+import { COURSES_ANGLAIS_2NDE, ANGLAIS_2NDE_PARTS } from './data/courses_2nde_anglais_index';
 
 type Screen = 'welcome' | 'choose-class' | 'subject' | 'content' | 'lesson-reader';
 type Category = 'Collège' | 'Lycée';
@@ -160,9 +167,15 @@ export default function App() {
   const [selectedGeographie3emePart, setSelectedGeographie3emePart] = useState<string>('all');
   const [selectedSvt2ndeTheme, setSelectedSvt2ndeTheme] = useState<string>('all');
   const [selectedHistoire1erePart, setSelectedHistoire1erePart] = useState<string>('all');
+  const [selectedFrancais1erePart, setSelectedFrancais1erePart] = useState<string>('all');
+  const [selectedPhilo1erePart, setSelectedPhilo1erePart] = useState<string>('all');
   const [selectedFrancais2ndeModule, setSelectedFrancais2ndeModule] = useState<string>('all');
   const [selectedHistoire2ndePart, setSelectedHistoire2ndePart] = useState<string>('all');
   const [selectedGeographie2ndePart, setSelectedGeographie2ndePart] = useState<string>('all');
+  const [selectedPc2ndeSPart, setSelectedPc2ndeSPart] = useState<string>('all');
+  const [selectedPc2ndeLPart, setSelectedPc2ndeLPart] = useState<string>('all');
+  const [selectedMath2ndeLPart, setSelectedMath2ndeLPart] = useState<string>('all');
+  const [selectedAnglais2ndePart, setSelectedAnglais2ndePart] = useState<string>('all');
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const showToast = (msg: string) => {
@@ -259,6 +272,9 @@ export default function App() {
     setSelectedFrancais2ndeModule('all');
     setSelectedHistoire2ndePart('all');
     setSelectedGeographie2ndePart('all');
+    setSelectedPc2ndeLPart('all');
+    setSelectedMath2ndeLPart('all');
+    setSelectedAnglais2ndePart('all');
     setScreen('content');
   };
 
@@ -566,6 +582,11 @@ export default function App() {
       return COURSES_SVT_5EME;
     }
 
+    // Matière Français pour la classe de Première (Séries L & S - Programme officiel harmonisé des IA de Dakar, Pikine-Guédiawaye & Rufisque - 16 leçons et modules exhaustifs sans résumé)
+    if (selectedSubject === 'Français' && (selectedClass === 'Première' || selectedClass === '1ère')) {
+      return COURSES_FRANCAIS_1ERE;
+    }
+
     // Matière Français pour la classe de Seconde (Séries L & S - Programme officiel national complet - 20 leçons exhaustives sans résumé)
     if (selectedSubject === 'Français' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
       return COURSES_FRANCAIS_2NDE;
@@ -733,6 +754,11 @@ export default function App() {
       return COURSES_ANGLAIS_3EME;
     }
 
+    // Matière Anglais pour la classe de Seconde (Séries L & S - Programme officiel national complet APC - 8 Units exhaustives sans résumé avec grammaire, phonétique, compréhension et ateliers d'écriture)
+    if (selectedSubject === 'Anglais' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_ANGLAIS_2NDE;
+    }
+
     // Matière Histoire pour la classe de 6ème (Programme officiel approfondi - 14 leçons intégrales avec introduction & conclusion)
     if (selectedSubject === 'Histoire' && selectedClass === '6ème') {
       return COURSES_HISTOIRE_6EME;
@@ -892,6 +918,11 @@ export default function App() {
       return COURSES_MATH_3EME;
     }
 
+    // Matière Mathématiques pour la classe de Seconde (Série L - Référentiel officiel national APAMS - 8 chapitres intégraux ultra-détaillés sans résumé avec démonstrations et exercices d'application corrigés)
+    if (selectedSubject === 'Mathématiques' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      return COURSES_MATH_2NDE_L;
+    }
+
     // Matière Physique-Chimie pour la classe de 4ème (Programme officiel complet : Physique/Électricité et Chimie/Matière avec figures et schémas vectoriels obligatoires)
     if (selectedSubject === 'Physique-Chimie' && selectedClass === '4ème') {
       return COURSES_PC_4EME;
@@ -900,6 +931,20 @@ export default function App() {
     // Matière Physique-Chimie pour la classe de 3ème (Programme officiel BFEM complet : Chimie 1-6 et Physique 7-15 avec figures et protocoles expérimentaux obligatoires)
     if (selectedSubject === 'Physique-Chimie' && selectedClass === '3ème') {
       return COURSES_PC_3EME;
+    }
+
+    // Matière Physique-Chimie pour la classe de Seconde (Série S et Série L)
+    if (selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde')) {
+      if (selectedSeries === 'L') {
+        return COURSES_PC_2NDE_L;
+      }
+      // Seconde S uniquement (par défaut et pour série S) : 26 chapitres complets sans résumé avec figures obligatoires
+      return COURSES_PC_2NDE_S;
+    }
+
+    // Matière Philosophie pour le second cycle (Programme officiel national complet de l'Office du Baccalauréat - 8 chapitres et modules exhaustifs sans résumé)
+    if (selectedSubject === 'Philosophie') {
+      return COURSES_PHILOSOPHIE_1ERE;
     }
 
     // Autres matières
@@ -1195,7 +1240,57 @@ export default function App() {
       (selectedGeographie2ndePart === 'part-2' && item.badge?.includes('Partie 2')) ||
       (selectedGeographie2ndePart === 'part-3' && item.badge?.includes('Partie 3')) ||
       (selectedGeographie2ndePart === 'part-4' && item.badge?.includes('Partie 4'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart;
+    const matchesPc2ndeSPart =
+      selectedSubject !== 'Physique-Chimie' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      selectedSeries === 'L' ||
+      activeTab !== 'cours' ||
+      selectedPc2ndeSPart === 'all' ||
+      (selectedPc2ndeSPart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedPc2ndeSPart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedPc2ndeSPart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedPc2ndeSPart === 'part-4' && item.badge?.includes('Partie 4')) ||
+      (selectedPc2ndeSPart === 'part-5' && item.badge?.includes('Partie 5'));
+    const matchesPc2ndeLPart =
+      selectedSubject !== 'Physique-Chimie' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      selectedSeries !== 'L' ||
+      activeTab !== 'cours' ||
+      selectedPc2ndeLPart === 'all' ||
+      (selectedPc2ndeLPart === 'part1' && (item.badge?.includes('Partie 1') || item.badge?.includes('Physique'))) ||
+      (selectedPc2ndeLPart === 'part2' && (item.badge?.includes('Partie 2') || item.badge?.includes('Chimie')));
+    const matchesMath2ndeLPart =
+      selectedSubject !== 'Mathématiques' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedMath2ndeLPart === 'all' ||
+      (selectedMath2ndeLPart === 'part1' && (item.badge?.includes('Partie 1') || item.badge?.includes('Chapitres 1'))) ||
+      (selectedMath2ndeLPart === 'part2' && (item.badge?.includes('Partie 2') || item.badge?.includes('Chapitres 5')));
+    const matchesAnglais2ndePart =
+      selectedSubject !== 'Anglais' ||
+      (selectedClass !== 'Seconde' && selectedClass !== '2nde') ||
+      activeTab !== 'cours' ||
+      selectedAnglais2ndePart === 'all' ||
+      (selectedAnglais2ndePart === 'part1' && (item.badge?.includes('Units 1-4') || item.badge?.includes('Première Partie'))) ||
+      (selectedAnglais2ndePart === 'part2' && (item.badge?.includes('Units 5-8') || item.badge?.includes('Deuxième Partie')));
+    const matchesFrancais1erePart =
+      selectedSubject !== 'Français' ||
+      (selectedClass !== 'Première' && selectedClass !== '1ère') ||
+      activeTab !== 'cours' ||
+      selectedFrancais1erePart === 'all' ||
+      (selectedFrancais1erePart === 'part-1' && (item.badge?.includes('Partie 1') || item.badge?.includes('Poésie'))) ||
+      (selectedFrancais1erePart === 'part-2' && (item.badge?.includes('Partie 2') || item.badge?.includes('Roman'))) ||
+      (selectedFrancais1erePart === 'part-3' && (item.badge?.includes('Partie 3') || item.badge?.includes('Méthodologie')));
+    const matchesPhilo1erePart =
+      selectedSubject !== 'Philosophie' ||
+      (selectedClass !== 'Première' && selectedClass !== '1ère') ||
+      activeTab !== 'cours' ||
+      selectedPhilo1erePart === 'all' ||
+      (selectedPhilo1erePart === 'part-1' && item.badge?.includes('Partie 1')) ||
+      (selectedPhilo1erePart === 'part-2' && item.badge?.includes('Partie 2')) ||
+      (selectedPhilo1erePart === 'part-3' && item.badge?.includes('Partie 3')) ||
+      (selectedPhilo1erePart === 'part-4' && item.badge?.includes('Partie 4'));
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart && matchesPc2ndeSPart && matchesPc2ndeLPart && matchesMath2ndeLPart && matchesAnglais2ndePart && matchesFrancais1erePart && matchesPhilo1erePart;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -2512,6 +2607,98 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle pour le Français Première (Séries L & S) */}
+      {selectedSubject === 'Français' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-amber-700" />
+                Programme officiel harmonisé Dakar, Pikine-Guédiawaye & Rufisque : 16 leçons et modules (Séries L & S)
+              </span>
+              <p className="text-[11px] text-amber-800/80 mt-0.5">
+                Français Première : Cours intégraux sans résumé — Poésie XIXe (Préromantisme à Symbolisme), Roman & Société, Méthodologie des 3 épreuves du Bac & Stylistique
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-amber-900 bg-white px-2.5 py-1 rounded-full border border-amber-200 shadow-2xs">
+              Classe de Première (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {FRANCAIS_1ERE_PARTS.map(part => {
+              const isSelected = selectedFrancais1erePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedFrancais1erePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-amber-700 text-white shadow-sm ring-2 ring-amber-700/20'
+                      : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour la Philosophie Première (Séries L & S) */}
+      {selectedSubject === 'Philosophie' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-rose-50 via-pink-50 to-purple-50 border border-rose-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-rose-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-rose-700" />
+                Programme officiel Office du Baccalauréat Sénégal : 8 grands chapitres et modules développés
+              </span>
+              <p className="text-[11px] text-rose-800/80 mt-0.5">
+                Philosophie Première L & S : Origines & Spécificité, Grandes Interrogations, Enjeux & Philosophie Africaine, Méthodologie Dissertation & Commentaire
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-rose-900 bg-white px-2.5 py-1 rounded-full border border-rose-200 shadow-2xs">
+              Classe de Première (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {PHILOSOPHIE_1ERE_PARTS.map(part => {
+              const isSelected = selectedPhilo1erePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedPhilo1erePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-rose-700 text-white shadow-sm ring-2 ring-rose-700/20'
+                      : 'bg-white text-gray-700 hover:bg-rose-100/70 border border-rose-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-rose-100 text-rose-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {/* Organisation officielle par parties pour l'Histoire Seconde (Séries L & S) */}
       {selectedSubject === 'Histoire' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-amber-50 via-yellow-50 to-amber-50 border border-amber-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
@@ -2834,6 +3021,276 @@ export default function App() {
         </div>
       )}
 
+      {/* Organisation officielle pour la Physique-Chimie Seconde S (Série S - Scientifique) */}
+      {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-sky-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <FlaskConical className="w-4 h-4 text-blue-700" />
+                Programme officiel Seconde S : 26 chapitres intégraux sans résumé avec figures obligatoires
+              </span>
+              <p className="text-[11px] text-blue-800/80 mt-0.5">
+                Physique (P1 à P15 : Électricité, Mécanique, Optique) & Chimie (C1 à C10 : Structure matière, Atomes, Moles, Réactions, Solutions, Acides-Bases, pH & Formulaire)
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-black text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+                Classe de Seconde S (Scientifique)
+              </span>
+              <button
+                onClick={() => setSelectedSeries('L')}
+                className="text-[10px] font-bold text-amber-700 hover:text-amber-900 bg-white hover:bg-amber-50 px-2 py-1 rounded-full border border-amber-200 transition-colors cursor-pointer"
+                title="Consulter le programme Série L"
+              >
+                Passer en Série L
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedPc2ndeSPart('all')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                selectedPc2ndeSPart === 'all'
+                  ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                  : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+              }`}
+            >
+              <span>Tous les chapitres</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                  selectedPc2ndeSPart === 'all' ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                }`}
+              >
+                26
+              </span>
+            </button>
+            {PC_2NDE_S_PARTS.slice(1).map(part => {
+              const isSelected = selectedPc2ndeSPart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedPc2ndeSPart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                      : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour la Physique-Chimie Seconde (Série L) */}
+      {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries === 'L' && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-purple-50 via-amber-50 to-indigo-50 border border-purple-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-purple-900 uppercase tracking-wider flex items-center gap-1.5">
+                <FlaskConical className="w-4 h-4 text-purple-700" />
+                Programme officiel sénégalais : 12 leçons intégrales ultra-détaillées (Série L)
+              </span>
+              <p className="text-[11px] text-purple-800/80 mt-0.5">
+                Physique-Chimie Seconde L : Électricité, circuits, intensité, tension, mélanges, solutions, atomes, molécules, moles et protocoles expérimentaux complets
+              </p>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-bold text-purple-800 bg-white px-2.5 py-1 rounded-full border border-purple-200 shadow-2xs">
+                Classe de Seconde (Série L)
+              </span>
+              <button
+                onClick={() => setSelectedSeries('S')}
+                className="text-[10px] font-bold text-blue-700 hover:text-blue-900 bg-white hover:bg-blue-50 px-2 py-1 rounded-full border border-blue-200 transition-colors cursor-pointer"
+                title="Basculer vers Série S"
+              >
+                Passer en Série S
+              </button>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedPc2ndeLPart('all')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                selectedPc2ndeLPart === 'all'
+                  ? 'bg-purple-700 text-white shadow-sm ring-2 ring-purple-700/20'
+                  : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/70'
+              }`}
+            >
+              <span>Toutes les leçons</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                  selectedPc2ndeLPart === 'all' ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-800'
+                }`}
+              >
+                12
+              </span>
+            </button>
+            {PC_2NDE_L_PARTS.map(part => {
+              const isSelected = selectedPc2ndeLPart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedPc2ndeLPart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-purple-700 text-white shadow-sm ring-2 ring-purple-700/20'
+                      : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour les Mathématiques Seconde (Série L) */}
+      {selectedSubject === 'Mathématiques' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 border border-blue-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Calculator className="w-4 h-4 text-blue-700" />
+                Référentiel officiel national APAMS : 8 chapitres intégraux ultra-détaillés (Série L)
+              </span>
+              <p className="text-[11px] text-blue-800/80 mt-0.5">
+                Mathématiques Seconde L : Calcul dans ℝ, fractions, racines, proportionnalité, fonctions affines, statistiques, systèmes d'équations, second degré et courbes
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-blue-800 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+              Classe de Seconde (Série L)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedMath2ndeLPart('all')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                selectedMath2ndeLPart === 'all'
+                  ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                  : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+              }`}
+            >
+              <span>Tous les chapitres</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                  selectedMath2ndeLPart === 'all' ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                }`}
+              >
+                8
+              </span>
+            </button>
+            {MATH_2NDE_L_PARTS.map(part => {
+              const isSelected = selectedMath2ndeLPart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedMath2ndeLPart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-blue-700 text-white shadow-sm ring-2 ring-blue-700/20'
+                      : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Organisation officielle pour l'Anglais Seconde (Séries L & S) */}
+      {selectedSubject === 'Anglais' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-sky-50 via-teal-50 to-sky-50 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-sky-900 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-sky-700" />
+                Programme officiel national APC : 8 Units intégrales exhaustives (Séries L & S)
+              </span>
+              <p className="text-[11px] text-sky-800/80 mt-0.5">
+                Anglais Seconde (L & S) : Éducation, famille, santé, écologie, technologies, patrimoine sénégalais, droits civiques et carrières professionnelles
+              </p>
+            </div>
+            <span className="self-start sm:self-auto text-[11px] font-bold text-sky-800 bg-white px-2.5 py-1 rounded-full border border-sky-200 shadow-2xs">
+              Classe de Seconde (L & S)
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setSelectedAnglais2ndePart('all')}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                selectedAnglais2ndePart === 'all'
+                  ? 'bg-sky-700 text-white shadow-sm ring-2 ring-sky-700/20'
+                  : 'bg-white text-gray-700 hover:bg-sky-100/70 border border-sky-200/70'
+              }`}
+            >
+              <span>Toutes les Units</span>
+              <span
+                className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                  selectedAnglais2ndePart === 'all' ? 'bg-white/20 text-white' : 'bg-sky-100 text-sky-800'
+                }`}
+              >
+                8
+              </span>
+            </button>
+            {ANGLAIS_2NDE_PARTS.map(part => {
+              const isSelected = selectedAnglais2ndePart === part.id;
+              return (
+                <button
+                  key={part.id}
+                  onClick={() => setSelectedAnglais2ndePart(part.id)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                    isSelected
+                      ? 'bg-sky-700 text-white shadow-sm ring-2 ring-sky-700/20'
+                      : 'bg-white text-gray-700 hover:bg-sky-100/70 border border-sky-200/70'
+                  }`}
+                >
+                  <span>{part.label}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-sky-100 text-sky-800'
+                    }`}
+                  >
+                    {part.count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
       {selectedSubject === 'Anglais' && selectedClass === '5ème' && activeTab === 'cours' && (
         <div className="mb-5 bg-gradient-to-r from-sky-50 via-blue-50 to-sky-50 border border-sky-200/80 rounded-2xl p-3.5 sm:p-4 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
@@ -3103,6 +3560,66 @@ export default function App() {
               </div>
             )}
 
+            {/* Séparateurs thématiques pour Français Première (Séries L & S) */}
+            {selectedSubject === 'Français' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedFrancais1erePart === 'all' && item.id === 'fr-1ere-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PREMIÈRE PARTIE : POÉSIE ET MOUVEMENTS LITTÉRAIRES DU XIXe SIÈCLE (Leçons 1 à 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedFrancais1erePart === 'all' && item.id === 'fr-1ere-cours-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>DEUXIÈME PARTIE : LE ROMAN, LES COURANTS ROMANESQUES ET LA DISSERTATION (Leçons 6 à 10)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Français' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedFrancais1erePart === 'all' && item.id === 'fr-1ere-cours-11' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : MÉTHODOLOGIE DES ÉPREUVES DU BACCALAURÉAT ET STYLISTIQUE (Leçons 11 à 16)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Philosophie Première (Séries L & S) */}
+            {selectedSubject === 'Philosophie' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedPhilo1erePart === 'all' && item.id === 'philo-1ere-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-rose-100/80 rounded-xl border border-rose-300/80 text-rose-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                  <span>PREMIÈRE PARTIE : LES ORIGINES ET LA SPÉCIFICITÉ DE LA RÉFLEXION PHILOSOPHIQUE (Chapitre 1)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Philosophie' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedPhilo1erePart === 'all' && item.id === 'philo-1ere-cours-2' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-rose-100/80 rounded-xl border border-rose-300/80 text-rose-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                  <span>DEUXIÈME PARTIE : LES GRANDES INTERROGATIONS PHILOSOPHIQUES (Chapitres 2 et 3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Philosophie' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedPhilo1erePart === 'all' && item.id === 'philo-1ere-cours-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-rose-100/80 rounded-xl border border-rose-300/80 text-rose-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                  <span>TROISIÈME PARTIE : LES ENJEUX, FINALITÉS ET L'IDÉE D'UNE PHILOSOPHIE AFRICAINE (Chapitres 4 et 5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Philosophie' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedPhilo1erePart === 'all' && item.id === 'philo-1ere-cours-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-rose-100/80 rounded-xl border border-rose-300/80 text-rose-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-rose-600"></span>
+                  <span>QUATRIÈME PARTIE : MÉTHODOLOGIE DES ÉPREUVES DU BACCALAURÉAT ET CORPUS (Chapitres 6 à 8)</span>
+                </div>
+              </div>
+            )}
+
             {/* Séparateurs thématiques pour Histoire Première (Séries L & S) */}
             {selectedSubject === 'Histoire' && (selectedClass === 'Première' || selectedClass === '1ère') && activeTab === 'cours' && selectedHistoire1erePart === 'all' && item.id === 'histoire-1ere-lecon-1' && (
               <div className="pt-2 pb-1">
@@ -3243,6 +3760,102 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
                   <span>QUATRIÈME PARTIE : LES POPULATIONS, L'URBANISATION ET LA MÉTHODOLOGIE GÉOGRAPHIQUE (Leçons 15 à 20)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Physique-Chimie Seconde S */}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && selectedPc2ndeSPart === 'all' && item.id === 'pc-2nde-s-cours-p1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>PREMIÈRE PARTIE : PHYSIQUE — ÉLECTRICITÉ ET ÉLECTRONIQUE (Chapitres P1 à P7)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && selectedPc2ndeSPart === 'all' && item.id === 'pc-2nde-s-cours-p8' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-sky-100/80 rounded-xl border border-sky-300/80 text-sky-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-sky-600"></span>
+                  <span>DEUXIÈME PARTIE : PHYSIQUE — MÉCANIQUE ET STATIQUE (Chapitres P8 à P12)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && selectedPc2ndeSPart === 'all' && item.id === 'pc-2nde-s-cours-p13' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>TROISIÈME PARTIE : PHYSIQUE — OPTIQUE GÉOMÉTRIQUE ET ONDULATOIRE (Chapitres P13 à P15)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && selectedPc2ndeSPart === 'all' && item.id === 'pc-2nde-s-cours-c1' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>QUATRIÈME PARTIE : CHIMIE GÉNÉRALE — STRUCTURE DE LA MATIÈRE ET MOLE (Chapitres C1 à C5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries !== 'L' && activeTab === 'cours' && selectedPc2ndeSPart === 'all' && item.id === 'pc-2nde-s-cours-c6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>CINQUIÈME PARTIE : CHIMIE EN SOLUTION — RÉACTIONS, ACIDES-BASES ET pH (Chapitres C6 à C10 & Annexe)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Physique-Chimie Seconde L */}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries === 'L' && activeTab === 'cours' && selectedPc2ndeLPart === 'all' && (item.id === 'pc-2nde-l-cours-01' || item.id === 'pc-2nde-l-cours-1') && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>PREMIÈRE PARTIE : PHYSIQUE — ÉLECTRICITÉ ET SIGNAUX (Leçons 1 à 6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Seconde' || selectedClass === '2nde') && selectedSeries === 'L' && activeTab === 'cours' && selectedPc2ndeLPart === 'all' && (item.id === 'pc-2nde-l-cours-07' || item.id === 'pc-2nde-l-cours-7') && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>DEUXIÈME PARTIE : CHIMIE ET CONSTITUTION DE LA MATIÈRE (Leçons 7 à 12)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Mathématiques Seconde L */}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedMath2ndeLPart === 'all' && item.id === 'math-2nde-l-cours-01' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>PREMIÈRE PARTIE : CALCUL DANS ℝ, PROPORTIONNALITÉ ET FONCTIONS AFFINES (Chapitres 1 à 4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedMath2ndeLPart === 'all' && item.id === 'math-2nde-l-cours-05' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>DEUXIÈME PARTIE : STATISTIQUES, ÉQUATIONS DU SECOND DEGRÉ ET GRAPHES (Chapitres 5 à 8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Anglais Seconde (Séries L & S) */}
+            {selectedSubject === 'Anglais' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedAnglais2ndePart === 'all' && item.id === 'anglais-2nde-cours-01' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-sky-100/80 rounded-xl border border-sky-300/80 text-sky-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-sky-600"></span>
+                  <span>FIRST PART : EDUCATION, FAMILY, HEALTH & ENVIRONMENT (Units 1 to 4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Anglais' && (selectedClass === 'Seconde' || selectedClass === '2nde') && activeTab === 'cours' && selectedAnglais2ndePart === 'all' && item.id === 'anglais-2nde-cours-05' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-sky-100/80 rounded-xl border border-sky-300/80 text-sky-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-sky-600"></span>
+                  <span>SECOND PART : TECHNOLOGY, HERITAGE, HUMAN RIGHTS & CAREERS (Units 5 to 8)</span>
                 </div>
               </div>
             )}
