@@ -12,9 +12,7 @@ export const LESSON_1_MATH_2NDE_L: LessonContent = {
   title: `Calcul dans R : fractions, radicaux, identités remarquables, valeur absolue et équations du premier degré`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 1 : CALCUL DANS L'ENSEMBLE DES NOMBRES RÉELS (R)
@@ -233,9 +231,7 @@ export const LESSON_2_MATH_2NDE_L: LessonContent = {
   title: `Situations de proportionnalité : pourcentages, taux d'intérêt, échelles, mouvement uniforme et fonction linéaire`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 2 : SITUATIONS DE PROPORTIONNALITÉ
@@ -390,9 +386,7 @@ export const LESSON_3_MATH_2NDE_L: LessonContent = {
   title: `Fonction affine et droites du plan : coefficient directeur, droites parallèles, perpendicularité et distance`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 3 : FONCTION AFFINE ET DROITES DU PLAN
@@ -546,9 +540,7 @@ export const LESSON_4_MATH_2NDE_L: LessonContent = {
   title: `Lectures graphiques : construction, lecture d'images et d'antécédents, interprétation et interpolation linéaire`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 4 : LECTURES GRAPHIQUES ET INTERPOLATION LINÉAIRE

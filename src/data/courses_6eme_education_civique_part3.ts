@@ -13,7 +13,6 @@ export const LESSON_8_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 3 : LA NATION ET LA CITOYENNETÉ SÉNÉGALAISE
@@ -111,7 +110,6 @@ export const LESSON_9_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 3 : LA NATION ET LA CITOYENNETÉ SÉNÉGALAISE
@@ -206,7 +204,6 @@ export const LESSON_10_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 3 : LA NATION ET LA CITOYENNETÉ SÉNÉGALAISE

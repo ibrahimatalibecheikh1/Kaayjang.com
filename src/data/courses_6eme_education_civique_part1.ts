@@ -13,7 +13,6 @@ export const LESSON_1_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 1 : LA FAMILLE SÉNÉGALAISE
@@ -138,7 +137,6 @@ export const LESSON_2_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 1 : LA FAMILLE SÉNÉGALAISE
@@ -269,7 +267,6 @@ export const LESSON_3_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 1 : LA FAMILLE SÉNÉGALAISE

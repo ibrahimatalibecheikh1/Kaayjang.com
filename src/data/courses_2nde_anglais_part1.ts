@@ -140,7 +140,7 @@ The regular suffix \`-s\` or \`-es\` added to:
 3. Possessive cases (*John's bag*),
 is pronounced in three distinct phonetic ways depending strictly on the **final sound (not letter)** of the preceding root word:
 
-$$\\text{Pronunciation of } -s/-es \\in \\{ /s/, \\quad /z/, \\quad /\\text{ɪz}/ \\}$$
+\Pronunciation of  -s/-es \∈  { /s/,   /z/,   /\ɪz/  }
 
 ---
 
@@ -310,12 +310,12 @@ export const LESSON_2_ANGLAIS_2NDE: LessonContent = {
 * **Regular Verbs**: Subject + Verb base form + \`-ed\` (or \`-d\` if ending in \`-e\`).
   * *The elders gathered in the village square yesterday.*
   * Spelling modifications:
-    * Ending in consonant + \`y\`: \`study\` $\\rightarrow$ \`studied\`, \`marry\` $\\rightarrow$ \`married\`.
-    * Short vowel + single consonant: \`stop\` $\\rightarrow$ \`stopped\`, \`travel\` $\\rightarrow$ \`travelled\` (UK) / \`traveled\` (US).
+    * Ending in consonant + \`y\`: \`study\` \→ \`studied\`, \`marry\` \→ \`married\`.
+    * Short vowel + single consonant: \`stop\` \→ \`stopped\`, \`travel\` \→ \`travelled\` (UK) / \`traveled\` (US).
 * **Irregular Verbs**: Complete alteration of the root stem (must be memorized):
-  * *buy $\\rightarrow$ bought*, *bring $\\rightarrow$ brought*, *catch $\\rightarrow$ caught*, *teach $\\rightarrow$ taught*, *think $\\rightarrow$ thought*.
-  * *see $\\rightarrow$ saw*, *hear $\\rightarrow$ heard*, *speak $\\rightarrow$ spoke*, *write $\\rightarrow$ wrote*, *go $\\rightarrow$ went*, *come $\\rightarrow$ came*.
-  * *make $\\rightarrow$ made*, *do $\\rightarrow$ did*, *have $\\rightarrow$ had*, *be $\\rightarrow$ was/were*.
+  * *buy \→ bought*, *bring \→ brought*, *catch \→ caught*, *teach \→ taught*, *think \→ thought*.
+  * *see \→ saw*, *hear \→ heard*, *speak \→ spoke*, *write \→ wrote*, *go \→ went*, *come \→ came*.
+  * *make \→ made*, *do \→ did*, *have \→ had*, *be \→ was/were*.
 * **Negative**: Subject + \`did not\` (\`didn't\`) + Verb base form.
   * *They did not attend the traditional naming ceremony.*
 * **Interrogative**: \`Did\` + Subject + Verb base form ... ?
@@ -348,7 +348,7 @@ export const LESSON_2_ANGLAIS_2NDE: LessonContent = {
 ### 3. Interrupted Actions: The Interaction of "When" and "While" / "As"
 When a long action in progress is suddenly interrupted by a short, single event in the past, the two tenses combine using temporal subordinators:
 
-$$\\underbrace{\\text{Past Continuous (Long Action)}}_{\\text{While / As ...}} \\quad \\longleftrightarrow \\quad \\underbrace{\\text{Past Simple (Interrupting Event)}}_{\\text{When ...}}$$
+ Past Continuous (Long Action) (\While / As ...)   \←─→    Past Simple (Interrupting Event) (\When ...)
 
 * **Pattern A (Interruption by When)**:
   * *We were listening attentively to the storyteller **when** the electricity suddenly went out.*
@@ -365,7 +365,7 @@ $$\\underbrace{\\text{Past Continuous (Long Action)}}_{\\text{While / As ...}} \
       content: `### 1. General Phonetic Principles
 The regular simple past ending \`-ed\` is pronounced in **three strictly determined ways**:
 
-$$\\text{Pronunciation of } -ed \\in \\{ /\\text{ɪd}/, \\quad /t/, \\quad /d/ \\}$$
+\Pronunciation of  -ed \∈  { /\ɪd/,   /t/,   /d/  }
 
 It is determined exclusively by the **final acoustic consonant sound** immediately preceding the \`-ed\` ending.
 
@@ -375,39 +375,39 @@ It is determined exclusively by the **final acoustic consonant sound** immediate
 #### Rule 1: The Syllabic Ending /ɪd/ (or /əd/)
 Pronounced **/ɪd/** ONLY when the base verb ends in the sounds **/t/** or **/d/**:
 * This adds an **extra audible syllable** to the word:
-  * *want* (1 syllable) $\\rightarrow$ *wanted* /ˈwɒn.tɪd/ (2 syllables)
-  * *need* (1 syllable) $\\rightarrow$ *needed* /ˈniː.dɪd/ (2 syllables)
-  * *decide* $\\rightarrow$ *decided* /dɪˈsaɪ.dɪd/
-  * *visit* $\\rightarrow$ *visited* /ˈvɪz.ɪ.tɪd/
-  * *shout* $\\rightarrow$ *shouted* /ˈʃaʊ.tɪd/
-  * *mend* $\\rightarrow$ *mended* /ˈmen.dɪd/
+  * *want* (1 syllable) \→ *wanted* /ˈwɒn.tɪd/ (2 syllables)
+  * *need* (1 syllable) \→ *needed* /ˈniː.dɪd/ (2 syllables)
+  * *decide* \→ *decided* /dɪˈsaɪ.dɪd/
+  * *visit* \→ *visited* /ˈvɪz.ɪ.tɪd/
+  * *shout* \→ *shouted* /ˈʃaʊ.tɪd/
+  * *mend* \→ *mended* /ˈmen.dɪd/
 
 #### Rule 2: The Voiceless Ending /t/
 Pronounced **/t/** when the verb ends in a **voiceless consonant sound** (no vocal cord vibration) except /t/:
 * Consonant sounds: **/p/, /k/, /f/, /θ/, /s/, /ʃ/ (sh), /tʃ/ (ch)**.
 * No extra syllable is added:
-  * *stop* $\\rightarrow$ *stopped* /stɒpt/
-  * *work* $\\rightarrow$ *worked* /wɜːkt/
-  * *laugh* $\\rightarrow$ *laughed* /lɑːft/
-  * *kiss* $\\rightarrow$ *kissed* /kɪst/
-  * *wash* $\\rightarrow$ *washed* /wɒʃt/
-  * *watch* $\\rightarrow$ *watched* /wɒtʃt/
-  * *dance* $\\rightarrow$ *danced* /dɑːnst/ (the letter 'c' sounds like /s/)
-  * *fix* $\\rightarrow$ *fixed* /fɪkst/ (the letter 'x' produces /ks/)
+  * *stop* \→ *stopped* /stɒpt/
+  * *work* \→ *worked* /wɜːkt/
+  * *laugh* \→ *laughed* /lɑːft/
+  * *kiss* \→ *kissed* /kɪst/
+  * *wash* \→ *washed* /wɒʃt/
+  * *watch* \→ *watched* /wɒtʃt/
+  * *dance* \→ *danced* /dɑːnst/ (the letter 'c' sounds like /s/)
+  * *fix* \→ *fixed* /fɪkst/ (the letter 'x' produces /ks/)
 
 #### Rule 3: The Voiced Ending /d/
 Pronounced **/d/** after all other sounds:
 1. **Voiced consonant sounds** except /d/: **/b/, /ɡ/, /v/, /ð/, /z/, /ʒ/, /dʒ/, /m/, /n/, /ŋ/, /l/, /r/**.
 2. **All vowels and diphthongs**.
 * No extra syllable is added:
-  * *rob* $\\rightarrow$ *robbed* /rɒbd/
-  * *beg* $\\rightarrow$ *begged* /beɡd/
-  * *love* $\\rightarrow$ *loved* /lʌvd/
-  * *clean* $\\rightarrow$ *cleaned* /kliːnd/
-  * *call* $\\rightarrow$ *called* /kɔːld/
-  * *play* $\\rightarrow$ *played* /pleɪd/
-  * *marry* $\\rightarrow$ *married* /ˈmær.id/
-  * *follow* $\\rightarrow$ *followed* /ˈfɒl.əʊd/`
+  * *rob* \→ *robbed* /rɒbd/
+  * *beg* \→ *begged* /beɡd/
+  * *love* \→ *loved* /lʌvd/
+  * *clean* \→ *cleaned* /kliːnd/
+  * *call* \→ *called* /kɔːld/
+  * *play* \→ *played* /pleɪd/
+  * *marry* \→ *married* /ˈmær.id/
+  * *follow* \→ *followed* /ˈfɒl.əʊd/`
     },
     {
       title: 'IV. Reading Comprehension: "The Shifting Dynamics of the Senegalese Family"',
@@ -427,9 +427,9 @@ Pronounced **/d/** after all other sounds:
 ### 2. Comprehensive Reading Questions & Model Answers
 #### Question 1: Vocabulary in Context
 * Find words in the text that mean:
-  1. *A place that provides safety or protection (paragraph 1)* $\\rightarrow$ **sanctuary**
-  2. *Extreme poverty or deprivation (paragraph 2)* $\\rightarrow$ **destitution**
-  3. *Sending money back home (paragraph 5)* $\\rightarrow$ **remit**
+  1. *A place that provides safety or protection (paragraph 1)* \→ **sanctuary**
+  2. *Extreme poverty or deprivation (paragraph 2)* \→ **destitution**
+  3. *Sending money back home (paragraph 5)* \→ **remit**
 
 #### Question 2: Comprehension Analysis
 * **How did traditional African extended families protect vulnerable individuals against economic shocks?**
@@ -572,17 +572,17 @@ export const LESSON_3_ANGLAIS_2NDE: LessonContent = {
 * **Interrogative**: \`Have\` / \`Has\` + Subject + \`been\` + Verb + \`-ing\` ... ?
 
 #### B. Crucial Semantic Distinctions
-$$\\begin{array}{|l|l|}
-\\hline
-\\textbf{Present Perfect Simple} & \\textbf{Present Perfect Continuous} \\\\
-\\hline
-\\text{Focuses on the } \\textbf{result / completion} \\text{ of an action.} & \\text{Focuses on the } \\textbf{activity / duration} \\text{ itself.} \\\\
-\\textit{She has written three medical reports this morning.} & \\textit{She has been writing reports since dawn (she is still tired).} \\\\
-\\text{Answers the question: } \\textbf{How much / How many?} & \\text{Answers the question: } \\textbf{How long?} \\\\
-\\textit{He has taken two pills.} & \\textit{He has been resting for two hours.} \\\\
-\\text{Permanent or established states.} & \\text{Temporary ongoing situations.} \\\\
-\\hline
-\\end{array}$$`
+ begin{array}{|l|l|}
+ hline
+\**Present Perfect Simple** & \**Present Perfect Continuous**   
+ hline
+\Focuses on the  \**result / completion**  of an action. & \Focuses on the  \**activity / duration**  itself.   
+ textit{She has written three medical reports this morning.} &  textit{She has been writing reports since dawn (she is still tired).}   
+\Answers the question:  \**How much / How many?** & \Answers the question:  \**How long?**   
+ textit{He has taken two pills.} &  textit{He has been resting for two hours.}   
+\Permanent or established states. & \Temporary ongoing situations.   
+ hline
+ end{array}`
     },
     {
       title: 'III. Phonetics Workshop: Word Stress & Syllable Prominence in Health Vocabulary',
@@ -751,19 +751,19 @@ export const LESSON_4_ANGLAIS_2NDE: LessonContent = {
 ---
 
 ### 4. Summary Matrix of Future Forms
-$$\\begin{array}{|l|l|l|}
-\\hline
-\\textbf{Future Form} & \\textbf{Primary Value} & \\textbf{Typical Key Marker} \\\\
-\\hline
-\\textbf{Will} & \\text{Spontaneous decision, opinion prediction, promise} & \\textit{I think, probably, perhaps, suddenly} \\\\
-\\hline
-\\textbf{Be going to} & \\text{Premeditated intention, prediction from evidence} & \\textit{Look!, watch out!, plan to, intend to} \\\\
-\\hline
-\\textbf{Present Continuous} & \\text{Confirmed arrangement, fixed appointment} & \\textit{Next week with..., ticket booked, at 3 PM} \\\\
-\\hline
-\\textbf{Present Simple} & \\text{Official timetable, public schedule} & \\textit{The bus departs at 7:00 AM} \\\\
-\\hline
-\\end{array}$$`
+ begin{array}{|l|l|l|}
+ hline
+\**Future Form** & \**Primary Value** & \**Typical Key Marker**   
+ hline
+\**Will** & \Spontaneous decision, opinion prediction, promise &  textit{I think, probably, perhaps, suddenly}   
+ hline
+\**Be going to** & \Premeditated intention, prediction from evidence &  textit{Look!, watch out!, plan to, intend to}   
+ hline
+\**Present Continuous** & \Confirmed arrangement, fixed appointment &  textit{Next week with..., ticket booked, at 3 PM}   
+ hline
+\**Present Simple** & \Official timetable, public schedule &  textit{The bus departs at 7:00 AM}   
+ hline
+ end{array}`
     },
     {
       title: 'III. Discourse Markers: Expressing Cause, Result, and Purpose',

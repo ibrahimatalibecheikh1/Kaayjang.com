@@ -13,12 +13,7 @@ export const LESSON_1_FRANCAIS_2NDE: LessonContent = {
   title: 'LA CONTRACTION DE TEXTE : MÉTHODOLOGIE DU RÉSUMÉ DE TEXTE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 1 : LA CONTRACTION DE TEXTE — MÉTHODOLOGIE DU RÉSUMÉ DE TEXTE
+  fullText: `LEÇON 1 : LA CONTRACTION DE TEXTE — MÉTHODOLOGIE DU RÉSUMÉ DE TEXTE
 
 INTRODUCTION
 La contraction de texte, communément appelée « résumé de texte », constitue l'une des épreuves reines de l'évaluation du français au second cycle des lycées sénégalais et aux examens du Baccalauréat (séries littéraires L et scientifiques S). Loin d'être un simple exercice mécanique de découpage ou de réduction de phrases, le résumé est un exercice rigoureux de pensée, de compréhension fine et de réécriture. Il exige de l'élève une double compétence fondamentale : d'une part, la capacité à décoder l'armature logique d'une pensée complexe sans la trahir ; d'autre part, la maîtrise d'une expression écrite personnelle, concise, élégante et parfaitement conforme aux règles syntaxiques de la langue française. Résumer, ce n'est pas mutiler un texte ; c'est en extraire la substance vive et la reconstruire sous une forme condensée en respectant scrupuleusement la pensée, le ton et le mouvement de l'auteur original.
@@ -215,12 +210,7 @@ export const LESSON_2_FRANCAIS_2NDE: LessonContent = {
   title: 'LA DISCUSSION DE TEXTE ARGUMENTATIF : MÉTHODOLOGIE ET RÉDACTION',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 2 : LA DISCUSSION DE TEXTE ARGUMENTATIF — MÉTHODOLOGIE ET RÉDACTION
+  fullText: `LEÇON 2 : LA DISCUSSION DE TEXTE ARGUMENTATIF — MÉTHODOLOGIE ET RÉDACTION
 
 INTRODUCTION
 Dans le système éducatif sénégalais, la discussion constitue la seconde partie indissociable de l'épreuve de contraction de texte au second cycle (classes de Seconde, Première et Terminale L et S). Alors que le résumé impose un effacement scrupuleux de l'élève derrière l'auteur, la discussion exige exactement l'attitude inverse : une prise de parole autonome, réfléchie, nuancée et argumentée. Face à une assertion forte ou à un extrait polémique tiré du texte support, l'élève est convié à exercer son esprit critique, à confronter des points de vue divergents, à mobiliser sa culture générale et littéraire, et à structurer un raisonnement dialectique rigoureux. La discussion est l'apprentissage par excellence de la citoyenneté démocratique et de l'honnêteté intellectuelle.
@@ -376,12 +366,7 @@ export const LESSON_3_FRANCAIS_2NDE: LessonContent = {
   title: 'LA DISSERTATION LITTÉRAIRE AU LYCÉE : MÉTHODOLOGIE ET ANALYSE DE SUJET',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 3 : LA DISSERTATION LITTÉRAIRE AU LYCÉE — MÉTHODOLOGIE ET ANALYSE DE SUJET
+  fullText: `LEÇON 3 : LA DISSERTATION LITTÉRAIRE AU LYCÉE — MÉTHODOLOGIE ET ANALYSE DE SUJET
 
 INTRODUCTION
 La dissertation littéraire est l'exercice intellectuel le plus emblématique des humanités francophones et du second cycle de l'enseignement secondaire sénégalais. Si en classe de Troisième l'élève pratiquait la composition française et l'initiation au paragraphe argumentatif, la classe de Seconde marque l'entrée décisive dans la dissertation littéraire proprement dite. Cet exercice consiste en une réflexion construite, argumentée et illustrée sur une problématique liée à la création littéraire, aux fonctions des genres (roman, poésie, théâtre, apologue), au rôle de l'écrivain dans la cité et à la réception esthétique des œuvres par le lecteur. Réussir une dissertation exige une solide culture littéraire, une rigueur logique sans faille et une écriture élégante et maîtrisée.
@@ -546,12 +531,7 @@ export const LESSON_4_FRANCAIS_2NDE: LessonContent = {
   title: 'LE COMMENTAIRE COMPOSÉ DE TEXTE LITTÉRAIRE : MÉTHODE ET PRATIQUE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 4 : LE COMMENTAIRE COMPOSÉ DE TEXTE LITTÉRAIRE — MÉTHODE ET PRATIQUE
+  fullText: `LEÇON 4 : LE COMMENTAIRE COMPOSÉ DE TEXTE LITTÉRAIRE — MÉTHODE ET PRATIQUE
 
 INTRODUCTION
 Le commentaire composé de texte littéraire est, aux côtés de la dissertation et du résumé-discussion, l'une des trois épreuves fondamentales proposées au choix du candidat au Baccalauréat sénégalais. Si au collège l'élève s'exerçait à la lecture expliquée linéaire ou aux questions ponctuelles de compréhension et de langue, la classe de Seconde exige un saut méthodologique majeur : l'accès au commentaire « composé », c'est-à-dire organisé de manière thématique et stylistique selon des centres d'intérêt prédéterminés. L'objectif suprême du commentaire composé n'est jamais de répéter ce que le texte dit (paraphrase stérile), mais de démontrer avec rigueur comment le texte le dit, en établissant une liaison indissoluble entre les choix de forme de l'écrivain et les significations profondes qu'ils engendrent.

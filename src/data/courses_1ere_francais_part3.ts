@@ -14,10 +14,7 @@ export const LESSON_11_FRANCAIS_1ERE: LessonContent = {
   title: 'LE COMMENTAIRE DE TEXTE LITTÉRAIRE : MÉTHODOLOGIE EXHAUSTIVE, GRILLE D\'ANALYSE ET RÉDACTION',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 11 : LE COMMENTAIRE DE TEXTE LITTÉRAIRE : MÉTHODOLOGIE EXHAUSTIVE, GRILLE D'ANALYSE ET RÉDACTION
+  fullText: `LEÇON 11 : LE COMMENTAIRE DE TEXTE LITTÉRAIRE : MÉTHODOLOGIE EXHAUSTIVE, GRILLE D'ANALYSE ET RÉDACTION
 
 INTRODUCTION
 Le commentaire composé est l'une des trois épreuves majeures écrites du baccalauréat sénégalais. Il a pour objectif fondamental de mesurer la capacité du candidat à entrer dans l'intelligence profonde d'un texte littéraire (poésie, roman, théâtre, essai ou apologue), à en élucider le sens manifeste et les significations implicites, et à démonter méticuleusement les rouages stylistiques et rhétoriques par lesquels l'auteur produit des effets esthétiques et émotionnels singuliers. Le commentaire de texte repose sur un postulat d'or absolu : en littérature, le fond est indissociable de la forme ; ce que dit un texte ne prend sa véritable résonance que par la manière dont il le dit. Par conséquent, deux écueils mortels doivent être impérativement évités : d'une part, la paraphrase stérile, qui se contente de raconter bêtement ce qui se passe ou de traduire le texte en mauvais français sans jamais analyser les procédés d'écriture ; d'autre part, le relevé mécanique de figures de style (« catalogue de figures »), qui aligne des étiquettes grammaticales désincarnées sans jamais expliquer leur contribution à la signification globale de l'extrait.
@@ -114,10 +111,7 @@ export const LESSON_12_FRANCAIS_1ERE: LessonContent = {
   title: 'LE RÉSUMÉ DE TEXTE : NORMES OFFICIELLES, TECHNIQUES DE CONDENSATION ET REFORMULATION',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 12 : LE RÉSUMÉ DE TEXTE : NORMES OFFICIELLES, TECHNIQUES DE CONDENSATION ET REFORMULATION
+  fullText: `LEÇON 12 : LE RÉSUMÉ DE TEXTE : NORMES OFFICIELLES, TECHNIQUES DE CONDENSATION ET REFORMULATION
 
 INTRODUCTION
 Première composante de la deuxième épreuve de français au baccalauréat sénégalais (couplée avec la Discussion), le résumé de texte est un exercice de rigueur intellectuelle, de concision stylistique et de fidélité doctrinale absolue. Il consiste à réduire un texte discursif, argumentatif ou réflexif d'environ 600 à 800 mots au quart de sa longueur initiale (généralement entre 150 et 200 mots, avec une tolérance stricte de plus ou moins 10 %), tout en préservant scrupuleusement le mouvement de la pensée de l'auteur, la chaîne de ses arguments, son système d'énonciation et l'équilibre des différentes étapes de sa démonstration. Le résumé de texte ne tolère aucune tricherie : il est formellement interdit d'ajouter des idées personnelles, de commenter ou de critiquer la thèse, de modifier l'ordre logique du raisonnement, ou de recopier servilement des morceaux de phrases du texte d'origine. C'est un exercice de haute voltige verbale qui évalue la capacité à comprendre une pensée complexe et à la réexprimer avec une élégante économie de moyens dans une langue impeccable.
@@ -205,10 +199,7 @@ export const LESSON_13_FRANCAIS_1ERE: LessonContent = {
   title: 'LA DISCUSSION : ARGUMENTATION, PROBLÉMATISATION ET CONDUITE DU DÉBAT D\'IDÉES',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 13 : LA DISCUSSION : ARGUMENTATION, PROBLÉMATISATION ET CONDUITE DU DÉBAT D'IDÉES
+  fullText: `LEÇON 13 : LA DISCUSSION : ARGUMENTATION, PROBLÉMATISATION ET CONDUITE DU DÉBAT D'IDÉES
 
 INTRODUCTION
 Seconde étape indissociable de la deuxième épreuve écrite de français au baccalauréat sénégalais (venant immédiatement après le Résumé de texte), la Discussion est un exercice d'argumentation personnelle et critique. Alors que le résumé imposait au candidat une neutralité totale et une fidélité absolue à la parole de l'auteur, la discussion lui rend sa pleine liberté intellectuelle pour confronter, apprécier, élargir ou contester la thèse soutenue dans le texte d'appui. Portant généralement sur une citation précise extraite du texte ou sur une problématique socioculturelle, scientifique, morale ou artistique soulevée par celui-ci, la discussion exige du candidat qu'il produise une réflexion argumentée, équilibrée, richement illustrée et rigoureusement structurée. Contrairement à une bavardage d'opinion spontanée, la discussion est une pesée dialectique rigoureuse des arguments, qui évite le manichéisme simpliste pour construire une pensée critique nuancée et éclairée.
@@ -296,10 +287,7 @@ export const LESSON_14_FRANCAIS_1ERE: LessonContent = {
   title: 'LES FIGURES DE STYLE ET LEUR INTERPRÉTATION STYLISTIQUE AU SECOND CYCLE',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 14 : LES FIGURES DE STYLE ET LEUR INTERPRÉTATION STYLISTIQUE AU SECOND CYCLE
+  fullText: `LEÇON 14 : LES FIGURES DE STYLE ET LEUR INTERPRÉTATION STYLISTIQUE AU SECOND CYCLE
 
 INTRODUCTION
 En classe de Première, la maîtrise des figures de style ne se limite plus à la simple identification mécanique ou à l'étiquetage superficiel d'un procédé rhétorique lors d'une interrogation écrite. Une figure de style n'est jamais un simple bijou décoratif greffé artificiellement sur un texte ; elle est un choix d'écriture capital, un écart expressif par rapport à l'usage ordinaire de la langue qui condense la sensibilité de l'écrivain, oriente l'interprétation du lecteur et fait naître une émotion esthétique singulière. Dans le cadre du commentaire composé comme de la dissertation, le candidat doit impérativement répondre à la règle d'or des trois questions :
@@ -416,10 +404,7 @@ export const LESSON_15_FRANCAIS_1ERE: LessonContent = {
   title: 'LES REGISTRES LITTÉRAIRES : ANALYSE DES TONALITÉS, PROCÉDÉS ET EFFETS CATHARTIQUES',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 15 : LES REGISTRES LITTÉRAIRES : ANALYSE DES TONALITÉS, PROCÉDÉS ET EFFETS CATHARTIQUES
+  fullText: `LEÇON 15 : LES REGISTRES LITTÉRAIRES : ANALYSE DES TONALITÉS, PROCÉDÉS ET EFFETS CATHARTIQUES
 
 INTRODUCTION
 Notion capitale de la théorie littéraire et de l'explication de texte au second cycle, le registre littéraire (ou tonalité) désigne la coloration affective, morale ou esthétique particulière qui se dégage d'un texte et qui conditionne la réaction émotionnelle ou intellectuelle du lecteur. Il ne faut jamais confondre le genre littéraire (qui renvoie à une forme codifiée extérieure : poésie, roman, tragédie, comédie, essai) et le registre (qui est une tonalité transversale susceptible de traverser n'importe quel genre : on peut trouver du tragique dans un roman comme dans un poème, du lyrique au théâtre comme dans un récit autobiographique). Un texte peut être dominé par un registre unique, mais il mêle fréquemment plusieurs registres en une savante polyphonie dramatique. Maîtriser les registres littéraires au baccalauréat permet d'identifier immédiatement le dessein de l'écrivain, de repérer les faisceaux d'indices stylistiques convergents et d'expliquer avec précision l'impact cathartique ou persuasif de l'œuvre sur la sensibilité humaine.
@@ -516,9 +501,7 @@ export const LESSON_16_FRANCAIS_1ERE: LessonContent = {
   title: 'CADRAGE OFFICIEL ET PROGRESSION HARMONISÉE DE RÉVISION DU BACCALAURÉAT',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-GUIDE OFFICIEL DE PROGRESSION ET DE RÉVISION DU BACCALAURÉAT — CLASSE DE PREMIÈRE (L ET S)
+  fullText: `GUIDE OFFICIEL DE PROGRESSION ET DE RÉVISION DU BACCALAURÉAT — CLASSE DE PREMIÈRE (L ET S)
 DOCUMENT DE RÉFÉRENCE HARMONISÉ 2025-2026
 
 INTRODUCTION

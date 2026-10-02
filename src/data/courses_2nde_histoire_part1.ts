@@ -12,12 +12,7 @@ export const LESSON_1_HISTOIRE_2NDE: LessonContent = {
   title: `Histoire : définition, objet et importance`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 1 : HISTOIRE : DÉFINITION, OBJET ET IMPORTANCE
+  fullText: `LEÇON 1 : HISTOIRE : DÉFINITION, OBJET ET IMPORTANCE
 
 INTRODUCTION
 L'histoire est une discipline qui cherche à connaître et à comprendre les sociétés humaines dans le temps. Elle ne consiste pas seulement à retenir des dates, des noms ou des batailles. Elle étudie les transformations des hommes, des territoires, des institutions, des économies, des cultures et des mentalités. En classe de Seconde, l'étude de l'histoire doit donc conduire l'élève à construire une représentation organisée du passé, à distinguer les faits établis des interprétations et à comprendre les relations entre les événements. Le travail de l'historien repose sur des sources, une méthode critique et une mise en perspective chronologique. L'importance de l'histoire tient à la fois à la connaissance du passé, à la compréhension du présent et à la formation de l'esprit critique.
@@ -89,12 +84,7 @@ export const LESSON_2_HISTOIRE_2NDE: LessonContent = {
   title: `Problématique de l'histoire africaine : sources et procédés d'investigation`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 2 : PROBLÉMATIQUE DE L'HISTOIRE AFRICAINE : SOURCES ET PROCÉDÉS D'INVESTIGATION
+  fullText: `LEÇON 2 : PROBLÉMATIQUE DE L'HISTOIRE AFRICAINE : SOURCES ET PROCÉDÉS D'INVESTIGATION
 
 INTRODUCTION
 L'histoire africaine a longtemps été présentée de manière incomplète parce que de nombreux récits ont privilégié les documents produits par les voyageurs, administrateurs et chercheurs étrangers. Or l'Afrique possède une grande diversité de sources : traditions orales, inscriptions, objets, monuments, vestiges archéologiques, langues, manuscrits, archives, récits de voyageurs, documents administratifs et témoignages. Pour reconstituer le passé, l'historien africain ou spécialiste de l'Afrique croise ces matériaux. L'objectif n'est pas de considérer une source comme supérieure par principe, mais de comprendre ce qu'elle permet de connaître, ses limites et la manière de la confronter à d'autres informations.
@@ -166,12 +156,7 @@ export const LESSON_3_HISTOIRE_2NDE: LessonContent = {
   title: `L'Afrique, berceau de l'humanité`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 3 : L'AFRIQUE, BERCEAU DE L'HUMANITÉ
+  fullText: `LEÇON 3 : L'AFRIQUE, BERCEAU DE L'HUMANITÉ
 
 INTRODUCTION
 L'Afrique occupe une place centrale dans l'histoire des origines humaines. Les découvertes paléontologiques et archéologiques réalisées surtout en Afrique orientale, australe et dans d'autres régions du continent ont fourni des vestiges majeurs permettant de reconstituer une partie de l'évolution des homininés. L'expression berceau de l'humanité ne signifie pas que toute l'histoire des premiers humains se serait déroulée dans un seul lieu ; elle souligne le rôle exceptionnel du continent dans les premières étapes connues de l'évolution humaine.
@@ -234,12 +219,7 @@ export const LESSON_4_HISTOIRE_2NDE: LessonContent = {
   title: `Les civilisations paléolithiques`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 4 : LES CIVILISATIONS PALÉOLITHIQUES
+  fullText: `LEÇON 4 : LES CIVILISATIONS PALÉOLITHIQUES
 
 INTRODUCTION
 Le Paléolithique, ou âge de la pierre taillée, correspond à une très longue période de la Préhistoire pendant laquelle les groupes humains vivent essentiellement de chasse, de pêche, de collecte et, selon les milieux, d'autres formes d'exploitation des ressources naturelles. Le mot civilisation ne doit pas être compris comme une société urbaine ou étatique : il désigne ici des formes d'organisation, de techniques, de culture et de rapports au milieu développées par les groupes humains.
@@ -302,12 +282,7 @@ export const LESSON_5_HISTOIRE_2NDE: LessonContent = {
   title: `La révolution néolithique et ses conséquences`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 5 : LA RÉVOLUTION NÉOLITHIQUE ET SES CONSÉQUENCES
+  fullText: `LEÇON 5 : LA RÉVOLUTION NÉOLITHIQUE ET SES CONSÉQUENCES
 
 INTRODUCTION
 La révolution néolithique désigne une transformation profonde des modes de vie qui se produit à des moments différents selon les régions. Elle est associée à la domestication de certaines plantes et de certains animaux, au développement de l'agriculture et de l'élevage, à une plus grande sédentarisation et à l'apparition de nouveaux outils et techniques. Il ne s'agit pas d'un événement unique ni d'une rupture instantanée : la transition s'étale sur plusieurs générations et s'effectue selon des rythmes différents.
@@ -388,12 +363,7 @@ export const LESSON_6_HISTOIRE_2NDE: LessonContent = {
   title: `Préhistoire et protohistoire du Sénégal`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 6 : PRÉHISTOIRE ET PROTOHISTOIRE DU SÉNÉGAL
+  fullText: `LEÇON 6 : PRÉHISTOIRE ET PROTOHISTOIRE DU SÉNÉGAL
 
 INTRODUCTION
 Le territoire actuel du Sénégal possède de nombreux témoignages des peuplements anciens. Les vestiges préhistoriques et protohistoriques renseignent sur les modes de vie, les techniques, les déplacements et les pratiques funéraires des populations qui ont occupé la région avant et au début de la période historique écrite. L'étude de ces périodes associe archéologie, anthropologie, géologie, traditions et comparaison régionale.

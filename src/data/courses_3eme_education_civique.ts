@@ -18,8 +18,7 @@ export const LESSON_1_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Le patrimoine naturel englobe l'ensemble des biens dont les richesses sont issues de la nature : les formations géologiques, physiographiques, les zones délimitées constituant l'habitat d'espèces animales et végétales menacées, ainsi que les sites naturels ayant une valeur universelle exceptionnelle du point de vue de la science, de la conservation ou de la beauté naturelle. Au Sénégal, ce patrimoine constitue non seulement une richesse biologique indispensable à l'équilibre des écosystèmes, mais aussi un pilier économique à travers des secteurs majeurs comme le tourisme, la pêche et l'artisanat.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+  fullText: `CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
 Leçon 1 : Le patrimoine naturel : typologie
 
@@ -92,8 +91,7 @@ export const LESSON_2_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "L'exploitation abusive des ressources, la déforestation, la pollution urbaine et le braconnage nécessitent une réglementation stricte. L'État du Sénégal a mis en place un arsenal juridique contraignant composé de plusieurs codes sectoriels afin de sanctionner les comportements destructeurs et promouvoir un développement durable.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+  fullText: `CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
 Leçon 2 : Protection du patrimoine naturel : les codes
 
@@ -165,8 +163,7 @@ export const LESSON_3_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Le patrimoine historique et culturel se compose des biens matériels et immatériels hérités du passé, qui témoignent de l'histoire, des valeurs, des croyances et du génie créateur des populations du Sénégal. Il forge l'identité nationale et favorise la cohésion sociale.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+  fullText: `CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
 Leçon 3 : Le patrimoine historique et culturel : typologie, protection et stratégies de promotion
 
@@ -233,8 +230,7 @@ export const DOSSIER_1_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Ce dossier analyse le phénomène de la déforestation au Sénégal, accentué par la coupe clandestine de bois de chauffe et de bois d'œuvre (notamment le réseau de trafic de bois de rose en Casamance). Les feux de brousse, souvent provoqués par l'imprudence humaine ou des pratiques agricoles inadaptées, détruisent chaque année des milliers d'hectares de tapis végétal, appauvrissent les sols et entraînent l'exode des espèces animales. Les solutions résident dans les techniques de pare-feux, le renforcement de la surveillance par les agents des Eaux et Forêts, et la sensibilisation des comités villageois de vigilance.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
+  fullText: `CHAPITRE I : ENVIRONNEMENT ET PATRIMOINE
 
 Dossier AC 1 : Le déboisement et la lutte contre les feux de brousse
 
@@ -281,8 +277,7 @@ export const LESSON_4_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "La culture de la paix est un ensemble de valeurs, d'attitudes et de comportements qui rejettent la violence et préviennent les conflits en s'attaquant à leurs causes profondes par le dialogue et la négociation. Elle repose sur le respect des droits fondamentaux de la personne humaine.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE II : VIVRE ENSEMBLE
+  fullText: `CHAPITRE II : VIVRE ENSEMBLE
 
 Leçon 4 : La culture de la paix
 
@@ -348,8 +343,7 @@ export const LESSON_5_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "L'intégration régionale et continentale repose sur le constat que les micro-États africains, hérités de la colonisation, ne peuvent faire face isolément aux défis de la mondialisation. S'unir devient une obligation économique, politique et sécuritaire pour assurer le développement de l'Afrique.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE II : VIVRE ENSEMBLE
+  fullText: `CHAPITRE II : VIVRE ENSEMBLE
 
 Leçon 5 : Solidarité et intégration en Afrique
 
@@ -422,8 +416,7 @@ export const LESSON_6_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Le pouvoir législatif au Sénégal est exercé par un parlement monocaméral représenté par l'Assemblée nationale. Les députés sont élus au suffrage universel direct pour un mandat de cinq ans, selon un système combinant le scrutin majoritaire départemental et le scrutin proportionnel national.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 6 : L’organisation du pouvoir législatif
 
@@ -478,8 +471,7 @@ export const LESSON_7_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Le pouvoir judiciaire est indépendant des pouvoirs exécutif et législatif. La justice est rendue au nom du peuple sénégalais sur toute l'étendue du territoire. Elle repose sur des principes clés : l'égalité de tous devant la loi, la gratuité des procédures (les juges étant payés par l'État), le droit à un procès équitable et la présomption d'innocence.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 7 : L’organisation du pouvoir judiciaire
 
@@ -545,8 +537,7 @@ export const LESSON_8_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Un État de droit est un système institutionnel dans lequel la puissance publique est soumise au droit. Les gouvernants, tout comme les citoyens, doivent respecter les lois en vigueur. Il implique l'existence d'une hiérarchie des normes juridiques (la Constitution étant au sommet) et la possibilité de contester un acte de l'administration devant les tribunaux.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 8 : L’État de droit et la bonne gouvernance
 
@@ -609,8 +600,7 @@ export const LESSON_9_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Les Droits de l'Homme sont des prérogatives inhérentes à la nature humaine, universelles, inaliénables et sacrées. Ils se sont construits progressivement à travers l'histoire pour protéger l'individu contre l'arbitraire du pouvoir.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 9 : Les Droits de l’Homme
 
@@ -667,8 +657,7 @@ export const LESSON_10_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "Historiquement, les pesanteurs sociales, les traditions mal interprétées et le manque d'accès à l'instruction ont maintenu les femmes dans une situation de vulnérabilité et de dépendance. La reconnaissance de leurs droits est un enjeu de justice sociale et de développement économique.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 10 : Les droits de la femme
 
@@ -725,8 +714,7 @@ export const LESSON_11_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "En raison de son manque de maturité physique et intellectuelle, l'enfant a besoin d'une protection spéciale et de soins particuliers, y compris d'une protection juridique appropriée, avant comme après la naissance.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Leçon 11 : Les droits de l’enfant
 
@@ -790,8 +778,7 @@ export const DOSSIER_2_3_CIVIQUE_3EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '3ème',
   introduction: "La Constitution est la Loi Fondamentale qui organise l'État, définit la forme de la République (laïque, démocratique et sociale), fixe la séparation des pouvoirs et garantit les libertés publiques. Le Code électoral, quant à lui, est l'ensemble des règles qui régissent l'organisation des scrutins, l'inscription sur les listes électorales, le déroulement du vote, la transparence du dépouillement et la proclamation des résultats par les instances habilitées (CENA, Conseil Constitutionnel). Ces deux outils sont les piliers de l'expression démocratique au Sénégal.",
-  fullText: `COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 3ÈME — SÉNÉGAL
-CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
+  fullText: `CHAPITRE III : DÉMOCRATIE, ÉTAT ET DROITS DE L'HOMME
 
 Dossier AC 2 & AC 3 : La Constitution sénégalaise et le Code électoral
 

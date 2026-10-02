@@ -13,7 +13,6 @@ export const LESSON_4_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 2 : LES COLLECTIVITÉS LOCALES (LE MILIEU PROCHE)
@@ -128,7 +127,6 @@ export const LESSON_5_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 2 : LES COLLECTIVITÉS LOCALES (LE MILIEU PROCHE)
@@ -229,7 +227,6 @@ export const LESSON_6_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 2 : LES COLLECTIVITÉS LOCALES (LE MILIEU PROCHE)
@@ -326,7 +323,6 @@ export const LESSON_7_CIVIQUE_6EME: LessonContent = {
   subject: 'Éducation civique',
   classLevel: '6ème',
   fullText: `RÉPUBLIQUE DU SÉNÉGAL
-Un Peuple - Un But - Une Foi
 COURS COMPLET D'ÉDUCATION CIVIQUE - CLASSE DE 6ÈME
 
 CHAPITRE 2 : LES COLLECTIVITÉS LOCALES (LE MILIEU PROCHE)

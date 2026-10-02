@@ -12,12 +12,7 @@ export const LESSON_7_HISTOIRE_2NDE: LessonContent = {
   title: `Activité de consolidation : technique de la dissertation historique`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 7 : ACTIVITÉ DE CONSOLIDATION : TECHNIQUE DE LA DISSERTATION HISTORIQUE
+  fullText: `LEÇON 7 : ACTIVITÉ DE CONSOLIDATION : TECHNIQUE DE LA DISSERTATION HISTORIQUE
 
 INTRODUCTION
 La dissertation historique est un exercice de réflexion organisée. Elle demande de répondre à une question de portée historique en mobilisant des connaissances précises et un raisonnement démonstratif. L'objectif n'est pas de réciter un cours, mais de construire une réponse structurée qui montre que l'élève a compris le sujet, sélectionné les informations utiles et établi des relations entre elles.
@@ -98,12 +93,7 @@ export const LESSON_8_HISTOIRE_2NDE: LessonContent = {
   title: `La civilisation de l'Égypte pharaonique`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 8 : LA CIVILISATION DE L'ÉGYPTE PHARAONIQUE
+  fullText: `LEÇON 8 : LA CIVILISATION DE L'ÉGYPTE PHARAONIQUE
 
 INTRODUCTION
 La civilisation de l'Égypte pharaonique s'est développée principalement dans la vallée et le delta du Nil sur une très longue durée. Son histoire est marquée par la continuité d'institutions, de croyances et de techniques, mais aussi par des transformations, des périodes de fragmentation et des contacts avec les régions voisines. L'étude de l'Égypte ancienne permet d'aborder l'organisation politique, l'économie, la société, la religion, l'écriture et les réalisations techniques d'un grand État africain.
@@ -202,12 +192,7 @@ export const LESSON_9_HISTOIRE_2NDE: LessonContent = {
   title: `Axoum`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 9 : AXOUM
+  fullText: `LEÇON 9 : AXOUM
 
 INTRODUCTION
 Le royaume puis empire d'Axoum s'est développé dans la région de la Corne de l'Afrique, principalement dans les hauts plateaux de l'actuelle Éthiopie et de l'Érythrée. Il occupe une place importante dans l'histoire de l'Afrique ancienne en raison de son organisation politique, de son commerce international, de ses réalisations architecturales et de l'adoption ancienne du christianisme.
@@ -279,12 +264,7 @@ export const LESSON_10_HISTOIRE_2NDE: LessonContent = {
   title: `La Méditerranée et le monde noir : contacts, échanges, migrations et influences culturelles`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 10 : LA MÉDITERRANÉE ET LE MONDE NOIR : CONTACTS, ÉCHANGES, MIGRATIONS ET INFLUENCES CULTURELLES
+  fullText: `LEÇON 10 : LA MÉDITERRANÉE ET LE MONDE NOIR : CONTACTS, ÉCHANGES, MIGRATIONS ET INFLUENCES CULTURELLES
 
 INTRODUCTION
 Les relations entre les sociétés de la Méditerranée et celles de l'Afrique subsaharienne sont anciennes et diversifiées. Elles ne se limitent pas au commerce des esclaves. Des marchandises, des techniques, des idées, des religions et des personnes circulent entre l'Afrique du Nord, la vallée du Nil, le Sahara, le Sahel, la Corne de l'Afrique et les régions méditerranéennes. Ces contacts ont contribué à transformer les sociétés de part et d'autre.
@@ -356,12 +336,7 @@ export const LESSON_11_HISTOIRE_2NDE: LessonContent = {
   title: `Activité de consolidation : parenté entre la civilisation égyptienne et le reste de l'Afrique - exemple du Sénégal`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 11 : ACTIVITÉ DE CONSOLIDATION : PARENTÉ ENTRE LA CIVILISATION ÉGYPTIENNE ET LE RESTE DE L'AFRIQUE - EXEMPLE DU SÉNÉGAL
+  fullText: `LEÇON 11 : ACTIVITÉ DE CONSOLIDATION : PARENTÉ ENTRE LA CIVILISATION ÉGYPTIENNE ET LE RESTE DE L'AFRIQUE - EXEMPLE DU SÉNÉGAL
 
 INTRODUCTION
 Cette activité consiste à étudier, à partir de dossiers et d'exposés, les ressemblances, les différences et les contacts possibles entre l'Égypte ancienne et d'autres sociétés africaines, en prenant le Sénégal comme exemple. La question de la parenté culturelle doit être traitée avec méthode : une ressemblance ne prouve pas à elle seule une transmission directe. Il faut distinguer influence, héritage, convergence et simple similitude.

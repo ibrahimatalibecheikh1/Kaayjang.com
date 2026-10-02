@@ -13,10 +13,7 @@ export const LESSON_6_FRANCAIS_1ERE: LessonContent = {
   title: 'LA DISSERTATION LITTÉRAIRE : MÉTHODOLOGIE COMPLÈTE, ANALYSE DU SUJET ET RÉDACTION',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 6 : LA DISSERTATION LITTÉRAIRE : MÉTHODOLOGIE COMPLÈTE, ANALYSE DU SUJET ET RÉDACTION
+  fullText: `LEÇON 6 : LA DISSERTATION LITTÉRAIRE : MÉTHODOLOGIE COMPLÈTE, ANALYSE DU SUJET ET RÉDACTION
 
 INTRODUCTION
 Épreuve reine de l'évaluation littéraire au baccalauréat sénégalais, la dissertation littéraire est un exercice intellectuel de haute exigence rhétorique et méthodologique. Elle ne consiste en aucun cas en une récitation mécanique de connaissances érudites, ni en un étalage anarchique de citations déconnectées de leur contexte. La dissertation littéraire est un acte d'investigation critique, une démonstration argumentative rigoureuse par laquelle le candidat examine un problème théorique, esthétique ou éthique posé par une citation ou une consigne portant sur la littérature, ses fonctions, ses genres (poésie, roman, théâtre) ou la responsabilité morale de l'écrivain dans la société. Réussir cette épreuve suppose une maîtrise rigoureuse de quatre étapes fondamentales : l'analyse notionnelle scrupuleuse du sujet, la problématisation féconde, la construction d'un plan dialectique ou thématique cohérent, et la rédaction soignée articulant arguments solides, analyses stylistiques et exemples textuels précis.
@@ -109,10 +106,7 @@ export const LESSON_7_FRANCAIS_1ERE: LessonContent = {
   title: 'LE ROMAN ROMANTIQUE : HÉROÏSME PASSIONNÉ, HISTOIRE ET PEINTURE DE L\'ÂME',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 7 : LE ROMAN ROMANTIQUE : HÉROÏSME PASSIONNÉ, HISTOIRE ET PEINTURE DE L'ÂME
+  fullText: `LEÇON 7 : LE ROMAN ROMANTIQUE : HÉROÏSME PASSIONNÉ, HISTOIRE ET PEINTURE DE L'ÂME
 
 INTRODUCTION
 Alors que le romantisme s'est d'abord illustré avec éclat dans le genre poétique et sur les tréteaux théâtraux, le genre romanesque a connu sous son impulsion une métamorphose extraordinaire dans le premier tiers du XIXe siècle. Jusqu'alors considéré par la critique classique comme un genre mineur, suspect d'immoralité ou de frivolité divertissante, le roman acquiert avec le romantisme ses lettres de noblesse intellectuelle et philosophique. De René et Atala de Chateaubriand à Notre-Dame de Paris et Les Misérables de Victor Hugo, en passant par La Confession d'un enfant du siècle d'Alfred de Musset et Indiana de George Sand, le roman romantique se déploie comme le grand réceptacle de la démesure des passions humaines, de la méditation métaphysique sur le destin et de la résurrection flamboyante des époques historiques passées. Il explore l'insatisfaction tragique d'un personnage en guerre contre la médiocrité sociale et inaugure une écriture lyrique foisonnante où la prose rivalise avec la splendeur musicale du poème.
@@ -184,10 +178,7 @@ export const LESSON_8_FRANCAIS_1ERE: LessonContent = {
   title: 'LE RÉALISME : MIMÉSIS, ILLUSION RÉFÉRENTIELLE ET PEINTURE DE LA SOCIÉTÉ',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 8 : LE RÉALISME : MIMÉSIS, ILLUSION RÉFÉRENTIELLE ET PEINTURE DE LA SOCIÉTÉ
+  fullText: `LEÇON 8 : LE RÉALISME : MIMÉSIS, ILLUSION RÉFÉRENTIELLE ET PEINTURE DE LA SOCIÉTÉ
 
 INTRODUCTION
 Mouvement littéraire et artistique majeur qui domine la seconde moitié du XIXe siècle en France et en Europe (des années 1850 aux années 1880), le réalisme émerge en réaction violente contre les excès de l'idéalisme romantique. Écœurés par les chimères poétiques, les rêveries éthérées et l'héroïsme invraisemblable des intrigues romantiques, les écrivains réalistes proclament la nécessité pour la littérature d'observer et de peindre le monde tel qu'il est, sans fard, sans complaisance moralisatrice et sans idéalisation trompeuse. Nourri par l'essor du positivisme philosophique d'Auguste Comte, le triomphe de la révolution industrielle capitaliste et les bouleversements de la société bourgeoise, le réalisme entend ériger le roman en véritable miroir documentaire et sociologique de l'époque. De Balzac et Stendhal — ses précurseurs visionnaires — jusqu'à Gustave Flaubert et Guy de Maupassant, le réalisme invente des techniques narratives rigoureuses destinées à créer ce que Roland Barthes nommera « l'effet de réel », tout en interrogeant avec acuité les ravages de l'argent, l'hypocrisie des classes dirigeantes et le naufrage des illusions humaines.
@@ -263,10 +254,7 @@ export const LESSON_9_FRANCAIS_1ERE: LessonContent = {
   title: 'LE NATURALISME : ÉMILE ZOLA, LA DÉMARCHE EXPÉRIMENTALE ET LES DÉTERMINISMES',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 9 : LE NATURALISME : ÉMILE ZOLA, LA DÉMARCHE EXPÉRIMENTALE ET LES DÉTERMINISMES
+  fullText: `LEÇON 9 : LE NATURALISME : ÉMILE ZOLA, LA DÉMARCHE EXPÉRIMENTALE ET LES DÉTERMINISMES
 
 INTRODUCTION
 Prolongement radical et théorisation scientifique du réalisme dans les deux dernières décennies du XIXe siècle (approximativement de 1870 à 1895), le naturalisme représente l'une des aventures intellectuelles les plus audacieuses de l'histoire littéraire. Conduit par son chef de file incontesté, Émile Zola, et soutenu à ses débuts par de jeunes disciples réunis lors de la publication du manifeste collectif Les Soirées de Médan (1880) — parmi lesquels Guy de Maupassant, Joris-Karl Huysmans et Paul Alexis —, le naturalisme entend appliquer au roman les méthodes rigoureuses des sciences expérimentales et médicales de son temps. Refusant toute échappatoire mystique ou métaphysique, Zola affirme que l'homme n'est pas un être abstrait doué d'un libre arbitre absolu, mais un organisme vivant soumis à l'action conjointe de trois grands déterminismes : l'hérédité biologique, le milieu sociogéographique et le moment historique. À travers la fresque monumentale des Rougon-Macquart, le roman naturaliste plonge au cœur du monde ouvrier, des mines de charbon, des grands magasins et des bas-fonds urbains pour disséquer les tares de la société industrielle et promouvoir une régénération humaniste et progressiste de l'humanité.
@@ -342,10 +330,7 @@ export const LESSON_10_FRANCAIS_1ERE: LessonContent = {
   title: 'LE ROMAN NÉGRO-AFRICAIN : ÉVOLUTION HISTORIQUE, CONTESTATION ET MUTATIONS THÉMATIQUES',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 10 : LE ROMAN NÉGRO-AFRICAIN : ÉVOLUTION HISTORIQUE, CONTESTATION ET MUTATIONS THÉMATIQUES
+  fullText: `LEÇON 10 : LE ROMAN NÉGRO-AFRICAIN : ÉVOLUTION HISTORIQUE, CONTESTATION ET MUTATIONS THÉMATIQUES
 
 INTRODUCTION
 Né dans le creuset tumultueux de la rencontre violente entre l'Afrique et l'Occident colonial au cours de la première moitié du XXe siècle, le roman négro-africain d'expression française s'est imposé comme l'un des espaces littéraires les plus vigoureux, les plus novateurs et les plus engagés de la littérature contemporaine. Si les pionniers des années 1920-1930 (comme René Maran avec Batouala, prix Goncourt 1921, ou Bakary Diallo avec Force-Bonté en 1926) posent les premières balises d'une écriture narrative africaine en langue française, c'est véritablement à partir des années 1950 que le genre romanesque connaît une explosion thématique et formelle prodigieuse. Depuis la dénonciation sans concession du système colonial et de ses impostures jusqu'aux désillusions politiques amères des indépendances et aux quêtes identitaires postcoloniales complexes, le roman africain se révèle à la fois comme un témoignage sociologique irremplaçable, une arme tranchante de libération des consciences et un formidable laboratoire esthétique où les richesses de l'oralité traditionnelle fécondent les structures romanesques modernes.

@@ -13,12 +13,7 @@ export const LESSON_12_FRANCAIS_2NDE: LessonContent = {
   title: 'L\'ÉNONCIATION ET LE STATUT DU NARRATEUR',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 12 : L'ÉNONCIATION ET LE STATUT DU NARRATEUR
+  fullText: `LEÇON 12 : L'ÉNONCIATION ET LE STATUT DU NARRATEUR
 
 INTRODUCTION
 L'énonciation désigne l'acte individuel de production d'un énoncé linguistique par un locuteur dans une situation déterminée. En analyse littéraire au lycée, l'étude de l'énonciation permet de dépasser la simple lecture superficielle du contenu pour s'interroger sur les conditions concrètes de prise de parole : Qui parle ? À qui ? Quand ? Où ? Selon quel degré d'implication émotionnelle ou idéologique ? Dans un texte narratif, il est capital de ne jamais confondre l'auteur (l'homme réel en chair et en os qui a écrit le livre), le narrateur (l'instance fictive qui prend en charge le récit) et les personnages. La maîtrise de ces notions est indispensable pour réussir le commentaire composé et la dissertation littéraire.
@@ -132,12 +127,7 @@ export const LESSON_13_FRANCAIS_2NDE: LessonContent = {
   title: 'LES POINTS DE VUE OU FOCALISATIONS NARRATIVES',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 13 : LES POINTS DE VUE OU FOCALISATIONS NARRATIVES
+  fullText: `LEÇON 13 : LES POINTS DE VUE OU FOCALISATIONS NARRATIVES
 
 INTRODUCTION
 Dans tout récit de fiction, la question fondamentale « Qui parle ? » (le narrateur) doit impérativement être doublée d'une seconde question tout aussi déterminante : « Par les yeux de qui la scène est-elle vue ? » (le foyer de perception ou point de vue). C'est le théoricien Gérard Genette qui a introduit en narratologie le concept rigoureux de « focalisation » (du latin *focus*, le foyer). La focalisation désigne l'angle optique et cognitif choisi par le narrateur pour filtrer les informations délivrées au lecteur. Selon qu'il en sait plus, autant ou moins que ses personnages, le narrateur modifie radicalement l'impact dramatique, l'angoisse, le suspense ou l'empathie ressentis par le lecteur.
@@ -220,12 +210,7 @@ export const LESSON_14_FRANCAIS_2NDE: LessonContent = {
   title: 'LES FIGURES DE STYLE ET PROCÉDÉS RHÉTORIQUES FONDAMENTAUX',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 14 : LES FIGURES DE STYLE ET PROCÉDÉS RHÉTORIQUES FONDAMENTAUX
+  fullText: `LEÇON 14 : LES FIGURES DE STYLE ET PROCÉDÉS RHÉTORIQUES FONDAMENTAUX
 
 INTRODUCTION
 Les figures de style (ou tropes rhétoriques) constituent le cœur battant de l'expressivité littéraire. Loin de se réduire à de simples ornements décoratifs ou à des artifices de préciosité, les figures de style sont des manières singulières de manipuler le langage pour frapper l'imagination, susciter une émotion intense, révéler des correspondances secrètes entre les êtres et persuader l'auditoire. Au lycée et dans les épreuves du Baccalauréat sénégalais, la maîtrise des figures de style est la condition sine qua non de la réussite du commentaire composé : l'élève doit être capable de les identifier formellement avec une exactitude scientifique et, surtout, d'en expliquer l'effet esthétique et sémantique contextuel.
@@ -359,12 +344,7 @@ export const LESSON_15_FRANCAIS_2NDE: LessonContent = {
   title: 'LES TONALITÉS OU REGISTRES LITTÉRAIRES',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 15 : LES TONALITÉS OU REGISTRES LITTÉRAIRES
+  fullText: `LEÇON 15 : LES TONALITÉS OU REGISTRES LITTÉRAIRES
 
 INTRODUCTION
 En théorie littéraire, il est fondamental de ne jamais confondre le *genre* littéraire (le cadre formel : poésie, roman, théâtre, apologue) et le *registre* (ou la *tonalité*). Le registre désigne la coloration émotionnelle dominante d'un texte, c'est-à-dire l'effet intellectuel, moral ou affectif que l'auteur cherche à susciter chez le lecteur ou le spectateur (l'effroi, les larmes, l'admiration héroïque, le rire moqueur, la colère indignée, la ferveur amoureuse). Un même genre littéraire peut accueillir des tonalités très différentes : une pièce de théâtre peut être comique ou tragique ; un poème peut être élégiaque, lyrique ou polémique. Identifier le registre dominant et ses modulations permet de cerner avec précision la visée pragmatique d'une œuvre littéraire.
@@ -454,12 +434,7 @@ export const LESSON_16_FRANCAIS_2NDE: LessonContent = {
   title: 'LES RELATIONS LOGIQUES ET CONNECTEURS ARGUMENTATIFS',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 16 : LES RELATIONS LOGIQUES ET CONNECTEURS ARGUMENTATIFS
+  fullText: `LEÇON 16 : LES RELATIONS LOGIQUES ET CONNECTEURS ARGUMENTATIFS
 
 INTRODUCTION
 Dans la production écrite au second cycle du lycée (dissertation littéraire, résumé de texte, discussion argumentative), la clarté et la solidité de la pensée dépendent directement de la rigueur de l'agencement logique. Un devoir où les idées sont juxtaposées sans lien est un édifice chancelant qui fatigue le correcteur. Les relations logiques sont les liens sémantiques qui unissent les propositions d'une phrase complexe ou les paragraphes d'un développement. Les connecteurs argumentatifs (mots de liaison) constituent les charnières et les panneaux indicateurs qui guident le lecteur à travers les méandres du raisonnement : ils indiquent sans ambiguïté si l'on explique une cause, si l'on déduit une conséquence, si l'on concède un point à l'adversaire ou si l'on oppose une objection radicale.
@@ -561,12 +536,7 @@ export const LESSON_17_FRANCAIS_2NDE: LessonContent = {
   title: 'L\'ACCORD DES PARTICIPES PASSÉS ET SUBTILITÉS SYNTAXIQUE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 17 : L'ACCORD DES PARTICIPES PASSÉS ET SUBTILITÉS SYNTAXIQUES
+  fullText: `LEÇON 17 : L'ACCORD DES PARTICIPES PASSÉS ET SUBTILITÉS SYNTAXIQUES
 
 INTRODUCTION
 La maîtrise de l'accord des participes passés constitue le test ultime de la rigueur grammaticale et orthographique au second cycle des lycées. Dans les barèmes du Baccalauréat sénégalais, les fautes d'accord du participe passé figurent parmi les « erreurs rouges » les plus lourdement sanctionnées, car elles trahissent une incompréhension de l'analyse logique et fonctionnelle de la phrase. Si les règles de base avec les auxiliaires « être » et « avoir » sont enseignées dès le collège, la classe de Seconde exige la résolution méthodique des cas complexes : verbes pronominaux essentiels et accidentels, participes passés suivis d'un infinitif, cas de « fait » et « laissé », et emploi avec le pronom adverbial « en ».
@@ -677,12 +647,7 @@ export const LESSON_18_FRANCAIS_2NDE: LessonContent = {
   title: 'LES DISCOURS RAPPORTÉS DANS LE RÉCIT',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 18 : LES DISCOURS RAPPORTÉS DANS LE RÉCIT
+  fullText: `LEÇON 18 : LES DISCOURS RAPPORTÉS DANS LE RÉCIT
 
 INTRODUCTION
 Dans un texte narratif ou romanesque, le narrateur est fréquemment amené à relater les paroles ou les pensées de ses personnages. Pour ce faire, la langue française dispose d'une riche palette de procédés énonciatifs appelés « discours rapportés ». Selon la distance que le narrateur souhaite instaurer entre sa propre voix et celle de ses protagonistes, il peut reproduire les propos tels quels (discours direct), les intégrer dans sa syntaxe par le truchement de subordonnées (discours indirect), fusionner subtilement sa conscience avec celle du personnage (discours indirect libre), ou se contenter de mentionner l'acte de parole sans en détailler le contenu (discours narrativisé). L'analyse stylistique de ces formes permet de comprendre comment s'orchestrent les voix dans le texte littéraire.

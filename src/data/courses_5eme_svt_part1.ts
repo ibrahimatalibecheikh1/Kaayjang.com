@@ -16,8 +16,7 @@ export const LESSON_1_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `La Terre occupe une place tout à fait singulière dans notre système solaire. Troisième planète en partant du Soleil, elle est la seule planète connue à ce jour abritant la vie biologique sous une immense diversité de formes. Cette spécificité remarquable résulte d'un ensemble de caractéristiques physiques, orbitales et atmosphériques exceptionnelles : une position idéale dans la zone d'habitabilité du Soleil, la présence pérenne d'eau liquide à sa surface, une atmosphère gazeuse dense riche en dioxygène et un effet de serre naturel équilibrant sa température. L'étude de ces particularités permet de comprendre les conditions fondamentales de l'émergence et de la pérennité de la vie terrestre.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 1 : LA TERRE DANS LE SYSTÈME SOLAIRE (SES PARTICULARITÉS)
 
 I. SITUATION ASTRONOMIQUE ET ORBITALE DE LA TERRE :
@@ -162,8 +161,7 @@ export const LESSON_2_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Chaque jour, nous consultons les prévisions météorologiques pour connaître la température, la force du vent ou l'arrivée des pluies. Mais d'où viennent ces mouvements incessants de l'atmosphère et de l'océan ? La météorologie étudie l'état de l'atmosphère à court terme sur une zone donnée. À l'échelle du globe, l'inégale répartition de l'énergie solaire reçue engendre de puissants contrastes thermiques. Ces différences de température provoquent des variations de pression qui mettent en mouvement les masses d'air (les vents) et les masses d'eau (les courants océaniques), participant à une redistribution vitale de la chaleur entre les tropiques et les pôles.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 2 : LES PHÉNOMÈNES MÉTÉOROLOGIQUES (DYNAMIQUE DES MASSES D'AIR ET D'EAU)
 
 I. L'INÉGALE RÉPARTITION DE L'ÉNERGIE SOLAIRE À LA SURFACE DU GLOBE :
@@ -300,8 +298,7 @@ export const LESSON_3_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Quelle différence existe-t-il entre le temps qu'il fait aujourd'hui et le climat d'une région ? Alors que la météorologie étudie des variations atmosphériques à court terme (quelques jours), la climatologie analyse les moyennes statistiques de grandeurs atmosphériques sur de très longues périodes, au moins 30 ans. À l'échelle de la planète, la Terre est découpée en grandes zones climatiques. Cependant, ce climat global n'est pas figé : il a connu de multiples fluctuations naturelles au cours des temps géologiques. Aujourd'hui, notre planète fait face à un changement climatique d'origine humaine sans précédent par sa rapidité, bouleversant les équilibres écologiques et humains.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 3 : LE CLIMAT ET SON ÉVOLUTION À GRANDE ÉCHELLE
 
 I. DISTINCTION FONDAMENTALE : MÉTÉOROLOGIE VS CLIMATOLOGIE :
@@ -444,8 +441,7 @@ export const LESSON_4_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Chaque année, les actualités rapportent des tempêtes destructrices, des inondations dévastatrices et des glissements de terrain causant des pertes humaines et matérielles colossales. Pour les géologues et les scientifiques, un risque naturel n'est pas simplement un phénomène naturel spectaculaire : c'est la rencontre entre un événement physique dangereux (l'aléa) et des populations ou infrastructures vulnérables (les enjeux). Comprendre les mécanismes des tempêtes et des inondations, évaluer la vulnérabilité des territoires et mettre en œuvre des mesures de prévention efficaces permet de protéger les sociétés humaines et de bâtir une véritable culture du risque.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 4 : LES RISQUES NATURELS (PRÉVENTION FACE AUX TEMPÊTES ET INONDATIONS)
 
 I. LA NOTION FONDAMENTALE DE RISQUE GÉOLOGIQUE ET NATUREL :
@@ -585,8 +581,7 @@ export const LESSON_5_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Un séisme, ou tremblement de terre, est l'un des phénomènes géologiques les plus impressionnants et destructeurs de notre planète. En quelques secondes à peine, des secousses brutales peuvent modifier le paysage, lézarder le sol, effondrer des édifices et déclencher des raz-de-marée colossaux. D'où provient cette énergie gigantesque libérée soudainement ? Pourquoi la Terre tremble-t-elle ? Comment enregistre-t-on ces vibrations et comment l'Homme peut-il se protéger de ce risque imprévisible à court terme ? Cette leçon détaille l'origine profonde, les modes de propagation et les moyens modernes de prévention sismique.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 5 : LES SÉISMES (CAUSES, MANIFESTATIONS ET RISQUES ASSOCIÉS)
 
 I. LES MANIFESTATIONS D'UN SÉISME EN SURFACE :
@@ -738,8 +733,7 @@ export const LESSON_6_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Le volcanisme est l'un des phénomènes géologiques les plus spectaculaires de la Terre, témoignant de l'intense chaleur régnant dans ses profondeurs. Il correspond à la montée et à l'épanchement en surface d'un matériau magmatique liquide, de gaz et de projections solides. Loin d'être répartis au hasard, la quasi-totalité des volcans actifs du globe sont localisés le long de gigantesques frontières géologiques sous-marines ou continentales. Cette leçon étudie la genèse des magmas, les deux grands types d'éruptions volcaniques (effusives et explosives) et leur lien direct avec la dynamique globale de la tectonique des plaques.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 6 : LE VOLCANISME ET LA TECTONIQUE DES PLAQUES
 
 I. QU'EST-CE QU'UN VOLCAN ET COMMENT SE FORME LE MAGMA ?

@@ -13,11 +13,7 @@ export const LESSON_4_HISTOIRE_1ERE: LessonContent = {
   title: 'LES CAUSES, DOCTRINES ET MÉTHODES DE L\'IMPÉRIALISME EUROPÉEN',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 4 : LES CAUSES, DOCTRINES ET MÉTHODES DE L'IMPÉRIALISME EUROPÉEN
+  fullText: `LEÇON 4 : LES CAUSES, DOCTRINES ET MÉTHODES DE L'IMPÉRIALISME EUROPÉEN
 
 INTRODUCTION
 L'impérialisme est la doctrine et la politique par lesquelles un État puissant cherche à étendre sa domination politique, militaire, économique et culturelle sur d'autres peuples et territoires, directement ou indirectement. Si la colonisation européenne a débuté dès le XVIe siècle sur le continent américain, l'impérialisme de la seconde moitié du XIXe siècle présente un dynamisme agressif et des dimensions inédites. Stimulé par les nécessités de la Révolution Industrielle et l'exacerbation des nationalismes européens, il s'est traduit par une ruée effrénée (« Scramble for Africa ») sur le continent noir, transformant l'Afrique en un immense champ d'affrontements géopolitiques et de domination coloniale.
@@ -159,11 +155,7 @@ export const LESSON_5_HISTOIRE_1ERE: LessonContent = {
   title: 'LES EXPLORATIONS GÉOGRAPHIQUES ET LES MISSIONS RELIGIEUSES EN AFRIQUE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 5 : LES EXPLORATIONS GÉOGRAPHIQUES ET LES MISSIONS RELIGIEUSES EN AFRIQUE
+  fullText: `LEÇON 5 : LES EXPLORATIONS GÉOGRAPHIQUES ET LES MISSIONS RELIGIEUSES EN AFRIQUE
 
 INTRODUCTION
 Jusqu'au début du XIXe siècle, l'Afrique demeurait pour les Européens le « continent noir » ou la « terra incognita ». Si les côtes étaient fréquentées depuis des siècles par les marchands et trafiquants d'esclaves dans le cadre du commerce d'escale, l'intérieur des terres demeurait totalement méconnu et enveloppé de mythes, protégé par des barrières naturelles redoutables (reliefs côtiers, cascades infranchissables, forêts denses et climat impitoyable) et par de virulentes fièvres tropicales (paludisme, fièvre jaune, maladie du sommeil). Dès la fin du XVIIIe siècle, sous l'impulsion de sociétés de géographie et d'organisations religieuses, des vagues successives d'explorateurs téméraires et de missionnaires se sont enfoncées à l'intérieur du continent. Loin d'être une pure aventure scientifique ou spirituelle, ces voyages ont levé le voile géographique sur l'Afrique et tracé les itinéraires indispensables de la conquête coloniale.
@@ -310,11 +302,7 @@ export const LESSON_6_HISTOIRE_1ERE: LessonContent = {
   title: 'LA CONFÉRENCE DE BERLIN (1884-1885) ET LE PARTAGE DE L\'AFRIQUE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 6 : LA CONFÉRENCE DE BERLIN (1884-1885) ET LE PARTAGE DE L'AFRIQUE
+  fullText: `LEÇON 6 : LA CONFÉRENCE DE BERLIN (1884-1885) ET LE PARTAGE DE L'AFRIQUE
 
 INTRODUCTION
 Dans le dernier quart du XIXe siècle, les ambitions rivales des puissances impérialistes européennes en Afrique menacent d'entraîner un conflit généralisé en Europe. L'accélération de la course aux colonies, exacerbée par les prétentions du roi des Belges Léopold II sur le bassin du Congo et les tensions franco-britanniques sur le Niger et l'Égypte, pousse les chancelleries occidentales à négocier des règles communes de conquête. Convoquée à l'initiative du chancelier allemand Otto von Bismarck et de la France, la Conférence internationale de Berlin, qui se tient du 15 novembre 1884 au 26 février 1885, officialise le dépouillement territorial de l'Afrique. Sans la présence d'aucun représentant africain, quatorze États occidentaux décident arbitrairement du sort d'un continent entier et lancent une ruée coloniale dévastatrice.
@@ -459,11 +447,7 @@ export const LESSON_7_HISTOIRE_1ERE: LessonContent = {
   title: 'LES RÉSISTANCES AFRICAINES À LA CONQUÊTE COLONIALE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 7 : LES RÉSISTANCES AFRICAINES À LA CONQUÊTE COLONIALE
+  fullText: `LEÇON 7 : LES RÉSISTANCES AFRICAINES À LA CONQUÊTE COLONIALE
 
 INTRODUCTION
 Face à l'agression impérialiste déclenchée au lendemain de la Conférence de Berlin, les peuples et souverains d'Afrique ne sont pas restés passifs. Contrairement au mythe colonial d'une soumission résignée ou consentie, la pénétration européenne s'est heurtée à une opposition farouche, tenace et héroïque sur l'ensemble du continent. Ces résistances ont revêtu des formes multiples : des luttes armées frontales et des guérillas mobiles menées par de brillants chefs d'État, des résistances spirituelles et religieuses défiant l'ordre colonial par la foi et le refus de l'assimilation, ainsi que des résistances passives fondées sur le refus de l'impôt et la désertion du travail forcé. Si la majorité de ces luttes ont été écrasées dans le sang en raison de l'inégalité écrasante des armements et des divisions internes africaines, elles ont inscrit dans la mémoire collective une tradition glorieuse de dignité et de liberté.
@@ -601,11 +585,7 @@ export const LESSON_8_HISTOIRE_1ERE: LessonContent = {
   title: 'LES SYSTÈMES COLONIAUX ET L\'EXPLOITATION ÉCONOMIQUE DE L\'AFRIQUE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 8 : LES SYSTÈMES COLONIAUX ET L'EXPLOITATION ÉCONOMIQUE DE L'AFRIQUE
+  fullText: `LEÇON 8 : LES SYSTÈMES COLONIAUX ET L'EXPLOITATION ÉCONOMIQUE DE L'AFRIQUE
 
 INTRODUCTION
 Après l'écrasement des résistances armées et la pacification brutale des territoires conquis, les métropoles européennes ont instauré des appareils administratifs et juridiques complexes pour asseoir durablement leur souveraineté sur les peuples africains et organiser la mise en valeur méthodique des richesses du continent. Deux doctrines administratives principales se sont opposées dans leur philosophie : le système d'administration directe et d'assimilation appliqué principalement par la France, et le système d'administration indirecte (« Indirect Rule ») théorisé et appliqué par la Grande-Bretagne. Dans la pratique, ces structures bureaucratiques poursuivaient un objectif unique et commun : exploiter intensivement les ressources naturelles et la force de travail des Africains au profit exclusif des industries et des finances métropolitaines.

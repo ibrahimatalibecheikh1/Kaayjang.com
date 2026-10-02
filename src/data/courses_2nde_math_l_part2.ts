@@ -12,9 +12,7 @@ export const LESSON_5_MATH_2NDE_L: LessonContent = {
   title: `Statistique descriptive : paramètres de position (mode, médiane, quartiles, moyenne) et de dispersion (variance, écart-type, étendue)`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 5 : STATISTIQUE DESCRIPTIVE
@@ -160,9 +158,7 @@ export const LESSON_6_MATH_2NDE_L: LessonContent = {
   title: `Systèmes d'équations et d'inéquations du premier degré à deux inconnues : méthodes algébriques, méthode graphique et problèmes`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 6 : SYSTÈMES D'ÉQUATIONS ET D'INÉQUATIONS DU PREMIER DEGRÉ À DEUX INCONNUES
@@ -321,9 +317,7 @@ export const LESSON_7_MATH_2NDE_L: LessonContent = {
   title: `Équations et inéquations du second degré : forme canonique, discriminant Delta, factorisation et signe du trinôme`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 7 : ÉQUATIONS ET INÉQUATIONS DU SECOND DEGRÉ DANS R
@@ -487,9 +481,7 @@ export const LESSON_8_MATH_2NDE_L: LessonContent = {
   title: `Tracé de courbes : fonctions de référence (carré, cube, inverse, racine carrée), transformations et comparaison`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 HORAIRE HEBDOMADAIRE : 3 HEURES
 
 CHAPITRE 8 : TRACÉ DE COURBES ET FONCTIONS DE RÉFÉRENCE
@@ -615,9 +607,7 @@ export const LESSON_9_MATH_2NDE_L: LessonContent = {
   title: `Méthodes de travail et exercices de synthèse corrigés en Mathématiques Seconde L`,
   subject: 'Mathématiques',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
-PROGRAMME OFFICIEL DE MATHÉMATIQUES — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `ASSOCIATION DES PROFESSEURS AFRICAINS DE MATHÉMATIQUES AU SÉNÉGAL (APAMS)
 ANNEXE PÉDAGOGIQUE OFFICIELLE
 
 MÉTHODES DE TRAVAIL ET EXERCICES DE SYNTHÈSE CORRIGÉS EN MATHÉMATIQUES SECONDE L

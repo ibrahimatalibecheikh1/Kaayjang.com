@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Maximize2,
   Minimize2,
@@ -369,6 +369,397 @@ const getAsciiDiagram = (id: string): string => {
   }
 };
 
+/**
+ * Nettoie les commandes LaTeX mathématiques et syntaxiques pour un affichage lisible
+ */
+export const cleanLatexMath = (text: string): string => {
+  if (!text) return '';
+  return text
+    .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+    .replace(/\\textbf\{([^}]+)\}/g, '$1')
+    .replace(/\\mathit\{([^}]+)\}/g, '$1')
+    .replace(/\\text\{([^}]+)\}/g, '$1')
+    .replace(/\\mathrm\{([^}]+)\}/g, '$1')
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '$1 / $2')
+    .replace(/\\sqrt\{([^}]+)\}/g, '√($1)')
+    .replace(/\\acute\{e\}/g, 'é')
+    .replace(/\\grave\{a\}/g, 'à')
+    .replace(/\\grave\{e\}/g, 'è')
+    .replace(/\\hat\{e\}/g, 'ê')
+    .replace(/\\hat\{o\}/g, 'ô')
+    .replace(/\\text\{-\}/g, '-')
+    .replace(/\\longrightarrow/g, ' → ')
+    .replace(/\\rightarrow/g, ' → ')
+    .replace(/\\longleftrightarrow/g, ' ↔ ')
+    .replace(/\\leftrightarrow/g, ' ↔ ')
+    .replace(/\\Rightarrow/g, ' ⇒ ')
+    .replace(/\\Downarrow/g, ' ⇓ ')
+    .replace(/\\approx/g, ' ≈ ')
+    .replace(/\\times/g, ' × ')
+    .replace(/\\cdot/g, ' · ')
+    .replace(/\\le/g, ' ≤ ')
+    .replace(/\\ge/g, ' ≥ ')
+    .replace(/\\in/g, ' ∈ ')
+    .replace(/\\notin/g, ' ∉ ')
+    .replace(/\\infty/g, ' ∞ ')
+    .replace(/\\underbrace\{([^{}]+)\}_\{([^{}]+)\}/g, '$1 ($2)')
+    .replace(/\\quad/g, ' ')
+    .replace(/\\,/g, ' ')
+    .replace(/\\ /g, ' ')
+    .replace(/\\\\/g, ' | ')
+    .replace(/\\begin\{array\}\{[^}]+\}/g, '')
+    .replace(/\\end\{array\}/g, '')
+    .replace(/\\begin\{cases\}/g, '')
+    .replace(/\\end\{cases\}/g, '')
+    .replace(/\\\*\*/g, '**')
+    .replace(/\*\*\\/g, '**')
+    .replace(/\\\*/g, '*')
+    .replace(/\*\\/g, '*')
+    .replace(/\\([a-zA-ZÀ-ÿ0-9])/g, '$1')
+    .replace(/\$\$+/g, '')
+    .replace(/\$([^\$]+)\$/g, '$1');
+};
+
+/**
+ * Nettoie les balises markdown brutes pour générer un texte brut propre
+ * et supprime les en-têtes institutionnels/ministériels
+ */
+export const cleanMarkdownToPlainText = (text: string): string => {
+  if (!text) return '';
+  let cleaned = text
+    .replace(/^.*?(RÉPUBLIQUE|REPUBLIQUE)\s+DU\s+SÉNÉGAL.*$/gim, '')
+    .replace(/^.*?(MINISTÈRE|MINISTERE)\s+DE\s+L['’]ÉDUCATION.*$/gim, '')
+    .replace(/^.*?DIRECTION\s+(GÉNÉRALE|DE)\s+.*$/gim, '')
+    .replace(/^.*?PROGRAMME\s+(HARMONISÉ|OFFICIEL|NATIONAL).*$/gim, '')
+    .replace(/^.*?INSPECTION[S]?\s+(GÉNÉRALE|D['’]ACADÉMIE).*$/gim, '')
+    .replace(/^.*?COMMISSION\s+NATIONALE.*$/gim, '')
+    .replace(/^.*?GUIDE\s+OFFICIEL.*$/gim, '')
+    .replace(/^.*?DOCUMENT\s+DE\s+RÉFÉRENCE.*$/gim, '')
+    .replace(/^.*?Un\s+Peuple\s*[-—]\s*Un\s+But\s*[-—]\s*Une\s+Foi.*$/gim, '')
+    .replace(/^(DISCIPLINE|NIVEAU|MODULE|CLASSE\s+DE)\s*:\s*.*$/gim, '')
+    .replace(/^\s*[\r\n]/gm, '\n');
+
+  cleaned = cleanLatexMath(cleaned);
+
+  return cleaned
+    .replace(/^\|(\s*:?-+:?\s*\|)+$/gm, '')
+    .replace(/^\|[ \t]*/gm, '')
+    .replace(/[ \t]*\|$/gm, '')
+    .replace(/[ \t]*\|[ \t]*/g, '  |  ')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\\/g, '')
+    .trim();
+};
+
+/**
+ * Formate le texte en ligne : gras (**), italique (*), code (`), symboles mathématiques et flèches
+ */
+export const renderFormattedInline = (text: string): React.ReactNode => {
+  if (!text) return null;
+
+  // Nettoyage préalable des commandes LaTeX et symboles
+  let cleaned = cleanLatexMath(text)
+    .replace(/\\\*\*/g, '**')
+    .replace(/\*\*\\/g, '**')
+    .replace(/\\\*/g, '*')
+    .replace(/\*\\/g, '*')
+    .replace(/\\([a-zA-ZÀ-ÿ0-9])/g, '$1')
+    .replace(/\\/g, '');
+
+  const regex = /(\*\*[^*]+?\*\*|\*[^*]+?\*|`[^`]+?`)/g;
+  const parts = cleaned.split(regex);
+
+  return parts.map((part, index) => {
+    if (!part) return null;
+    if (part.startsWith('**') && part.endsWith('**') && part.length >= 4) {
+      return (
+        <strong key={index} className="font-extrabold text-slate-900 dark:text-white">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    if (part.startsWith('`') && part.endsWith('`') && part.length >= 2) {
+      return (
+        <code
+          key={index}
+          className="px-1.5 py-0.5 mx-0.5 rounded-md bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 font-mono text-xs sm:text-sm font-bold border border-blue-200/80 dark:border-blue-800"
+        >
+          {part.slice(1, -1)}
+        </code>
+      );
+    }
+    if (part.startsWith('*') && part.endsWith('*') && part.length >= 2) {
+      return (
+        <em key={index} className="italic text-slate-800 dark:text-slate-200 font-medium">
+          {part.slice(1, -1)}
+        </em>
+      );
+    }
+    return <span key={index}>{part}</span>;
+  });
+};
+
+/**
+ * Composant de rendu Markdown et texte enrichi avec tableaux interactifs, titres hiérarchisés et listes
+ */
+export const RichContentRenderer: React.FC<{ content: string | string[] }> = ({ content }) => {
+  if (Array.isArray(content)) {
+    return (
+      <div className="space-y-3">
+        {content.map((item, idx) => {
+          if (item.includes('|') || item.includes('###') || item.includes('---')) {
+            return <RichContentRenderer key={idx} content={item} />;
+          }
+          if (item.startsWith('• ') || item.startsWith('- ') || item.startsWith('* ')) {
+            return (
+              <div key={idx} className="flex items-start gap-2.5 pl-2 my-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 mt-2" />
+                <div className="leading-relaxed opacity-95 text-xs sm:text-sm text-slate-800 dark:text-slate-200">
+                  {renderFormattedInline(item.replace(/^(\s*•\s*|\s*-\s*|\s*\*\s*)/, ''))}
+                </div>
+              </div>
+            );
+          }
+          return (
+            <p key={idx} className="leading-relaxed opacity-95 text-xs sm:text-sm text-slate-800 dark:text-slate-200">
+              {renderFormattedInline(item)}
+            </p>
+          );
+        })}
+      </div>
+    );
+  }
+
+  if (typeof content !== 'string') return null;
+
+  const rawLines = content.split('\n');
+  const blocks: React.ReactNode[] = [];
+  let i = 0;
+
+  while (i < rawLines.length) {
+    const line = rawLines[i];
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      i++;
+      continue;
+    }
+
+    if (/^(\-{3,}|\*{3,})$/.test(trimmed)) {
+      blocks.push(
+        <hr key={`hr-${i}`} className="my-6 border-t-2 border-dashed border-slate-200 dark:border-slate-800" />
+      );
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith('$$') || trimmed.includes('\\begin{array}')) {
+      const formulaLines: string[] = [];
+      while (i < rawLines.length) {
+        const cur = rawLines[i].trim();
+        formulaLines.push(cur);
+        i++;
+        if ((cur.endsWith('$$') && formulaLines.length > 1) || cur.includes('\\end{array}') || (cur.startsWith('$$') && cur.endsWith('$$') && cur.length > 2)) {
+          break;
+        }
+      }
+      const formulaText = cleanLatexMath(formulaLines.join(' '));
+      blocks.push(
+        <div
+          key={`formula-box-${i}`}
+          className="my-3.5 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-blue-50/90 via-indigo-50/90 to-purple-50/90 dark:from-slate-900/90 dark:to-blue-950/80 border border-blue-200/90 dark:border-blue-800 text-center font-bold text-xs sm:text-sm text-blue-950 dark:text-blue-200 shadow-2xs leading-relaxed"
+        >
+          {renderFormattedInline(formulaText)}
+        </div>
+      );
+      continue;
+    }
+
+    if (trimmed.startsWith('|') && trimmed.endsWith('|') && trimmed.includes('|')) {
+      const tableLines: string[] = [];
+      while (i < rawLines.length && rawLines[i].trim().startsWith('|') && rawLines[i].trim().endsWith('|')) {
+        tableLines.push(rawLines[i].trim());
+        i++;
+      }
+
+      if (tableLines.length >= 2) {
+        const rawHeaders = tableLines[0]
+          .split('|')
+          .map(c => c.trim())
+          .filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
+
+        let startRowIdx = 1;
+        if (/^\|(\s*:?-+:?\s*\|)+$/.test(tableLines[1])) {
+          startRowIdx = 2;
+        }
+
+        const rows: string[][] = [];
+        for (let r = startRowIdx; r < tableLines.length; r++) {
+          const cells = tableLines[r]
+            .split('|')
+            .map(c => c.trim())
+            .filter((_, idx, arr) => idx > 0 && idx < arr.length - 1);
+          if (cells.length > 0) {
+            rows.push(cells);
+          }
+        }
+
+        blocks.push(
+          <div
+            key={`table-${i}`}
+            className="my-5 overflow-x-auto rounded-2xl border border-slate-200/90 dark:border-slate-700/80 shadow-xs bg-white dark:bg-slate-900/95"
+          >
+            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr className="bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-700">
+                  {rawHeaders.map((headerText, hIdx) => (
+                    <th key={hIdx} className="py-3 px-3.5 sm:px-4 font-black uppercase tracking-wider text-[11px] sm:text-xs text-slate-800 dark:text-slate-200">
+                      {renderFormattedInline(headerText)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                {rows.map((rowCells, rIdx) => (
+                  <tr
+                    key={rIdx}
+                    className="hover:bg-blue-50/50 dark:hover:bg-blue-950/30 transition-colors odd:bg-white even:bg-slate-50/60 dark:odd:bg-transparent dark:even:bg-slate-850/40"
+                  >
+                    {rowCells.map((cellText, cIdx) => (
+                      <td
+                        key={cIdx}
+                        className={`py-3 px-3.5 sm:px-4 leading-relaxed align-top ${
+                          cIdx === 0
+                            ? 'font-bold text-slate-900 dark:text-slate-100'
+                            : 'text-slate-700 dark:text-slate-300'
+                        }`}
+                      >
+                        {renderFormattedInline(cellText)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+        continue;
+      }
+    }
+
+    if (trimmed.startsWith('### ')) {
+      const headingText = trimmed.replace(/^###\s+/, '');
+      blocks.push(
+        <div key={`h3-${i}`} className="mt-7 mb-3 pt-3">
+          <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-center gap-2.5 pb-2 border-b-2 border-blue-500/30">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600 dark:bg-blue-400 shrink-0 shadow-2xs" />
+            <span>{renderFormattedInline(headingText)}</span>
+          </h3>
+        </div>
+      );
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith('#### ')) {
+      const headingText = trimmed.replace(/^####\s+/, '');
+      blocks.push(
+        <div key={`h4-${i}`} className="mt-4 mb-2">
+          <h4 className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-xs bg-amber-500 shrink-0" />
+            <span>{renderFormattedInline(headingText)}</span>
+          </h4>
+        </div>
+      );
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith('## ') || trimmed.startsWith('# ')) {
+      const headingText = trimmed.replace(/^#{1,2}\s+/, '');
+      blocks.push(
+        <h2 key={`h2-${i}`} className="mt-6 mb-3 text-lg sm:text-xl font-black text-slate-900 dark:text-white pb-1 border-b border-slate-200 dark:border-slate-700">
+          {renderFormattedInline(headingText)}
+        </h2>
+      );
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith('> ')) {
+      const quoteLines: string[] = [];
+      while (i < rawLines.length && rawLines[i].trim().startsWith('>')) {
+        quoteLines.push(rawLines[i].trim().replace(/^>\s*/, ''));
+        i++;
+      }
+      blocks.push(
+        <div key={`quote-${i}`} className="my-4 p-4 rounded-xl border-l-4 border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/40 text-indigo-950 dark:text-indigo-200 text-xs sm:text-sm shadow-2xs leading-relaxed space-y-1">
+          {quoteLines.map((ql, qIdx) => (
+            <p key={qIdx}>{renderFormattedInline(ql)}</p>
+          ))}
+        </div>
+      );
+      continue;
+    }
+
+    const listMatch = line.match(/^(\s*)([*\-•]|\d+\.)\s+(.+)$/);
+    if (listMatch) {
+      const listItems: { indent: number; bullet: string; isNumber: boolean; text: string }[] = [];
+      while (i < rawLines.length) {
+        const itemMatch = rawLines[i].match(/^(\s*)([*\-•]|\d+\.)\s+(.+)$/);
+        if (!itemMatch) break;
+        const indent = itemMatch[1].length;
+        const marker = itemMatch[2];
+        const text = itemMatch[3];
+        const isNumber = /^\d+\./.test(marker);
+        listItems.push({ indent, bullet: marker, isNumber, text });
+        i++;
+      }
+
+      blocks.push(
+        <ul key={`list-${i}`} className="my-3 space-y-2 text-xs sm:text-sm">
+          {listItems.map((it, lIdx) => (
+            <li
+              key={lIdx}
+              className={`flex items-start gap-2.5 ${it.indent >= 4 ? 'ml-8' : it.indent >= 2 ? 'ml-4' : 'ml-1'}`}
+            >
+              {it.isNumber ? (
+                <span className="shrink-0 font-bold text-blue-600 dark:text-blue-400 min-w-4 text-xs mt-0.5">
+                  {it.bullet}
+                </span>
+              ) : (
+                <span
+                  className={`shrink-0 mt-2 rounded-full ${
+                    it.indent >= 2
+                      ? 'w-1.5 h-1.5 border border-blue-500 dark:border-blue-400'
+                      : 'w-1.5 h-1.5 bg-blue-600 dark:bg-blue-400'
+                  }`}
+                />
+              )}
+              <div className="leading-relaxed opacity-95 text-slate-800 dark:text-slate-200 flex-1">
+                {renderFormattedInline(it.text)}
+              </div>
+            </li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+
+    blocks.push(
+      <p key={`p-${i}`} className="my-2.5 leading-relaxed opacity-95 text-xs sm:text-sm text-slate-800 dark:text-slate-200">
+        {renderFormattedInline(trimmed)}
+      </p>
+    );
+    i++;
+  }
+
+  return <div className="space-y-1">{blocks}</div>;
+};
+
 interface FullscreenLessonViewerProps {
   lesson?: LessonContent;
   onBack?: () => void;
@@ -385,9 +776,82 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
   const [rawCopied, setRawCopied] = useState(false);
   const [rawFontSize, setRawFontSize] = useState<'normal' | 'large'>('normal');
 
+  const computedFullText = useMemo(() => {
+    if (lesson.fullText && typeof lesson.fullText === 'string' && lesson.fullText.trim()) {
+      return cleanMarkdownToPlainText(lesson.fullText.trim());
+    }
+    const lines: string[] = [];
+    if (lesson.title) {
+      lines.push(lesson.title.toUpperCase());
+      lines.push('====================================================\n');
+    }
+    if (lesson.introduction) {
+      lines.push('INTRODUCTION');
+      lines.push('------------');
+      lines.push(cleanMarkdownToPlainText(lesson.introduction));
+      lines.push('');
+    }
+    if (lesson.sections && Array.isArray(lesson.sections)) {
+      lesson.sections.forEach((sec, idx) => {
+        lines.push(`${idx + 1}. ${sec.title}`);
+        lines.push('----------------------------------------');
+        if (sec.content) {
+          if (Array.isArray(sec.content)) {
+            lines.push(cleanMarkdownToPlainText(sec.content.join('\n\n')));
+          } else if (typeof sec.content === 'string') {
+            lines.push(cleanMarkdownToPlainText(sec.content));
+          }
+          lines.push('');
+        }
+        if (sec.table && sec.table.headers && sec.table.rows) {
+          lines.push(sec.table.headers.join(' | '));
+          lines.push(sec.table.headers.map(() => '---').join(' | '));
+          sec.table.rows.forEach(r => lines.push(r.join(' | ')));
+          lines.push('');
+        }
+        if (sec.subsections && Array.isArray(sec.subsections)) {
+          sec.subsections.forEach((sub, sidx) => {
+            lines.push(`  ${idx + 1}.${sidx + 1}. ${sub.subtitle}`);
+            if (sub.content && Array.isArray(sub.content)) {
+              lines.push(sub.content.map(c => `  ${c}`).join('\n\n'));
+            }
+            if (sub.table && sub.table.headers && sub.table.rows) {
+              lines.push('  ' + sub.table.headers.join(' | '));
+              sub.table.rows.forEach(r => lines.push('  ' + r.join(' | ')));
+            }
+            lines.push('');
+          });
+        }
+        if (sec.jobCards && Array.isArray(sec.jobCards)) {
+          sec.jobCards.forEach(jc => {
+            lines.push(`• ${jc.jobTitle} (${jc.frenchTitle}) - ${jc.sector}`);
+            lines.push(`  ${jc.definition}`);
+            if (jc.keyVocabulary?.length) lines.push(`  Vocabulaire : ${jc.keyVocabulary.join(', ')}`);
+            if (jc.exampleSentences?.length) lines.push(`  Exemples : ${jc.exampleSentences.join(' / ')}`);
+            lines.push('');
+          });
+        }
+      });
+    }
+    if (lesson.conclusion) {
+      lines.push('CONCLUSION');
+      lines.push('----------');
+      lines.push(cleanMarkdownToPlainText(lesson.conclusion));
+    }
+    return lines.join('\n').trim();
+  }, [lesson]);
+
+  const wordCount = useMemo(() => {
+    return computedFullText ? computedFullText.split(/\s+/).filter(Boolean).length : 0;
+  }, [computedFullText]);
+
+  const readingTime = useMemo(() => {
+    return Math.max(1, Math.ceil(wordCount / 180));
+  }, [wordCount]);
+
   const handleCopyRaw = () => {
-    if (lesson.fullText && navigator.clipboard) {
-      navigator.clipboard.writeText(lesson.fullText);
+    if (computedFullText && navigator.clipboard) {
+      navigator.clipboard.writeText(computedFullText);
       setRawCopied(true);
       setTimeout(() => setRawCopied(false), 2500);
     }
@@ -545,7 +1009,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
               {lesson.number} : {lesson.title}
             </h1>
             <p className="text-xs sm:text-sm opacity-75 mt-1 font-medium">
-              Version officielle intégrale sénégalaise (Sans résumé)
+              Version intégrale développée (Sans résumé)
             </p>
           </div>
 
@@ -600,45 +1064,34 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
               }`}
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Texte Brut Officiel</span>
+              <span>Texte Brut</span>
             </button>
           </div>
 
           {lessonTab === 'raw' ? (
-            /* Affichage du Texte Brut Officiel : Stylé et magnifique dans un fond blanc */
+            /* Affichage du Texte Brut : Stylé et épuré dans un fond blanc */
             <div className="space-y-6">
               <div className="bg-white text-slate-900 border border-slate-200/90 shadow-2xl rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-12 transition-all relative overflow-hidden">
-                {/* Ruban tricolore officiel de la République du Sénégal */}
-                <div className="absolute top-0 left-0 right-0 h-2.5 bg-gradient-to-r from-emerald-600 via-amber-400 to-rose-600" />
-
-                {/* En-tête officiel du document ministériel */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shrink-0 shadow-xs">
-                      <span className="text-2xl">🇸🇳</span>
+                {/* En-tête épuré et lisible du texte brut */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-200 flex items-center justify-center shrink-0 text-blue-600 font-bold text-sm">
+                      <FileText className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
-                      <div className="flex items-center gap-2">
-                        <span className="font-black text-xs sm:text-sm tracking-wider text-slate-900 uppercase">
-                          RÉPUBLIQUE DU SÉNÉGAL
-                        </span>
-                        <span className="text-amber-500 font-black">★</span>
-                      </div>
-                      <p className="text-[11px] font-serif italic text-slate-500">Un Peuple — Un But — Une Foi</p>
-                      <p className="text-xs font-bold text-emerald-800 uppercase tracking-wide mt-0.5">
-                        MINISTÈRE DE L'ÉDUCATION NATIONALE
+                      <h2 className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
+                        {lesson.number ? `${lesson.number} : ` : ''}{lesson.title}
+                      </h2>
+                      <p className="text-xs text-slate-500 font-medium">
+                        {lesson.classLevel ? `${lesson.classLevel} • ${lesson.subject}` : 'Document de cours'}
                       </p>
-                      <p className="text-[11px] text-slate-500">Direction de l'Enseignement Moyen et Secondaire Général</p>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap md:flex-col md:items-end gap-1.5 self-start md:self-auto">
-                    <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200">
-                      {lesson.classLevel ? `${lesson.classLevel} • ${lesson.subject}` : 'DOCUMENT OFFICIEL'}
-                    </span>
-                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                      <span>Texte Intégral Sans Résumé</span>
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                      <span>Texte Développé Intégral</span>
                     </span>
                   </div>
                 </div>
@@ -648,12 +1101,12 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                   <div className="flex items-center gap-4 text-xs font-semibold text-slate-600">
                     <span className="flex items-center gap-1.5">
                       <FileText className="w-4 h-4 text-emerald-600" />
-                      <span>{lesson.fullText.trim().split(/\s+/).filter(Boolean).length.toLocaleString('fr-FR')} mots</span>
+                      <span>{wordCount.toLocaleString('fr-FR')} mots</span>
                     </span>
                     <span className="text-slate-300">•</span>
                     <span className="flex items-center gap-1.5">
                       <BookOpen className="w-4 h-4 text-amber-600" />
-                      <span>~{Math.max(1, Math.ceil(lesson.fullText.trim().split(/\s+/).filter(Boolean).length / 180))} min de lecture</span>
+                      <span>~{readingTime} min de lecture</span>
                     </span>
                   </div>
 
@@ -720,7 +1173,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                         : 'text-xs sm:text-sm md:text-base'
                     }`}
                   >
-                    {lesson.fullText}
+                    {computedFullText}
                   </pre>
                 </div>
 
@@ -752,7 +1205,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                       className="w-full flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100 p-2 sm:p-4"
                       dangerouslySetInnerHTML={{ __html: lesson.image.svgContent }}
                     />
-                  ) : lesson.image.url && lesson.image.url.trim().startsWith('<svg') ? (
+                  ) : typeof lesson.image.url === 'string' && lesson.image.url.trim().startsWith('<svg') ? (
                     <div
                       className="w-full flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100 p-2 sm:p-4"
                       dangerouslySetInnerHTML={{ __html: lesson.image.url }}
@@ -885,13 +1338,17 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
             /* Structured, Rich & Professional View, 100% compliant with the original text */
             <div className="space-y-6 sm:space-y-8">
               {/* INTRODUCTION */}
-              <section className="p-4 sm:p-5 rounded-xl bg-blue-500/10 border border-blue-500/20">
-                <h2 className="text-base sm:text-lg font-bold tracking-wide uppercase text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" />
-                  INTRODUCTION
-                </h2>
-                <p className="leading-relaxed opacity-90">{lesson.introduction}</p>
-              </section>
+              {lesson.introduction && (
+                <section className="p-4 sm:p-5 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                  <h2 className="text-base sm:text-lg font-bold tracking-wide uppercase text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
+                    <Sparkles className="w-4 h-4" />
+                    INTRODUCTION
+                  </h2>
+                  <div className="leading-relaxed opacity-95">
+                    <RichContentRenderer content={lesson.introduction} />
+                  </div>
+                </section>
+              )}
 
               {/* CARTE DU SÉNÉGAL (Pour les leçons ayant un lien avec la carte) */}
               {lesson.senegalMap && (
@@ -920,7 +1377,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                       className="w-full p-3 sm:p-6 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                       dangerouslySetInnerHTML={{ __html: lesson.image.svgContent }}
                     />
-                  ) : lesson.image.url && lesson.image.url.trim().startsWith('<svg') ? (
+                  ) : typeof lesson.image.url === 'string' && lesson.image.url.trim().startsWith('<svg') ? (
                     <div
                       className="w-full p-3 sm:p-6 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                       dangerouslySetInnerHTML={{ __html: lesson.image.url }}
@@ -960,18 +1417,8 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                     </div>
 
                     {section.content && (
-                      <div className="space-y-2">
-                        {Array.isArray(section.content) ? (
-                          section.content.map((p, pIdx) => (
-                            <p key={pIdx} className="opacity-90 leading-relaxed">
-                              {p}
-                            </p>
-                          ))
-                        ) : (
-                          <div className="opacity-90 leading-relaxed whitespace-pre-line text-sm sm:text-base">
-                            {section.content}
-                          </div>
-                        )}
+                      <div className="my-2">
+                        <RichContentRenderer content={section.content} />
                       </div>
                     )}
 
@@ -982,7 +1429,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                             className="w-full p-3 sm:p-5 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                             dangerouslySetInnerHTML={{ __html: section.image.svgContent }}
                           />
-                        ) : section.image.url && section.image.url.trim().startsWith('<svg') ? (
+                        ) : typeof section.image.url === 'string' && section.image.url.trim().startsWith('<svg') ? (
                           <div
                             className="w-full p-3 sm:p-5 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                             dangerouslySetInnerHTML={{ __html: section.image.url }}
@@ -1082,13 +1529,13 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                     )}
 
                     {section.table && (
-                      <div className="overflow-x-auto my-3 rounded-xl border border-current/20 shadow-xs">
+                      <div className="overflow-x-auto my-4 rounded-xl border border-current/20 shadow-xs">
                         <table className="min-w-full text-left text-xs sm:text-sm divide-y divide-current/15">
                           <thead className="bg-blue-600/10 dark:bg-blue-900/30 font-bold">
                             <tr>
                               {section.table.headers.map((h, hIdx) => (
                                 <th key={hIdx} className="px-3 sm:px-4 py-2.5 font-extrabold uppercase tracking-wider text-blue-700 dark:text-blue-300">
-                                  {h}
+                                  {renderFormattedInline(h)}
                                 </th>
                               ))}
                             </tr>
@@ -1097,8 +1544,8 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                             {section.table.rows.map((row, rIdx) => (
                               <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-black/2 dark:bg-white/2' : ''}>
                                 {row.map((cell, cIdx) => (
-                                  <td key={cIdx} className={`px-3 sm:px-4 py-2 sm:py-2.5 whitespace-nowrap ${cIdx === 0 ? 'font-bold text-blue-600 dark:text-blue-400' : ''}`}>
-                                    {cell}
+                                  <td key={cIdx} className={`px-3 sm:px-4 py-2 sm:py-2.5 leading-relaxed align-top ${cIdx === 0 ? 'font-bold text-blue-600 dark:text-blue-400' : ''}`}>
+                                    {renderFormattedInline(cell)}
                                   </td>
                                 ))}
                               </tr>
@@ -1175,17 +1622,19 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                             </h3>
                             <div className="space-y-2 text-xs sm:text-sm">
                               {sub.content.map((item, iIdx) => {
-                                if (item.startsWith('• ') || item.startsWith('  - ') || item.startsWith('- ')) {
+                                if (item.startsWith('• ') || item.startsWith('  - ') || item.startsWith('- ') || item.startsWith('* ')) {
                                   return (
-                                    <div key={iIdx} className="flex items-start gap-2 pl-2">
-                                      <span className="text-blue-500 font-bold shrink-0">•</span>
-                                      <span className="leading-relaxed">{item.replace(/^(\s*•\s*|\s*-\s*)/, '')}</span>
+                                    <div key={iIdx} className="flex items-start gap-2.5 pl-2 my-1">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 shrink-0 mt-2" />
+                                      <div className="leading-relaxed opacity-95 text-slate-800 dark:text-slate-200">
+                                        {renderFormattedInline(item.replace(/^(\s*•\s*|\s*-\s*|\s*\*\s*)/, ''))}
+                                      </div>
                                     </div>
                                   );
                                 }
                                 return (
-                                  <p key={iIdx} className="leading-relaxed opacity-90">
-                                    {item}
+                                  <p key={iIdx} className="leading-relaxed opacity-95 text-slate-800 dark:text-slate-200">
+                                    {renderFormattedInline(item)}
                                   </p>
                                 );
                               })}
@@ -1198,7 +1647,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                                     className="w-full p-2 sm:p-4 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                                     dangerouslySetInnerHTML={{ __html: sub.image.svgContent }}
                                   />
-                                ) : sub.image.url && sub.image.url.trim().startsWith('<svg') ? (
+                                ) : typeof sub.image.url === 'string' && sub.image.url.trim().startsWith('<svg') ? (
                                   <div
                                     className="w-full p-2 sm:p-4 flex justify-center items-center overflow-x-auto text-slate-800 dark:text-slate-100"
                                     dangerouslySetInnerHTML={{ __html: sub.image.url }}
@@ -1226,7 +1675,7 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                                     <tr>
                                       {sub.table.headers.map((h, hIdx) => (
                                         <th key={hIdx} className="px-3 sm:px-4 py-2.5 font-extrabold uppercase tracking-wider text-blue-700 dark:text-blue-300">
-                                          {h}
+                                          {renderFormattedInline(h)}
                                         </th>
                                       ))}
                                     </tr>
@@ -1235,8 +1684,8 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                                     {sub.table.rows.map((row, rIdx) => (
                                       <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-black/2 dark:bg-white/2' : ''}>
                                         {row.map((cell, cIdx) => (
-                                          <td key={cIdx} className={`px-3 sm:px-4 py-2 sm:py-2.5 whitespace-nowrap ${cIdx === 0 ? 'font-bold text-blue-600 dark:text-blue-400' : ''}`}>
-                                            {cell}
+                                          <td key={cIdx} className={`px-3 sm:px-4 py-2 sm:py-2.5 leading-relaxed align-top ${cIdx === 0 ? 'font-bold text-blue-600 dark:text-blue-400' : ''}`}>
+                                            {renderFormattedInline(cell)}
                                           </td>
                                         ))}
                                       </tr>
@@ -1254,12 +1703,16 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
               })}
 
               {/* CONCLUSION */}
-              <section className="p-4 sm:p-5 rounded-xl bg-purple-500/10 border border-purple-500/20">
-                <h2 className="text-base sm:text-lg font-bold tracking-wide uppercase text-purple-700 dark:text-purple-400 mb-2">
-                  CONCLUSION
-                </h2>
-                <p className="leading-relaxed opacity-90">{lesson.conclusion}</p>
-              </section>
+              {lesson.conclusion && (
+                <section className="p-4 sm:p-5 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                  <h2 className="text-base sm:text-lg font-bold tracking-wide uppercase text-purple-700 dark:text-purple-400 mb-2">
+                    CONCLUSION
+                  </h2>
+                  <div className="leading-relaxed opacity-95">
+                    <RichContentRenderer content={lesson.conclusion} />
+                  </div>
+                </section>
+              )}
             </div>
           )}
         </article>

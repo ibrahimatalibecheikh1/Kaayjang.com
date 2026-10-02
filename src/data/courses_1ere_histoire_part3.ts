@@ -13,11 +13,7 @@ export const LESSON_9_HISTOIRE_1ERE: LessonContent = {
   title: 'L\'IMPÉRIALISME EUROPÉEN EN ASIE : LES CAS DE LA CHINE ET DE L\'INDE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 9 : L'IMPÉRIALISME EUROPÉEN EN ASIE : LES CAS DE LA CHINE ET DE L'INDE
+  fullText: `LEÇON 9 : L'IMPÉRIALISME EUROPÉEN EN ASIE : LES CAS DE LA CHINE ET DE L'INDE
 
 INTRODUCTION
 Parallèlement à la conquête de l'Afrique, l'expansion impérialiste du XIXe siècle s'est abattue avec une intensité extraordinaire sur le continent asiatique, berceau de civilisations millénaires prestigieuses et de vastes empires démographiques. Dans cette partie du monde, l'impérialisme occidental a revêtu deux formes radicalement distinctes :
@@ -156,11 +152,7 @@ export const LESSON_10_HISTOIRE_1ERE: LessonContent = {
   title: 'LES NOUVEAUX IMPÉRIALISMES : L\'ÈRE MEIJI AU JAPON ET L\'IMPÉRIALISME AMÉRICAIN',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 10 : LES NOUVEAUX IMPÉRIALISMES : L'ÈRE MEIJI AU JAPON ET L'IMPÉRIALISME AMÉRICAIN
+  fullText: `LEÇON 10 : LES NOUVEAUX IMPÉRIALISMES : L'ÈRE MEIJI AU JAPON ET L'IMPÉRIALISME AMÉRICAIN
 
 INTRODUCTION
 À la fin du XIXe siècle et au début du XXe siècle, le monopole impérialiste exercé par les vieilles puissances européennes (Grande-Bretagne, France) est brutalement contesté par l'émergence de deux nouveaux géants industriels et militaires extra-européens : les États-Unis d'Amérique et l'Empire du Japon.

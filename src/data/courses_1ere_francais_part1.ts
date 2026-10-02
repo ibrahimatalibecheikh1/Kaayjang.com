@@ -13,10 +13,7 @@ export const LESSON_1_FRANCAIS_1ERE: LessonContent = {
   title: 'LE PRÉROMANTISME : GENÈSE, SENSIBILITÉ ET MUTATION ESTHÉTIQUE',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 1 : LE PRÉROMANTISME : GENÈSE, SENSIBILITÉ ET MUTATION ESTHÉTIQUE
+  fullText: `LEÇON 1 : LE PRÉROMANTISME : GENÈSE, SENSIBILITÉ ET MUTATION ESTHÉTIQUE
 
 INTRODUCTION
 Le préromantisme désigne l'ensemble des manifestations esthétiques, philosophiques et sensitives qui, à la fin du XVIIIe siècle et à l'aube du XIXe siècle (approximativement de 1760 à 1820), préparent l'éclosion du romantisme européen. Loin de former une école doctrinale rigoureusement codifiée, ce mouvement de transition incarne une rupture progressive avec le rationalisme strict des Lumières et le carcan formel du classicisme hérité du Grand Siècle. Alors que le XVIIIe siècle triomphant vénérait la toute-puissance de la raison analytique, de la mesure et de l'universel abstrait, les écrivains préromantiques réhabilitent la souveraineté du sentiment individuel, la beauté sauvage de la nature, l'imagination débordante, la fascination pour les ruines et une mélancolie existentielle déchirante. En Angleterre avec les « poètes de la nuit et des tombeaux » (Young, Gray) et le renouveau d'Ossian par Macpherson, en Allemagne avec le violent courant du « Sturm und Drang » (Goethe, Schiller), puis en France sous l'impulsion décisive de Jean-Jacques Rousseau, de Madame de Staël et de Chateaubriand, le préromantisme opère une conversion fondamentale du regard littéraire : la réalité extérieure cesse d'être une fin en soi pour devenir le miroir vibrant des états de l'âme humaine.
@@ -89,10 +86,7 @@ export const LESSON_2_FRANCAIS_1ERE: LessonContent = {
   title: 'LE ROMANTISME : PRINCIPES DOCTRINAUX, COMBATS ESTHÉTIQUES ET LYRISME',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 2 : LE ROMANTISME : PRINCIPES DOCTRINAUX, COMBATS ESTHÉTIQUES ET LYRISME
+  fullText: `LEÇON 2 : LE ROMANTISME : PRINCIPES DOCTRINAUX, COMBATS ESTHÉTIQUES ET LYRISME
 
 INTRODUCTION
 Mouvement littéraire, artistique et culturel qui embrase l'Europe dans la première moitié du XIXe siècle (culminant en France entre 1820 et 1850), le romantisme représente une rupture esthétique totale et révolutionnaire avec les canons du classicisme. Né dans un siècle déchiré par les bouleversements politiques consécutifs à la Révolution de 1789, le romantisme s'érige en porte-drapeau de la liberté totale dans l'art. Refusant l'imitation servile de l'Antiquité, la tyrannie des trois unités théâtrales et la stérilité des règles académiques, les romantiques exaltent le génie individuel, la puissance créatrice de l'imagination, l'expression torrentielle des passions et la mission sacrée du poète comme guide civilisateur et spirituel de l'humanité. De Lamartine à Victor Hugo, en passant par Alfred de Musset et Alfred de Vigny, le romantisme déploie une palette d'une infinie richesse, oscillant entre l'effusion lyrique intime, la révolte métaphysique et l'engagement social et politique fervent au service des opprimés.
@@ -176,10 +170,7 @@ export const LESSON_3_FRANCAIS_1ERE: LessonContent = {
   title: 'LE LYRISME PERSONNEL ET LE LYRISME SOCIAL : ENJEUX, MARQUES ET PORTÉE',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 3 : LE LYRISME PERSONNEL ET LE LYRISME SOCIAL : ENJEUX, MARQUES ET PORTÉE
+  fullText: `LEÇON 3 : LE LYRISME PERSONNEL ET LE LYRISME SOCIAL : ENJEUX, MARQUES ET PORTÉE
 
 INTRODUCTION
 Étymologiquement rattaché à la lyre d'Orphée, instrument mythique célébrant l'harmonie entre le chant humain et l'ordre cosmique, le lyrisme désigne originellement l'expression poétique chantée des émotions et des mouvements profonds de l'âme. Cependant, l'évolution de la littérature au XIXe et au XXe siècle a révélé la double polarité de cette notion fondamentale : le lyrisme personnel, centré sur la confidence intime de la subjectivité, et le lyrisme social (ou civique), où la voix poétique s'élargit aux dimensions d'une communauté ou de l'humanité entière pour dénoncer l'injustice et chanter l'espérance collective. Loin de s'exclure mutuellement, ces deux formes de lyrisme s'alimentent réciproquement : le cri individuel le plus sincère possède une résonance universelle, tandis que le chant collectif ne touche le cœur du lecteur que parce qu'il vibre d'une émotion humaine profondément incarnée.
@@ -265,10 +256,7 @@ export const LESSON_4_FRANCAIS_1ERE: LessonContent = {
   title: 'LE PARNASSE : CULTE DE LA FORME, IMPERSONNALITÉ ET L\'ART POUR L\'ART',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 4 : LE PARNASSE : CULTE DE LA FORME, IMPERSONNALITÉ ET L'ART POUR L'ART
+  fullText: `LEÇON 4 : LE PARNASSE : CULTE DE LA FORME, IMPERSONNALITÉ ET L'ART POUR L'ART
 
 INTRODUCTION
 Au milieu du XIXe siècle, aux alentours des années 1850-1866, émerge en France un puissant courant poétique en réaction viscérale contre les dérives sentimentales du romantisme finissant : le Parnasse. Tirant son nom du mont Parnasse, demeure mythologique des Muses de la Grèce antique, ce mouvement se cristallise autour de trois recueils collectifs intitulés Le Parnasse contemporain (publiés en 1866, 1871 et 1876). Las des confidences larmoyantes, des épanchements désordonnés du « Moi » et de l'asservissement de la poésie à des causes utilitaires, sociales ou politiques, les poètes parnassiens préconisent une rupture radicale. Guidés par Théophile Gautier, Leconte de Lisle et José-Maria de Heredia, ils érigent en dogme absolu la doctrine de « l'art pour l'art » : la poésie n'a d'autre fin qu'elle-même ; elle doit viser la Beauté pure, l'impassibilité souveraine, la rigueur métrique absolue et l'impersonnalité scientifique.
@@ -353,10 +341,7 @@ export const LESSON_5_FRANCAIS_1ERE: LessonContent = {
   title: 'LE SYMBOLISME : CORRESPONDANCES, MUSICALITÉ ET EXPLORATION DE L\'INVISIBLE',
   subject: 'Français',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-INSPECTIONS D'ACADÉMIE DE DAKAR, PIKINE-GUÉDIAWAYE ET RUFISQUE
-PROGRAMME HARMONISÉ DE FRANÇAIS — NIVEAU : CLASSE DE PREMIÈRE (L ET S)
-LEÇON 5 : LE SYMBOLISME : CORRESPONDANCES, MUSICALITÉ ET EXPLORATION DE L'INVISIBLE
+  fullText: `LEÇON 5 : LE SYMBOLISME : CORRESPONDANCES, MUSICALITÉ ET EXPLORATION DE L'INVISIBLE
 
 INTRODUCTION
 Émergeant dans le dernier quart du XIXe siècle (entre 1870 et 1890) et théorisé officiellement par le poète Jean Moréas dans son retentissant Manifeste du Symbolisme publié dans Le Figaro en 1886, le symbolisme constitue l'une des révolutions spirituelles et stylistiques les plus profondes de la littérature mondiale. Né en réaction simultanée contre le positivisme scientiste matérialiste, la description mécanique du naturalisme et l'impassibilité glacée du Parnasse, le symbolisme refuse de réduire le réel à ce qui est immédiatement visible ou quantifiable. Pour les symbolistes, le monde sensible n'est qu'une forêt de symboles, un voile d'apparences dissimulant une réalité invisible, mystique et transcendante. Guidés par la figure tutélaire de Charles Baudelaire et magnifiés par les génies de Paul Verlaine, d'Arthur Rimbaud et de Stéphane Mallarmé, les poètes symbolistes ne cherchent plus à décrire ou à nommer directement les choses, mais à les suggérer à travers la magie incantatoire des correspondances, la musique envoûtante du vers et la quête d'un absolu inaccessible.

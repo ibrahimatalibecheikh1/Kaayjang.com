@@ -16,8 +16,7 @@ export const LESSON_6_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `La reproduction assure la continuité de l'espèce humaine à travers les générations. Ce processus devient fonctionnel à la puberté, période de transitions physiques, hormonales et psychologiques intenses marquant le passage de l'enfance à l'âge adulte. Cette leçon détaille l'anatomie et le rôle physiologique des organes génitaux masculins et féminins mis en place pour permettre la genèse de nouvelles vies.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 6 : ANATOMIE ET PHYSIOLOGIE DES APPAREILS REPRODUCTEURS
 
 INTRODUCTION :
@@ -127,8 +126,7 @@ export const LESSON_7_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `À partir de la puberté et jusqu'à la ménopause, l'appareil reproducteur de la femme fonctionne de manière hautement cyclique, selon un rythme moyen de 28 jours. Ces variations physiologiques régulières préparent l'organisme féminin à une éventuelle grossesse. Cette leçon met en lumière le fonctionnement synchrone du cycle ovarien et du cycle utérin, orchestré par les hormones sexuelles.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 7 : CYCLES SEXUELS CHEZ LA FEMME
 
 INTRODUCTION :
@@ -239,8 +237,7 @@ export const LESSON_8_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Lors d'un rapport sexuel non protégé en période de fertilité, la rencontre entre les gamètes mâles et femelles peut initier la genèse d'un nouvel être humain. Ce chapitre étudie le processus intime de la fécondation, les étapes majeures du développement de l'embryon puis du fœtus au cours des neuf mois de grossesse, et enfin les mécanismes physiologiques de l'accouchement qui mènent à la naissance.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 8 : DE LA FÉCONDATION À LA NAISSANCE
 
 INTRODUCTION :
@@ -351,8 +348,7 @@ export const LESSON_9_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `La maîtrise de la procréation et la protection de la santé sexuelle constituent des enjeux de santé publique cruciaux. La contraception regroupe l'ensemble des méthodes visant à éviter de manière réversible une grossesse non désirée, permettant ainsi une planification familiale éclairée. Parallèlement, la prévention contre les infections sexuellement transmissibles (IST) est indispensable pour enrayer la propagation d'agents pathogènes graves au sein de la population active.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 9 : LES MÉTHODES DE CONTRACEPTION ET LES IST
 
 INTRODUCTION :
@@ -460,8 +456,7 @@ export const LESSON_10_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Le sol représente la couche superficielle et meuble de la croûte terrestre. Loin d'être une simple matière inerte, le sol est un milieu dynamique complexe, à l'interface entre la lithosphère, l'atmosphère, l'hydrosphère et la biosphère. Il joue un rôle biologique fondamental en supportant la végétation et en abritant une biodiversité microscopique intense. Cette leçon analyse les constituants du sol et les processus lents de sa genèse.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 10 : LA COMPOSITION ET LA FORMATION DES SOLS
 
 INTRODUCTION :

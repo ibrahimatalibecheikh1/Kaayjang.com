@@ -16,8 +16,7 @@ export const LESSON_1_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `La Terre dispose d'immenses richesses indispensables à la survie et au développement de l'humanité. Ces richesses, appelées ressources naturelles, sont réparties en ressources renouvelables (faune, flore, eau) et non renouvelables (minerais, énergies fossiles). Face à la croissance démographique et à l'industrialisation galopante, la surexploitation de ces biens menace l'équilibre de la biosphère. L'étude de leur gestion durable est devenue un enjeu planétaire majeur pour préserver notre avenir.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 1 : LES RESSOURCES NATURELLES ET LEUR GESTION DURABLE
 
 INTRODUCTION :
@@ -131,8 +130,7 @@ export const LESSON_2_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Pour assurer le fonctionnement de ses organes, l'organisme humain doit puiser des nutriments et de l'énergie à partir des aliments qu'il consomme. Ces aliments, souvent complexes et volumineux, ne peuvent pas passer directement dans la circulation sanguine. Ils doivent subir une suite de transformations mécaniques et chimiques le long du tube digestif : c'est la digestion. Cette leçon explore les étapes clés de cette transformation et le mécanisme crucial de l'absorption intestinale.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 2 : DIGESTION ET ABSORPTION INTESTINALE CHEZ L'ESPÈCE HUMAINE
 
 INTRODUCTION :
@@ -251,8 +249,7 @@ export const LESSON_3_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Le sang est un tissu liquide vital qui circule continuellement dans notre système cardiovasculaire. Véritable fluide nourricier et protecteur, il assure le transport des gaz respiratoires, des nutriments, des hormones et des déchets métaboliques. En plus de ses fonctions de transport, le sang joue un rôle central dans la défense immunitaire de l'organisme. L'altération de ses constituants peut induire des pathologies graves qui compromettent la santé humaine.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 3 : LE SANG : COMPOSITION ET MALADIES
 
 INTRODUCTION :
@@ -351,8 +348,7 @@ export const LESSON_4_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Le mouvement perpétuel du sang dans notre corps est assuré par le système cardiovasculaire, un circuit clos de vaisseaux sanguins propulsé par une pompe musculaire centrale : le cœur. Cette circulation ininterrompue permet d'irriguer chaque cellule pour lui apporter les éléments vitaux et évacuer ses déchets toxiques. Cette leçon analyse l'organisation de l'appareil circulatoire humain, le fonctionnement de la pompe cardiaque et la double circulation sanguine.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 4 : LA CIRCULATION ET LE RÔLE DU SANG
 
 INTRODUCTION :
@@ -464,8 +460,7 @@ export const LESSON_5_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `La pression artérielle est la force exercée par le sang contre les parois des artères lors de sa propulsion par le cœur. Paramètre physiologique fondamental, elle doit rester dans des limites normales pour garantir une bonne perfusion de nos organes. Cependant, les dérèglements de cette pression et l'accumulation de facteurs de risque comportementaux favorisent l'émergence des maladies cardiovasculaires, représentant aujourd'hui la première cause de mortalité dans le monde.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 5 : PRESSION ARTÉRIELLE ET MALADIES CARDIOVASCULAIRES
 
 INTRODUCTION :

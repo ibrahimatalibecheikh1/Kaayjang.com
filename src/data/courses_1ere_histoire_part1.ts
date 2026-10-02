@@ -13,11 +13,7 @@ export const LESSON_1_HISTOIRE_1ERE: LessonContent = {
   title: 'LA RÉVOLUTION INDUSTRIELLE : GENÈSE, FORMES ET MANIFESTATIONS',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 1 : LA RÉVOLUTION INDUSTRIELLE : GENÈSE, FORMES ET MANIFESTATIONS
+  fullText: `LEÇON 1 : LA RÉVOLUTION INDUSTRIELLE : GENÈSE, FORMES ET MANIFESTATIONS
 
 INTRODUCTION
 La Révolution Industrielle désigne le passage historique d'une économie traditionnelle, agraire et artisanale, caractérisée par une faible productivité et l'utilisation quasi exclusive de la force motrice animale ou humaine, à une économie industrielle et capitaliste moderne, fondée sur l'application systématique des sciences et des techniques à la production marchande, le machinisme et la concentration des capitaux. Initiée en Grande-Bretagne à partir de la seconde moitié du XVIIIe siècle (vers 1760-1780), cette mutation structurelle d'une ampleur sans précédent s'est étendue au cours du XIXe siècle à l'Europe occidentale (France, Belgique, Allemagne), puis aux États-Unis et au Japon. Elle constitue le tournant le plus décisif de l'histoire matérielle de l'humanité depuis la révolution néolithique.
@@ -178,11 +174,7 @@ export const LESSON_2_HISTOIRE_1ERE: LessonContent = {
   title: 'LES CONSÉQUENCES ÉCONOMIQUES, SOCIALES, POLITIQUES ET CULTURELLES DE LA RÉVOLUTION INDUSTRIELLE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 2 : LES CONSÉQUENCES ÉCONOMIQUES, SOCIALES, POLITIQUES ET CULTURELLES DE LA RÉVOLUTION INDUSTRIELLE
+  fullText: `LEÇON 2 : LES CONSÉQUENCES ÉCONOMIQUES, SOCIALES, POLITIQUES ET CULTURELLES DE LA RÉVOLUTION INDUSTRIELLE
 
 INTRODUCTION
 L'avènement de la révolution industrielle au XIXe siècle n'a pas seulement modifié les appareils productifs et les méthodes techniques de fabrication ; il a bouleversé en profondeur l'ensemble de l'édifice sociétal européen et mondial. La diffusion du machinisme et la recherche permanente du profit ont accéléré le développement d'un nouveau système économique : le capitalisme industriel et financier. En déstructurant les cadres traditionnels de la vie rurale, l'industrialisation a provoqué une urbanisation fulgurante et fait émerger deux classes sociales antagonistes : la grande bourgeoisie possédante et le prolétariat ouvrier. Cette fracture sociale a profondément redéfini les équilibres politiques et nourri de nouvelles représentations culturelles.
@@ -333,11 +325,7 @@ export const LESSON_3_HISTOIRE_1ERE: LessonContent = {
   title: 'LES DOCTRINES SOCIALES : SYNDICALISME ET SOCIALISME',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 3 : LES DOCTRINES SOCIALES : SYNDICALISME ET SOCIALISME
+  fullText: `LEÇON 3 : LES DOCTRINES SOCIALES : SYNDICALISME ET SOCIALISME
 
 INTRODUCTION
 Face à la précarité intolérable du prolétariat, aux ravages humains causés par le capitalisme libéral triomphant et à l'indifférence initiale des classes dirigeantes, le XIXe siècle est le théâtre d'une immense effervescence intellectuelle et politique. Pour contester la logique du profit débridé et refonder l'ordre social sur la justice et l'égalité, des penseurs élaborent de nouvelles doctrines critiques regroupées sous le nom générique de « socialisme ». Simultanément, les ouvriers prennent conscience de leur communauté de destin et s'organisent en associations de défense professionnelle : les syndicats. Par la grève et la lutte politique, le mouvement ouvrier impose progressivement des réformes sociales capitales et ébranle l'hégémonie bourgeoise en Europe.

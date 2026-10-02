@@ -13,12 +13,7 @@ export const LESSON_5_FRANCAIS_2NDE: LessonContent = {
   title: 'LE ROMAN ET LA NOUVELLE : FORMES, STRUCTURES ET NARRATION',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 5 : LE ROMAN ET LA NOUVELLE — FORMES, STRUCTURES ET NARRATION
+  fullText: `LEÇON 5 : LE ROMAN ET LA NOUVELLE — FORMES, STRUCTURES ET NARRATION
 
 INTRODUCTION
 Le roman et la nouvelle constituent aujourd'hui les genres littéraires en prose les plus consommés et les plus polymorphes de la littérature mondiale et négro-africaine. Si le terme « roman » désignait au Moyen Âge tout texte rédigé en langue romane (l'ancêtre du français populaire) par opposition au latin d'Église, il s'est progressivement constitué comme le récit de fiction par excellence, capable d'embrasser la totalité de l'expérience humaine. La nouvelle, quant à elle, partage avec le roman la nature de récit de fiction, mais s'en distingue par son économie de moyens, sa brièveté percutante, la concentration de son intrigue et son dénouement souvent saisissant (la chute). L'étude approfondie de ces genres en classe de Seconde permet à l'élève de maîtriser les outils sémiotiques de l'analyse narrative et de comprendre la manière dont la fiction explore et réinvente le réel.
@@ -144,12 +139,7 @@ export const LESSON_6_FRANCAIS_2NDE: LessonContent = {
   title: 'LES COURANTS ROMANESQUES : DU RÉALISME AU ROMAN NÉGRO-AFRICAIN ENGAGÉ',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 6 : LES COURANTS ROMANESQUES — DU RÉALISME ET NATURALISME AU ROMAN NÉGRO-AFRICAIN ENGAGÉ
+  fullText: `LEÇON 6 : LES COURANTS ROMANESQUES — DU RÉALISME ET NATURALISME AU ROMAN NÉGRO-AFRICAIN ENGAGÉ
 
 INTRODUCTION
 L'histoire du roman est indissociable des bouleversements philosophiques, scientifiques et politiques qui ont façonné le monde moderne. Au XIXe siècle en Europe, en réaction contre les excès de l'idéalisme et les rêveries sentimentales du Romantisme, naissent deux courants littéraires majeurs : le Réalisme et le Naturalisme, qui ambitionnent de faire du roman un miroir fidèle de la société ou un champ d'expérimentation quasi scientifique. Au XXe siècle, ce modèle romanesque occidental est puissamment réapproprié et transfiguré par les écrivains du monde noir. L'Afrique subsaharienne et le Sénégal donnent alors naissance à un roman négro-africain d'une vitalité extraordinaire, qui passe de la contestation radicale de l'ordre colonial à la critique sans fard des désillusions des Indépendances et à la revendication des droits fondamentaux de la femme.
@@ -269,12 +259,7 @@ export const LESSON_7_FRANCAIS_2NDE: LessonContent = {
   title: 'LA POÉSIE : FORMES FIXES, MÉTRIQUE TRADITIONNELLE ET PROSODIE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 7 : LA POÉSIE — FORMES FIXES, MÉTRIQUE TRADITIONNELLE ET PROSODIE
+  fullText: `LEÇON 7 : LA POÉSIE — FORMES FIXES, MÉTRIQUE TRADITIONNELLE ET PROSODIE
 
 INTRODUCTION
 La poésie est l'art suprême du langage. Venue du verbe grec *poiein*, qui signifie « créer », « façonner », elle ne se définit pas simplement par l'alignement de lignes courtes ou la présence de rimes en fin de vers : elle est une alchimie sonore, rythmique et sémantique qui transfigure la réalité ordinaire pour lui insuffler une vibration sacrée et musicale. Tout au long de l'histoire des lettres, l'art poétique s'est forgé à travers un ensemble rigoureux de contraintes formelles — la métrique et la prosodie — avant que la modernité n'invente le vers libre et le poème en prose. En classe de Seconde, la maîtrise parfaite de la métrique traditionnelle française est indispensable pour réussir le commentaire composé de textes poétiques et saisir la grandeur des hymnes lyriques de la Négritude sénégalaise.
@@ -411,12 +396,7 @@ export const LESSON_8_FRANCAIS_2NDE: LessonContent = {
   title: 'LES GRANDS COURANTS POÉTIQUES ET LE MOUVEMENT DE LA NÉGRITUDE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 8 : LES GRANDS COURANTS POÉTIQUES ET LE MOUVEMENT DE LA NÉGRITUDE
+  fullText: `LEÇON 8 : LES GRANDS COURANTS POÉTIQUES ET LE MOUVEMENT DE LA NÉGRITUDE
 
 INTRODUCTION
 L'histoire de la poésie moderne est le théâtre d'une succession de révolutions esthétiques passionnées. Du Romantisme du début du XIXe siècle jusqu'au Surréalisme du XXe siècle, chaque mouvement littéraire s'est constitué en rupture contre le précédent pour redéfinir la place de l'homme dans le cosmos et le pouvoir du verbe. C'est dans ce sillage d'émancipation créatrice que jaillit, à Paris dans les années 1930, le Mouvement de la Négritude. Fondée par des étudiants noirs d'Afrique et des Caraïbes — au premier rang desquels figure le poète-président sénégalais Léopold Sédar Senghor —, la Négritude a constitué un séisme culturel et politique mondial, proclamant la fierté inaliénable de l'identité noire face à la déshumanisation coloniale.

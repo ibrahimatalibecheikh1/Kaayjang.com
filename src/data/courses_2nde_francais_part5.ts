@@ -13,12 +13,7 @@ export const LESSON_19_FRANCAIS_2NDE: LessonContent = {
   title: 'ÉTUDE D\'ŒUVRE INTÉGRALE ROMANESQUE : « UNE SI LONGUE LETTRE » DE MARIAMA BÂ',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 19 : ÉTUDE D'ŒUVRE INTÉGRALE ROMANESQUE — « UNE SI LONGUE LETTRE » DE MARIAMA BÂ
+  fullText: `LEÇON 19 : ÉTUDE D'ŒUVRE INTÉGRALE ROMANESQUE — « UNE SI LONGUE LETTRE » DE MARIAMA BÂ
 
 INTRODUCTION
 Publié en 1979 aux Nouvelles Éditions Africaines (NEA) à Dakar, *Une si longue lettre* de la romancière sénégalaise Mariama Bâ (1929-1981) constitue un événement fondateur et un chef-d'œuvre incontestable des lettres africaines et mondiales. Couronné en 1980 par le tout premier Prix Noma de l'édition africaine, ce court roman épistolaire d'une densité psychologique et morale exceptionnelle a marqué l'entrée fracassante de la parole féminine africaine dans l'espace littéraire francophone. Au programme de la classe de Seconde (séries L et S) des lycées du Sénégal, l'étude intégrale de cette œuvre permet d'analyser les mécanismes du genre épistolaire, d'explorer les tensions entre tradition et modernité dans la société dakaroise post-indépendance, et d'interroger la condition de la femme confrontée à la polygamie, au deuil et aux pesanteurs des castes.
@@ -107,12 +102,7 @@ export const LESSON_20_FRANCAIS_2NDE: LessonContent = {
   title: 'ÉTUDE D\'ŒUVRE INTÉGRALE THÉÂTRALE : « L\'EXIL D\'ALBOURI » DE CHEIK ALIOU NDAO',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 20 : ÉTUDE D'ŒUVRE INTÉGRALE THÉÂTRALE — « L'EXIL D'ALBOURI » DE CHEIK ALIOU NDAO
+  fullText: `LEÇON 20 : ÉTUDE D'ŒUVRE INTÉGRALE THÉÂTRALE — « L'EXIL D'ALBOURI » DE CHEIK ALIOU NDAO
 
 INTRODUCTION
 Présentée pour la première fois en 1967 et couronnée du prestigieux Grand Prix du Premier Festival Culturel Panafricain d'Alger en 1969, la tragédie historique *L'Exil d'Albouri* de l'écrivain et dramaturge sénégalais Cheik Aliou Ndao (né en 1933) est un monument de la littérature dramatique africaine. Inspirée des événements réels qui ont secoué le royaume du Djoloff en 1890 lors de la pénétration coloniale française, cette pièce d'une tension poétique et patriotique admirable dépasse la simple reconstitution d'archives historiques : elle élève la figure héroïque du Bourba Albouri Ndiaye au rang de symbole universel de la résistance anticoloniale, de la grandeur morale et du refus de la servitude. Au programme de la classe de Seconde (séries L et S), son étude intégrale permet de maîtriser les codes de la dramaturgie tragique et d'interroger la dialectique féconde entre histoire, mémoire et création artistique.

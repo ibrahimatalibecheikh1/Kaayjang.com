@@ -13,11 +13,7 @@ export const LESSON_11_HISTOIRE_1ERE: LessonContent = {
   title: 'LA PREMIÈRE GUERRE MONDIALE (1914-1918) : CAUSES, DÉROULEMENT ET CONSÉQUENCES MONDIALES',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 11 : LA PREMIÈRE GUERRE MONDIALE (1914-1918) : CAUSES, DÉROULEMENT ET CONSÉQUENCES MONDIALES
+  fullText: `LEÇON 11 : LA PREMIÈRE GUERRE MONDIALE (1914-1918) : CAUSES, DÉROULEMENT ET CONSÉQUENCES MONDIALES
 
 INTRODUCTION
 De l'été 1914 à l'automne 1918, l'humanité a sombré dans un cataclysme d'une violence et d'une ampleur inédites : la Première Guerre mondiale. Déclenchée en Europe au cœur d'un continent déchiré par des rivalités impérialistes, des contentieux territoriaux et une course effrénée aux armements, cette guerre s'est rapidement étendue à l'échelle planétaire par le jeu des alliances diplomatiques et la mobilisation des immenses empires coloniaux. Pour la première fois dans l'histoire, la guerre est devenue « totale », mobilisant non seulement des millions de soldats sur des fronts de tranchées sanglants, mais aussi l'intégralité des appareils économiques, industriels, scientifiques et psychologiques des nations belligérantes. Le continent africain, et tout particulièrement les Tirailleurs Sénégalais, a payé un très lourd tribut de sang à ce conflit fratricide entre métropoles impérialistes.
@@ -176,11 +172,7 @@ export const LESSON_12_HISTOIRE_1ERE: LessonContent = {
   title: 'LE RÈGLEMENT DE LA PREMIÈRE GUERRE MONDIALE ET LA NOUVELLE CARTE DE L\'EUROPE',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 12 : LE RÈGLEMENT DE LA PREMIÈRE GUERRE MONDIALE ET LA NOUVELLE CARTE DE L'EUROPE
+  fullText: `LEÇON 12 : LE RÈGLEMENT DE LA PREMIÈRE GUERRE MONDIALE ET LA NOUVELLE CARTE DE L'EUROPE
 
 INTRODUCTION
 Au lendemain de l'armistice du 11 novembre 1918, les puissances victorieuses se réunissent à Paris pour élaborer les traités de paix destinés à clore officiellement le premier conflit mondial et à réorganiser l'ordre international sur de nouvelles bases juridiques et morales. Conduites sous l'égide du président américain Woodrow Wilson et de ses célèbres « Quatorze Points », les négociations débouchent sur la signature d'une série de traités solennels, dont le plus célèbre est le Traité de Versailles imposé à l'Allemagne le 28 juin 1919, et sur la fondation de la Société des Nations (SDN). Cependant, loin d'instaurer une paix universelle et définitive, ces traités dictés par les vainqueurs sans concertation avec les vaincus morcellent les frontières européennes, attisent des rancœurs nationalistes inextinguibles et portent en germe les causes directes de la Seconde Guerre mondiale.
@@ -320,11 +312,7 @@ export const LESSON_13_HISTOIRE_1ERE: LessonContent = {
   title: 'LA RÉVOLUTION RUSSE DE 1917 ET LA NAISSANCE DE L\'URSS',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 13 : LA RÉVOLUTION RUSSE DE 1917 ET LA NAISSANCE DE L'URSS
+  fullText: `LEÇON 13 : LA RÉVOLUTION RUSSE DE 1917 ET LA NAISSANCE DE L'URSS
 
 INTRODUCTION
 En pleine Première Guerre mondiale, l'Empire russe est secoué par un séisme politique et social qui va transformer radicalement le cours de l'histoire du XXe siècle : la Révolution de 1917. Miné par des archaïsmes politiques séculaires, des inégalités sociales révoltantes et les désastres militaires cuisants subis face aux armées allemandes, le régime autocratique du tsar Nicolas II s'effondre en quelques jours en février 1917. Huit mois plus tard, en octobre 1917, le parti bolchevik conduit par Vladimir Ilitch Lénine et Léon Trotski s'empare du pouvoir et instaure le premier État socialiste de l'histoire fondé sur les théories de Karl Marx. Après une guerre civile acharnée et des transformations économiques radicales, la fondation de l'Union des Républiques Socialistes Soviétiques (URSS) en 1922 inaugure une fracture idéologique mondiale majeure entre capitalisme et communisme.
@@ -471,11 +459,7 @@ export const LESSON_14_HISTOIRE_1ERE: LessonContent = {
   title: 'LA CRISE ÉCONOMIQUE MONDIALE DE 1929',
   subject: 'Histoire',
   classLevel: 'Première',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE PREMIÈRE
-DISCIPLINE : HISTOIRE
-
-LEÇON 14 : LA CRISE ÉCONOMIQUE MONDIALE DE 1929
+  fullText: `LEÇON 14 : LA CRISE ÉCONOMIQUE MONDIALE DE 1929
 
 INTRODUCTION
 Le 24 octobre 1929, connu sous le nom tragique de « Jeudi Noir », la bourse des valeurs de Wall Street à New York s'effondre dans une panique boursière d'une violence sans précédent. Ce krach financier colossal marque le point de départ de la crise économique la plus longue, la plus profonde et la plus destructrice de toute l'histoire du système capitaliste mondial : la « Grande Dépression » des années 1930. Née au cœur de la première puissance économique du monde, la crise s'est propagée à une vitesse foudroyante à l'ensemble de la planète par le rapatriement des capitaux américains et l'effondrement du commerce international. En plongeant des dizaines de millions de travailleurs dans le chômage de masse et la misère noire, elle a ébranlé les démocraties libérales, conduit à l'interventionnisme d'État et favorisé la montée en puissance des régimes totalitaires fasciste et nazi, précipitant le monde vers la Seconde Guerre mondiale.

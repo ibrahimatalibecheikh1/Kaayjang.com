@@ -41,9 +41,9 @@ export const LESSON_5_ANGLAIS_2NDE: LessonContent = {
 The passive voice is employed when the **action itself** or the **recipient of the action (the object)** is more significant than the agent who performed it, or when the agent is unknown, obvious, or intentionally concealed.
 
 #### General Transformation Algorithm:
-$$\\text{Active: } \\underbrace{\\text{Subject}}_{S_A} + \\underbrace{\\text{Verb}}_{V_A} + \\underbrace{\\text{Direct Object}}_{O_A}$$
-$$\\Downarrow$$
-$$\\text{Passive: } \\underbrace{\\text{Object}}_{O_A \\rightarrow S_P} + \\underbrace{\\mathbf{be} \\text{ (in the tense of } V_A) + \\mathbf{Past Participle (V3)}}_{V_P} + \\underbrace{(\\mathbf{by} + \\text{Agent})}_{\\text{Optional}}$$
+\Active:   Subject (S_A) +  Verb (V_A) +  Direct Object (O_A)
+\⇓
+\Passive:   Object (O_A \→ S_P) +  **be**  (in the tense of  V_A) + \**Past Participle (V3)** (V_P) + \(\**by** + \Agent) (\Optional)
 
 ---
 
@@ -77,16 +77,16 @@ When reporting general opinions, rumors, or scientific beliefs (*say, believe, t
 
 #### Structure A: Impersonal "It + Passive + That-clause"
 * *People believe that technology stimulates economic growth.*
-  $$\\rightarrow \\quad \\textbf{It is believed that} \\text{ technology stimulates economic growth.}$$
+  \→   \**It is believed that**  technology stimulates economic growth.
 * *They reported that the submarine internet cable was cut.*
-  $$\\rightarrow \\quad \\textbf{It was reported that} \\text{ the submarine internet cable was cut.}$$
+  \→   \**It was reported that**  the submarine internet cable was cut.
 
 #### Structure B: Personal Subject + Passive Verb + To-Infinitive
-$$\\text{Subject} + \\text{be} + \\text{V3 (said, thought, known)} + \\begin{cases} \\textbf{to + base verb} & \\text{(present/general fact)} \\\\ \\textbf{to have + V3} & \\text{(past completed action)} \\end{cases}$$
+\Subject + \be + \V3 (said, thought, known) +  begin{cases} \**to + base verb** & \(present/general fact)  \ \**to have + V3** & \(past completed action)  end{cases}
 * *People say that Aminata is a coding genius.*
-  $$\\rightarrow \\quad \\text{Aminata } \\textbf{is said to be} \\text{ a coding genius.}$$
+  \→   \Aminata  \**is said to be**  a coding genius.
 * *Experts believe that the hacker fled the country.*
-  $$\\rightarrow \\quad \\text{The hacker } \\textbf{is believed to have fled} \\text{ the country.}$$`
+  \→   \The hacker  \**is believed to have fled**  the country.`
     },
     {
       title: 'III. Reading Comprehension: "Mobile Money and the Fintech Boom in Senegal"',
@@ -122,13 +122,13 @@ Transform each active sentence into the passive voice:
 
 ### 2. Detailed Answer Key & Explanations
 1. **This viral educational application was created by a young Senegalese programmer.**
-   *(Past Simple active $\\rightarrow$ was + created).*
+   *(Past Simple active \→ was + created).*
 2. **New submarine fiber cables are being laid across the Atlantic by telecommunication companies.**
-   *(Present Continuous active $\\rightarrow$ are being + laid).*
+   *(Present Continuous active \→ are being + laid).*
 3. **Confidential network passwords must not be shared by students.**
-   *(Modal verb $\\rightarrow$ must not be + shared).*
+   *(Modal verb \→ must not be + shared).*
 4. **The high school computer laboratory has been successfully updated by technicians.**
-   *(Present Perfect active $\\rightarrow$ has been + updated).*
+   *(Present Perfect active \→ has been + updated).*
 5. *Structure A*: **It is believed that artificial intelligence will transform African agriculture.**
    *Structure B*: **Artificial intelligence is believed to transform African agriculture.**
 6. **The school generator was fixed with a brand new spare part (by the mechanic).**
@@ -169,7 +169,7 @@ export const LESSON_6_ANGLAIS_2NDE: LessonContent = {
       title: 'II. Complete Grammar Study: Conditionals (Zero, First, Second, Third) & Wish Clauses',
       content: `### 1. The Zero Conditional: Universal Realities & Scientific Truths
 * **Formula**:
-  $$\\mathbf{If / When} + \\text{Present Simple}, \\quad \\longrightarrow \\quad \\text{Present Simple}$$
+  \**If / When** + \Present Simple,   \──→   \Present Simple
 * **Meaning**: Expresses inescapable facts, scientific laws, or automatic routines:
   * *If you heat seawater, it evaporates.*
   * *If you visit Gorée, you feel a profound historical reverence.*
@@ -178,7 +178,7 @@ export const LESSON_6_ANGLAIS_2NDE: LessonContent = {
 
 ### 2. The First Conditional: Real and Probable Future Conditions
 * **Formula**:
-  $$\\mathbf{If} + \\text{Present Simple}, \\quad \\longrightarrow \\quad \\mathbf{will / can / may} + \\text{Base Verb}$$
+  \**If** + \Present Simple,   \──→   \**will / can / may** + \Base Verb
 * **Meaning**: Expresses an open, highly realistic condition regarding a future occurrence:
   * *If tourists respect local cultural norms, villagers **will welcome** them with genuine warmth.*
   * *If we protect our coastal mangroves, marine life **will regenerate** rapidly.*
@@ -189,7 +189,7 @@ export const LESSON_6_ANGLAIS_2NDE: LessonContent = {
 
 ### 3. The Second Conditional: Hypothetical / Imaginary Present Situations
 * **Formula**:
-  $$\\mathbf{If} + \\text{Past Simple} \\, (\\text{were for all subjects}), \\quad \\longrightarrow \\quad \\mathbf{would / could / might} + \\text{Base Verb}$$
+  \**If** + \Past Simple   (\were for all subjects),   \──→   \**would / could / might** + \Base Verb
 * **Meaning**: Expresses an unreal, improbable, or imaginary condition in the present or future:
   * *If I **had** sufficient financial savings, I **would travel** to the Bassari country.* (Reality: I do not have enough money).
   * *If the government **invested** more in artisanal infrastructure, local carvers **could export** their works globally.*
@@ -200,7 +200,7 @@ export const LESSON_6_ANGLAIS_2NDE: LessonContent = {
 
 ### 4. The Third Conditional: Impossible Past Regrets & Unreal Historical Conditions
 * **Formula**:
-  $$\\mathbf{If} + \\text{Past Perfect (had + V3)}, \\quad \\longrightarrow \\quad \\mathbf{would / could / might have} + \\text{Past Participle (V3)}$$
+  \**If** + \Past Perfect (had + V3),   \──→   \**would / could / might have** + \Past Participle (V3)
 * **Meaning**: Expresses an imaginary condition in the past that never occurred (regret, reproach, historical hypothesis):
   * *If the colonial authorities **had maintained** the historic buildings of Saint-Louis, the roofs **would not have collapsed**.* (Reality: They did not maintain them, so they collapsed).
   * *If you **had informed** me about the cultural festival, I **would have accompanied** you.*
@@ -208,32 +208,32 @@ export const LESSON_6_ANGLAIS_2NDE: LessonContent = {
 ---
 
 ### 5. Summary Matrix of Conditional Structures
-$$\\begin{array}{|l|l|l|l|}
-\\hline
-\\textbf{Type} & \\textbf{If-Clause (Condition)} & \\textbf{Main Clause (Result)} & \\textbf{Temporal Reality} \\\\
-\\hline
-\\textbf{Zero} & \\text{Present Simple} & \\text{Present Simple} & \\text{Always true / Law of nature} \\\\
-\\hline
-\\textbf{First} & \\text{Present Simple} & \\text{will + Verb} & \\text{Realistic future possibility} \\\\
-\\hline
-\\textbf{Second} & \\text{Past Simple (were)} & \\text{would + Verb} & \\text{Imaginary present / Unlikely} \\\\
-\\hline
-\\textbf{Third} & \\text{Past Perfect (had + V3)} & \\text{would have + V3} & \\text{Impossible past / Regret} \\\\
-\\hline
-\\end{array}$$
+ begin{array}{|l|l|l|l|}
+ hline
+\**Type** & \**If-Clause (Condition)** & \**Main Clause (Result)** & \**Temporal Reality**   
+ hline
+\**Zero** & \Present Simple & \Present Simple & \Always true / Law of nature   
+ hline
+\**First** & \Present Simple & \will + Verb & \Realistic future possibility   
+ hline
+\**Second** & \Past Simple (were) & \would + Verb & \Imaginary present / Unlikely   
+ hline
+\**Third** & \Past Perfect (had + V3) & \would have + V3 & \Impossible past / Regret   
+ hline
+ end{array}
 
 ---
 
 ### 6. Expressing Wishes and Regrets: "Wish" & "If only"
 * **Wish about the Present (Desire for a different current situation)**:
-  $$\\text{Subject} + \\mathbf{wish} / \\mathbf{If only} + \\text{Past Simple (were)}$$
+  \Subject + \**wish** / \**If only** + \Past Simple (were)
   * *I wish our city **had** more public libraries.* (Reality: It lacks libraries).
   * *If only I **were** fluent in Wolof, English, and Spanish!*
 * **Wish about the Past (Regret over a past action)**:
-  $$\\text{Subject} + \\mathbf{wish} / \\mathbf{If only} + \\text{Past Perfect (had + V3)}$$
+  \Subject + \**wish** / \**If only** + \Past Perfect (had + V3)
   * *He wishes he **had visited** the Museum of Black Civilizations during his stay in Dakar.* (Reality: He did not visit it).
 * **Wish about Annoyance / Desired change in someone else's behavior**:
-  $$\\text{Subject} + \\mathbf{wish} + \\text{Person} + \\mathbf{would} + \\text{Base Verb}$$
+  \Subject + \**wish** + \Person + \**would** + \Base Verb
   * *I wish tourists **would stop** discarding plastic bottles along our pristine beaches.*`
     },
     {
@@ -263,8 +263,8 @@ Put the verb in brackets into the correct tense according to the specified condi
 2. *If I (be) .................... the Minister of Culture, I would build artisanal training academies in every region. (Second Conditional)*
 3. *If the tour guide (warn) .................... the travelers yesterday, they (not / miss) .................... the ferry to Gorée. (Third Conditional)*
 4. *If seawater (freeze) ...................., it turns into solid sea ice. (Zero Conditional)*
-5. *I don't have enough free time to visit Casamance. $\\rightarrow$ I wish I (have) .................... more free time.*
-6. *Cheikh did not revise his English grammar notes before the test. $\\rightarrow$ Cheikh wishes he (revise) .................... his notes.*
+5. *I don't have enough free time to visit Casamance. \→ I wish I (have) .................... more free time.*
+6. *Cheikh did not revise his English grammar notes before the test. \→ Cheikh wishes he (revise) .................... his notes.*
 
 ---
 
@@ -353,19 +353,19 @@ Modal auxiliaries (*can, could, may, might, must, shall, should, will, would, ou
   * *The minister **may arrive** late because traffic in downtown Dakar is congested.*
 
 #### B. Past Deductions (Modal Perfect: Modal + Have + Past Participle)
-$$\\begin{array}{|l|l|l|}
-\\hline
-\\textbf{Structure} & \\textbf{Meaning / Communicative Value} & \\textbf{Example Sentence} \\\\
-\\hline
-\\textbf{Must have + V3} & \\text{Almost certain that something happened} & \\textit{The streets are wet; it } \\textbf{must have rained} \\textit{ last night.} \\\\
-\\hline
-\\textbf{Can't have + V3} & \\text{Certain that something was impossible} & \\textit{Fatou } \\textbf{can't have stolen} \\textit{ the money; she was in France.} \\\\
-\\hline
-\\textbf{May / Might have + V3} & \\text{Possible that something occurred (uncertainty)} & \\textit{He } \\textbf{might have forgotten} \\textit{ his keys at home.} \\\\
-\\hline
-\\textbf{Should have + V3} & \\text{Criticism / Regret over a missed past duty} & \\textit{You } \\textbf{should have reported} \\textit{ that child abuse to the police.} \\\\
-\\hline
-\\end{array}$$`
+ begin{array}{|l|l|l|}
+ hline
+\**Structure** & \**Meaning / Communicative Value** & \**Example Sentence**   
+ hline
+\**Must have + V3** & \Almost certain that something happened &  textit{The streets are wet; it } \**must have rained**  textit{ last night.}   
+ hline
+\**Can't have + V3** & \Certain that something was impossible &  textit{Fatou } \**can't have stolen**  textit{ the money; she was in France.}   
+ hline
+\**May / Might have + V3** & \Possible that something occurred (uncertainty) &  textit{He } \**might have forgotten**  textit{ his keys at home.}   
+ hline
+\**Should have + V3** & \Criticism / Regret over a missed past duty &  textit{You } \**should have reported**  textit{ that child abuse to the police.}   
+ hline
+ end{array}`
     },
     {
       title: 'III. Reading Comprehension: "Protecting Child Rights: The Modernization of the Daaras"',
@@ -447,54 +447,54 @@ When reporting statements, questions, or commands uttered by another person in t
 ---
 
 ### 2. Systematic Tense Backshift Chart
-$$\\begin{array}{|l|l|}
-\\hline
-\\textbf{Direct Speech (Present Reporting)} & \\textbf{Reported Speech (Past Reporting Verb: Said, Told...)} \\\\
-\\hline
-\\textbf{Present Simple} & \\textbf{Past Simple} \\\\
-\\textit{\"I study English every day.\"} & \\textit{He said that he } \\textbf{studied} \\textit{ English every day.} \\\\
-\\hline
-\\textbf{Present Continuous} & \\textbf{Past Continuous} \\\\
-\\textit{\"We are preparing for our interview.\"} & \\textit{They told me that they } \\textbf{were preparing} \\textit{ for their interview.} \\\\
-\\hline
-\\textbf{Past Simple} & \\textbf{Past Perfect} \\\\
-\\textit{\"Fatou founded a modern startup.\"} & \\textit{He said that Fatou } \\textbf{had founded} \\textit{ a modern startup.} \\\\
-\\hline
-\\textbf{Past Continuous} & \\textbf{Past Perfect Continuous} \\\\
-\\textit{\"I was writing my cover letter.\"} & \\textit{She said that she } \\textbf{had been writing} \\textit{ her cover letter.} \\\\
-\\hline
-\\textbf{Present Perfect} & \\textbf{Past Perfect} \\\\
-\\textit{\"The manager has hired two technicians.\"} & \\textit{The secretary said that the manager } \\textbf{had hired} \\textit{ two technicians.} \\\\
-\\hline
-\\textbf{Future Simple (will)} & \\textbf{Conditional Simple (would)} \\\\
-\\textit{\"I will attend the job fair tomorrow.\"} & \\textit{He affirmed that he } \\textbf{would attend} \\textit{ the job fair the following day.} \\\\
-\\hline
-\\textbf{Can / May / Must} & \\textbf{Could / Might / Had to} \\\\
-\\textit{\"You must submit your CV today.\"} & \\textit{The recruiter told me that I } \\textbf{had to} \\textit{ submit my CV that day.} \\\\
-\\hline
-\\end{array}$$
+ begin{array}{|l|l|}
+ hline
+\**Direct Speech (Present Reporting)** & \**Reported Speech (Past Reporting Verb: Said, Told...)**   
+ hline
+\**Present Simple** & \**Past Simple**   
+ textit{\"I study English every day.\"} &  textit{He said that he } \**studied**  textit{ English every day.}   
+ hline
+\**Present Continuous** & \**Past Continuous**   
+ textit{\"We are preparing for our interview.\"} &  textit{They told me that they } \**were preparing**  textit{ for their interview.}   
+ hline
+\**Past Simple** & \**Past Perfect**   
+ textit{\"Fatou founded a modern startup.\"} &  textit{He said that Fatou } \**had founded**  textit{ a modern startup.}   
+ hline
+\**Past Continuous** & \**Past Perfect Continuous**   
+ textit{\"I was writing my cover letter.\"} &  textit{She said that she } \**had been writing**  textit{ her cover letter.}   
+ hline
+\**Present Perfect** & \**Past Perfect**   
+ textit{\"The manager has hired two technicians.\"} &  textit{The secretary said that the manager } \**had hired**  textit{ two technicians.}   
+ hline
+\**Future Simple (will)** & \**Conditional Simple (would)**   
+ textit{\"I will attend the job fair tomorrow.\"} &  textit{He affirmed that he } \**would attend**  textit{ the job fair the following day.}   
+ hline
+\**Can / May / Must** & \**Could / Might / Had to**   
+ textit{\"You must submit your CV today.\"} &  textit{The recruiter told me that I } \**had to**  textit{ submit my CV that day.}   
+ hline
+ end{array}
 
 *Note*: Modals like *could, would, should, might, ought to, had better* do not shift further into the past.
 
 ---
 
 ### 3. Shifts in Time and Place Adverbials & Demonstratives
-* \`Now\` $\\rightarrow$ \`Then\` / \`At that moment\`
-* \`Today\` $\\rightarrow$ \`That day\`
-* \`Yesterday\` $\\rightarrow$ \`The day before\` / \`The previous day\`
-* \`Tomorrow\` $\\rightarrow$ \`The next day\` / \`The following day\`
-* \`Last week / month\` $\\rightarrow$ \`The week / month before\`
-* \`Next year\` $\\rightarrow$ \`The following year\`
-* \`Here\` $\\rightarrow$ \`There\`
-* \`This\` $\\rightarrow$ \`That\`
-* \`These\` $\\rightarrow$ \`Those\`
-* \`Ago\` $\\rightarrow$ \`Before\` / \`Earlier\`
+* \`Now\` \→ \`Then\` / \`At that moment\`
+* \`Today\` \→ \`That day\`
+* \`Yesterday\` \→ \`The day before\` / \`The previous day\`
+* \`Tomorrow\` \→ \`The next day\` / \`The following day\`
+* \`Last week / month\` \→ \`The week / month before\`
+* \`Next year\` \→ \`The following year\`
+* \`Here\` \→ \`There\`
+* \`This\` \→ \`That\`
+* \`These\` \→ \`Those\`
+* \`Ago\` \→ \`Before\` / \`Earlier\`
 
 ---
 
 ### 4. Reporting Questions
 #### A. Wh- Questions (Information Questions)
-* The reporting structure uses: $\\text{Subject} + \\mathbf{asked} + (\\text{Object}) + \\mathbf{Wh-word} + \\mathbf{Subject} + \\mathbf{Verb (Affirmative Word Order)}$.
+* The reporting structure uses: \Subject + \**asked** + (\Object) + \**Wh-word** + \**Subject** + \**Verb (Affirmative Word Order)**.
 * **Never use do/does/did** in reported questions; invert back to regular statement order:
   * Direct: *"Where do you live?" the interviewer asked.*
   * Reported: *The interviewer asked me **where I lived**.* (Not: *where did I live*).
@@ -507,10 +507,10 @@ $$\\begin{array}{|l|l|}
 ---
 
 ### 5. Reporting Commands, Requests, and Advice
-* **Affirmative Commands / Requests**: $\\text{Verb of command (ordered, told, asked, advised)} + \\text{Object} + \\mathbf{to + Base Verb}$.
+* **Affirmative Commands / Requests**: \Verb of command (ordered, told, asked, advised) + \Object + \**to + Base Verb**.
   * Direct: *"Submit your certificates immediately!" the director commanded.*
   * Reported: *The director ordered us **to submit our certificates** immediately.*
-* **Negative Commands (Prohibitions)**: $\\text{Object} + \\mathbf{not \\, to + Base Verb}$.
+* **Negative Commands (Prohibitions)**: \Object + \**not   to + Base Verb**.
   * Direct: *"Do not be late for the aptitude interview!"*
   * Reported: *She warned him **not to be late** for the aptitude interview.*`
     },
@@ -573,7 +573,7 @@ Turn each direct speech utterance into reported speech (using the past reporting
 
 ### 2. Detailed Answer Key & Explanations
 1. **Mamadou said that he had been looking for an internship in Kaolack for two months.**
-   *(Present Perfect Continuous $\\rightarrow$ Past Perfect Continuous; \"I\" becomes \"he\").*
+   *(Present Perfect Continuous \→ Past Perfect Continuous; \"I\" becomes \"he\").*
 2. **The female entrepreneurs announced that they would open a modern sewing workshop the following week.**
    *(\"will\" becomes \"would\"; \"next week\" becomes \"the following week\").*
 3. **The recruiter asked Aïssatou why she had chosen that technical career.**

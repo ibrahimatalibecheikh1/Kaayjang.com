@@ -16,8 +16,7 @@ export const LESSON_13_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `La pérennité de chaque espèce animale ou végétale repose sur sa capacité à engendrer de nouveaux individus capables à leur tour de se reproduire. Dans le monde vivant, la reproduction sexuée est le mode de transmission de la vie le plus répandu chez les organismes pluricellulaires. Elle implique nécessairement l'union de deux cellules reproductrices spécialisées : le gamète mâle et le gamète femelle. Comment ces cellules se rencontrent-elles dans des environnements aussi variés que l'eau libre ou le milieu terrestre ? Quelles différences fondamentales existent entre fécondation interne et fécondation externe ? Et comment les cycles naturels synchronisent-ils la ponte et l'accouplement ? Cette leçon détaille avec rigueur les mécanismes de la reproduction sexuée.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 13 : LES MÉCANISMES DE LA REPRODUCTION SEXUÉE (RENCONTRE DES GAMÈTES)
 
 I. PRINCIPE FONDAMENTAL DE LA REPRODUCTION SEXUÉE :
@@ -161,8 +160,7 @@ export const LESSON_14_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Dans la nature, la rencontre d'un partenaire sexuel n'est pas toujours nécessaire pour engendrer des descendants. De très nombreux végétaux et certains animaux sont capables de se multiplier seuls, à partir d'un fragment de leur propre corps ou d'organes spécialisés, sans faire intervenir ni gamètes ni fécondation. Ce mode de reproduction est appelé la reproduction asexuée (ou multiplication végétative chez les plantes). Quels sont les procédés naturels et artificiels qui permettent cette multiplication ? Pourquoi produit-elle des clones génétiques parfaits ? Et comment cette stratégie influence-t-elle la colonisation fulgurante mais vulnérable des milieux de vie ? Cette leçon explore les lois de la reproduction asexuée.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 14 : LA REPRODUCTION ASEXUÉE ET SON INFLUENCE SUR LA DYNAMIQUE DES POPULATIONS
 
 I. DÉFINITION ET PRINCIPES DE LA REPRODUCTION ASEXUÉE :
@@ -306,8 +304,7 @@ export const LESSON_15_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `D'où viennent les millions d'espèces vivantes qui peuplent actuellement notre Terre ? Pourquoi les squelettes d'un être humain, d'une chauve-souris, d'un cheval et d'une baleine partagent-ils un agencement d'os rigoureusement identique au niveau de leurs membres antérieurs ? Les sciences de la vie et de la Terre démontrent que les espèces ne sont pas immuables ni figées : elles se modifient et se diversifient au cours des générations selon le principe fondamental de l'évolution biologique. En comparant les fossiles découverts dans les couches géologiques aux espèces vivantes d'aujourd'hui, les scientifiques reconstituent l'arbre généalogique du vivant et dévoilent l'origine commune de toute vie sur Terre.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 15 : L'ÉVOLUTION ET LES LIENS DE PARENTÉ ENTRE LES ESPÈCES ACTUELLES ET FOSSILES
 
 I. LES FOSSILES : LES ARCHIVES GÉOLOGIQUES DU VIVANT :
@@ -450,8 +447,7 @@ export const LESSON_16_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Dès que nous nous mettons à courir, à monter un escalier à toute vitesse ou à disputer un match de football, notre corps réagit instantanément : notre cœur bat la chamade, notre respiration devient rapide et profonde, nos muscles chauffent et la transpiration perle sur notre front. Pourquoi notre corps réagit-il ainsi de façon aussi synchronisée ? Que se passe-t-il à l'échelle de nos cellules musculaires en plein effort ? Quels sont les carburants indispensables au mouvement et comment nos appareils cardiovasculaire et respiratoire adaptent-ils leur débit pour approvisionner les organes actifs ? Cette leçon décrypte la physiologie humaine lors de l'exercice physique.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
+  fullText: `THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
 LEÇON 16 : LES MODIFICATIONS DE L'ORGANISME LORS D'UN EFFORT PHYSIQUE
 
 I. LES BESOINS ÉNERGÉTIQUES ACCRUS DES CELLULES MUSCULAIRES :
@@ -595,8 +591,7 @@ export const LESSON_17_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `À chaque instant de notre existence, sans même que nous y pensions, nous respirons environ seize fois par minute. Si nous pouvons nous passer de nourriture pendant plusieurs semaines et d'eau pendant quelques jours, une privation de dioxygène de seulement quelques minutes entraîne la mort irrémédiable de nos cellules cérébrales. Quel chemin l'air parcourt-il dans notre appareil respiratoire pour atteindre la profondeur de nos poumons ? Comment le dioxygène de l'air traverse-t-il dans le sang tout en évacuant le dioxyde de carbone ? Quelles caractéristiques anatomiques font des alvéoles pulmonaires une surface d'échange prodigieuse et comment protéger nos poumons des polluants et du tabac ? Cette leçon explore la mécanique et la biochimie des échanges gazeux humains.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
+  fullText: `THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
 LEÇON 17 : LES ÉCHANGES GAZEUX AU NIVEAU DES POUMONS ET LES BESOINS DES ORGANES
 
 I. L'ANATOMIE DES VOIES RESPIRATOIRES ET LE TRAJET DE L'AIR :
@@ -747,8 +742,7 @@ export const LESSON_18_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Quand un gardien de but voit le ballon foncer vers la lucarne, il analyse instantanément la trajectoire et se détend en une fraction de seconde pour l'intercepter. Cette prouesse quotidienne résulte de l'action coordonnée et ultra-rapide de notre système nerveux. Véritable réseau informatique biologique de notre corps, il reçoit des informations de notre environnement, les analyse dans les centres cérébraux et commande en retour les mouvements précis de nos muscles. Mais comment l'influx nerveux circule-t-il à travers les neurones et franchit-il les synapses ? Quels sont les dangers des drogues, de l'alcool et du manque de sommeil sur ce système fragile ? Cette leçon examine la commande nerveuse du mouvement et promeut des comportements responsables pour préserver notre capital neurologique.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
+  fullText: `THÈME 3 : LE CORPS HUMAIN ET LA SANTÉ
 LEÇON 18 : LE SYSTÈME NERVEUX, LA COMMANDE DU MOUVEMENT ET LES COMPORTEMENTS RESPONSABLES
 
 I. L'ARCHITECTURE GÉNÉRALE DU SYSTÈME NERVEUX :

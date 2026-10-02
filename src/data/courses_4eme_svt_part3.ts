@@ -18,8 +18,7 @@ export const LESSON_11_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Les roches exogènes (ou roches sédimentaires) se forment à la surface de la croûte terrestre ou au fond des bassins aquatiques. Elles résultent de l'accumulation et de la transformation de sédiments d'origines diverses. Représentant la mémoire géologique de notre planète, ces roches recèlent souvent des fossiles permettant de reconstituer les paysages et les climats du passé. Cette leçon explore le cycle sédimentaire, de l'érosion initiale à la diagenèse.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 11 : LES ROCHES EXOGÈNES : FORMATION ET ÉVOLUTION
 
 INTRODUCTION :
@@ -147,8 +146,7 @@ export const LESSON_12_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `À l'opposé des roches sédimentaires qui naissent à la surface, les roches endogènes tirent leur origine de la chaleur et des forces colossales qui animent les profondeurs de la Terre. Ces roches résultent de la fusion partielle des matériaux du manteau ou de la croûte, donnant naissance à un liquide silicaté brûlant : le magma. En montant vers la surface, ce magma se refroidit et cristallise pour former les roches magmatiques, subdivisées en roches plutoniques et roches volcaniques. Cette leçon examine la formation, la texture et la composition minéralogique de ces témoins directs de la géodynamique interne.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 12 : LES ROCHES ENDOGÈNES ET LA FORMATION DES ROCHES MAGMATIQUES
 
 INTRODUCTION :
@@ -292,8 +290,7 @@ export const LESSON_13_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Spectaculaire et redoutable, le volcanisme est la manifestation la plus directe et la plus spectaculaire de l'activité géologique interne de notre planète. Un volcan est un orifice ou une fracture de la lithosphère par lequel des matières en fusion venues des profondeurs, accompagnées de gaz sous haute pression, s'échappent à la surface pour former des édifices géologiques variés. Alors que certaines éruptions déversent de paisibles fleuves de lave incandescente, d'autres pulvérisent littéralement des massifs montagneux dans des explosions cataclysmiques. Cette leçon détaille l'anatomie d'un volcan, les deux grands types d'éruptions, leur répartition planétaire et les méthodes de surveillance et de prévention des risques pour les populations.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 13 : LE VOLCANISME : MÉCANISMES, MANIFESTATIONS ET RISQUES GÉOLOGIQUES
 
 INTRODUCTION :
@@ -432,8 +429,7 @@ export const LESSON_14_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Brutaux, imprévisibles et parfois dévastateurs, les séismes (ou tremblements de terre) sont des secousses soudaines qui ébranlent l'écorce terrestre en quelques secondes. Ces secousses résultent de la libération instantanée d'immenses tensions mécaniques accumulées le long de fractures rocheuses appelées failles. L'énergie libérée se propage dans toutes les directions sous la forme d'ondes sismiques. En enregistrant et en mesurant ces ondes à l'échelle planétaire, les géophysiciens ont pu sonder les entrailles inaccessibles de la Terre et révéler son organisation en couches concentriques successives. Cette leçon analyse l'origine des séismes, la nature des ondes sismiques et la structure interne de notre globe.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 14 : LES SÉISMES ET LA STRUCTURE INTERNE DU GLOBE TERRESTRE
 
 INTRODUCTION :
@@ -581,8 +577,7 @@ export const LESSON_15_SVT_4EME: LessonContent = {
   subject: 'SVT',
   classLevel: '4ème',
   introduction: `Pendant des siècles, la surface de la Terre a été perçue comme un ensemble immuable et figé de continents inébranlables. Au début du XXe siècle, le météorologue allemand Alfred Wegener bouleverse cette vision en formulant l'hypothèse audacieuse de la dérive des continents. Aujourd'hui unifiée au sein du modèle global de la « tectonique des plaques », cette théorie révolutionnaire explique l'ensemble des phénomènes géologiques majeurs : la dérive des terres émergées, l'ouverture et la fermeture des océans, la formation des séismes, le volcanisme et la naissance des chaînes de montagnes. Cette leçon examine les fondements de la tectonique des plaques, les trois types de frontières de plaques, son moteur thermique profond et le grand cycle perpétuel des roches.`,
-  fullText: `PROGRAMME OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (4ème)
-LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
+  fullText: `LIVRET DE COURS EXHAUSTIF - CLASSE DE 4ème
 LEÇON 15 : LA TECTONIQUE DES PLAQUES ET LA DYNAMIQUE GLOBALE DE LA LITHOSPHÈRE
 
 INTRODUCTION :

@@ -12,12 +12,7 @@ export const LESSON_17_HISTOIRE_2NDE: LessonContent = {
   title: `La traite arabe : origines, extensions et conséquences en Afrique et en Asie`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 17 : LA TRAITE ARABE : ORIGINES, EXTENSIONS ET CONSÉQUENCES EN AFRIQUE ET EN ASIE
+  fullText: `LEÇON 17 : LA TRAITE ARABE : ORIGINES, EXTENSIONS ET CONSÉQUENCES EN AFRIQUE ET EN ASIE
 
 INTRODUCTION
 Le terme traite désigne le commerce et le transport de personnes réduites en esclavage. Plusieurs réseaux de traite ont existé à des époques différentes. Dans le programme, la traite arabe renvoie principalement aux réseaux reliant l'Afrique à l'Afrique du Nord, au Moyen-Orient et à certaines régions de l'océan Indien. Ces réseaux ont des chronologies, des acteurs et des formes diverses. Il faut éviter de les réduire à un seul système uniforme.
@@ -98,12 +93,7 @@ export const LESSON_18_HISTOIRE_2NDE: LessonContent = {
   title: `La traite atlantique`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 18 : LA TRAITE ATLANTIQUE
+  fullText: `LEÇON 18 : LA TRAITE ATLANTIQUE
 
 INTRODUCTION
 La traite atlantique désigne le système de déportation forcée de millions d'Africains vers les Amériques, principalement entre le XVIe et le XIXe siècle. Elle est liée au développement des empires maritimes européens, à l'économie de plantation et à la colonisation des Amériques. Son fonctionnement associe capture, vente, transport maritime, travail forcé et circulation de marchandises. Il est souvent étudié dans le cadre plus large du commerce triangulaire, même si les routes étaient plus diverses que le schéma triangulaire classique.
@@ -184,12 +174,7 @@ export const LESSON_19_HISTOIRE_2NDE: LessonContent = {
   title: `Activité de consolidation : dossier sur la traite au Sénégal`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 19 : ACTIVITÉ DE CONSOLIDATION : DOSSIER SUR LA TRAITE AU SÉNÉGAL
+  fullText: `LEÇON 19 : ACTIVITÉ DE CONSOLIDATION : DOSSIER SUR LA TRAITE AU SÉNÉGAL
 
 INTRODUCTION
 Cette activité vise à étudier la traite négrière dans l'espace correspondant au Sénégal actuel à partir de documents, de cartes, de récits et de traces patrimoniales. L'objectif est de passer de l'histoire générale de la traite à une étude locale et régionale permettant de comprendre les acteurs, les lieux, les routes et les conséquences.
@@ -252,12 +237,7 @@ export const LESSON_20_HISTOIRE_2NDE: LessonContent = {
   title: `La révolution Torodo`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 20 : LA RÉVOLUTION TORODO
+  fullText: `LEÇON 20 : LA RÉVOLUTION TORODO
 
 INTRODUCTION
 La révolution Torodo, ou mouvement torodo, renvoie à la transformation politique et religieuse du Fuuta-Tooro au XVIIIe siècle. Elle se déroule dans un contexte de domination politique des grandes lignées, d'islamisation progressive et de contestation des pratiques de pouvoir. Le mouvement aboutit à la mise en place d'un régime théocratique où les dirigeants sont choisis selon des règles religieuses et politiques spécifiques.
@@ -329,12 +309,7 @@ export const LESSON_21_HISTOIRE_2NDE: LessonContent = {
   title: `L'empire d'El Hadji Omar Tall`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 21 : L'EMPIRE D'EL HADJI OMAR TALL
+  fullText: `LEÇON 21 : L'EMPIRE D'EL HADJI OMAR TALL
 
 INTRODUCTION
 El Hadji Omar Tall est une figure majeure de l'histoire politique et religieuse de l'Afrique de l'Ouest au XIXe siècle. Né dans le Fouta-Toro, il effectue le pèlerinage à La Mecque et s'inscrit dans les réseaux de la Tijaniyya. À son retour, il entreprend une vaste entreprise de réforme religieuse et de construction politique qui s'étend à plusieurs régions du Sahel et de la boucle du Niger.
@@ -406,12 +381,7 @@ export const LESSON_22_HISTOIRE_2NDE: LessonContent = {
   title: `L'empire zoulou de Tchaka`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 22 : L'EMPIRE ZOULOU DE TCHAKA
+  fullText: `LEÇON 22 : L'EMPIRE ZOULOU DE TCHAKA
 
 INTRODUCTION
 Au début du XIXe siècle, l'Afrique australe connaît d'importantes transformations politiques et militaires. Parmi elles, la formation de l'État zoulou sous Tchaka constitue un événement majeur. Tchaka, roi des Zoulous, renforce l'organisation militaire et développe un système politique plus centralisé. Son règne est associé à des guerres, à des migrations et à des recompositions régionales souvent regroupées sous le terme de mfecane, dont l'interprétation fait l'objet de débats historiques.
@@ -483,12 +453,7 @@ export const LESSON_23_HISTOIRE_2NDE: LessonContent = {
   title: `La révolution américaine`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 23 : LA RÉVOLUTION AMÉRICAINE
+  fullText: `LEÇON 23 : LA RÉVOLUTION AMÉRICAINE
 
 INTRODUCTION
 La révolution américaine conduit à l'indépendance des treize colonies britanniques d'Amérique du Nord et à la création des États-Unis. Elle se déroule principalement entre les années 1760 et 1783, dans un contexte de tensions fiscales, politiques et commerciales avec la monarchie britannique. Elle contribue à diffuser des idées sur les droits, la représentation politique et la souveraineté, tout en conservant de fortes limites sociales, notamment l'esclavage et l'exclusion politique de nombreuses populations.
@@ -569,12 +534,7 @@ export const LESSON_24_HISTOIRE_2NDE: LessonContent = {
   title: `La révolution française de 1789`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 24 : LA RÉVOLUTION FRANÇAISE DE 1789
+  fullText: `LEÇON 24 : LA RÉVOLUTION FRANÇAISE DE 1789
 
 INTRODUCTION
 La Révolution française commence en 1789 dans un contexte de crise financière, sociale et politique. Elle transforme profondément la France et exerce une influence internationale. Entre 1789 et la fin du XVIIIe siècle, le pays connaît la fin de la monarchie absolue, l'affirmation de la souveraineté nationale, des guerres, une république, la Terreur et enfin la montée du pouvoir de Napoléon Bonaparte. Pour comprendre cet ensemble, il faut étudier les causes, les principales étapes et les transformations institutionnelles et sociales.

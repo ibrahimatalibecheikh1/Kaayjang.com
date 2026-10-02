@@ -79,11 +79,17 @@ export interface ContentData {
   id: string;
   title: string;
   type: 'cours' | 'ressource';
-  description: string;
+  description?: string;
   badge?: string;
   link?: string;
   content?: string;
   lessonData?: LessonContent;
+  series?: string;
+  subject?: string;
+  class?: string;
+  partId?: string;
+  duration?: string;
+  diagram?: any;
 }
 
 export const LESSON_1_SVT_6EME: LessonContent = {

@@ -12,9 +12,7 @@ export const LESSON_7_PC_2NDE_L: LessonContent = {
   title: `Mélanges et corps purs : mélanges homogènes, hétérogènes, techniques de séparation et identification`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE II : CHIMIE
 
 CHAPITRE 1 : MÉLANGES ET CORPS PURS
@@ -114,9 +112,7 @@ export const LESSON_8_PC_2NDE_L: LessonContent = {
   title: `Structure de la matière et quantité de matière : atomes, ions, molécules, mole et masse molaire`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE II : CHIMIE
 
 CHAPITRE 2 : STRUCTURE DE LA MATIÈRE ET QUANTITÉ DE MATIÈRE
@@ -268,9 +264,7 @@ export const LESSON_9_PC_2NDE_L: LessonContent = {
   title: `Transformations de la matière : transformation physique vs chimique, conservation, équations et combustions`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE II : CHIMIE
 
 CHAPITRE 3 : LES TRANSFORMATIONS DE LA MATIÈRE
@@ -389,9 +383,7 @@ export const LESSON_10_PC_2NDE_L: LessonContent = {
   title: `Solutions acides, basiques et neutres : échelle de pH, indicateurs colorés, dilution et sécurité`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE II : CHIMIE
 
 CHAPITRE 4 : SOLUTIONS ACIDES, BASIQUES ET NEUTRES
@@ -519,9 +511,7 @@ export const LESSON_11_PC_2NDE_L: LessonContent = {
   title: `Méthodes de résolution, démarches types et exercices d'application corrigés en Physique-Chimie`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 ANNEXE PÉDAGOGIQUE OFFICIELLE
 
 MÉTHODES DE RÉSOLUTION ET EXERCICES D'APPLICATION CORRIGÉS DÉTAILLÉS

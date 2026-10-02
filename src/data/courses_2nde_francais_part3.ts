@@ -13,12 +13,7 @@ export const LESSON_9_FRANCAIS_2NDE: LessonContent = {
   title: 'LE THÉÂTRE : DRAMATURGIE, GENRES CLASSIQUES ET ESPACE SCÉNIQUE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 9 : LE THÉÂTRE — DRAMATURGIE, GENRES CLASSIQUES ET ESPACE SCÉNIQUE
+  fullText: `LEÇON 9 : LE THÉÂTRE — DRAMATURGIE, GENRES CLASSIQUES ET ESPACE SCÉNIQUE
 
 INTRODUCTION
 Le théâtre est un art total et singulier à la croisée de la littérature et du spectacle vivant. Issu du mot grec *theatron*, qui signifie le « lieu d'où l'on regarde », le texte de théâtre présente la particularité fondamentale de n'exister pleinement que lorsqu'il est incarné sur une scène par des comédiens en chair et en os, devant un public rassemblé. Lire une pièce de théâtre exige donc une imagination scénique constante pour transformer les répliques imprimées en voix, en silences, en gestes, en lumières et en mouvements dans l'espace. En classe de Seconde, l'apprentissage du théâtre permet de décoder les lois de la dramaturgie classique, de comprendre le fonctionnement de la double énonciation et d'apprécier la puissance critique du comique et la terreur sublime de la tragédie.
@@ -139,12 +134,7 @@ export const LESSON_10_FRANCAIS_2NDE: LessonContent = {
   title: 'LE THÉÂTRE NÉGRO-AFRICAIN ET CONTEMPORAIN : HISTOIRE, RÉSISTANCE ET SATIRE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 10 : LE THÉÂTRE NÉGRO-AFRICAIN ET CONTEMPORAIN — HISTOIRE, RÉSISTANCE ET SATIRE
+  fullText: `LEÇON 10 : LE THÉÂTRE NÉGRO-AFRICAIN ET CONTEMPORAIN — HISTOIRE, RÉSISTANCE ET SATIRE
 
 INTRODUCTION
 Bien avant l'introduction de l'écriture alphabétique et de la scène à l'italienne, l'Afrique traditionnelle possédait des formes spectaculaires vivantes d'une richesse inouïe : les veillées de contes animées par les griots, les rituels initiatiques masqués, les danses d'exorcisme et les épopées mimées sur les places publiques des villages. Au XXe siècle, sous l'impact de la colonisation, ces traditions orales séculaires ont fusionné avec les formes dramaturgiques occidentales pour donner naissance à un théâtre négro-africain moderne d'expression française. Loin d'être un simple divertissement frivole, le théâtre africain s'est immédiatement constitué comme un art de combat politique, un tribunal de réhabilitation des héros de la résistance nationale et un miroir satirique sans complaisance des dérives des sociétés postcoloniales.
@@ -256,12 +246,7 @@ export const LESSON_11_FRANCAIS_2NDE: LessonContent = {
   title: 'L\'APOLOGUE ET LA LITTÉRATURE D\'IDÉES : FORMES, STRATÉGIES ET SATIRE',
   subject: 'Français',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : FRANÇAIS
-
-LEÇON 11 : L'APOLOGUE ET LA LITTÉRATURE D'IDÉES — FORMES, STRATÉGIES ET SATIRE
+  fullText: `LEÇON 11 : L'APOLOGUE ET LA LITTÉRATURE D'IDÉES — FORMES, STRATÉGIES ET SATIRE
 
 INTRODUCTION
 L'apologue est l'une des inventions les plus ingénieuses de la littérature universelle pour instruire les hommes sans les ennuyer. Du mot grec *apologos*, qui signifie « récit », « fable », l'apologue désigne tout court récit allégorique de fiction qui dissimule sous la fantaisie d'une fable ou d'une anecdote plaisante une leçon morale, philosophique, politique ou religieuse. Depuis les fables antiques d'Ésope jusqu'aux contes philosophiques satiriques de Voltaire au Siècle des Lumières, en passant par les contes animaliers des griots sénégalais recueillis par Birago Diop, l'apologue met la puissance imaginative de la fiction au service du combat des idées. En classe de Seconde, son étude approfondie permet de comprendre la distinction fondamentale entre argumentation directe et argumentation indirecte, et de maîtriser les armes rhétoriques de l'ironie et de la satire.

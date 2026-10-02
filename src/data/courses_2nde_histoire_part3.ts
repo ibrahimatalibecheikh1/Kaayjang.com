@@ -12,12 +12,7 @@ export const LESSON_12_HISTOIRE_2NDE: LessonContent = {
   title: `Les civilisations du Soudan médiéval : Ghana, Mali et Songhaï`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 12 : LES CIVILISATIONS DU SOUDAN MÉDIÉVAL : GHANA, MALI ET SONGHAÏ
+  fullText: `LEÇON 12 : LES CIVILISATIONS DU SOUDAN MÉDIÉVAL : GHANA, MALI ET SONGHAÏ
 
 INTRODUCTION
 Le Soudan médiéval désigne ici la vaste zone située au sud du Sahara, correspondant notamment aux régions du Sahel et à une partie de l'Afrique de l'Ouest. Trois grands ensembles politiques y occupent une place majeure dans les programmes scolaires : Ghana, Mali et Songhaï. Leur histoire est marquée par la formation d'États puissants, le contrôle des échanges, la diffusion de l'islam et le développement de centres urbains et intellectuels.
@@ -98,12 +93,7 @@ export const LESSON_13_HISTOIRE_2NDE: LessonContent = {
   title: `Le processus d'islamisation en Afrique occidentale`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 13 : LE PROCESSUS D'ISLAMISATION EN AFRIQUE OCCIDENTALE
+  fullText: `LEÇON 13 : LE PROCESSUS D'ISLAMISATION EN AFRIQUE OCCIDENTALE
 
 INTRODUCTION
 L'islamisation de l'Afrique occidentale est un processus progressif qui s'étend sur plusieurs siècles. Elle ne se confond pas avec une conversion générale et immédiate de toutes les populations. Elle concerne d'abord certaines régions, certains dirigeants et certains milieux marchands, avant de s'étendre selon des rythmes variables. Le commerce transsaharien, l'action des lettrés et des religieux, les relations politiques et les réseaux sociaux participent à ce processus.
@@ -193,12 +183,7 @@ export const LESSON_14_HISTOIRE_2NDE: LessonContent = {
   title: `L'empire du Jolof`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 14 : L'EMPIRE DU JOLOF
+  fullText: `LEÇON 14 : L'EMPIRE DU JOLOF
 
 INTRODUCTION
 L'empire du Jolof occupe une place centrale dans l'histoire médiévale de la Sénégambie. Il se développe autour du nord-ouest de l'Afrique de l'Ouest et exerce une influence sur plusieurs territoires correspondant approximativement à une partie du Sénégal actuel et des régions voisines. Son histoire permet d'étudier la formation d'un État, les relations entre provinces, les structures sociales, l'économie et la fragmentation politique.
@@ -270,12 +255,7 @@ export const LESSON_15_HISTOIRE_2NDE: LessonContent = {
   title: `L'empire du Gaabu`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 15 : L'EMPIRE DU GAABU
+  fullText: `LEÇON 15 : L'EMPIRE DU GAABU
 
 INTRODUCTION
 L'empire du Gaabu, ou Kaabu, s'est développé dans l'espace correspondant à une partie de la Sénégambie méridionale et de l'actuelle Guinée-Bissau. Il est lié à l'histoire des migrations mandingues, aux réseaux politiques issus du Mali et à l'organisation de royaumes locaux. Son étude permet de comprendre les relations entre populations, pouvoirs et territoires dans une zone de transition entre le Sahel et les régions forestières.
@@ -347,12 +327,7 @@ export const LESSON_16_HISTOIRE_2NDE: LessonContent = {
   title: `Activité de consolidation : technique du commentaire historique`,
   subject: 'Histoire',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME OFFICIEL DE COURS — NIVEAU : CLASSE DE SECONDE (SÉRIES L & S)
-DISCIPLINE : HISTOIRE
-
-LEÇON 16 : ACTIVITÉ DE CONSOLIDATION : TECHNIQUE DU COMMENTAIRE HISTORIQUE
+  fullText: `LEÇON 16 : ACTIVITÉ DE CONSOLIDATION : TECHNIQUE DU COMMENTAIRE HISTORIQUE
 
 INTRODUCTION
 Le commentaire historique consiste à expliquer un ou plusieurs documents à la lumière des connaissances du cours et d'une méthode précise. Il ne s'agit ni de recopier le texte ni de réciter un chapitre sans rapport avec le document. L'élève doit montrer ce que le document dit, ce qu'il signifie et ce qu'il permet de comprendre dans son contexte.

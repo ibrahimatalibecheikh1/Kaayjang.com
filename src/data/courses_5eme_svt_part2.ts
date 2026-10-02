@@ -16,8 +16,7 @@ export const LESSON_7_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Pour se nourrir, se loger, s'éclairer, se déplacer et développer ses industries, l'humanité puise en permanence dans les réservoirs de la planète. L'eau douce, le sol fertile et les sources d'énergie constituent le triptyque fondamental indispensable à la survie et au progrès des sociétés modernes. Cependant, le rythme actuel de prélèvement dépasse dans bien des domaines les capacités de régénération naturelle de la Terre. Entre épuisement des nappes phréatiques, dégradation accélérée des terres arables et raréfaction des combustibles fossiles, la gestion durable des ressources naturelles s'impose comme une nécessité absolue pour l'avenir des générations futures.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 7 : L’EXPLOITATION DES RESSOURCES NATURELLES (GESTION DE L'EAU, DES SOLS ET DES ÉNERGIES)
 
 I. LA RESSOURCE EN EAU DOUCE : ENJEUX ET MENACES :
@@ -162,8 +161,7 @@ export const LESSON_8_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Partout où elle s'installe, l'espèce humaine transforme son environnement pour satisfaire ses besoins croissants en nourriture, espace et confort. Ces interventions modifient profondément les écosystèmes naturels locaux, définis comme l'union intime entre un milieu physique (le biotope) et l'ensemble des êtres vivants qui y résident (la biocénose). Déforestation, urbanisation galopante, pollutions chimiques, fragmentation des milieux et introduction d'espèces exotiques envahissantes ont accéléré l'érosion de la biodiversité à un rythme jamais égalé. Cette leçon analyse ces impacts destructeurs et examine les démarches scientifiques et citoyennes pour restaurer et sauvegarder les équilibres vivants.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
+  fullText: `THÈME 1 : LA PLANÈTE TERRE, L'ENVIRONNEMENT ET L'ACTION HUMAINE
 LEÇON 8 : IMPACTS DE L'HOMME SUR LES ÉCOSYSTÈMES ET BIODIVERSITÉ LOCALE
 
 I. LES NOTIONS D'ÉCOSYSTÈME ET DE BIODIVERSITÉ :
@@ -311,8 +309,7 @@ export const LESSON_9_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `À la différence des animaux qui doivent manger d'autres êtres vivants pour subsister, un végétal vert est capable de se nourrir uniquement de matière minérale brute puisée dans son environnement. Ce mode d'alimentation unique est qualifié d'autotrophie. Comment les racines parviennent-elles à extraire l'eau et les minéraux du sol ? Par quels organes les feuilles absorbent-elles le dioxyde de carbone de l'air ? Comment la lumière solaire est-elle convertie en molécules organiques riches en énergie au cours de la photosynthèse ? Cette leçon détaille avec précision les mécanismes cellulaires et physiologiques de la nutrition végétale.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 9 : LA NUTRITION ET LES BESOINS EN EAU ET SELS MINÉRAUX DES PLANTES
 
 I. L'AUTOTROPHIE : UN MODE DE NUTRITION VÉGÉTAL UNIQUE :
@@ -466,8 +463,7 @@ export const LESSON_10_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Incapables de fabriquer leur propre matière organique à partir de simples sels minéraux, tous les animaux sont des êtres hétérotrophes. Pour survivre, grandir et déployer leur énergie, ils doivent prélever de la matière organique préexistante en consommant d'autres êtres vivants. Mais comment les aliments solides ingérés sont-ils transformés en nutriments microscopiques utilisables par les cellules ? Comment les différents animaux captent-ils le dioxygène indispensable dans leur milieu de vie, qu'il soit aquatique ou aérien ? Et comment ces substances vitales sont-elles distribuées à l'ensemble du corps ? Cette leçon explore l'organisation anatomique et fonctionnelle des grands appareils de la nutrition animale.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 10 : LA NUTRITION ET L'ORGANISATION FONCTIONNELLE CHEZ LES ANIMAUX
 
 I. LES RÉGIMES ALIMENTAIRES ET LES ADAPTATIONS ANATOMIQUES :
@@ -618,8 +614,7 @@ export const LESSON_11_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Dans tout milieu naturel, aucun être vivant ne vit isolé. Tous les organismes cohabitent et dépendent les uns des autres pour leur survie, tissant un réseau complexe de dépendances alimentaires et d'interactions biologiques. Du brin d'herbe brouté par la gazelle jusqu'au grand prédateur carnivore, la matière et l'énergie circulent sans cesse à travers des chaînes trophiques interconnectées. Mais comment s'ordonnent ces différents niveaux de nutrition ? Quelles autres relations majeures, comme la symbiose, le parasitisme ou la compétition, régissent la vie des écosystèmes ? Cette leçon dévoile l'architecture vivante des réseaux écologiques.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 11 : LES CHAÎNES ALIMENTAIRES ET LES RELATIONS AU SEIN DES ÉCOSYSTÈMES
 
 I. LA CHAÎNE ALIMENTAIRE ET LE RÉSEAU TROPHIQUE :
@@ -764,8 +759,7 @@ export const LESSON_12_SVT_5EME: LessonContent = {
   subject: 'SVT',
   classLevel: '5ème',
   introduction: `Chaque année sur Terre, des milliards de tonnes de matière vivante nouvelle sont produites : de nouvelles feuilles poussent, les arbres grandissent, les animaux prennent du poids et se reproduisent. Pourtant, malgré cette production continue et l'accumulation gigantesque de feuilles mortes, de branches cassées et de cadavres d'animaux tombés sur le sol, les forêts ne sont pas ensevelies sous leurs propres déchets. Que devient toute cette matière organique morte ? Comment est-elle dégradée et recyclée dans la nature ? Cette leçon explore la fabrication de la biomasse par les êtres vivants et l'action formidable des organismes décomposeurs du sol qui referment le grand cycle perpétuel de la matière.`,
-  fullText: `PROGRAMME NATIONAL OFFICIEL DE SCIENCES DE LA VIE ET DE LA TERRE (5ème)
-THÈME 2 : LE VIVANT ET SON ÉVOLUTION
+  fullText: `THÈME 2 : LE VIVANT ET SON ÉVOLUTION
 LEÇON 12 : LA MATIÈRE ORGANIQUE (PRODUCTION ET DÉCOMPOSITION PAR LES ÊTRES VIVANTS)
 
 I. LA PRODUCTION DE MATIÈRE ORGANIQUE PAR LES ÊTRES VIVANTS :

@@ -12,9 +12,7 @@ export const LESSON_1_PC_2NDE_L: LessonContent = {
   title: `L'électricité dans notre environnement : charges, conducteurs, isolants et sécurité`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 1 : L'ÉLECTRICITÉ DANS NOTRE ENVIRONNEMENT
@@ -138,9 +136,7 @@ export const LESSON_2_PC_2NDE_L: LessonContent = {
   title: `Le circuit électrique : composants, associations série et dérivation, symboles normalisés`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 2 : LE CIRCUIT ÉLECTRIQUE
@@ -247,9 +243,7 @@ export const LESSON_3_PC_2NDE_L: LessonContent = {
   title: `Intensité et tension électriques : définitions, lois des circuits, mesures et calibres`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 3 : INTENSITÉ ET TENSION ÉLECTRIQUES
@@ -370,9 +364,7 @@ export const LESSON_4_PC_2NDE_L: LessonContent = {
   title: `Mouvement et vitesse : relativité du mouvement, trajectoire, vitesse moyenne et mouvement uniforme`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 4 : MOUVEMENT ET VITESSE
@@ -482,9 +474,7 @@ export const LESSON_5_PC_2NDE_L: LessonContent = {
   title: `Interaction mécanique et force : modélisation vectorielle, effets d'une force et équilibre`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 5 : INTERACTION ENTRE OBJETS : LA FORCE
@@ -590,9 +580,7 @@ export const LESSON_6_PC_2NDE_L: LessonContent = {
   title: `Poids, masse et relation entre poids et masse : pesanteur, mesures et représentations`,
   subject: 'Physique-Chimie',
   classLevel: 'Seconde',
-  fullText: `RÉPUBLIQUE DU SÉNÉGAL — MINISTÈRE DE L'ÉDUCATION NATIONALE
-DIRECTION DE L'ENSEIGNEMENT MOYEN ET SECONDAIRE GÉNÉRAL
-PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
+  fullText: `PROGRAMME DE PHYSIQUE-CHIMIE — SÉRIE L (LITTÉRAIRE) — CLASSE DE SECONDE
 PARTIE I : PHYSIQUE
 
 CHAPITRE 6 : POIDS, MASSE ET RELATION ENTRE POIDS ET MASSE
