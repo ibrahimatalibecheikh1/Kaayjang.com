@@ -21,7 +21,8 @@ import {
   Copy,
   Check,
   Award,
-  ShieldCheck
+  ShieldCheck,
+  MessageCircle
 } from 'lucide-react';
 import { LessonContent, LESSON_1_SVT_6EME } from '../data/courses';
 import { SenegalMap } from './SenegalMap';
@@ -763,11 +764,15 @@ export const RichContentRenderer: React.FC<{ content: string | string[] }> = ({ 
 interface FullscreenLessonViewerProps {
   lesson?: LessonContent;
   onBack?: () => void;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
 }
 
 export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
   lesson = LESSON_1_SVT_6EME,
-  onBack
+  onBack,
+  isFavorite = false,
+  onToggleFavorite
 }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [fontSize, setFontSize] = useState<'normal' | 'large' | 'xlarge'>('normal');
@@ -932,6 +937,35 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
 
           {/* Reading tools */}
           <div className="flex items-center gap-1 sm:gap-2">
+            {/* Bouton Favori pour la leçon */}
+            {onToggleFavorite && (
+              <button
+                onClick={onToggleFavorite}
+                className={`p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg transition flex items-center gap-1 text-xs font-bold cursor-pointer ${
+                  isFavorite
+                    ? 'bg-amber-100 text-amber-900 border border-amber-300 dark:bg-amber-950 dark:text-amber-200'
+                    : 'hover:bg-black/5 dark:hover:bg-white/10'
+                }`}
+                title={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'}
+                aria-label="Favori"
+              >
+                <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-amber-500 text-amber-500' : ''}`} />
+                <span className="hidden sm:inline">{isFavorite ? 'Favori ⭐' : 'Favori'}</span>
+              </button>
+            )}
+
+            {/* Bouton Aide Ibkane IA sur WhatsApp 707753776 */}
+            <a
+              href={`https://wa.me/221707753776?text=${encodeURIComponent(`Bonjour Ibkane IA, j'ai besoin d'aide pour comprendre la leçon : "${lesson.title}" (${lesson.number || ''}). Pouvez-vous m'expliquer ?`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-bold text-xs transition flex items-center gap-1.5 shadow-xs shrink-0 cursor-pointer"
+              title="Aide avec Ibkane IA sur WhatsApp : 70 775 37 76"
+            >
+              <MessageCircle className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Aide Ibkane IA</span>
+            </a>
+
             {/* View Mode Toggle */}
             <button
               onClick={() => setLessonTab(lessonTab === 'structured' ? 'raw' : 'structured')}
@@ -1713,6 +1747,32 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
                   </div>
                 </section>
               )}
+
+              {/* Assistance pédagogique avec Ibkane IA directement sur WhatsApp 70 775 37 76 */}
+              <div className="mt-8 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-100 border-2 border-emerald-300 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-gray-900">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-md">
+                    <MessageCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-base sm:text-lg font-black text-emerald-950">
+                      Besoin d'aide sur cette leçon ?
+                    </h4>
+                    <p className="text-xs sm:text-sm text-emerald-800">
+                      Discutez avec <strong>Ibkane IA</strong> directement sur WhatsApp au <strong>70 775 37 76</strong> pour des explications approfondies, un résumé ou des exercices corrigés.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={`https://wa.me/221707753776?text=${encodeURIComponent(`Bonjour Ibkane IA, j'ai besoin d'aide pour comprendre la leçon : "${lesson.title}" (${lesson.number || ''}). Pouvez-vous m'expliquer ?`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-2 shadow-sm hover:scale-102 shrink-0 cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Aide avec Ibkane IA sur WhatsApp</span>
+                </a>
+              </div>
             </div>
           )}
         </article>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BookOpen,
   FileText,
@@ -21,13 +21,27 @@ import {
   Map,
   Zap,
   FlaskConical,
-  Calculator
+  Calculator,
+  Settings,
+  Bell,
+  PhoneCall,
+  Smartphone,
+  MessageCircle,
+  Globe
 } from 'lucide-react';
 import { PWAInstallButton } from './PWAInstallButton';
 import { OfflineIndicator } from './OfflineIndicator';
 import { SupportModal } from './components/SupportModal';
+import { SettingsModal } from './components/SettingsModal';
+import { InstallAppModal } from './components/InstallAppModal';
 import { FullscreenLessonViewer } from './components/FullscreenLessonViewer';
 import { SenegalMap } from './components/SenegalMap';
+import {
+  getNotificationStatus,
+  requestNotificationPermission,
+  toggleNotifications,
+  sendRandomMotivationalNotification
+} from './utils/notifications';
 import { LESSON_1_SVT_6EME, LESSON_2_SVT_6EME, LESSON_3_SVT_6EME, LESSON_4_SVT_6EME, LESSON_5_SVT_6EME, LESSON_6_SVT_6EME, LESSON_7_SVT_6EME, LESSON_8_SVT_6EME, LESSON_9_SVT_6EME, LESSON_10_SVT_6EME, LESSON_11_SVT_6EME, LESSON_1_FRANCAIS_6EME, LESSON_2_FRANCAIS_6EME, LESSON_3_FRANCAIS_6EME, LESSON_4_FRANCAIS_6EME, LESSON_5_FRANCAIS_6EME, LESSON_6_FRANCAIS_6EME, LESSON_7_FRANCAIS_6EME, LESSON_8_FRANCAIS_6EME, LESSON_9_FRANCAIS_6EME, LESSON_10_FRANCAIS_6EME, LessonContent } from './data/courses';
 import { COURSES_FRANCAIS_5EME } from './data/courses_5eme_francais_index';
 import { COURSES_FRANCAIS_4EME } from './data/courses_4eme_francais_index';
@@ -199,6 +213,27 @@ const DATA = {
   ]
 };
 
+const FLOATING_SCHOOL_EMOJIS = [
+  { emoji: '📓', top: '8%', left: '8%', size: 'text-3xl sm:text-5xl', delay: '0s', duration: '6.5s', opacity: 'opacity-80' },
+  { emoji: '🎒', top: '12%', left: '82%', size: 'text-4xl sm:text-6xl', delay: '1s', duration: '7.2s', opacity: 'opacity-75' },
+  { emoji: '📚', top: '20%', left: '22%', size: 'text-3xl sm:text-5xl', delay: '2s', duration: '8s', opacity: 'opacity-70' },
+  { emoji: '✏️', top: '28%', left: '86%', size: 'text-2xl sm:text-4xl', delay: '0.5s', duration: '6s', opacity: 'opacity-85' },
+  { emoji: '📒', top: '38%', left: '6%', size: 'text-4xl sm:text-6xl', delay: '1.5s', duration: '7.5s', opacity: 'opacity-80' },
+  { emoji: '📖', top: '52%', left: '84%', size: 'text-3xl sm:text-5xl', delay: '2.5s', duration: '6.8s', opacity: 'opacity-70' },
+  { emoji: '📝', top: '65%', left: '14%', size: 'text-3xl sm:text-5xl', delay: '0.8s', duration: '7.8s', opacity: 'opacity-85' },
+  { emoji: '🏫', top: '74%', left: '72%', size: 'text-3xl sm:text-5xl', delay: '1.8s', duration: '6.2s', opacity: 'opacity-65' },
+  { emoji: '🎓', top: '86%', left: '28%', size: 'text-4xl sm:text-6xl', delay: '0.2s', duration: '8.5s', opacity: 'opacity-75' },
+  { emoji: '🖊️', top: '8%', left: '50%', size: 'text-2xl sm:text-4xl', delay: '2.2s', duration: '6.7s', opacity: 'opacity-70' },
+  { emoji: '📓', top: '86%', left: '85%', size: 'text-3xl sm:text-5xl', delay: '1.2s', duration: '7s', opacity: 'opacity-80' },
+  { emoji: '📐', top: '25%', left: '4%', size: 'text-2xl sm:text-4xl', delay: '3s', duration: '6.4s', opacity: 'opacity-65' },
+  { emoji: '📚', top: '60%', left: '55%', size: 'text-3xl sm:text-5xl', delay: '1.7s', duration: '7.3s', opacity: 'opacity-70' },
+  { emoji: '📝', top: '44%', left: '92%', size: 'text-3xl sm:text-5xl', delay: '0.7s', duration: '8.2s', opacity: 'opacity-80' },
+  { emoji: '🎒', top: '78%', left: '5%', size: 'text-3xl sm:text-5xl', delay: '2.8s', duration: '7.6s', opacity: 'opacity-75' },
+  { emoji: '📏', top: '16%', left: '36%', size: 'text-2xl sm:text-4xl', delay: '1.4s', duration: '6.9s', opacity: 'opacity-65' },
+  { emoji: '📓', top: '35%', left: '48%', size: 'text-2xl sm:text-4xl', delay: '2.6s', duration: '7.4s', opacity: 'opacity-60' },
+  { emoji: '📒', top: '72%', left: '42%', size: 'text-3xl sm:text-5xl', delay: '1.9s', duration: '8.1s', opacity: 'opacity-65' }
+];
+
 export default function App() {
   const [savedClass, setSavedClass] = useState<SavedClassChoice | null>(() => {
     try {
@@ -217,8 +252,51 @@ export default function App() {
   const [selectedClass, setSelectedClass] = useState<string>(savedClass?.className || '6ème');
   const [selectedSeries, setSelectedSeries] = useState<Series>(savedClass?.series || null);
   const [selectedSubject, setSelectedSubject] = useState<string>('SVT');
-  const [activeTab, setActiveTab] = useState<'cours' | 'ressources'>('cours');
+  const [activeTab, setActiveTab] = useState<'cours' | 'ressources' | 'favoris'>('cours');
+  const [favoriteLessonIds, setFavoriteLessonIds] = useState<string[]>(() => {
+    try {
+      const stored = localStorage.getItem('kaay_jang_favorites');
+      return stored ? JSON.parse(stored) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const toggleFavoriteLesson = (id: string, title?: string) => {
+    setFavoriteLessonIds(prev => {
+      const exists = prev.includes(id);
+      const next = exists ? prev.filter(x => x !== id) : [...prev, id];
+      try {
+        localStorage.setItem('kaay_jang_favorites', JSON.stringify(next));
+      } catch (e) {
+        console.error('Erreur stockage favoris:', e);
+      }
+      showToast(exists ? 'Leçon retirée des favoris' : `⭐ "${title || 'Leçon'}" ajoutée aux favoris !`);
+      return next;
+    });
+  };
+
+  const getWhatsAppHelpUrl = (lessonTitle: string, subject?: string, className?: string) => {
+    const text = `Bonjour Ibkane IA, j'ai besoin d'aide pour comprendre la leçon : "${lessonTitle}"${subject ? ` en ${subject}` : ''}${className ? ` (${className})` : ''}. Pouvez-vous m'expliquer ?`;
+    return `https://wa.me/221707753776?text=${encodeURIComponent(text)}`;
+  };
   const [isSupportOpen, setIsSupportOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<string>(() => {
+    try {
+      return localStorage.getItem('kaay_jang_language') || 'fr';
+    } catch {
+      return 'fr';
+    }
+  });
+  const [notificationsActive, setNotificationsActive] = useState<boolean>(() => {
+    try {
+      return localStorage.getItem('kaay_jang_notifications_enabled') === 'true';
+    } catch {
+      return false;
+    }
+  });
   const [isMapModalOpen, setIsMapModalOpen] = useState(false);
   const [activeLesson, setActiveLesson] = useState<LessonContent>(LESSON_1_SVT_6EME);
   const [searchQuery, setSearchQuery] = useState('');
@@ -302,6 +380,43 @@ export default function App() {
     setToastMessage(msg);
     setTimeout(() => setToastMessage(null), 3500);
   };
+
+  const handleChangeLanguage = (lang: string) => {
+    setCurrentLanguage(lang);
+    try {
+      localStorage.setItem('kaay_jang_language', lang);
+    } catch (e) {
+      console.error(e);
+    }
+    const label = lang === 'wo' ? 'Wolof 🇸🇳' : lang === 'en' ? 'English 🇬🇧' : 'Français 🇸🇳';
+    showToast(`Langue sélectionnée : ${label}`);
+  };
+
+  const handleQuickNotificationToggle = async () => {
+    if (!notificationsActive) {
+      const granted = await requestNotificationPermission();
+      if (granted) {
+        setNotificationsActive(true);
+        showToast('🔔 Notifications actives ! Rappels d\'étude activés.');
+      } else {
+        showToast('Activez les notifications dans les paramètres de votre navigateur.');
+      }
+    } else {
+      toggleNotifications(false);
+      setNotificationsActive(false);
+      showToast('Notifications désactivées.');
+    }
+  };
+
+  // Redirection automatique fluide depuis l'écran d'accueil après 1.8s (ou clic immédiat)
+  useEffect(() => {
+    if (screen === 'welcome') {
+      const timer = setTimeout(() => {
+        setScreen('choose-class');
+      }, 1800);
+      return () => clearTimeout(timer);
+    }
+  }, [screen]);
 
   // Filtrage des matières selon les directives officielles sénégalaises :
   // - Pas de Philosophie au Collège (6e à 3e) ni en classe de Seconde (L ou S)
@@ -453,7 +568,7 @@ export default function App() {
   const handleBack = () => {
     if (screen === 'lesson-reader') setScreen('content');
     else if (screen === 'content') setScreen('subject');
-    else if (screen === 'subject') setScreen('welcome');
+    else if (screen === 'subject') setScreen('choose-class');
     else if (screen === 'choose-class') setScreen('welcome');
   };
 
@@ -1214,9 +1329,13 @@ export default function App() {
   const allContentItems = getContentList();
   const coursCount = allContentItems.filter(i => i.type === 'cours').length;
   const resCount = allContentItems.filter(i => i.type === 'ressource').length;
+  const favCount = allContentItems.filter(i => favoriteLessonIds.includes(i.id)).length;
 
   const filteredContent = allContentItems.filter(item => {
-    const matchesTab = item.type === (activeTab === 'cours' ? 'cours' : 'ressource');
+    const matchesTab =
+      activeTab === 'favoris'
+        ? favoriteLessonIds.includes(item.id)
+        : item.type === (activeTab === 'cours' ? 'cours' : 'ressource');
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase());
@@ -1701,117 +1820,150 @@ export default function App() {
     return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart && matchesPc2ndeSPart && matchesPc2ndeLPart && matchesMath2ndeLPart && matchesAnglais2ndePart && matchesAnglais1erePart && matchesAnglaisTlePart && matchesFrancaisTlePart && matchesHistoireTlePart && matchesGeographieTlePart && matchesSvtTleSPart && matchesSvtTleLPart && matchesMathTleSPart && matchesMathTleLPart && matchesPcTleSPart && matchesPcTleLPart && matchesFrancais1erePart && matchesPhilo1erePart && matchesSvt1ereS2Part && matchesMath1ereLPart && matchesMath1ereSPart && matchesGeographie1erePart && matchesPc1ereLPart && matchesPc1ereSPart;
   });
 
-  // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
-  const renderWelcome = () => (
-    <div className="flex min-h-[85vh] flex-col items-center justify-center text-center px-3 py-6">
-      <div className="w-full max-w-lg bg-white rounded-3xl shadow-xl border border-gray-100 p-6 sm:p-8">
-        <div className="mx-auto w-20 h-20 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center mb-5 shadow-lg shadow-blue-500/20 text-white">
-          <GraduationCap className="w-11 h-11" />
-        </div>
+  // ÉCRAN 1 : ACCUEIL PLEIN ÉCRAN AVEC EMOJIS FLOTTANTS (STYLE ÉCOLE ET CAHIER)
+  // ET GROUPE DE MOTS "Bienvenue dans Kaay jang" AVEC BOUTON D'ACCÈS IMMÉDIAT
+  const renderWelcome = () => {
+    const handleEnterApp = () => {
+      setScreen('choose-class');
+    };
 
-        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-3">
-          🇸🇳 Plateforme d'apprentissage pour le Sénégal
-        </span>
+    return (
+      <div
+        onClick={handleEnterApp}
+        onTouchEnd={handleEnterApp}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') handleEnterApp();
+        }}
+        className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-hidden cursor-pointer px-4 outline-none"
+        title="Appuyez pour accéder aux cours"
+      >
+        {/* Cercles diffus d'ambiance lumineuse */}
+        <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-3xl -top-24 -left-24 pointer-events-none" />
+        <div className="absolute w-[450px] h-[450px] rounded-full bg-indigo-600/20 blur-3xl -bottom-24 -right-24 pointer-events-none" />
 
-        <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight">Kaay Jang</h1>
-        <p className="text-sm sm:text-base text-gray-600 mt-2 font-medium">
-          De la <span className="text-blue-600 font-bold">6ème</span> à la{' '}
-          <span className="text-indigo-600 font-bold">Terminale</span> (Séries L et S)
-        </p>
-
-        {/* Message de motivation */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100/80 p-5 rounded-2xl my-6 text-left shadow-xs">
-          <div className="flex items-center gap-2 text-blue-800 font-bold text-sm mb-1.5">
-            <Sparkles className="w-4 h-4 text-amber-500" />
-            <span>Motivation pour les élèves</span>
-          </div>
-          <p className="text-blue-900/90 text-xs sm:text-sm italic leading-relaxed">
-            « L'éducation est l'arme la plus puissante que l'on puisse utiliser pour changer le monde. Chaque leçon apprise aujourd'hui est une porte ouverte sur ton avenir ! »
-          </p>
-          <div className="text-[11px] text-blue-700 font-semibold mt-2 text-right">
-            — Nelson Mandela
-          </div>
-        </div>
-
-        {/* Rappel de la classe sauvegardée si présente */}
-        {savedClass && (
-          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 mb-5 text-left shadow-2xs">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2.5">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center font-bold shadow-xs">
-                  <GraduationCap className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-bold text-blue-800 uppercase tracking-wider block">
-                    Votre classe enregistrée
-                  </span>
-                  <span className="text-base font-extrabold text-gray-900">
-                    Classe de {savedClass.className} {savedClass.series ? `(Série ${savedClass.series})` : ''}
-                  </span>
-                  <span className="text-xs text-gray-500 block">Cycle : {savedClass.category}</span>
-                </div>
-              </div>
-              <button
-                onClick={() => setScreen('choose-class')}
-                className="text-xs font-bold text-blue-700 bg-white hover:bg-blue-100/60 px-3 py-1.5 rounded-xl border border-blue-200 transition shadow-2xs"
-              >
-                Changer
-              </button>
-            </div>
-          </div>
-        )}
-
-        {/* Boutons d'action */}
-        {savedClass ? (
-          <div className="space-y-3">
-            <button
-              onClick={handleStart}
-              className="w-full py-3.5 sm:py-4 px-6 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white rounded-xl font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
-            >
-              <span>Accéder aux cours ({savedClass.className})</span>
-              <ChevronRight className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => setScreen('choose-class')}
-              className="w-full py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2"
-            >
-              <School className="w-4 h-4 text-blue-600" />
-              <span>Changer de cycle ou de classe</span>
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={() => setScreen('choose-class')}
-            className="w-full py-3.5 sm:py-4 px-6 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white rounded-xl font-bold text-base transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+        {/* EMOJIS FLOTTANTS DE STYLE ÉCOLE ET CAHIER */}
+        {FLOATING_SCHOOL_EMOJIS.map((item, idx) => (
+          <div
+            key={idx}
+            className={`absolute pointer-events-none floating-emoji select-none ${item.size} ${item.opacity}`}
+            style={{
+              top: item.top,
+              left: item.left,
+              animationDelay: item.delay,
+              animationDuration: item.duration,
+            }}
           >
-            <span>Choisir mon cycle et ma classe</span>
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        )}
+            {item.emoji}
+          </div>
+        ))}
 
-        {/* Info PWA & Offline */}
-        <div className="mt-5 pt-4 border-t border-gray-100 flex items-center justify-center gap-4 text-xs text-gray-500">
-          <span className="flex items-center gap-1">⚡ Accessible hors-ligne</span>
-          <span>•</span>
-          <span className="flex items-center gap-1">🔒 Sans pub intrusive</span>
+        {/* CONTENU CENTRAL : GROUPE DE MOTS "Bienvenue dans Kaay jang" */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight welcome-title-glow text-white drop-shadow-2xl">
+            Bienvenue dans Kaay jang
+          </h1>
+
+          {/* Bouton d'entrée tactile explicite et instantané */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleEnterApp();
+            }}
+            onTouchEnd={(e) => {
+              e.stopPropagation();
+              handleEnterApp();
+            }}
+            className="mt-8 sm:mt-12 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-base sm:text-lg shadow-xl shadow-blue-500/40 border border-white/25 transition-all duration-200 transform hover:scale-105 active:scale-95 flex items-center gap-3 cursor-pointer z-20"
+          >
+            <span>Accéder aux cours</span>
+            <ChevronRight className="w-5 h-5 text-blue-200" />
+          </button>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
-  // PAGE APRÈS L'ÉCRAN D'ACCUEIL : CHOIX DU CYCLE PUIS CLASSE AVEC SAUVEGARDE ET CHANGEMENT À TOUT MOMENT
+  // PAGE APRÈS L'ÉCRAN D'ACCUEIL : CHOIX DU CYCLE PUIS CLASSE AVEC SAUVEGARDE ET NUMÉROS D'AIDE
   const renderChooseClass = () => (
     <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-4">
       <div className="mb-6">
-        <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-200/60">
-          Cursus scolaire sénégalais
-        </span>
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight mt-2">
-          Choix du cycle et de la classe
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
+          Bienvenue, choisis ton cycle scolaire, puis votre classe
         </h2>
-        <p className="text-xs sm:text-sm text-gray-500 mt-1">
-          Sélectionnez votre niveau scolaire. Votre choix sera automatiquement sauvegardé sur cet appareil et restera modifiable à tout instant.
+        <p className="text-sm sm:text-base font-bold text-blue-700 mt-2">
+          Après les choix, accédez à vos cours.
         </p>
+
+        {/* Accès direct si une classe est déjà enregistrée */}
+        {savedClass && (
+          <div className="mt-4 p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md flex items-center justify-between flex-wrap gap-3">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-blue-200 block">
+                Votre classe actuelle enregistrée
+              </span>
+              <span className="text-lg sm:text-xl font-black">
+                {savedClass.category} — Classe de {savedClass.className} {savedClass.series ? `(Série ${savedClass.series})` : ''}
+              </span>
+            </div>
+            <button
+              onClick={() => {
+                const available = getSubjectsForClass(savedClass.category, savedClass.className);
+                if (!available.some(s => s.name === selectedSubject)) {
+                  setSelectedSubject(available[0]?.name || 'SVT');
+                }
+                setScreen('subject');
+              }}
+              className="px-5 py-2.5 rounded-xl bg-white text-blue-900 font-extrabold text-sm hover:bg-blue-50 transition shadow-sm flex items-center gap-2 cursor-pointer"
+            >
+              <span>Accéder directement à mes cours</span>
+              <ChevronRight className="w-4 h-4 text-blue-700" />
+            </button>
+          </div>
+        )}
+
+        {/* Numéro d'aide unique : 70 775 37 76 avec Ibkane IA */}
+        <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border border-emerald-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <PhoneCall className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-xs font-black text-emerald-950 uppercase tracking-wide block">
+                Numéro d'aide &amp; Assistance avec Ibkane IA
+              </span>
+              <span className="text-xs text-emerald-800">
+                Contact direct pour vos cours ou l'application sur WhatsApp :
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl border border-emerald-200 shadow-2xs">
+              <span className="text-sm font-black text-gray-900">70 775 37 76</span>
+              <a
+                href="tel:+221707753776"
+                className="p-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-1 px-2.5"
+                title="Appeler le 70 775 37 76"
+              >
+                <PhoneCall className="w-3.5 h-3.5" />
+                <span>Appel</span>
+              </a>
+              <a
+                href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA,%20j'ai%20besoin%20d'aide%20sur%20Kaay%20Jang"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold transition flex items-center gap-1.5 px-3"
+                title="WhatsApp 70 775 37 76"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <span>WhatsApp Ibkane IA</span>
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 1. CHOIX DU CYCLE */}
@@ -1908,7 +2060,7 @@ export default function App() {
 
         {/* Grille des classes */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-          {DATA.classes[selectedCategory].map(c => {
+          {(DATA.classes[selectedCategory] || DATA.classes['Collège']).map(c => {
             if (c.hasSeries) {
               if (c.name === 'Première') {
                 return (
@@ -2251,6 +2403,23 @@ export default function App() {
             activeTab === 'ressources' ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600'
           }`}>
             {resCount}
+          </span>
+        </button>
+        <button
+          onClick={() => setActiveTab('favoris')}
+          className={`pb-3 px-4 font-semibold text-xs sm:text-sm transition-colors border-b-2 flex items-center gap-2 cursor-pointer ${
+            activeTab === 'favoris'
+              ? 'border-amber-500 text-amber-600 font-bold'
+              : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+          }`}
+          title="Consulter vos leçons favorites sauvegardées"
+        >
+          <Bookmark className={`w-4 h-4 ${activeTab === 'favoris' ? 'fill-amber-500 text-amber-500' : ''}`} />
+          <span>Favoris</span>
+          <span className={`text-[11px] px-2 py-0.5 rounded-full font-bold ${
+            activeTab === 'favoris' ? 'bg-amber-100 text-amber-800' : 'bg-gray-100 text-gray-600'
+          }`}>
+            {favCount}
           </span>
         </button>
       </div>
@@ -6629,11 +6798,29 @@ export default function App() {
             >
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                 <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1.5">
+                  <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
                     <span className="text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-100">
                       {item.badge || (item.type === 'cours' ? 'Cours' : 'PDF')}
                     </span>
+
+                    {/* Bouton Favoris pour la leçon */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavoriteLesson(item.id, item.title);
+                      }}
+                      className={`p-1.5 px-2.5 rounded-xl transition flex items-center gap-1.5 text-xs font-bold border cursor-pointer ${
+                        favoriteLessonIds.includes(item.id)
+                          ? 'bg-amber-100 text-amber-900 border-amber-300 ring-2 ring-amber-400/20 shadow-2xs'
+                          : 'bg-gray-50 hover:bg-amber-50 text-gray-600 hover:text-amber-700 border-gray-200'
+                      }`}
+                      title={favoriteLessonIds.includes(item.id) ? 'Retirer des favoris' : 'Ajouter cette leçon aux favoris'}
+                    >
+                      <Bookmark className={`w-3.5 h-3.5 ${favoriteLessonIds.includes(item.id) ? 'fill-amber-500 text-amber-500' : 'text-gray-400'}`} />
+                      <span>{favoriteLessonIds.includes(item.id) ? 'Favori ⭐' : 'Favori'}</span>
+                    </button>
                   </div>
+
                   <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors leading-snug">
                     {item.title}
                   </h3>
@@ -6642,7 +6829,20 @@ export default function App() {
                   </p>
                 </div>
 
-                <div className="shrink-0 pt-2 sm:pt-0">
+                <div className="shrink-0 pt-2 sm:pt-0 flex flex-col xs:flex-row sm:flex-col gap-2">
+                  {/* Bouton Aide avec Ibkane IA directement sur WhatsApp 707753776 */}
+                  <a
+                    href={getWhatsAppHelpUrl(item.title, selectedSubject, selectedClass)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-full sm:w-auto px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-xl font-bold text-xs transition flex items-center justify-center gap-1.5 shadow-2xs cursor-pointer hover:scale-102"
+                    title="Demander de l'aide sur cette leçon avec Ibkane IA sur WhatsApp : 70 775 37 76"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Aide Ibkane IA</span>
+                  </a>
+
                   {item.type === 'cours' && item.lessonData ? (
                     <button
                       onClick={(e) => {
@@ -6740,7 +6940,17 @@ export default function App() {
           </React.Fragment>
         ))}
 
-        {filteredContent.length === 0 && (
+        {activeTab === 'favoris' && filteredContent.length === 0 ? (
+          <div className="text-center py-12 bg-white rounded-2xl border-2 border-dashed border-amber-200 p-6">
+            <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-500 flex items-center justify-center mx-auto mb-3">
+              <Bookmark className="w-6 h-6" />
+            </div>
+            <h3 className="text-base font-bold text-gray-800">Aucune leçon favorite dans cette matière</h3>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1 max-w-md mx-auto">
+              Cliquez sur le bouton <strong>⭐ Favori</strong> sur n'importe quelle leçon pour la retrouver ici en un clic !
+            </p>
+          </div>
+        ) : filteredContent.length === 0 && (
           <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-gray-300">
             <p className="text-gray-500 font-medium text-sm">
               Aucun document correspondant trouvé pour cette recherche.
@@ -6784,15 +6994,15 @@ export default function App() {
         </div>
       )}
 
-      {/* Header / Barre de navigation */}
-      {screen !== 'lesson-reader' && (
-        <header className="bg-white border-b border-gray-100 sticky top-0 z-40 shadow-xs">
-          <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-2 sm:gap-3">
+      {/* Header / Barre de navigation FIXE */}
+      {screen !== 'welcome' && screen !== 'lesson-reader' && (
+        <header className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-xs">
+          <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               {screen !== 'welcome' && (
                 <button
                   onClick={handleBack}
-                  className="p-2 -ml-1 rounded-xl hover:bg-gray-100 text-gray-600 transition"
+                  className="p-2 -ml-1 rounded-xl hover:bg-gray-100 text-gray-600 transition cursor-pointer"
                   aria-label="Retour en arrière"
                 >
                   <ArrowLeft className="w-5 h-5" />
@@ -6801,40 +7011,87 @@ export default function App() {
               <div
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={() => setScreen('welcome')}
+                title="Page d'accueil Kaay Jang"
               >
-                <div className="w-8 h-8 rounded-lg bg-blue-600 text-white flex items-center justify-center">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-xs">
                   <GraduationCap className="w-5 h-5" />
                 </div>
-                <span className="font-extrabold text-lg sm:text-xl text-gray-900 tracking-tight">
-                  Kaay Jang
-                </span>
+                <div>
+                  <span className="font-black text-lg sm:text-xl text-gray-900 tracking-tight block leading-none">
+                    Kaay Jang
+                  </span>
+                  <span className="text-[10px] text-emerald-700 font-extrabold hidden xs:inline">
+                    🇸🇳 Sénégal
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
-              {/* Bouton pour changer de classe à tout moment */}
-              {screen !== 'welcome' && screen !== 'choose-class' && (
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              {/* Badge niveau / classe actuelle avec ouverture directe des paramètres */}
+              {screen !== 'welcome' && (
                 <button
-                  onClick={() => setScreen('choose-class')}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200/80 transition text-xs sm:text-sm font-bold shadow-2xs"
-                  title="Changer de classe à tout moment"
+                  onClick={() => setIsSettingsOpen(true)}
+                  className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200/80 transition text-xs font-bold shadow-2xs cursor-pointer"
+                  title="Changer de niveau ou de langue"
                 >
-                  <GraduationCap className="w-4 h-4 text-blue-600 shrink-0" />
+                  <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
                   <span>{selectedClass}{selectedSeries ? ` ${selectedSeries}` : ''}</span>
-                  <span className="hidden sm:inline text-[11px] font-normal text-blue-500 ml-0.5">• Changer</span>
+                  <span className="text-[10px] text-blue-500 font-normal">• Changer</span>
                 </button>
               )}
 
-              <PWAInstallButton />
-              
-              {/* Bouton de Don d'aide aux développeurs */}
+              {/* Bouton Notifications actives */}
+              <button
+                onClick={handleQuickNotificationToggle}
+                className={`p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition text-xs font-bold flex items-center gap-1.5 cursor-pointer border ${
+                  notificationsActive
+                    ? 'bg-amber-50 text-amber-900 border-amber-300 ring-2 ring-amber-400/20 shadow-2xs'
+                    : 'bg-white hover:bg-gray-100 text-gray-700 border-gray-200'
+                }`}
+                title={notificationsActive ? 'Notifications actives (Rappels activés)' : 'Activer les notifications'}
+                aria-label="Notifications"
+              >
+                <div className="relative">
+                  <Bell className={`w-4 h-4 ${notificationsActive ? 'text-amber-500 fill-amber-500' : 'text-gray-500'}`} />
+                  {notificationsActive && (
+                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                  )}
+                </div>
+                <span className="hidden md:inline text-xs">
+                  {notificationsActive ? 'Notifs ON' : 'Rappels'}
+                </span>
+              </button>
+
+              {/* Bouton Ajouter à l'écran d'accueil comme application mobile native */}
+              <button
+                onClick={() => setIsInstallModalOpen(true)}
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition text-xs sm:text-sm font-bold shadow-xs cursor-pointer"
+                title="Ajouter à l'écran d'accueil comme application mobile native"
+              >
+                <Smartphone className="w-4 h-4 shrink-0" />
+                <span className="hidden xs:inline">Installer l'App</span>
+              </button>
+
+              {/* Bouton Paramètres pour changer de langue et niveau */}
+              <button
+                onClick={() => setIsSettingsOpen(true)}
+                className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer border border-gray-200"
+                title="Paramètres : Langue, Niveau & Assistance"
+                aria-label="Paramètres"
+              >
+                <Settings className="w-4 h-4 text-gray-600 shrink-0" />
+                <span className="hidden sm:inline">Paramètres</span>
+              </button>
+
+              {/* Bouton de Don / Soutien */}
               <button
                 onClick={() => setIsSupportOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200/60 transition text-xs sm:text-sm font-semibold shadow-xs"
+                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200/60 transition text-xs font-semibold shadow-2xs"
                 title="Soutenir les développeurs de l'application"
               >
-                <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
-                <span className="hidden xs:inline">Faire un Don</span>
+                <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+                <span>Don</span>
               </button>
             </div>
           </div>
@@ -6848,9 +7105,35 @@ export default function App() {
         {screen === 'subject' && renderSubject()}
         {screen === 'content' && renderContent()}
         {screen === 'lesson-reader' && (
-          <FullscreenLessonViewer lesson={activeLesson} onBack={() => setScreen('content')} />
+          <FullscreenLessonViewer
+            lesson={activeLesson}
+            onBack={() => setScreen('content')}
+            isFavorite={favoriteLessonIds.includes(activeLesson.id)}
+            onToggleFavorite={() => toggleFavoriteLesson(activeLesson.id, activeLesson.title)}
+          />
         )}
       </main>
+
+      {/* Modals globaux */}
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        selectedCategory={selectedCategory}
+        selectedClass={selectedClass}
+        selectedSeries={selectedSeries}
+        onSaveClassAndLevel={(category, className, series) => {
+          handleSaveAndSelectClass(category, className, series);
+          showToast(`Niveau appliqué : ${className} ${series ? '(' + series + ')' : ''}`);
+        }}
+        onOpenInstallModal={() => setIsInstallModalOpen(true)}
+        currentLanguage={currentLanguage}
+        onChangeLanguage={handleChangeLanguage}
+      />
+
+      <InstallAppModal
+        isOpen={isInstallModalOpen}
+        onClose={() => setIsInstallModalOpen(false)}
+      />
 
       {/* Notification Toast */}
       {toastMessage && (

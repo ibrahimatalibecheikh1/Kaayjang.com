@@ -9,9 +9,48 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Désactivation du menu d'appel tactile contextuel (empêche le copier-coller) */
 * {
   -webkit-touch-callout: none;
+}
+
+@keyframes floatDrift {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+  33% {
+    transform: translateY(-22px) translateX(14px) rotate(-8deg) scale(1.05);
+  }
+  66% {
+    transform: translateY(14px) translateX(-12px) rotate(8deg) scale(0.98);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.floating-emoji {
+  animation: floatDrift 7s ease-in-out infinite;
+  will-change: transform;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+.welcome-title-glow {
+  text-shadow: 0 6px 30px rgba(59, 130, 246, 0.6), 0 0 70px rgba(99, 102, 241, 0.45);
 }
