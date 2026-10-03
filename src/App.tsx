@@ -98,6 +98,22 @@ import {
   SvtTleSeriesTab
 } from './data/courses_tle_svt_index';
 import {
+  COURSES_MATH_TLE_S,
+  COURSES_MATH_TLE_L,
+  MATH_TLE_TABS,
+  MATH_TLE_S_PARTS,
+  MATH_TLE_L_PARTS,
+  MathTleSeriesTab
+} from './data/courses_tle_math_index';
+import {
+  COURSES_PC_TLE_S,
+  COURSES_PC_TLE_L,
+  PC_TLE_TABS,
+  PC_TLE_S_PARTS,
+  PC_TLE_L_PARTS,
+  PcTleSeriesTab
+} from './data/courses_tle_pc_index';
+import {
   COURSES_SVT_1ERE_ALL,
   COURSES_SVT_1ERE_S2,
   COURSES_SVT_1ERE_S1,
@@ -251,6 +267,18 @@ export default function App() {
   });
   const [selectedSvtTleSPart, setSelectedSvtTleSPart] = useState<string>('all');
   const [selectedSvtTleLPart, setSelectedSvtTleLPart] = useState<string>('all');
+  const [selectedMathTleTab, setSelectedMathTleTab] = useState<MathTleSeriesTab>(() => {
+    if (savedClass?.series === 'L' || savedClass?.series === 'L1' || savedClass?.series === 'L2') return 'L';
+    return 'S';
+  });
+  const [selectedMathTleSPart, setSelectedMathTleSPart] = useState<string>('all');
+  const [selectedMathTleLPart, setSelectedMathTleLPart] = useState<string>('all');
+  const [selectedPcTleTab, setSelectedPcTleTab] = useState<PcTleSeriesTab>(() => {
+    if (savedClass?.series === 'L' || savedClass?.series === 'L1' || savedClass?.series === 'L2') return 'L';
+    return 'S';
+  });
+  const [selectedPcTleSPart, setSelectedPcTleSPart] = useState<string>('all');
+  const [selectedPcTleLPart, setSelectedPcTleLPart] = useState<string>('all');
   const [selectedSvt1ereTab, setSelectedSvt1ereTab] = useState<Svt1ereSeriesTab>(() => {
     if (savedClass?.series === 'S1') return 'S1';
     if (savedClass?.series === 'L1') return 'L1';
@@ -331,8 +359,12 @@ export default function App() {
     if (className === 'Terminale' || className === 'Tle') {
       if (series === 'L' || series === 'L1' || series === 'L2') {
         setSelectedSvtTleTab('L');
+        setSelectedMathTleTab('L');
+        setSelectedPcTleTab('L');
       } else {
         setSelectedSvtTleTab('S');
+        setSelectedMathTleTab('S');
+        setSelectedPcTleTab('S');
       }
     }
 
@@ -404,6 +436,10 @@ export default function App() {
     setSelectedGeographieTlePart('all');
     setSelectedSvtTleSPart('all');
     setSelectedSvtTleLPart('all');
+    setSelectedMathTleSPart('all');
+    setSelectedMathTleLPart('all');
+    setSelectedPcTleSPart('all');
+    setSelectedPcTleLPart('all');
     setSelectedMath1ereLPart('all');
     setSelectedMath1ereSPart('all');
     setScreen('content');
@@ -1106,6 +1142,14 @@ export default function App() {
       return COURSES_MATH_1ERE_S_LIST;
     }
 
+    // Matière Mathématiques pour la classe de Terminale (Séries L & S - Programme officiel national complet sans résumé avec démonstrations intégrales)
+    if (selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle')) {
+      if (selectedMathTleTab === 'L') {
+        return COURSES_MATH_TLE_L;
+      }
+      return COURSES_MATH_TLE_S;
+    }
+
     // Matière Physique-Chimie pour la classe de 4ème (Programme officiel complet : Physique/Électricité et Chimie/Matière avec figures et schémas vectoriels obligatoires)
     if (selectedSubject === 'Physique-Chimie' && selectedClass === '4ème') {
       return COURSES_PC_4EME;
@@ -1131,6 +1175,14 @@ export default function App() {
         return COURSES_PC_1ERE_L;
       }
       return COURSES_PC_1ERE_S;
+    }
+
+    // Matière Physique-Chimie pour la classe de Terminale (Séries L & S - Programme officiel complet du Baccalauréat avec schémas expérimentaux et démonstrations)
+    if (selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle')) {
+      if (selectedPcTleTab === 'L') {
+        return COURSES_PC_TLE_L;
+      }
+      return COURSES_PC_TLE_S;
     }
 
     // Matière Philosophie pour le second cycle (Programme officiel national complet de l'Office du Baccalauréat - 8 chapitres et modules exhaustifs sans résumé)
@@ -1536,6 +1588,44 @@ export default function App() {
       (selectedSvtTleLPart === 'part-2' && item.badge?.includes('Thème 2')) ||
       (selectedSvtTleLPart === 'part-3' && item.badge?.includes('Thème 3')) ||
       (selectedSvtTleLPart === 'part-4' && item.badge?.includes('Thème 4'));
+    const matchesMathTleSPart =
+      selectedSubject !== 'Mathématiques' ||
+      (selectedClass !== 'Terminale' && selectedClass !== 'Tle') ||
+      activeTab !== 'cours' ||
+      selectedMathTleTab !== 'S' ||
+      selectedMathTleSPart === 'all' ||
+      (selectedMathTleSPart === 'part-1' && (item.id === 'math-tle-s-cours-1' || item.id === 'math-tle-s-cours-2' || item.id === 'math-tle-s-cours-3' || item.id === 'math-tle-s-cours-4')) ||
+      (selectedMathTleSPart === 'part-2' && (item.id === 'math-tle-s-cours-5' || item.id === 'math-tle-s-cours-6' || item.id === 'math-tle-s-cours-7')) ||
+      (selectedMathTleSPart === 'part-3' && (item.id === 'math-tle-s-cours-8' || item.id === 'math-tle-s-cours-9' || item.id === 'math-tle-s-cours-10')) ||
+      (selectedMathTleSPart === 'part-4' && (item.id === 'math-tle-s-cours-11' || item.id === 'math-tle-s-cours-12' || item.id === 'math-tle-s-cours-13'));
+    const matchesMathTleLPart =
+      selectedSubject !== 'Mathématiques' ||
+      (selectedClass !== 'Terminale' && selectedClass !== 'Tle') ||
+      activeTab !== 'cours' ||
+      selectedMathTleTab !== 'L' ||
+      selectedMathTleLPart === 'all' ||
+      (selectedMathTleLPart === 'part-1' && (item.id === 'math-tle-l-cours-1' || item.id === 'math-tle-l-cours-2')) ||
+      (selectedMathTleLPart === 'part-2' && (item.id === 'math-tle-l-cours-3' || item.id === 'math-tle-l-cours-4')) ||
+      (selectedMathTleLPart === 'part-3' && (item.id === 'math-tle-l-cours-5' || item.id === 'math-tle-l-cours-6')) ||
+      (selectedMathTleLPart === 'part-4' && (item.id === 'math-tle-l-cours-7' || item.id === 'math-tle-l-cours-8'));
+    const matchesPcTleSPart =
+      selectedSubject !== 'Physique-Chimie' ||
+      (selectedClass !== 'Terminale' && selectedClass !== 'Tle') ||
+      activeTab !== 'cours' ||
+      selectedPcTleTab !== 'S' ||
+      selectedPcTleSPart === 'all' ||
+      (selectedPcTleSPart === 'part-1' && (item.id === 'pc-tle-s-cours-1' || item.id === 'pc-tle-s-cours-2' || item.id === 'pc-tle-s-cours-3')) ||
+      (selectedPcTleSPart === 'part-2' && (item.id === 'pc-tle-s-cours-4' || item.id === 'pc-tle-s-cours-5')) ||
+      (selectedPcTleSPart === 'part-3' && (item.id === 'pc-tle-s-cours-6' || item.id === 'pc-tle-s-cours-7' || item.id === 'pc-tle-s-cours-8' || item.id === 'pc-tle-s-cours-9')) ||
+      (selectedPcTleSPart === 'part-4' && (item.id === 'pc-tle-s-cours-10' || item.id === 'pc-tle-s-cours-11' || item.id === 'pc-tle-s-cours-12' || item.id === 'pc-tle-s-cours-13'));
+    const matchesPcTleLPart =
+      selectedSubject !== 'Physique-Chimie' ||
+      (selectedClass !== 'Terminale' && selectedClass !== 'Tle') ||
+      activeTab !== 'cours' ||
+      selectedPcTleTab !== 'L' ||
+      selectedPcTleLPart === 'all' ||
+      (selectedPcTleLPart === 'part-1' && (item.id === 'pc-tle-l-cours-1' || item.id === 'pc-tle-l-cours-2' || item.id === 'pc-tle-l-cours-3')) ||
+      (selectedPcTleLPart === 'part-2' && (item.id === 'pc-tle-l-cours-4' || item.id === 'pc-tle-l-cours-5' || item.id === 'pc-tle-l-cours-6'));
     const matchesFrancais1erePart =
       selectedSubject !== 'Français' ||
       (selectedClass !== 'Première' && selectedClass !== '1ère') ||
@@ -1608,7 +1698,7 @@ export default function App() {
       selectedPc1ereSPart === 'all' ||
       (selectedPc1ereSPart === 'physique' && item.badge?.includes('Physique S')) ||
       (selectedPc1ereSPart === 'chimie' && item.badge?.includes('Chimie S'));
-    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart && matchesPc2ndeSPart && matchesPc2ndeLPart && matchesMath2ndeLPart && matchesAnglais2ndePart && matchesAnglais1erePart && matchesAnglaisTlePart && matchesFrancaisTlePart && matchesHistoireTlePart && matchesGeographieTlePart && matchesSvtTleSPart && matchesSvtTleLPart && matchesFrancais1erePart && matchesPhilo1erePart && matchesSvt1ereS2Part && matchesMath1ereLPart && matchesMath1ereSPart && matchesGeographie1erePart && matchesPc1ereLPart && matchesPc1ereSPart;
+    return matchesTab && matchesSearch && matchesCiviqueChapter && matchesHistoirePart && matchesHistoire5emePart && matchesHistoire4emePart && matchesHistoire3emePart && matchesGeographiePart && matchesGeographie5emePart && matchesGeographie4emePart && matchesGeographie3emePart && matchesAnglaisPart && matchesAnglais4emePart && matchesMathChapter && matchesSvt5emeTheme && matchesSvt4emeTheme && matchesSvt3emeTheme && matchesCivique4emePart && matchesCivique3emePart && matchesFrancais3emePart && matchesMath4emePart && matchesMath5emePart && matchesMath3emeTheme && matchesPc4emeTheme && matchesPc3emeTheme && matchesSvt2ndeTheme && matchesHistoire1erePart && matchesFrancais2ndeModule && matchesHistoire2ndePart && matchesGeographie2ndePart && matchesPc2ndeSPart && matchesPc2ndeLPart && matchesMath2ndeLPart && matchesAnglais2ndePart && matchesAnglais1erePart && matchesAnglaisTlePart && matchesFrancaisTlePart && matchesHistoireTlePart && matchesGeographieTlePart && matchesSvtTleSPart && matchesSvtTleLPart && matchesMathTleSPart && matchesMathTleLPart && matchesPcTleSPart && matchesPcTleLPart && matchesFrancais1erePart && matchesPhilo1erePart && matchesSvt1ereS2Part && matchesMath1ereLPart && matchesMath1ereSPart && matchesGeographie1erePart && matchesPc1ereLPart && matchesPc1ereSPart;
   });
 
   // ÉCRAN 1 : PAGE DE BIENVENUE ET MOTIVATION
@@ -2612,6 +2702,282 @@ export default function App() {
                       <span
                         className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
                           isPartSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                        }`}
+                      >
+                        {part.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Organisation officielle pour Mathématiques Terminale (Différenciation stricte Séries S & L - Programme officiel national du Baccalauréat) */}
+      {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-blue-50 via-indigo-50 to-sky-50 border border-blue-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-blue-950 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-blue-700" />
+                Programme officiel Mathématiques Terminale — Séries S &amp; L (Sans résumé • Figures &amp; Démonstrations)
+              </span>
+              <p className="text-[11px] text-blue-900/80 mt-0.5">
+                Cours exhaustifs et détaillés conformes aux exigences du Baccalauréat sénégalais : <strong>Série S (S1 &amp; S2)</strong> (13 chapitres approfondis • TVI/TAF, ln/exp, Intégrales, Complexes, Probabilités, Espace &amp; Arithmétique) ou <strong>Série L (L1, L2, L')</strong> (8 chapitres complets • Dénombrement, Systèmes 3×3, Limites &amp; Dérivées, Fonctions ln/exp, Suites financières, Ajustement de Mayer).
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 self-start sm:self-auto">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-700 text-white shadow-2xs">
+                Courbes, Schémas &amp; Démonstrations SVG
+              </span>
+              <span className="text-[11px] font-bold text-blue-900 bg-white px-2.5 py-1 rounded-full border border-blue-200 shadow-2xs">
+                Classe de Terminale
+              </span>
+            </div>
+          </div>
+
+          {/* LES 2 ONGLETS SÉRIES : SÉRIE S ET SÉRIE L */}
+          <div className="mb-3">
+            <div className="text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <span>Sélection de la série pour Terminale Mathématiques :</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {MATH_TLE_TABS.map(tab => {
+                const isActive = selectedMathTleTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setSelectedMathTleTab(tab.id);
+                      if (tab.id === 'S') setSelectedMathTleSPart('all');
+                      if (tab.id === 'L') setSelectedMathTleLPart('all');
+                    }}
+                    className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between cursor-pointer ${
+                      isActive
+                        ? `${tab.bgActive} ${tab.borderActive} shadow-sm ring-2 ring-blue-500/20`
+                        : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between w-full mb-1">
+                      <span className="text-xs font-black tracking-wide">
+                        {tab.label}
+                      </span>
+                      <span
+                        className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md ${
+                          isActive ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        {tab.count} leçons
+                      </span>
+                    </div>
+                    <span className={`text-[10px] ${isActive ? 'text-white/90' : 'text-gray-500'}`}>
+                      {tab.description}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* FILTRES PAR PÔLE SÉRIE S */}
+          {selectedMathTleTab === 'S' && (
+            <div className="pt-3 border-t border-blue-200/70">
+              <div className="text-[11px] font-bold text-blue-950 mb-2 flex items-center justify-between">
+                <span>Pôles d'enseignement Série S (S1 &amp; S2) :</span>
+                <span className="text-[10px] font-normal text-blue-700">13 leçons au Baccalauréat S</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {MATH_TLE_S_PARTS.map(part => {
+                  const isPartSelected = selectedMathTleSPart === part.id;
+                  return (
+                    <button
+                      key={part.id}
+                      onClick={() => setSelectedMathTleSPart(part.id)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        isPartSelected
+                          ? 'bg-blue-700 text-white shadow-xs ring-2 ring-blue-700/20'
+                          : 'bg-white text-gray-700 hover:bg-blue-100/70 border border-blue-200/70'
+                      }`}
+                    >
+                      <span>{part.label}</span>
+                      <span
+                        className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                          isPartSelected ? 'bg-white/20 text-white' : 'bg-blue-100 text-blue-800'
+                        }`}
+                      >
+                        {part.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* FILTRES PAR PARTIE SÉRIE L */}
+          {selectedMathTleTab === 'L' && (
+            <div className="pt-3 border-t border-amber-200/70">
+              <div className="text-[11px] font-bold text-amber-950 mb-2 flex items-center justify-between">
+                <span>Parties du programme Série L (L1, L2, L') :</span>
+                <span className="text-[10px] font-normal text-amber-700">8 leçons au Baccalauréat L</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {MATH_TLE_L_PARTS.map(part => {
+                  const isPartSelected = selectedMathTleLPart === part.id;
+                  return (
+                    <button
+                      key={part.id}
+                      onClick={() => setSelectedMathTleLPart(part.id)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        isPartSelected
+                          ? 'bg-amber-700 text-white shadow-xs ring-2 ring-amber-700/20'
+                          : 'bg-white text-gray-700 hover:bg-amber-100/70 border border-amber-200/70'
+                      }`}
+                    >
+                      <span>{part.label}</span>
+                      <span
+                        className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                          isPartSelected ? 'bg-white/20 text-white' : 'bg-amber-100 text-amber-800'
+                        }`}
+                      >
+                        {part.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Organisation officielle pour Physique-Chimie Terminale (Différenciation stricte Séries S & L - Programme officiel national du Baccalauréat) */}
+      {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && (
+        <div className="mb-5 bg-gradient-to-r from-purple-50 via-indigo-50 to-pink-50 border border-purple-200/90 rounded-2xl p-3.5 sm:p-4 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+            <div>
+              <span className="text-xs font-black text-purple-950 uppercase tracking-wider flex items-center gap-1.5">
+                <Bookmark className="w-4 h-4 text-purple-700" />
+                Programme officiel Physique-Chimie Terminale — Séries S &amp; L (Sans résumé • Schémas &amp; Démonstrations)
+              </span>
+              <p className="text-[11px] text-purple-900/80 mt-0.5">
+                Cours complets et rigoureux avec schémas de montages et démonstrations des lois physiques : <strong>Série S (S1 &amp; S2)</strong> (13 chapitres • Acides/bases, Cinétique, Estérification, Newton, Lorentz, Kepler, RLC, Ondes, Radioactivité) ou <strong>Série L (L2, L')</strong> (6 chapitres • Optique de l'œil, Électricité domestique Senelec, Énergies solaires, Eau &amp; pH, Savonnerie, Plastiques).
+              </p>
+            </div>
+            <div className="flex items-center gap-1.5 self-start sm:self-auto">
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-700 text-white shadow-2xs">
+                Schémas expérimentaux SVG
+              </span>
+              <span className="text-[11px] font-bold text-purple-900 bg-white px-2.5 py-1 rounded-full border border-purple-200 shadow-2xs">
+                Classe de Terminale
+              </span>
+            </div>
+          </div>
+
+          {/* LES 2 ONGLETS SÉRIES : SÉRIE S ET SÉRIE L */}
+          <div className="mb-3">
+            <div className="text-[11px] font-bold text-gray-700 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <span>Sélection de la série pour Terminale Physique-Chimie :</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {PC_TLE_TABS.map(tab => {
+                const isActive = selectedPcTleTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setSelectedPcTleTab(tab.id);
+                      if (tab.id === 'S') setSelectedPcTleSPart('all');
+                      if (tab.id === 'L') setSelectedPcTleLPart('all');
+                    }}
+                    className={`p-3 rounded-xl border text-left transition-all flex flex-col justify-between cursor-pointer ${
+                      isActive
+                        ? `${tab.bgActive} ${tab.borderActive} shadow-sm ring-2 ring-purple-500/20`
+                        : 'bg-white hover:bg-gray-50 text-gray-800 border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between w-full mb-1">
+                      <span className="text-xs font-black tracking-wide">
+                        {tab.label}
+                      </span>
+                      <span
+                        className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md ${
+                          isActive ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'
+                        }`}
+                      >
+                        {tab.count} leçons
+                      </span>
+                    </div>
+                    <span className={`text-[10px] ${isActive ? 'text-white/90' : 'text-gray-500'}`}>
+                      {tab.description}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* FILTRES PAR PÔLE SÉRIE S */}
+          {selectedPcTleTab === 'S' && (
+            <div className="pt-3 border-t border-purple-200/70">
+              <div className="text-[11px] font-bold text-purple-950 mb-2 flex items-center justify-between">
+                <span>Pôles d'enseignement Série S (S1 &amp; S2) :</span>
+                <span className="text-[10px] font-normal text-purple-700">13 leçons au Baccalauréat S</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {PC_TLE_S_PARTS.map(part => {
+                  const isPartSelected = selectedPcTleSPart === part.id;
+                  return (
+                    <button
+                      key={part.id}
+                      onClick={() => setSelectedPcTleSPart(part.id)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        isPartSelected
+                          ? 'bg-purple-700 text-white shadow-xs ring-2 ring-purple-700/20'
+                          : 'bg-white text-gray-700 hover:bg-purple-100/70 border border-purple-200/70'
+                      }`}
+                    >
+                      <span>{part.label}</span>
+                      <span
+                        className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                          isPartSelected ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-800'
+                        }`}
+                      >
+                        {part.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* FILTRES PAR PÔLE SÉRIE L */}
+          {selectedPcTleTab === 'L' && (
+            <div className="pt-3 border-t border-indigo-200/70">
+              <div className="text-[11px] font-bold text-indigo-950 mb-2 flex items-center justify-between">
+                <span>Pôles du programme Série L (L2, L') :</span>
+                <span className="text-[10px] font-normal text-indigo-700">6 leçons au Baccalauréat L</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {PC_TLE_L_PARTS.map(part => {
+                  const isPartSelected = selectedPcTleLPart === part.id;
+                  return (
+                    <button
+                      key={part.id}
+                      onClick={() => setSelectedPcTleLPart(part.id)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                        isPartSelected
+                          ? 'bg-indigo-700 text-white shadow-xs ring-2 ring-indigo-700/20'
+                          : 'bg-white text-gray-700 hover:bg-indigo-100/70 border border-indigo-200/70'
+                      }`}
+                    >
+                      <span>{part.label}</span>
+                      <span
+                        className={`text-[10px] px-1.5 py-0.2 rounded-full font-extrabold ${
+                          isPartSelected ? 'bg-white/20 text-white' : 'bg-indigo-100 text-indigo-800'
                         }`}
                       >
                         {part.count}
@@ -5119,6 +5485,126 @@ export default function App() {
                 <div className="flex items-center gap-2 px-3.5 py-2 bg-red-100/80 rounded-xl border border-red-300/80 text-red-950 font-black text-xs sm:text-sm uppercase tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-red-600"></span>
                   <span>THÈME 4 : IMMUNOLOGIE, ÉCOSYSTÈMES ET DÉGRADATION DE L'ENVIRONNEMENT AU SÉNÉGAL (Leçons L-6 à L-8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Mathématiques Terminale Série S (S1 & S2) */}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'S' && selectedMathTleSPart === 'all' && item.id === 'math-tle-s-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>PÔLE 1 : ANALYSE FONDAMENTALE — LIMITES, CONTINUITÉ, DÉRIVATION, TAF, LOGARITHMES &amp; EXPONENTIELLES (Chapitres S1 à S4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'S' && selectedMathTleSPart === 'all' && item.id === 'math-tle-s-cours-5' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>PÔLE 2 : CALCUL INTÉGRAL, ÉQUATIONS DIFFÉRENTIELLES &amp; SUITES NUMÉRIQUES (Chapitres S5 à S7)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'S' && selectedMathTleSPart === 'all' && item.id === 'math-tle-s-cours-8' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-violet-100/80 rounded-xl border border-violet-300/80 text-violet-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-violet-600"></span>
+                  <span>PÔLE 3 : NOMBRES COMPLEXES, SIMILITUDES DIRECTES &amp; DÉNOMBREMENT (Chapitres S8 à S10)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'S' && selectedMathTleSPart === 'all' && item.id === 'math-tle-s-cours-11' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-sky-100/80 rounded-xl border border-sky-300/80 text-sky-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-sky-600"></span>
+                  <span>PÔLE 4 : CALCUL DES PROBABILITÉS, GÉOMÉTRIE DE L'ESPACE &amp; ARITHMÉTIQUE DANS ℤ (Chapitres S11 à S13)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Mathématiques Terminale Série L (L1, L2, L') */}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'L' && selectedMathTleLPart === 'all' && item.id === 'math-tle-l-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-amber-100/80 rounded-xl border border-amber-300/80 text-amber-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-amber-600"></span>
+                  <span>PARTIE 1 : DÉNOMBREMENT ET SYSTÈMES LINÉAIRES 3×3 (Pivot de Gauss) (Chapitres L1 &amp; L2)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'L' && selectedMathTleLPart === 'all' && item.id === 'math-tle-l-cours-3' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>PARTIE 2 : ANALYSE — LIMITES, CONTINUITÉ, DÉRIVATION ET ÉTUDES DE FONCTIONS (Chapitres L3 &amp; L4)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'L' && selectedMathTleLPart === 'all' && item.id === 'math-tle-l-cours-5' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-emerald-100/80 rounded-xl border border-emerald-300/80 text-emerald-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                  <span>PARTIE 3 : FONCTIONS LOGARITHME, EXPONENTIELLE &amp; SUITES FINANCIÈRES (Chapitres L5 &amp; L6)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Mathématiques' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedMathTleTab === 'L' && selectedMathTleLPart === 'all' && item.id === 'math-tle-l-cours-7' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>PARTIE 4 : STATISTIQUES À DEUX VARIABLES (Mayer) &amp; CALCUL DES PROBABILITÉS (Chapitres L7 &amp; L8)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Physique-Chimie Terminale Série S (S1 & S2) */}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'S' && selectedPcTleSPart === 'all' && item.id === 'pc-tle-s-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>PREMIÈRE PARTIE : CHIMIE EN SOLUTION — ACIDES-BASES SELON BRÖNSTED, DOSAGES &amp; CINÉTIQUE (Chapitres S1 à S3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'S' && selectedPcTleSPart === 'all' && item.id === 'pc-tle-s-cours-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-pink-100/80 rounded-xl border border-pink-300/80 text-pink-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-pink-600"></span>
+                  <span>DEUXIÈME PARTIE : CHIMIE ORGANIQUE — ESTÉRIFICATION, HYDROLYSE, SAPONIFICATION &amp; ACIDES AMINÉS (Chapitres S4 &amp; S5)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'S' && selectedPcTleSPart === 'all' && item.id === 'pc-tle-s-cours-6' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-blue-100/80 rounded-xl border border-blue-300/80 text-blue-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                  <span>TROISIÈME PARTIE : PHYSIQUE MÉCANIQUE — CINÉMATIQUE, LOIS DE NEWTON, CHAMP DE LORENTZ &amp; KEPLER (Chapitres S6 à S9)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'S' && selectedPcTleSPart === 'all' && item.id === 'pc-tle-s-cours-10' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>QUATRIÈME PARTIE : OSCILLATIONS MÉCANIQUES, CIRCUITS RLC, ONDES &amp; PHYSIQUE NUCLÉAIRE (Chapitres S10 à S13)</span>
+                </div>
+              </div>
+            )}
+
+            {/* Séparateurs thématiques pour Physique-Chimie Terminale Série L (L2, L') */}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'L' && selectedPcTleLPart === 'all' && item.id === 'pc-tle-l-cours-1' && (
+              <div className="pt-2 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-indigo-100/80 rounded-xl border border-indigo-300/80 text-indigo-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-indigo-600"></span>
+                  <span>PREMIÈRE PARTIE : PHYSIQUE — OPTIQUE DE L'ŒIL, ÉLECTRICITÉ DOMESTIQUE &amp; ÉNERGIES VERTES (Chapitres L1 à L3)</span>
+                </div>
+              </div>
+            )}
+            {selectedSubject === 'Physique-Chimie' && (selectedClass === 'Terminale' || selectedClass === 'Tle') && activeTab === 'cours' && selectedPcTleTab === 'L' && selectedPcTleLPart === 'all' && item.id === 'pc-tle-l-cours-4' && (
+              <div className="pt-4 pb-1">
+                <div className="flex items-center gap-2 px-3.5 py-2 bg-purple-100/80 rounded-xl border border-purple-300/80 text-purple-950 font-black text-xs sm:text-sm uppercase tracking-wide">
+                  <span className="w-2 h-2 rounded-full bg-purple-600"></span>
+                  <span>DEUXIÈME PARTIE : CHIMIE DU QUOTIDIEN — EAU &amp; pH, SAVONNERIE ARTISANALE &amp; PLASTIQUES (Chapitres L4 à L6)</span>
                 </div>
               </div>
             )}
