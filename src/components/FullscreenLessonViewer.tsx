@@ -902,10 +902,10 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
 
   return (
     <div
-      className={`w-full transition-all duration-300 ${
+      className={`w-full min-h-screen transition-all duration-300 ${
         isFullscreen
-          ? 'fixed inset-0 z-50 overflow-y-auto px-2 sm:px-4 py-3 sm:py-6'
-          : 'w-full px-1 sm:px-3 md:px-4 py-2'
+          ? 'fixed inset-0 z-50 overflow-y-auto overscroll-y-contain px-2 sm:px-4 py-3 sm:py-6'
+          : 'w-full px-1 sm:px-3 md:px-4 py-2 pb-16'
       } ${themeClasses[theme]}`}
     >
       <div className="w-full max-w-5xl mx-auto">

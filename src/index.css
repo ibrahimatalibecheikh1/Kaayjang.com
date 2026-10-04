@@ -1,22 +1,31 @@
 @import "tailwindcss";
 
-html, body {
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+html {
   width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overscroll-behavior-y: contain;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y pinch-zoom;
   -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
-/* Désactivation du menu d'appel tactile contextuel (empêche le copier-coller) */
-* {
-  -webkit-touch-callout: none;
+#root {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes floatDrift {
