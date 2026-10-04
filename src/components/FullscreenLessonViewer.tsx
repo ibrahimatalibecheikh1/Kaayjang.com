@@ -909,28 +909,29 @@ export const FullscreenLessonViewer: React.FC<FullscreenLessonViewerProps> = ({
       } ${themeClasses[theme]}`}
     >
       <div className="w-full max-w-5xl mx-auto">
-        {/* Top Control Bar for Mobile & Desktop */}
+        {/* Top Control Bar for Mobile & Desktop - Fixé en haut */}
         <div
-          className={`sticky top-0 z-30 mb-3 sm:mb-4 px-3 py-2.5 rounded-xl backdrop-blur-md shadow-xs flex items-center justify-between border ${
+          className={`sticky top-0 z-50 mb-3 sm:mb-4 px-3 py-2.5 rounded-2xl backdrop-blur-md shadow-md flex items-center justify-between border ${
             theme === 'dark'
-              ? 'bg-gray-900/90 border-gray-800'
+              ? 'bg-gray-900/95 border-gray-800 text-white'
               : theme === 'sepia'
-              ? 'bg-[#F3ECE0]/90 border-[#E4D9C3]'
-              : 'bg-white/90 border-gray-200'
+              ? 'bg-[#F3ECE0]/95 border-[#E4D9C3] text-[#433422]'
+              : 'bg-white/95 border-gray-200 text-gray-900'
           }`}
         >
           <div className="flex items-center gap-2">
             {onBack && (
               <button
                 onClick={onBack}
-                className="p-1.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/10 transition text-inherit flex items-center gap-1 text-xs font-semibold"
-                aria-label="Retour aux leçons"
+                className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0"
+                aria-label="Retour à la liste des cours"
+                title="Retour à la liste des cours"
               >
-                <ChevronLeft className="w-4 h-4" />
-                <span className="hidden xs:inline">Retour</span>
+                <ChevronLeft className="w-4 h-4 stroke-[2.5]" />
+                <span>Retour aux cours</span>
               </button>
             )}
-            <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-600 text-white tracking-wide uppercase">
+            <span className="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-600 text-white tracking-wide uppercase hidden sm:inline">
               {lesson.number}
             </span>
           </div>

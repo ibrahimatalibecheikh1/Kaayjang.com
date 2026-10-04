@@ -408,15 +408,19 @@ export default function App() {
     }
   };
 
-  // Redirection automatique fluide depuis l'écran d'accueil après 1.8s (ou clic immédiat)
+  // Redirection automatique fluide depuis l'écran d'accueil après 2.5s (ou clic immédiat)
   useEffect(() => {
     if (screen === 'welcome') {
       const timer = setTimeout(() => {
-        setScreen('choose-class');
-      }, 1800);
+        if (savedClass) {
+          setScreen('subject');
+        } else {
+          setScreen('choose-class');
+        }
+      }, 2500);
       return () => clearTimeout(timer);
     }
-  }, [screen]);
+  }, [screen, savedClass]);
 
   // Filtrage des matières selon les directives officielles sénégalaises :
   // - Pas de Philosophie au Collège (6e à 3e) ni en classe de Seconde (L ou S)
@@ -570,6 +574,21 @@ export default function App() {
     else if (screen === 'content') setScreen('subject');
     else if (screen === 'subject') setScreen('choose-class');
     else if (screen === 'choose-class') setScreen('welcome');
+  };
+
+  const getBackBtnLabel = () => {
+    switch (screen) {
+      case 'choose-class':
+        return { label: 'Accueil', full: "Retour à l'accueil" };
+      case 'subject':
+        return { label: 'Classes', full: 'Retour aux classes' };
+      case 'content':
+        return { label: 'Matières', full: 'Retour aux matières' };
+      case 'lesson-reader':
+        return { label: 'Cours', full: 'Retour aux cours' };
+      default:
+        return { label: 'Retour', full: 'Retour en arrière' };
+    }
   };
 
   // Liste des cours et ressources organisés par classe et matière
@@ -1821,23 +1840,25 @@ export default function App() {
   });
 
   // ÉCRAN 1 : ACCUEIL PLEIN ÉCRAN AVEC EMOJIS FLOTTANTS (STYLE ÉCOLE ET CAHIER)
-  // ET GROUPE DE MOTS "Bienvenue dans Kaay jang" AVEC BOUTON D'ACCÈS IMMÉDIAT
+  // ET UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang"
   const renderWelcome = () => {
     const handleEnterApp = () => {
-      setScreen('choose-class');
+      if (savedClass) {
+        setScreen('subject');
+      } else {
+        setScreen('choose-class');
+      }
     };
 
     return (
       <div
         onClick={handleEnterApp}
-        onTouchEnd={handleEnterApp}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') handleEnterApp();
         }}
         className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-hidden cursor-pointer px-4 outline-none"
-        title="Appuyez pour accéder aux cours"
       >
         {/* Cercles diffus d'ambiance lumineuse */}
         <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-3xl -top-24 -left-24 pointer-events-none" />
@@ -1859,28 +1880,11 @@ export default function App() {
           </div>
         ))}
 
-        {/* CONTENU CENTRAL : GROUPE DE MOTS "Bienvenue dans Kaay jang" */}
+        {/* CONTENU CENTRAL : UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" */}
         <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight welcome-title-glow text-white drop-shadow-2xl">
             Bienvenue dans Kaay jang
           </h1>
-
-          {/* Bouton d'entrée tactile explicite et instantané */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleEnterApp();
-            }}
-            onTouchEnd={(e) => {
-              e.stopPropagation();
-              handleEnterApp();
-            }}
-            className="mt-8 sm:mt-12 px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 hover:from-blue-500 hover:to-indigo-500 text-white font-black text-base sm:text-lg shadow-xl shadow-blue-500/40 border border-white/25 transition-all duration-200 transform hover:scale-105 active:scale-95 flex items-center gap-3 cursor-pointer z-20"
-          >
-            <span>Accéder aux cours</span>
-            <ChevronRight className="w-5 h-5 text-blue-200" />
-          </button>
         </div>
       </div>
     );
@@ -1889,6 +1893,18 @@ export default function App() {
   // PAGE APRÈS L'ÉCRAN D'ACCUEIL : CHOIX DU CYCLE PUIS CLASSE AVEC SAUVEGARDE ET NUMÉROS D'AIDE
   const renderChooseClass = () => (
     <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-4">
+      {/* Bouton de retour en haut */}
+      <div className="mb-4">
+        <button
+          onClick={() => setScreen('welcome')}
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-800 font-bold text-xs sm:text-sm border border-gray-200 hover:border-blue-200 transition shadow-2xs cursor-pointer group"
+          title="Retour à l'écran d'accueil"
+        >
+          <ArrowLeft className="w-4 h-4 text-blue-600 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+          <span>← Retour à l'écran d'accueil</span>
+        </button>
+      </div>
+
       <div className="mb-6">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
           Bienvenue, choisis ton cycle scolaire, puis votre classe
@@ -2283,6 +2299,18 @@ export default function App() {
 
     return (
       <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-4">
+        {/* Bouton de retour en haut */}
+        <div className="mb-3 flex items-center justify-between gap-2 flex-wrap">
+          <button
+            onClick={() => setScreen('choose-class')}
+            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-800 font-bold text-xs sm:text-sm border border-gray-200 hover:border-blue-200 transition shadow-2xs cursor-pointer group"
+            title="Retour au choix de la classe"
+          >
+            <ArrowLeft className="w-4 h-4 text-blue-600 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+            <span>← Retour aux classes ({selectedClass}{selectedSeries ? ` ${selectedSeries}` : ''})</span>
+          </button>
+        </div>
+
         <div className="mb-4 sm:mb-6">
           <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-500 mb-1">
             <button onClick={() => setScreen('choose-class')} className="hover:text-blue-600 transition">
@@ -2337,6 +2365,18 @@ export default function App() {
   // ÉCRAN 5 : LISTE DES COURS & RESSOURCES
   const renderContent = () => (
     <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-4">
+      {/* Bouton de retour en haut */}
+      <div className="mb-3 flex items-center justify-between gap-2 flex-wrap">
+        <button
+          onClick={() => setScreen('subject')}
+          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-800 font-bold text-xs sm:text-sm border border-gray-200 hover:border-blue-200 transition shadow-2xs cursor-pointer group"
+          title="Retour au choix des matières"
+        >
+          <ArrowLeft className="w-4 h-4 text-blue-600 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
+          <span>← Retour aux matières ({selectedSubject})</span>
+        </button>
+      </div>
+
       <div className="mb-4 sm:mb-6">
         <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-500 mb-1">
           <button onClick={() => setScreen('choose-class')} className="hover:text-blue-600 transition">
@@ -7002,10 +7042,15 @@ export default function App() {
               {screen !== 'welcome' && (
                 <button
                   onClick={handleBack}
-                  className="p-2 -ml-1 rounded-xl hover:bg-gray-100 text-gray-600 transition cursor-pointer"
-                  aria-label="Retour en arrière"
+                  className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 font-extrabold text-xs sm:text-sm border border-blue-200/90 transition shadow-2xs cursor-pointer group shrink-0"
+                  aria-label={getBackBtnLabel().full}
+                  title={getBackBtnLabel().full}
                 >
-                  <ArrowLeft className="w-5 h-5" />
+                  <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-blue-700 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform shrink-0" />
+                  <span>Retour</span>
+                  <span className="hidden sm:inline text-blue-600 font-semibold text-[11px] sm:text-xs">
+                    • {getBackBtnLabel().label}
+                  </span>
                 </button>
               )}
               <div

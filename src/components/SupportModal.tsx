@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Heart, X, Smartphone, Coffee, Award, Copy, Check } from 'lucide-react';
 
 interface SupportModalProps {
@@ -7,7 +7,7 @@ interface SupportModalProps {
 }
 
 export const SupportModal: React.FC<SupportModalProps> = ({ isOpen, onClose }) => {
-  const [copiedIndex, setCopiedIndex] = React.useState<number | null>(null);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   if (!isOpen) return null;
 
