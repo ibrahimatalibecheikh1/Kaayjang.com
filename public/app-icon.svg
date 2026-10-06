@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="50%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#4F46E5"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="senegalGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="senegalRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EF4444"/>
+      <stop offset="100%" stop-color="#DC2626"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- App Icon Background with smooth rounded corners -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle border highlight -->
+  <rect x="4" y="4" width="504" height="504" rx="108" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="8"/>
+
+  <!-- Glowing background aura -->
+  <circle cx="256" cy="220" r="140" fill="#3B82F6" opacity="0.3" filter="blur(40px)"/>
+
+  <!-- Senegal Ribbon Tri-color accent at top -->
+  <g transform="translate(186, 60)">
+    <rect x="0" y="0" width="44" height="12" rx="6" fill="#10B981"/>
+    <rect x="48" y="0" width="44" height="12" rx="6" fill="#FBBF24"/>
+    <rect x="96" y="0" width="44" height="12" rx="6" fill="#EF4444"/>
+    <!-- Small star in center of ribbon -->
+    <path d="M70 1 L71.5 4.5 L75 5 L72.5 7.5 L73 11 L70 9 L67 11 L67.5 7.5 L65 5 L68.5 4.5 Z" fill="#10B981"/>
+  </g>
+
+  <!-- Graduation Cap (Mortarboard) -->
+  <g filter="url(#shadow)" transform="translate(256, 175)">
+    <!-- Mortarboard Diamond Top -->
+    <polygon points="0,-65 145,-15 0,35 -145,-15" fill="#FFFFFF"/>
+    <polygon points="0,-55 130,-15 0,25 -130,-15" fill="url(#goldGrad)"/>
+    
+    <!-- Cap skull base -->
+    <path d="M-80,0 Q0,45 80,0 L80,30 Q0,75 -80,30 Z" fill="#1E293B"/>
+
+    <!-- Tassel button & cord -->
+    <circle cx="0" cy="-15" r="9" fill="#F59E0B"/>
+    <path d="M0,-15 Q90,-5 110,40" fill="none" stroke="#F59E0B" stroke-width="5" stroke-linecap="round"/>
+    <polygon points="106,38 114,38 118,65 102,65" fill="#F59E0B"/>
+  </g>
+
+  <!-- Open Book of Knowledge -->
+  <g filter="url(#shadow)" transform="translate(256, 320)">
+    <!-- Spine / Shadow -->
+    <path d="M-130,-40 Q-65,-25 0,-10 Q65,-25 130,-40 L130,50 Q65,65 0,80 Q-65,65 -130,50 Z" fill="#0F172A" opacity="0.4"/>
+    
+    <!-- Left Page -->
+    <path d="M-125,-45 Q-65,-30 0,-15 L0,75 Q-65,60 -125,45 Z" fill="#FFFFFF"/>
+    <!-- Left page lines -->
+    <line x1="-105" y1="-15" x2="-20" y2="-5" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+    <line x1="-105" y1="10" x2="-20" y2="20" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+    <line x1="-105" y1="35" x2="-45" y2="42" stroke="#CBD5E1" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Right Page -->
+    <path d="M125,-45 Q65,-30 0,-15 L0,75 Q65,60 125,45 Z" fill="#F8FAFC"/>
+    <!-- Right page lines -->
+    <line x1="20" y1="-5" x2="105" y2="-15" stroke="#93C5FD" stroke-width="5" stroke-linecap="round"/>
+    <line x1="20" y1="20" x2="105" y2="10" stroke="#93C5FD" stroke-width="5" stroke-linecap="round"/>
+    <line x1="20" y1="42" x2="75" y2="35" stroke="#93C5FD" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Central book fold -->
+    <line x1="0" y1="-15" x2="0" y2="75" stroke="#94A3B8" stroke-width="4"/>
+  </g>
+
+  <!-- "KAAY JANG" Title -->
+  <text x="256" y="445" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="42" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">
+    KAAY JANG
+  </text>
+  <text x="256" y="480" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="20" fill="#93C5FD" text-anchor="middle" letter-spacing="4">
+    🇸🇳 SÉNÉGAL
+  </text>
+</svg>

@@ -36,10 +36,18 @@ export default defineConfig(() => {
           name: 'Kaay Jang',
           short_name: 'KaayJang',
           description: 'Application web d\'apprentissage pour les élèves de la 6ème à la Terminale.',
-          theme_color: '#ffffff',
+          theme_color: '#1e3a8a',
           background_color: '#ffffff',
           display: 'standalone',
           start_url: '/',
+          icons: [
+            {
+              src: '/app-icon.svg',
+              sizes: '192x192 512x512',
+              type: 'image/svg+xml',
+              purpose: 'any maskable'
+            }
+          ]
         },
         workbox: {
           globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],

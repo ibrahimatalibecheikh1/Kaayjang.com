@@ -34,6 +34,8 @@ import { OfflineIndicator } from './OfflineIndicator';
 import { SupportModal } from './components/SupportModal';
 import { SettingsModal } from './components/SettingsModal';
 import { InstallAppModal } from './components/InstallAppModal';
+import { ShareModal } from './components/ShareModal';
+import { AppIcon } from './components/AppIcon';
 import { FullscreenLessonViewer } from './components/FullscreenLessonViewer';
 import { SenegalMap } from './components/SenegalMap';
 import {
@@ -283,6 +285,7 @@ export default function App() {
   const [isSupportOpen, setIsSupportOpen] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<string>(() => {
     try {
       return localStorage.getItem('kaay_jang_language') || 'fr';
@@ -1840,7 +1843,7 @@ export default function App() {
   });
 
   // ÉCRAN 1 : ACCUEIL PLEIN ÉCRAN AVEC EMOJIS FLOTTANTS (STYLE ÉCOLE ET CAHIER)
-  // ET UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang"
+  // ET UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" AVEC BOUTONS RAPIDES
   const renderWelcome = () => {
     const handleEnterApp = () => {
       if (savedClass) {
@@ -1853,12 +1856,13 @@ export default function App() {
     return (
       <div
         onClick={handleEnterApp}
+        onWheel={handleEnterApp}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') handleEnterApp();
         }}
-        className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-hidden cursor-pointer px-4 outline-none"
+        className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-between bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-y-auto cursor-pointer p-4 sm:p-6 outline-none"
       >
         {/* Cercles diffus d'ambiance lumineuse */}
         <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-3xl -top-24 -left-24 pointer-events-none" />
@@ -1880,11 +1884,62 @@ export default function App() {
           </div>
         ))}
 
+        {/* Barre du haut discrète sur l'accueil : Télécharger l'App avec son icône, WhatsApp Ibkane IA & Partage */}
+        <div className="relative z-20 w-full max-w-5xl flex items-center justify-between pt-1">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-xl overflow-hidden shadow-md shrink-0">
+              <AppIcon className="w-full h-full" />
+            </div>
+            <span className="font-black text-sm tracking-tight text-white/90">Kaay Jang</span>
+          </div>
+
+          <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setIsInstallModalOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-bold text-xs transition border border-white/20 shadow-xs cursor-pointer active:scale-95"
+              title="Télécharger l'application native Kaay Jang"
+            >
+              <AppIcon className="w-4 h-4 rounded-xs shrink-0" />
+              <span>Télécharger l'App</span>
+            </button>
+
+            <a
+              href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20je%20vous%20contacte%20depuis%20l%27application%20Kaay%20Jang"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs transition shadow-xs cursor-pointer active:scale-95"
+              title="Discussion directe avec Ibkane IA sur WhatsApp (70 775 37 76)"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-white shrink-0" />
+              <span className="hidden sm:inline">WhatsApp Ibkane IA</span>
+              <span className="sm:hidden font-mono text-[11px]">70 775 37 76</span>
+            </a>
+
+            <button
+              onClick={() => setIsShareModalOpen(true)}
+              className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/10 cursor-pointer active:scale-95"
+              title="Lien de partage"
+            >
+              <Share2 className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+
         {/* CONTENU CENTRAL : UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto my-auto">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight welcome-title-glow text-white drop-shadow-2xl">
             Bienvenue dans Kaay jang
           </h1>
+          <div className="mt-8 flex flex-col items-center gap-2 text-blue-200/90 text-xs sm:text-sm font-semibold animate-pulse">
+            <span className="bg-white/10 px-4 py-2 rounded-full border border-white/20 backdrop-blur-xs">
+              Touchez l'écran ou faites défiler pour continuer →
+            </span>
+          </div>
+        </div>
+
+        {/* Bas de page officiel */}
+        <div className="relative z-20 text-center pb-2 text-[11px] text-white/60">
+          🇸🇳 République du Sénégal — Programme scolaire officiel de la 6ème à la Terminale
         </div>
       </div>
     );
@@ -1972,12 +2027,48 @@ export default function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold transition flex items-center gap-1.5 px-3"
-                title="WhatsApp 70 775 37 76"
+                title="Discussion WhatsApp directe avec Ibkane IA (70 775 37 76)"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-600" />
+                <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
                 <span>WhatsApp Ibkane IA</span>
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Bannière Télécharger l'application & Lien de partage */}
+        <div className="mt-3 p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-xl overflow-hidden shadow-xs shrink-0">
+              <AppIcon className="w-full h-full" />
+            </div>
+            <div className="text-left">
+              <span className="text-xs font-black text-gray-900 block">
+                Installer Kaay Jang comme une vraie application
+              </span>
+              <span className="text-[11px] text-gray-500">
+                Ajoutez l'icône sur votre écran d'accueil &amp; accédez hors-ligne
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsInstallModalOpen(true)}
+              className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-extrabold shadow-xs transition flex items-center gap-1.5 cursor-pointer active:scale-95"
+            >
+              <AppIcon className="w-4 h-4 rounded-xs shrink-0" />
+              <span>Télécharger l'App</span>
+            </button>
+
+            <button
+              onClick={() => setIsShareModalOpen(true)}
+              className="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-200 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
+              title="Lien de partage officiel"
+            >
+              <Share2 className="w-3.5 h-3.5 text-blue-600" />
+              <span>Partager</span>
+            </button>
           </div>
         </div>
       </div>
@@ -7034,35 +7125,38 @@ export default function App() {
         </div>
       )}
 
-      {/* Header / Barre de navigation FIXE */}
+      {/* Header / Barre de navigation FIXE SUR L'ÉCRAN EN HAUT */}
       {screen !== 'welcome' && screen !== 'lesson-reader' && (
-        <header className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50 shadow-xs">
+        <header className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40 shadow-xs">
           <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+              {/* Bouton Retour FIXE EN HAUT */}
               {screen !== 'welcome' && (
                 <button
                   onClick={handleBack}
-                  className="flex items-center gap-1.5 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-blue-50 hover:bg-blue-100 active:bg-blue-200 text-blue-800 font-extrabold text-xs sm:text-sm border border-blue-200/90 transition shadow-2xs cursor-pointer group shrink-0"
+                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer group shrink-0 active:scale-95"
                   aria-label={getBackBtnLabel().full}
                   title={getBackBtnLabel().full}
                 >
-                  <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-blue-700 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform shrink-0" />
+                  <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform shrink-0" />
                   <span>Retour</span>
-                  <span className="hidden sm:inline text-blue-600 font-semibold text-[11px] sm:text-xs">
+                  <span className="hidden sm:inline opacity-90 font-medium text-[11px] sm:text-xs">
                     • {getBackBtnLabel().label}
                   </span>
                 </button>
               )}
+
+              {/* Logo avec AppIcon officiel */}
               <div
                 className="flex items-center gap-2 cursor-pointer"
                 onClick={() => setScreen('welcome')}
                 title="Page d'accueil Kaay Jang"
               >
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 text-white flex items-center justify-center shadow-xs">
-                  <GraduationCap className="w-5 h-5" />
+                <div className="w-8 h-8 rounded-xl shadow-xs overflow-hidden shrink-0">
+                  <AppIcon className="w-full h-full" />
                 </div>
                 <div>
-                  <span className="font-black text-lg sm:text-xl text-gray-900 tracking-tight block leading-none">
+                  <span className="font-black text-base sm:text-xl text-gray-900 tracking-tight block leading-none">
                     Kaay Jang
                   </span>
                   <span className="text-[10px] text-emerald-700 font-extrabold hidden xs:inline">
@@ -7077,7 +7171,7 @@ export default function App() {
               {screen !== 'welcome' && (
                 <button
                   onClick={() => setIsSettingsOpen(true)}
-                  className="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200/80 transition text-xs font-bold shadow-2xs cursor-pointer"
+                  className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200/80 transition text-xs font-bold shadow-2xs cursor-pointer"
                   title="Changer de niveau ou de langue"
                 >
                   <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
@@ -7086,57 +7180,48 @@ export default function App() {
                 </button>
               )}
 
-              {/* Bouton Notifications actives */}
-              <button
-                onClick={handleQuickNotificationToggle}
-                className={`p-2 sm:px-2.5 sm:py-1.5 rounded-xl transition text-xs font-bold flex items-center gap-1.5 cursor-pointer border ${
-                  notificationsActive
-                    ? 'bg-amber-50 text-amber-900 border-amber-300 ring-2 ring-amber-400/20 shadow-2xs'
-                    : 'bg-white hover:bg-gray-100 text-gray-700 border-gray-200'
-                }`}
-                title={notificationsActive ? 'Notifications actives (Rappels activés)' : 'Activer les notifications'}
-                aria-label="Notifications"
-              >
-                <div className="relative">
-                  <Bell className={`w-4 h-4 ${notificationsActive ? 'text-amber-500 fill-amber-500' : 'text-gray-500'}`} />
-                  {notificationsActive && (
-                    <span className="absolute -top-1 -right-1 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-                  )}
-                </div>
-                <span className="hidden md:inline text-xs">
-                  {notificationsActive ? 'Notifs ON' : 'Rappels'}
-                </span>
-              </button>
-
-              {/* Bouton Ajouter à l'écran d'accueil comme application mobile native */}
+              {/* Bouton Télécharger l'application avec son icône */}
               <button
                 onClick={() => setIsInstallModalOpen(true)}
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 transition text-xs sm:text-sm font-bold shadow-xs cursor-pointer"
-                title="Ajouter à l'écran d'accueil comme application mobile native"
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-xs sm:text-sm shadow-xs transition active:scale-95 cursor-pointer shrink-0"
+                title="Télécharger l'application native Kaay Jang sur votre téléphone"
               >
-                <Smartphone className="w-4 h-4 shrink-0" />
-                <span className="hidden xs:inline">Installer l'App</span>
+                <AppIcon className="w-4 h-4 sm:w-5 sm:h-5 rounded-md shrink-0 shadow-2xs" />
+                <span className="font-extrabold">Télécharger</span>
+                <span className="hidden md:inline font-bold">l'App</span>
               </button>
 
-              {/* Bouton Paramètres pour changer de langue et niveau */}
+              {/* Discussion directe WhatsApp avec Ibkane IA 70 775 37 76 */}
+              <a
+                href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20je%20vous%20contacte%20depuis%20l%27application%20Kaay%20Jang"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0 active:scale-95"
+                title="Discussion WhatsApp directe avec Ibkane IA (70 775 37 76)"
+              >
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                <span className="hidden sm:inline">WhatsApp Ibkane IA</span>
+                <span className="sm:hidden font-mono text-[11px] font-bold">70 775 37 76</span>
+              </a>
+
+              {/* Bouton Partager / Lien de partage */}
+              <button
+                onClick={() => setIsShareModalOpen(true)}
+                className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-200 font-bold text-xs sm:text-sm transition cursor-pointer shrink-0 active:scale-95"
+                title="Partager l'application (Lien de partage officiel)"
+              >
+                <Share2 className="w-4 h-4 text-blue-600 shrink-0" />
+                <span className="hidden md:inline">Partager</span>
+              </button>
+
+              {/* Bouton Paramètres */}
               <button
                 onClick={() => setIsSettingsOpen(true)}
-                className="p-2 sm:px-3 sm:py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer border border-gray-200"
-                title="Paramètres : Langue, Niveau & Assistance"
+                className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer border border-gray-200"
+                title="Paramètres"
                 aria-label="Paramètres"
               >
                 <Settings className="w-4 h-4 text-gray-600 shrink-0" />
-                <span className="hidden sm:inline">Paramètres</span>
-              </button>
-
-              {/* Bouton de Don / Soutien */}
-              <button
-                onClick={() => setIsSupportOpen(true)}
-                className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-rose-50 text-rose-600 hover:bg-rose-100 border border-rose-200/60 transition text-xs font-semibold shadow-2xs"
-                title="Soutenir les développeurs de l'application"
-              >
-                <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-                <span>Don</span>
               </button>
             </div>
           </div>
@@ -7144,7 +7229,7 @@ export default function App() {
       )}
 
       {/* Main Content Area - Full width responsive */}
-      <main className={`w-full ${screen === 'lesson-reader' ? 'p-0' : 'p-2 sm:p-4 md:p-6 pb-12'}`}>
+      <main className={`w-full ${screen === 'lesson-reader' ? 'p-0' : 'p-2 sm:p-4 md:p-6 pb-16'}`}>
         {screen === 'welcome' && renderWelcome()}
         {screen === 'choose-class' && renderChooseClass()}
         {screen === 'subject' && renderSubject()}
@@ -7158,6 +7243,23 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* Bouton Flottant WhatsApp Ibkane IA 70 775 37 76 */}
+      {screen !== 'welcome' && (
+        <a
+          href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20j%27utilise%20l%27application%20Kaay%20Jang"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-4 right-4 z-40 p-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2 group border-2 border-white/20 cursor-pointer"
+          title="Discussion WhatsApp directe avec Ibkane IA (70 775 37 76)"
+          aria-label="Discussion WhatsApp Ibkane IA"
+        >
+          <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+          <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-xs font-black">
+            WhatsApp Ibkane IA (70 775 37 76)
+          </span>
+        </a>
+      )}
 
       {/* Modals globaux */}
       <SettingsModal
@@ -7178,6 +7280,13 @@ export default function App() {
       <InstallAppModal
         isOpen={isInstallModalOpen}
         onClose={() => setIsInstallModalOpen(false)}
+        onOpenShare={() => setIsShareModalOpen(true)}
+      />
+
+      <ShareModal
+        isOpen={isShareModalOpen}
+        onClose={() => setIsShareModalOpen(false)}
+        onShowToast={showToast}
       />
 
       {/* Notification Toast */}
