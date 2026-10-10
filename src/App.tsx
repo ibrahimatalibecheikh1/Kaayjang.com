@@ -1849,7 +1849,7 @@ export default function App() {
   });
 
   // ÉCRAN 1 : ACCUEIL PLEIN ÉCRAN AVEC EMOJIS FLOTTANTS (STYLE ÉCOLE ET CAHIER)
-  // ET UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" AVEC BOUTONS RAPIDES
+  // ET LE GROUPE DE MOTS "Bienvenue dans Kaay jang" AVEC ACCÈS IMMÉDIAT À UN DOIGT
   const renderWelcome = () => {
     const handleEnterApp = () => {
       if (savedClass) {
@@ -1862,13 +1862,15 @@ export default function App() {
     return (
       <div
         onClick={handleEnterApp}
+        onTouchEnd={handleEnterApp}
+        onTouchMove={handleEnterApp}
         onWheel={handleEnterApp}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') handleEnterApp();
         }}
-        className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-between bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-y-auto cursor-pointer p-4 sm:p-6 outline-none"
+        className="fixed inset-0 z-50 w-screen h-screen flex flex-col items-center justify-between bg-gradient-to-br from-blue-950 via-indigo-950 to-slate-950 text-white select-none overflow-y-auto cursor-pointer p-4 sm:p-6 outline-none touch-pan-y"
       >
         {/* Cercles diffus d'ambiance lumineuse */}
         <div className="absolute w-[500px] h-[500px] rounded-full bg-blue-600/20 blur-3xl -top-24 -left-24 pointer-events-none" />
@@ -1893,16 +1895,16 @@ export default function App() {
         {/* Barre du haut discrète sur l'accueil : Télécharger l'App avec son icône, WhatsApp Ibkane IA & Partage */}
         <div className="relative z-20 w-full max-w-5xl flex items-center justify-between pt-1">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl overflow-hidden shadow-md shrink-0">
+            <div className="w-8 h-8 rounded-xl overflow-hidden shadow-md shrink-0 border border-white/20">
               <AppIcon className="w-full h-full" />
             </div>
             <span className="font-black text-sm tracking-tight text-white/90">Kaay Jang</span>
           </div>
 
-          <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+          <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()} onTouchEnd={(e) => e.stopPropagation()}>
             <button
               onClick={() => setIsInstallModalOpen(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-bold text-xs transition border border-white/20 shadow-xs cursor-pointer active:scale-95"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/15 hover:bg-white/25 active:bg-white/30 backdrop-blur-md text-white font-bold text-xs transition border border-white/20 shadow-xs cursor-pointer active:scale-95"
               title="Télécharger l'application native Kaay Jang"
             >
               <AppIcon className="w-4 h-4 rounded-xs shrink-0" />
@@ -1913,7 +1915,7 @@ export default function App() {
               href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20je%20vous%20contacte%20depuis%20l%27application%20Kaay%20Jang"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs transition shadow-xs cursor-pointer active:scale-95"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-bold text-xs transition shadow-xs cursor-pointer active:scale-95"
               title="Discussion directe avec Ibkane IA sur WhatsApp (70 775 37 76)"
             >
               <MessageCircle className="w-3.5 h-3.5 fill-white shrink-0" />
@@ -1923,7 +1925,7 @@ export default function App() {
 
             <button
               onClick={() => setIsShareModalOpen(true)}
-              className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition border border-white/10 cursor-pointer active:scale-95"
+              className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/30 text-white font-bold text-xs transition border border-white/10 cursor-pointer active:scale-95"
               title="Lien de partage"
             >
               <Share2 className="w-4 h-4" />
@@ -1931,14 +1933,23 @@ export default function App() {
           </div>
         </div>
 
-        {/* CONTENU CENTRAL : UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" */}
-        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto my-auto">
+        {/* CONTENU CENTRAL : UNIQUEMENT LE GROUPE DE MOTS "Bienvenue dans Kaay jang" + BOUTON D'ACCÈS CLAIR */}
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto my-auto py-8">
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-tight welcome-title-glow text-white drop-shadow-2xl">
             Bienvenue dans Kaay jang
           </h1>
-          <div className="mt-8 flex flex-col items-center gap-2 text-blue-200/90 text-xs sm:text-sm font-semibold animate-pulse">
-            <span className="bg-white/10 px-4 py-2 rounded-full border border-white/20 backdrop-blur-xs">
-              Touchez l'écran ou faites défiler pour continuer →
+
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <button
+              onClick={handleEnterApp}
+              onTouchEnd={handleEnterApp}
+              className="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 active:scale-95 text-white font-black text-sm sm:text-base shadow-2xl border border-white/25 flex items-center gap-2 cursor-pointer transition animate-bounce"
+            >
+              <span>Accéder aux cours et classes</span>
+              <ChevronRight className="w-5 h-5 stroke-[3]" />
+            </button>
+            <span className="text-blue-200/90 text-xs sm:text-sm font-semibold">
+              Touchez avec un doigt ou faites défiler pour continuer →
             </span>
           </div>
         </div>

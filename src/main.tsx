@@ -3,14 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-// 1. DÉSACTIVATION STRICTE DE LA SÉLECTION ET COPIE DE TEXTE SUR L'INTERFACE
-document.addEventListener('selectstart', (e: Event) => {
-  const target = e.target as HTMLElement | null;
-  if (!target || (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA')) {
-    e.preventDefault();
-  }
-});
-
+// 1. DÉSACTIVATION DE LA COPIE DE TEXTE SUR L'INTERFACE (sans bloquer le défilement tactile à un doigt)
 document.addEventListener('copy', (e: ClipboardEvent) => {
   const target = e.target as HTMLElement | null;
   if (!target || (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA')) {
@@ -25,7 +18,7 @@ document.addEventListener('cut', (e: ClipboardEvent) => {
   }
 });
 
-// Désactiver le menu contextuel clic-droit et appui long sur l'interface (évite le popup "Copier / Partager" du système)
+// Désactiver le menu contextuel clic-droit sur l'interface (évite le popup "Copier")
 document.addEventListener('contextmenu', (e: MouseEvent) => {
   const target = e.target as HTMLElement | null;
   if (!target || (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA')) {
@@ -33,7 +26,7 @@ document.addEventListener('contextmenu', (e: MouseEvent) => {
   }
 });
 
-// Désactiver le glisser-déposer d'images ou d'éléments d'interface
+// Désactiver le glisser-déposer d'images
 document.addEventListener('dragstart', (e: DragEvent) => {
   const target = e.target as HTMLElement | null;
   if (!target || (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA')) {
@@ -41,8 +34,8 @@ document.addEventListener('dragstart', (e: DragEvent) => {
   }
 });
 
-// 2. DÉSACTIVATION STRICTE DU ZOOM DES ÉCRANS D'INTERFACE
-// A. Zoom gestuel Safari iOS (pinch-to-zoom)
+// 2. DÉSACTIVATION DU ZOOM SANS AUCUN BLOCAGE DU TOUCHER OU DÉFILEMENT À UN DOIGT
+// A. Désactiver le zoom gestuel Safari
 document.addEventListener('gesturestart', (e: Event) => {
   e.preventDefault();
 });
@@ -53,35 +46,7 @@ document.addEventListener('gestureend', (e: Event) => {
   e.preventDefault();
 });
 
-// B. Zoom multipoint tactile (pinch zoom sur Android / Chrome / iOS)
-document.addEventListener(
-  'touchmove',
-  (e: TouchEvent) => {
-    if (e.touches.length > 1) {
-      e.preventDefault();
-    }
-  },
-  { passive: false }
-);
-
-// C. Zoom par double-tap rapide sur mobile
-let lastTouchEnd = 0;
-document.addEventListener(
-  'touchend',
-  (e: TouchEvent) => {
-    const now = Date.now();
-    if (now - lastTouchEnd <= 300) {
-      const target = e.target as HTMLElement | null;
-      if (!target || (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA')) {
-        e.preventDefault();
-      }
-    }
-    lastTouchEnd = now;
-  },
-  { passive: false }
-);
-
-// D. Zoom au clavier ou avec molette de souris (Ctrl + Molette ou Ctrl + +/-/0)
+// B. Zoom au clavier / molette desktop (Ctrl + Molette ou Ctrl + +/-/0)
 window.addEventListener(
   'wheel',
   (e: WheelEvent) => {

@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
-/* 1. DÉSACTIVATION GLOBALE STRICTE DE LA SÉLECTION ET COPIE DE TEXTE SUR L'INTERFACE */
+/* 1. DÉSACTIVATION DE LA SÉLECTION ET COPIE DE TEXTE SUR L'INTERFACE */
 *, *::before, *::after {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
-  -ms-user-select: none !important;
-  user-select: none !important;
-  -webkit-touch-callout: none !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 
-/* Autoriser uniquement la sélection et la saisie normale dans les formulaires et champs de recherche */
+/* Autoriser uniquement la saisie dans les champs de texte et de recherche */
 input, textarea {
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
@@ -18,20 +18,17 @@ input, textarea {
   -webkit-touch-callout: default !important;
 }
 
-/* Désactiver le glissement (drag) des images et icônes svg */
+/* Désactiver le glissement (drag) des images et icônes */
 img, svg {
-  -webkit-user-drag: none !important;
-  user-drag: none !important;
+  -webkit-user-drag: none;
+  user-drag: none;
   pointer-events: auto;
 }
 
-/* 2. DÉSACTIVATION STRICTE DU ZOOM ET DÉFILEMENT FLUIDE */
+/* 2. DÉFILEMENT FLUIDE ET NATUREL À UN DOIGT (MOBILE & DESKTOP) */
 html {
   min-height: 100%;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  touch-action: pan-x pan-y;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -41,14 +38,12 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
   background-color: #F8FAFC;
   color: #0F172A;
-  touch-action: pan-x pan-y;
-  -webkit-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  overscroll-behavior-y: contain;
+  touch-action: pan-y;
 }
 
 #root {
