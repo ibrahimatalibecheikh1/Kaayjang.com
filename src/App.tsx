@@ -27,7 +27,10 @@ import {
   PhoneCall,
   Smartphone,
   MessageCircle,
-  Globe
+  Globe,
+  Award,
+  Filter,
+  Check
 } from 'lucide-react';
 import { PWAInstallButton } from './PWAInstallButton';
 import { OfflineIndicator } from './OfflineIndicator';
@@ -286,6 +289,9 @@ export default function App() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [lyceeSeriesFilter, setLyceeSeriesFilter] = useState<'all' | 'sciences' | 'lettres'>('all');
+  const [lyceeLevelFilter, setLyceeLevelFilter] = useState<'all' | '2nde' | '1ere' | 'tle'>('all');
+  const [classSearchQuery, setClassSearchQuery] = useState('');
   const [currentLanguage, setCurrentLanguage] = useState<string>(() => {
     try {
       return localStorage.getItem('kaay_jang_language') || 'fr';
@@ -1945,486 +1951,1029 @@ export default function App() {
     );
   };
 
-  // PAGE APRÈS L'ÉCRAN D'ACCUEIL : CHOIX DU CYCLE PUIS CLASSE AVEC SAUVEGARDE ET NUMÉROS D'AIDE
-  const renderChooseClass = () => (
-    <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-4">
-      {/* Bouton de retour en haut */}
-      <div className="mb-4">
-        <button
-          onClick={() => setScreen('welcome')}
-          className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-800 font-bold text-xs sm:text-sm border border-gray-200 hover:border-blue-200 transition shadow-2xs cursor-pointer group"
-          title="Retour à l'écran d'accueil"
-        >
-          <ArrowLeft className="w-4 h-4 text-blue-600 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
-          <span>← Retour à l'écran d'accueil</span>
-        </button>
-      </div>
+  // PAGE APRÈS L'ÉCRAN D'ACCUEIL : CHOIX DU CYCLE ET DE LA CLASSE (EXPÉRIENCE NATIVE ULTRA-FLUIDE)
+  const renderChooseClass = () => {
+    // Liste des classes pour la recherche globale
+    const allClassesList = [
+      { category: 'Collège' as Category, name: '6ème', series: null, title: 'Classe de 6ème', cycle: 'Collège', badge: "Cycle d'adaptation", tags: ['Maths', 'SVT', 'Français', 'Anglais', 'Histoire-Géo', '11 matières'], desc: 'Découverte du collège, méthodes de travail et consolidation des matières fondamentales.' },
+      { category: 'Collège' as Category, name: '5ème', series: null, title: 'Classe de 5ème', cycle: 'Collège', badge: 'Cycle central', tags: ['SVT (18 leçons complètes)', 'Maths', 'Français', 'Anglais', '11 matières'], desc: 'Approfondissement des sciences naturelles, du vivant et mathématiques fondamentales.' },
+      { category: 'Collège' as Category, name: '4ème', series: null, title: 'Classe de 4ème', cycle: 'Collège', badge: 'Sciences & Langues', tags: ['Physique-Chimie', 'SVT Géologie', 'Anglais (30 leçons)', 'Maths'], desc: 'Introduction officielle de la Physique-Chimie et renforcement linguistique.' },
+      { category: 'Collège' as Category, name: '3ème', series: null, title: 'Classe de 3ème', cycle: 'Collège', badge: '🏆 Examen du BFEM', isExam: true, tags: ['Diplôme du Brevet (BFEM)', 'Annales & Fiches', 'Toutes matières'], desc: 'Année charnière d’examen national ! Préparation complète au Brevet de fin d’études moyennes.' },
+      { category: 'Lycée' as Category, name: 'Seconde', series: 'S' as Series, title: '2nde S (Scientifique)', cycle: 'Lycée', badge: 'Tronc commun S', tags: ['Mathématiques', 'Physique-Chimie', 'SVT', 'Français', 'Anglais'], desc: 'Bases solides en sciences exactes et expérimentales pour orienter vers 1ère S1 ou S2.' },
+      { category: 'Lycée' as Category, name: 'Seconde', series: 'L' as Series, title: '2nde L (Littéraire)', cycle: 'Lycée', badge: 'Tronc commun L', tags: ['Français renforcé', 'Histoire-Géo', 'Anglais', 'Maths L', 'SVT L'], desc: 'Excellence en expression écrite, analyse littéraire, langues vivantes et sciences humaines.' },
+      { category: 'Lycée' as Category, name: 'Première', series: 'S2' as Series, title: '1ère S2 (Sciences Expérimentales)', cycle: 'Lycée', badge: 'Sciences Biologiques & PC', tags: ['SVT (28 leçons complètes)', 'Physique-Chimie', 'Mathématiques'], desc: 'Programme intégral SVT (Biologie & Géologie sénégalaise), Physique-Chimie et Maths.' },
+      { category: 'Lycée' as Category, name: 'Première', series: 'S1' as Series, title: '1ère S1 (Sciences Exactes)', cycle: 'Lycée', badge: 'Maths & Physique avancées', tags: ['Mathématiques approfondies', 'Sciences Physiques', 'SVT'], desc: 'Haut niveau d’abstraction mathématique et mécanique physique rigoureuse.' },
+      { category: 'Lycée' as Category, name: 'Première', series: 'L1' as Series, title: '1ère L1 (Langues & Littérature)', cycle: 'Lycée', badge: 'Lettres & Langues', tags: ['Français approfondi', 'Littérature', 'Langues vivantes', 'Philosophie'], desc: 'Culture classique, critique littéraire et renforcement des compétences polyglottes.' },
+      { category: 'Lycée' as Category, name: 'Première', series: 'L2' as Series, title: '1ère L2 (Sciences Humaines)', cycle: 'Lycée', badge: 'Sciences Sociales & Histoire', tags: ['Histoire-Géographie', 'Sciences Humaines', 'Philosophie', 'Lettres'], desc: 'Étude approfondie des dynamiques historiques, spatiales, sociologiques et littéraires.' },
+      { category: 'Lycée' as Category, name: 'Terminale', series: 'S' as Series, title: 'Terminale S (Baccalauréat Scientifique)', cycle: 'Lycée', badge: '🎓 Examen du Bac S (S1/S2)', isExam: true, tags: ['Baccalauréat Scientifique', 'Maths S', 'PC', 'SVT S', 'Philo'], desc: 'Objectif Bac S : Maîtrise des programmes officiels complets avec sujets et corrigés.' },
+      { category: 'Lycée' as Category, name: 'Terminale', series: 'L' as Series, title: 'Terminale L (Baccalauréat Littéraire)', cycle: 'Lycée', badge: '🎓 Examen du Bac L (L1/L2)', isExam: true, tags: ['Baccalauréat Littéraire', 'Philosophie', 'Littérature', 'Histoire-Géo'], desc: 'Objectif Bac L : Dissertation philosophique, commentaire littéraire et grand oral.' }
+    ];
 
-      <div className="mb-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">
-          Bienvenue, choisis ton cycle scolaire, puis votre classe
-        </h2>
-        <p className="text-sm sm:text-base font-bold text-blue-700 mt-2">
-          Après les choix, accédez à vos cours.
-        </p>
+    const isSearching = classSearchQuery.trim().length > 0;
+    const searchNormalized = classSearchQuery.toLowerCase().trim();
+    const searchFilteredClasses = allClassesList.filter(c => 
+      c.title.toLowerCase().includes(searchNormalized) ||
+      c.name.toLowerCase().includes(searchNormalized) ||
+      (c.series && c.series.toLowerCase().includes(searchNormalized)) ||
+      c.cycle.toLowerCase().includes(searchNormalized) ||
+      c.badge.toLowerCase().includes(searchNormalized) ||
+      c.tags.some(t => t.toLowerCase().includes(searchNormalized))
+    );
 
-        {/* Accès direct si une classe est déjà enregistrée */}
-        {savedClass && (
-          <div className="mt-4 p-4 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md flex items-center justify-between flex-wrap gap-3">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-blue-200 block">
-                Votre classe actuelle enregistrée
-              </span>
-              <span className="text-lg sm:text-xl font-black">
-                {savedClass.category} — Classe de {savedClass.className} {savedClass.series ? `(Série ${savedClass.series})` : ''}
-              </span>
-            </div>
-            <button
-              onClick={() => {
-                const available = getSubjectsForClass(savedClass.category, savedClass.className);
-                if (!available.some(s => s.name === selectedSubject)) {
-                  setSelectedSubject(available[0]?.name || 'SVT');
-                }
-                setScreen('subject');
-              }}
-              className="px-5 py-2.5 rounded-xl bg-white text-blue-900 font-extrabold text-sm hover:bg-blue-50 transition shadow-sm flex items-center gap-2 cursor-pointer"
-            >
-              <span>Accéder directement à mes cours</span>
-              <ChevronRight className="w-4 h-4 text-blue-700" />
-            </button>
-          </div>
-        )}
-
-        {/* Numéro d'aide unique : 70 775 37 76 avec Ibkane IA */}
-        <div className="mt-4 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-blue-50 border border-emerald-200/90 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-              <PhoneCall className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="text-xs font-black text-emerald-950 uppercase tracking-wide block">
-                Numéro d'aide &amp; Assistance avec Ibkane IA
-              </span>
-              <span className="text-xs text-emerald-800">
-                Contact direct pour vos cours ou l'application sur WhatsApp :
-              </span>
-            </div>
+    return (
+      <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-3 sm:py-5">
+        {/* 1. Grand Bandeau d'en-tête immersif officiel du Sénégal */}
+        <div className="relative mb-6 rounded-3xl bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white p-5 sm:p-7 shadow-xl overflow-hidden border border-blue-900/60">
+          {/* Ruban tricolore officiel du Sénégal (Vert, Jaune, Rouge) */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 flex">
+            <div className="flex-1 bg-emerald-500" />
+            <div className="flex-1 bg-amber-400" />
+            <div className="flex-1 bg-rose-500" />
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-xl border border-emerald-200 shadow-2xs">
-              <span className="text-sm font-black text-gray-900">70 775 37 76</span>
+          {/* Halos lumineux d'ambiance */}
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-blue-500/15 blur-3xl pointer-events-none" />
+          <div className="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-indigo-500/10 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-5">
+            <div className="space-y-2 max-w-2xl text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-blue-200 text-xs font-bold border border-white/15">
+                <span className="text-emerald-400">🇸🇳 Sénégal</span>
+                <span>•</span>
+                <span className="text-white font-extrabold">Programme Scolaire Officiel</span>
+                <span>•</span>
+                <span className="text-amber-300">Collège &amp; Lycée</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                Choisissez votre cycle &amp; votre classe
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed">
+                Accédez instantanément à tous les cours officiels, résumés de leçons, fiches méthodologiques et sujets d'examens (<strong>BFEM</strong> &amp; <strong>Baccalauréat</strong>) conformes aux exigences du Ministère de l'Éducation Nationale.
+              </p>
+            </div>
+
+            {/* Raccourcis d'actions rapides intégrés dans le bandeau */}
+            <div className="flex flex-wrap md:flex-col gap-2 shrink-0">
               <a
-                href="tel:+221707753776"
-                className="p-1 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold transition flex items-center gap-1 px-2.5"
-                title="Appeler le 70 775 37 76"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                <span>Appel</span>
-              </a>
-              <a
-                href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA,%20j'ai%20besoin%20d'aide%20sur%20Kaay%20Jang"
+                href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20j%27ai%20besoin%20d%27aide%20sur%20l%27application%20Kaay%20Jang"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-1 rounded-lg bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold transition flex items-center gap-1.5 px-3"
-                title="Discussion WhatsApp directe avec Ibkane IA (70 775 37 76)"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-extrabold text-xs transition shadow-sm cursor-pointer active:scale-95"
+                title="Discuter directement avec Ibkane IA sur WhatsApp (70 775 37 76)"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-600 fill-emerald-600" />
-                <span>WhatsApp Ibkane IA</span>
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                <span>WhatsApp Ibkane IA (70 775 37 76)</span>
               </a>
-            </div>
-          </div>
-        </div>
 
-        {/* Bannière Télécharger l'application & Lien de partage */}
-        <div className="mt-3 p-3.5 rounded-2xl bg-white border border-gray-200 shadow-xs flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl overflow-hidden shadow-xs shrink-0">
-              <AppIcon className="w-full h-full" />
-            </div>
-            <div className="text-left">
-              <span className="text-xs font-black text-gray-900 block">
-                Installer Kaay Jang comme une vraie application
-              </span>
-              <span className="text-[11px] text-gray-500">
-                Ajoutez l'icône sur votre écran d'accueil &amp; accédez hors-ligne
-              </span>
-            </div>
-          </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsInstallModalOpen(true)}
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-white/15 hover:bg-white/25 active:bg-white/30 backdrop-blur-md text-white font-bold text-xs transition border border-white/20 shadow-xs cursor-pointer active:scale-95"
+                  title="Télécharger l'application native Kaay Jang"
+                >
+                  <AppIcon className="w-4 h-4 rounded-xs shrink-0" />
+                  <span>Télécharger l'App</span>
+                </button>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsInstallModalOpen(true)}
-              className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-xs font-extrabold shadow-xs transition flex items-center gap-1.5 cursor-pointer active:scale-95"
-            >
-              <AppIcon className="w-4 h-4 rounded-xs shrink-0" />
-              <span>Télécharger l'App</span>
-            </button>
-
-            <button
-              onClick={() => setIsShareModalOpen(true)}
-              className="px-3 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-200 text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
-              title="Lien de partage officiel"
-            >
-              <Share2 className="w-3.5 h-3.5 text-blue-600" />
-              <span>Partager</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 1. CHOIX DU CYCLE */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 mb-3">
-          <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-            1
-          </span>
-          <h3 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">
-            Étape 1 : Choisissez votre cycle d'études
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-          <div
-            onClick={() => {
-              setSelectedCategory('Collège');
-              setSelectedSeries(null);
-            }}
-            className={`cursor-pointer p-5 rounded-2xl border-2 transition-all text-left relative ${
-              selectedCategory === 'Collège'
-                ? 'bg-blue-50/70 border-blue-600 shadow-md ring-2 ring-blue-600/20'
-                : 'bg-white border-gray-200 hover:border-gray-300 shadow-xs'
-            }`}
-          >
-            <div className="flex items-start justify-between">
-              <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
-                  selectedCategory === 'Collège' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'
-                }`}
-              >
-                <School className="w-6 h-6" />
+                <button
+                  onClick={() => setIsShareModalOpen(true)}
+                  className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-white/10 hover:bg-white/20 active:bg-white/25 text-white font-bold text-xs transition border border-white/15 cursor-pointer active:scale-95"
+                  title="Partager l'application"
+                >
+                  <Share2 className="w-4 h-4" />
+                  <span>Partager</span>
+                </button>
               </div>
-              {selectedCategory === 'Collège' && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-600 text-white">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Sélectionné
-                </span>
-              )}
             </div>
-            <h4 className="text-lg sm:text-xl font-black text-gray-900">
-              Collège
-            </h4>
-            <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-              Enseignement Moyen : de la <strong>6ème</strong> à la <strong>3ème</strong> (Préparation du Brevet - BFEM).
-            </p>
           </div>
 
-          <div
-            onClick={() => {
-              setSelectedCategory('Lycée');
-            }}
-            className={`cursor-pointer p-5 rounded-2xl border-2 transition-all text-left relative ${
-              selectedCategory === 'Lycée'
-                ? 'bg-blue-50/70 border-blue-600 shadow-md ring-2 ring-blue-600/20'
-                : 'bg-white border-gray-200 hover:border-gray-300 shadow-xs'
-            }`}
-          >
-            <div className="flex items-start justify-between">
-              <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
-                  selectedCategory === 'Lycée' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-600'
-                }`}
-              >
-                <GraduationCap className="w-6 h-6" />
+          {/* Carte classe mémorisée avec accès rapide si existante */}
+          {savedClass && (
+            <div className="mt-5 pt-4 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white/5 -mx-5 -mb-5 sm:-mx-7 sm:-mb-7 p-4 sm:p-5 rounded-b-3xl">
+              <div className="flex items-center gap-3 text-left">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold text-emerald-300 uppercase tracking-wider block">
+                    Votre classe mémorisée
+                  </span>
+                  <span className="text-base sm:text-lg font-black text-white">
+                    {savedClass.category} — Classe de {savedClass.className} {savedClass.series ? `(Série ${savedClass.series})` : ''}
+                  </span>
+                </div>
               </div>
-              {selectedCategory === 'Lycée' && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-600 text-white">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Sélectionné
-                </span>
-              )}
+
+              <button
+                onClick={() => {
+                  const available = getSubjectsForClass(savedClass.category, savedClass.className);
+                  if (!available.some(s => s.name === selectedSubject)) {
+                    setSelectedSubject(available[0]?.name || 'SVT');
+                  }
+                  setScreen('subject');
+                }}
+                className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm transition shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-95 shrink-0"
+              >
+                <span>Reprendre mes cours en {savedClass.className}</span>
+                <ChevronRight className="w-4 h-4 stroke-[3]" />
+              </button>
             </div>
-            <h4 className="text-lg sm:text-xl font-black text-gray-900">
-              Lycée
-            </h4>
-            <p className="text-xs sm:text-sm text-gray-600 mt-1 leading-relaxed">
-              Enseignement Secondaire : <strong>Seconde</strong>, <strong>Première</strong> et <strong>Terminale</strong> (Séries L & S, Préparation du Baccalauréat).
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. CHOIX DE LA CLASSE */}
-      <div className="pt-4 border-t border-gray-200">
-        <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-          <div className="flex items-center gap-2">
-            <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
-              2
-            </span>
-            <h3 className="text-sm sm:text-base font-bold text-gray-800 uppercase tracking-wide">
-              Étape 2 : Cliquez sur votre classe en {selectedCategory}
-            </h3>
-          </div>
+          )}
         </div>
 
-        {/* Grille des classes */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-          {(DATA.classes[selectedCategory] || DATA.classes['Collège']).map(c => {
-            if (c.hasSeries) {
-              if (c.name === 'Première') {
-                return (
-                  <React.Fragment key={c.name}>
-                    {/* Première S2 */}
-                    <button
-                      onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'S2')}
-                      className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                        savedClass?.className === 'Première' && (savedClass?.series === 'S2' || savedClass?.series === 'S') && savedClass?.category === 'Lycée'
-                          ? 'bg-emerald-50/80 border-emerald-500 shadow-sm ring-2 ring-emerald-400/30'
-                          : 'bg-white border-gray-200 hover:border-emerald-400 hover:shadow-md'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-800">
-                          Série S2 (Sc. Exp.)
-                        </span>
-                        {savedClass?.className === 'Première' && (savedClass?.series === 'S2' || savedClass?.series === 'S') && savedClass?.category === 'Lycée' ? (
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                          </span>
-                        ) : (
-                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
-                        )}
-                      </div>
-                      <h4 className="text-lg font-black text-gray-900 group-hover:text-emerald-600">
-                        1ère S2
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-1">Sciences Expérimentales (28 leçons SVT complètes, PC & Maths)</p>
-                    </button>
+        {/* 2. RECHERCHE RAPIDE DIRECTE DE CLASSE */}
+        <div className="mb-6 bg-white p-3 sm:p-4 rounded-2xl border border-gray-200 shadow-xs">
+          <div className="relative">
+            <Search className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={classSearchQuery}
+              onChange={(e) => setClassSearchQuery(e.target.value)}
+              placeholder="Rechercher rapidement une classe (ex: 3ème, Terminale S, 1ère S2, 6ème, 2nde L...)"
+              className="w-full pl-10 sm:pl-11 pr-10 py-2.5 text-xs sm:text-sm rounded-xl border border-gray-200 bg-gray-50/50 focus:bg-white focus:outline-none focus:border-blue-600 transition"
+            />
+            {classSearchQuery && (
+              <button
+                onClick={() => setClassSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 text-xs font-bold px-1.5 py-0.5 rounded-md bg-gray-100"
+              >
+                ✕
+              </button>
+            )}
+          </div>
+        </div>
 
-                    {/* Première S1 */}
+        {/* 3. VUE RECHERCHE FILTRÉE (SI L'UTILISATEUR SAISIT UN TEXTE DE RECHERCHE) */}
+        {isSearching ? (
+          <div className="mb-8">
+            <div className="flex items-center justify-between mb-3 text-left">
+              <h3 className="text-sm font-extrabold text-gray-900 uppercase tracking-wide">
+                Résultats pour "{classSearchQuery}" ({searchFilteredClasses.length} classe{searchFilteredClasses.length > 1 ? 's' : ''})
+              </h3>
+              <button
+                onClick={() => setClassSearchQuery('')}
+                className="text-xs text-blue-600 font-bold hover:underline"
+              >
+                Effacer la recherche
+              </button>
+            </div>
+
+            {searchFilteredClasses.length === 0 ? (
+              <div className="p-8 text-center bg-white rounded-2xl border border-dashed border-gray-300">
+                <p className="text-sm font-bold text-gray-600">
+                  Aucune classe ne correspond à "{classSearchQuery}".
+                </p>
+                <p className="text-xs text-gray-400 mt-1">
+                  Essayez de chercher par exemple : <strong>6ème</strong>, <strong>3ème</strong>, <strong>2nde S</strong>, <strong>1ère S2</strong> ou <strong>Terminale S</strong>.
+                </p>
+                <button
+                  onClick={() => setClassSearchQuery('')}
+                  className="mt-3 px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold"
+                >
+                  Voir tous les cycles
+                </button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                {searchFilteredClasses.map((item) => {
+                  const isSaved = savedClass?.className === item.name && savedClass?.category === item.category && (item.series === null || savedClass?.series === item.series);
+                  return (
                     <button
-                      onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'S1')}
-                      className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                        savedClass?.className === 'Première' && savedClass?.series === 'S1' && savedClass?.category === 'Lycée'
-                          ? 'bg-blue-50/80 border-blue-500 shadow-sm ring-2 ring-blue-400/30'
+                      key={`${item.category}-${item.name}-${item.series || 'none'}`}
+                      onClick={() => handleSaveAndSelectClass(item.category, item.name, item.series)}
+                      className={`p-4 sm:p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                        isSaved
+                          ? 'bg-blue-50/90 border-blue-600 shadow-md ring-4 ring-blue-500/15'
                           : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-800">
-                          Série S1 (Exactes)
-                        </span>
-                        {savedClass?.className === 'Première' && savedClass?.series === 'S1' && savedClass?.category === 'Lycée' ? (
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <span className={`text-[11px] font-black px-2.5 py-0.5 rounded-full ${
+                            item.isExam
+                              ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                              : 'bg-blue-100 text-blue-800'
+                          }`}>
+                            {item.badge}
                           </span>
-                        ) : (
-                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                        )}
+                          {isSaved && (
+                            <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                              <CheckCircle2 className="w-3 h-3" /> Active
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-gray-500 mt-1 leading-relaxed">
+                          {item.desc}
+                        </p>
+                        <div className="mt-3 flex flex-wrap gap-1">
+                          {item.tags.slice(0, 3).map((tag) => (
+                            <span key={tag} className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-gray-100 text-gray-600">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
                       </div>
-                      <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600">
-                        1ère S1
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-1">Sciences Mathématiques & Physiques (8 leçons SVT approfondies)</p>
-                    </button>
 
-                    {/* Première L1 */}
-                    <button
-                      onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'L1')}
-                      className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                        savedClass?.className === 'Première' && (savedClass?.series === 'L1' || savedClass?.series === 'L') && savedClass?.category === 'Lycée'
-                          ? 'bg-amber-50/80 border-amber-500 shadow-sm ring-2 ring-amber-400/30'
-                          : 'bg-white border-gray-200 hover:border-amber-400 hover:shadow-md'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
-                          Série L1 (Lettres)
+                      <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-black text-blue-600">
+                        <span>{item.cycle}</span>
+                        <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                          <span>Accéder aux cours</span>
+                          <ChevronRight className="w-4 h-4 stroke-[3]" />
                         </span>
-                        {savedClass?.className === 'Première' && (savedClass?.series === 'L1' || savedClass?.series === 'L') && savedClass?.category === 'Lycée' ? (
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                          </span>
-                        ) : (
-                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all" />
-                        )}
                       </div>
-                      <h4 className="text-lg font-black text-gray-900 group-hover:text-amber-600">
-                        1ère L1
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-1">Langues & Littérature (6 leçons SVT santé & écologie)</p>
                     </button>
-
-                    {/* Première L2 */}
-                    <button
-                      onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'L2')}
-                      className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                        savedClass?.className === 'Première' && savedClass?.series === 'L2' && savedClass?.category === 'Lycée'
-                          ? 'bg-purple-50/80 border-purple-500 shadow-sm ring-2 ring-purple-400/30'
-                          : 'bg-white border-gray-200 hover:border-purple-400 hover:shadow-md'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-purple-100 text-purple-800">
-                          Série L2 (Sc. Humaines)
-                        </span>
-                        {savedClass?.className === 'Première' && savedClass?.series === 'L2' && savedClass?.category === 'Lycée' ? (
-                          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                            <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                          </span>
-                        ) : (
-                          <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-purple-600 group-hover:translate-x-1 transition-all" />
-                        )}
-                      </div>
-                      <h4 className="text-lg font-black text-gray-900 group-hover:text-purple-600">
-                        1ère L2
-                      </h4>
-                      <p className="text-xs text-gray-500 mt-1">Sciences Sociales (6 leçons SVT nutrition, immunologie & environnement)</p>
-                    </button>
-                  </React.Fragment>
-                );
-              }
-
-              return (
-                <React.Fragment key={c.name}>
-                  <button
-                    onClick={() => handleSaveAndSelectClass('Lycée', c.name, 'L')}
-                    className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                      savedClass?.className === c.name && savedClass?.series === 'L' && savedClass?.category === 'Lycée'
-                        ? 'bg-amber-50/70 border-amber-500 shadow-sm ring-2 ring-amber-400/30'
-                        : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-800">
-                        Série L
-                      </span>
-                      {savedClass?.className === c.name && savedClass?.series === 'L' && savedClass?.category === 'Lycée' ? (
-                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                        </span>
-                      ) : (
-                        <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                      )}
-                    </div>
-                    <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600">
-                      {c.name} L
-                    </h4>
-                    <p className="text-xs text-gray-500 mt-1">Série Littéraire (Langues, Lettres, Philo)</p>
-                  </button>
-
-                  <button
-                    onClick={() => handleSaveAndSelectClass('Lycée', c.name, 'S')}
-                    className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                      savedClass?.className === c.name && savedClass?.series === 'S' && savedClass?.category === 'Lycée'
-                        ? 'bg-blue-50/70 border-blue-500 shadow-sm ring-2 ring-blue-400/30'
-                        : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-800">
-                        Série S
-                      </span>
-                      {savedClass?.className === c.name && savedClass?.series === 'S' && savedClass?.category === 'Lycée' ? (
-                        <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                        </span>
-                      ) : (
-                        <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
-                      )}
-                    </div>
-                    <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600">
-                      {c.name} S
-                    </h4>
-                    <p className="text-xs text-gray-500 mt-1">Série Scientifique (Maths, PC, SVT)</p>
-                  </button>
-                </React.Fragment>
-              );
-            }
-
-            // Pour le Collège
-            const isSaved = savedClass?.className === c.name && savedClass?.category === 'Collège';
-            return (
-              <button
-                key={c.name}
-                onClick={() => handleSaveAndSelectClass('Collège', c.name, null)}
-                className={`p-5 rounded-2xl border transition-all text-left group relative ${
-                  isSaved
-                    ? 'bg-blue-50/70 border-blue-500 shadow-sm ring-2 ring-blue-400/30'
-                    : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
-                }`}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700">
-                    Collège
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        ) : (
+          <>
+            {/* 4. SÉLECTEUR DE CYCLE PRINCIPAL : ONGLETS SEGMENTÉS MODERNES & VISUELS */}
+            <div className="mb-6">
+              <div className="flex items-center justify-between mb-3 text-left">
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                    1
                   </span>
-                  {isSaved ? (
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                      <CheckCircle2 className="w-3 h-3" /> Enregistrée
-                    </span>
-                  ) : (
-                    <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                  <h3 className="text-sm sm:text-base font-extrabold text-gray-900 uppercase tracking-wide">
+                    Étape 1 : Sélectionnez votre cycle d'études
+                  </h3>
+                </div>
+                <span className="text-xs font-semibold text-gray-500 hidden sm:inline">
+                  Cliquez sur un cycle pour basculer
+                </span>
+              </div>
+
+              {/* Barre d'onglets segmentés de haute précision */}
+              <div className="grid grid-cols-2 p-1.5 rounded-2xl bg-gray-200/80 border border-gray-300/70 mb-4 gap-1.5">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory('Collège');
+                    setSelectedSeries(null);
+                  }}
+                  className={`py-3 px-3 sm:px-5 rounded-xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    selectedCategory === 'Collège'
+                      ? 'bg-blue-600 text-white shadow-md shadow-blue-600/25 ring-2 ring-blue-600'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-white/60'
+                  }`}
+                >
+                  <School className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                  <span>Cycle Moyen (Collège)</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold hidden md:inline ${
+                    selectedCategory === 'Collège' ? 'bg-white/20 text-white' : 'bg-gray-300 text-gray-700'
+                  }`}>
+                    6e à 3e • BFEM
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedCategory('Lycée');
+                  }}
+                  className={`py-3 px-3 sm:px-5 rounded-xl font-black text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                    selectedCategory === 'Lycée'
+                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/25 ring-2 ring-indigo-600'
+                      : 'text-gray-700 hover:text-gray-900 hover:bg-white/60'
+                  }`}
+                >
+                  <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                  <span>Cycle Secondaire (Lycée)</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold hidden md:inline ${
+                    selectedCategory === 'Lycée' ? 'bg-white/20 text-white' : 'bg-gray-300 text-gray-700'
+                  }`}>
+                    2nde à Tle • Bac S &amp; L
+                  </span>
+                </button>
+              </div>
+
+              {/* Aperçu détaillé du cycle actuellement sélectionné */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                {/* Collège card preview */}
+                <div
+                  onClick={() => {
+                    setSelectedCategory('Collège');
+                    setSelectedSeries(null);
+                  }}
+                  className={`cursor-pointer p-4 sm:p-5 rounded-2xl border-2 transition-all text-left relative flex flex-col justify-between ${
+                    selectedCategory === 'Collège'
+                      ? 'bg-blue-50/90 border-blue-600 shadow-md ring-4 ring-blue-600/15'
+                      : 'bg-white border-gray-200 hover:border-blue-300 hover:shadow-xs opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-start justify-between mb-3">
+                      <div
+                        className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
+                          selectedCategory === 'Collège'
+                            ? 'bg-blue-600 text-white shadow-md shadow-blue-500/25'
+                            : 'bg-gray-100 text-gray-600'
+                        }`}
+                      >
+                        <School className="w-6 h-6" />
+                      </div>
+                      {selectedCategory === 'Collège' ? (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-blue-600 text-white shadow-xs">
+                          <CheckCircle2 className="w-3.5 h-3.5" /> Cycle Actif
+                        </span>
+                      ) : (
+                        <span className="text-xs font-bold text-gray-500">Cliquer pour activer</span>
+                      )}
+                    </div>
+                    <h4 className="text-xl font-black text-gray-900">
+                      Cycle Moyen (Collège)
+                    </h4>
+                    <p className="text-xs text-blue-700 font-bold mt-0.5">
+                      6ème, 5ème, 4ème &amp; 3ème • 4 classes officielles
+                    </p>
+                    <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                      Programme officiel complet préparant à l'examen d'État du <strong>Brevet de fin d'études moyennes (BFEM)</strong> avec les 11 matières fondamentales.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-gray-200/80 flex items-center justify-between text-xs font-black text-blue-600">
+                    <span>4 classes disponibles</span>
+                    <span>{selectedCategory === 'Collège' ? 'Classes affichées ci-dessous ↓' : 'Basculer vers Collège →'}</span>
+                  </div>
+                </div>
+
+                {/* Lycée card preview */}
+                <div
+                  onClick={() => {
+                    setSelectedCategory('Lycée');
+                  }}
+                  className={`cursor-pointer p-4 sm:p-5 rounded-2xl border-2 transition-all text-left relative flex flex-col justify-between ${
+                    selectedCategory === 'Lycée'
+                      ? 'bg-indigo-50/90 border-indigo-600 shadow-md ring-4 ring-indigo-600/15'
+                      : 'bg-white border-gray-200 hover:border-indigo-300 hover:shadow-xs opacity-75 hover:opacity-100'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-start justify-between mb-3">
+                      <div
+                        className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${
+                          selectedCategory === 'Lycée'
+                            ? 'bg-indigo-600 text-white shadow-md shadow-indigo-500/25'
+                            : 'bg-gray-100 text-gray-600'
+                        }`}
+                      >
+                        <GraduationCap className="w-6 h-6" />
+                      </div>
+                      {selectedCategory === 'Lycée' ? (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-indigo-600 text-white shadow-xs">
+                          <CheckCircle2 className="w-3.5 h-3.5" /> Cycle Actif
+                        </span>
+                      ) : (
+                        <span className="text-xs font-bold text-gray-500">Cliquer pour activer</span>
+                      )}
+                    </div>
+                    <h4 className="text-xl font-black text-gray-900">
+                      Cycle Secondaire (Lycée)
+                    </h4>
+                    <p className="text-xs text-indigo-700 font-bold mt-0.5">
+                      Seconde, Première &amp; Terminale • Séries S &amp; L
+                    </p>
+                    <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                      Spécialisations en <strong>Séries Scientifiques (S1, S2)</strong> et <strong>Séries Littéraires (L1, L2)</strong> pour réussir l'examen du <strong>Baccalauréat</strong>.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-gray-200/80 flex items-center justify-between text-xs font-black text-indigo-600">
+                    <span>Séries S1, S2, L1 &amp; L2</span>
+                    <span>{selectedCategory === 'Lycée' ? 'Classes affichées ci-dessous ↓' : 'Basculer vers Lycée →'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 5. ÉTAPE 2 : CHOIX DE LA CLASSE SPÉCIFIQUE DANS LE CYCLE CHOISI */}
+            <div className="pt-5 border-t border-gray-200 text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="w-6 h-6 rounded-full bg-blue-600 text-white font-black text-xs flex items-center justify-center shadow-xs">
+                    2
+                  </span>
+                  <h3 className="text-sm sm:text-base font-extrabold text-gray-900 uppercase tracking-wide">
+                    Étape 2 : Cliquez sur votre classe en {selectedCategory}
+                  </h3>
+                </div>
+
+                {/* Filtres spécialisés pour le Lycée (par niveau et par filière) */}
+                {selectedCategory === 'Lycée' && (
+                  <div className="flex flex-wrap items-center gap-2">
+                    {/* Filtre par niveau */}
+                    <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl border border-gray-200 text-xs font-bold">
+                      <button
+                        onClick={() => setLyceeLevelFilter('all')}
+                        className={`px-2.5 py-1 rounded-lg transition ${
+                          lyceeLevelFilter === 'all'
+                            ? 'bg-white text-gray-900 shadow-xs'
+                            : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                      >
+                        Tous niveaux
+                      </button>
+                      <button
+                        onClick={() => setLyceeLevelFilter('2nde')}
+                        className={`px-2.5 py-1 rounded-lg transition ${
+                          lyceeLevelFilter === '2nde'
+                            ? 'bg-blue-600 text-white shadow-xs'
+                            : 'text-gray-600 hover:text-blue-700'
+                        }`}
+                      >
+                        2nde
+                      </button>
+                      <button
+                        onClick={() => setLyceeLevelFilter('1ere')}
+                        className={`px-2.5 py-1 rounded-lg transition ${
+                          lyceeLevelFilter === '1ere'
+                            ? 'bg-blue-600 text-white shadow-xs'
+                            : 'text-gray-600 hover:text-blue-700'
+                        }`}
+                      >
+                        1ère
+                      </button>
+                      <button
+                        onClick={() => setLyceeLevelFilter('tle')}
+                        className={`px-2.5 py-1 rounded-lg transition ${
+                          lyceeLevelFilter === 'tle'
+                            ? 'bg-amber-600 text-white shadow-xs'
+                            : 'text-gray-600 hover:text-amber-700'
+                        }`}
+                      >
+                        Terminale 🎓
+                      </button>
+                    </div>
+
+                    {/* Filtre par filière (S vs L) */}
+                    <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl border border-gray-200 text-xs font-bold">
+                      <button
+                        onClick={() => setLyceeSeriesFilter('all')}
+                        className={`px-2.5 py-1 rounded-lg transition ${
+                          lyceeSeriesFilter === 'all'
+                            ? 'bg-white text-gray-900 shadow-xs'
+                            : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                      >
+                        Toutes séries
+                      </button>
+                      <button
+                        onClick={() => setLyceeSeriesFilter('sciences')}
+                        className={`px-2.5 py-1 rounded-lg transition flex items-center gap-1 ${
+                          lyceeSeriesFilter === 'sciences'
+                            ? 'bg-emerald-600 text-white shadow-xs'
+                            : 'text-gray-600 hover:text-emerald-700'
+                        }`}
+                      >
+                        <span>🔬 Séries S</span>
+                      </button>
+                      <button
+                        onClick={() => setLyceeSeriesFilter('lettres')}
+                        className={`px-2.5 py-1 rounded-lg transition flex items-center gap-1 ${
+                          lyceeSeriesFilter === 'lettres'
+                            ? 'bg-purple-600 text-white shadow-xs'
+                            : 'text-gray-600 hover:text-purple-700'
+                        }`}
+                      >
+                        <span>📚 Séries L</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* 5.A. AFFICHAGE DES CLASSES DU COLLÈGE (6ÈME, 5ÈME, 4ÈME, 3ÈME BFEM) */}
+              {selectedCategory === 'Collège' && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                  {[
+                    {
+                      name: '6ème',
+                      badge: "Cycle d'adaptation",
+                      color: 'blue',
+                      isExam: false,
+                      desc: 'Entrée au collège, acquisition des méthodes et consolidation des bases.',
+                      subjects: 'Maths, SVT, Français, Anglais, HG, Éduc. Civique...',
+                      detail: '11 matières officielles'
+                    },
+                    {
+                      name: '5ème',
+                      badge: 'Cycle central',
+                      color: 'sky',
+                      isExam: false,
+                      desc: 'Approfondissement des sciences naturelles, du vivant et de la Terre.',
+                      subjects: 'SVT (18 leçons complètes sans résumé), Maths, Anglais...',
+                      detail: '11 matières officielles'
+                    },
+                    {
+                      name: '4ème',
+                      badge: 'Sciences & Langues',
+                      color: 'teal',
+                      isExam: false,
+                      desc: 'Introduction officielle de la Physique-Chimie et géologie.',
+                      subjects: 'Physique-Chimie, Anglais (30 leçons structurées), Maths...',
+                      detail: 'Physique-Chimie incluse'
+                    },
+                    {
+                      name: '3ème',
+                      badge: '🏆 Examen du Brevet (BFEM)',
+                      color: 'amber',
+                      isExam: true,
+                      desc: 'Année du diplôme d’État du Brevet ! Préparation intensive avec annales et fiches.',
+                      subjects: 'Toutes les matières du BFEM avec synthèses & sujets types',
+                      detail: 'Diplôme d’État BFEM'
+                    }
+                  ].map((colClass) => {
+                    const isSaved = savedClass?.className === colClass.name && savedClass?.category === 'Collège';
+                    return (
+                      <button
+                        key={colClass.name}
+                        onClick={() => handleSaveAndSelectClass('Collège', colClass.name, null)}
+                        className={`p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                          isSaved
+                            ? 'bg-blue-50/90 border-blue-600 shadow-md ring-4 ring-blue-500/15'
+                            : colClass.isExam
+                            ? 'bg-gradient-to-b from-amber-50/40 to-white border-amber-300 hover:border-amber-500 hover:shadow-md'
+                            : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
+                        }`}
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-3">
+                            <span className={`text-[11px] font-black px-2.5 py-0.5 rounded-full ${
+                              colClass.isExam
+                                ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                                : 'bg-blue-100 text-blue-800'
+                            }`}>
+                              {colClass.badge}
+                            </span>
+                            {isSaved && (
+                              <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                              </span>
+                            )}
+                          </div>
+
+                          <h4 className={`text-2xl font-black transition-colors ${
+                            colClass.isExam ? 'text-amber-950 group-hover:text-amber-700' : 'text-gray-900 group-hover:text-blue-600'
+                          }`}>
+                            Classe de {colClass.name}
+                          </h4>
+
+                          <p className="text-xs text-gray-600 mt-2 leading-relaxed">
+                            {colClass.desc}
+                          </p>
+
+                          <div className="mt-3 p-2 rounded-xl bg-gray-50 border border-gray-100 text-[11px] font-medium text-gray-600">
+                            <span className="font-bold text-gray-800">Au programme : </span>
+                            {colClass.subjects}
+                          </div>
+                        </div>
+
+                        <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                          <span className="text-[11px] font-bold text-gray-400 group-hover:text-blue-600 transition-colors">
+                            {colClass.detail}
+                          </span>
+                          <span className={`text-xs font-black flex items-center gap-1 group-hover:translate-x-1 transition-transform ${
+                            colClass.isExam ? 'text-amber-700' : 'text-blue-600'
+                          }`}>
+                            <span>Ouvrir</span>
+                            <ChevronRight className="w-4 h-4 stroke-[3]" />
+                          </span>
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* 5.B. AFFICHAGE DES CLASSES DU LYCÉE (SECONDE, PREMIÈRE, TERMINALE) */}
+              {selectedCategory === 'Lycée' && (
+                <div className="space-y-6">
+                  {/* 1. NIVEAU SECONDE */}
+                  {(lyceeLevelFilter === 'all' || lyceeLevelFilter === '2nde') && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-black text-gray-500 uppercase tracking-wider bg-gray-100 px-2.5 py-1 rounded-md">
+                          Niveau Seconde (2nde) • Tronc Commun
+                        </span>
+                        <div className="flex-1 h-px bg-gray-200" />
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'sciences') && (
+                          <button
+                            onClick={() => handleSaveAndSelectClass('Lycée', 'Seconde', 'S')}
+                            className={`p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                              savedClass?.className === 'Seconde' && savedClass?.series === 'S' && savedClass?.category === 'Lycée'
+                                ? 'bg-emerald-50/90 border-emerald-600 shadow-md ring-4 ring-emerald-500/15'
+                                : 'bg-white border-gray-200 hover:border-emerald-400 hover:shadow-md'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                                  🔬 Série S (Scientifique)
+                                </span>
+                                {savedClass?.className === 'Seconde' && savedClass?.series === 'S' && savedClass?.category === 'Lycée' && (
+                                  <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                                  </span>
+                                )}
+                              </div>
+                              <h4 className="text-xl font-black text-gray-900 group-hover:text-emerald-600 transition-colors">
+                                2nde S
+                              </h4>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Sciences Exactes &amp; Expérimentales (Maths, Physique-Chimie, SVT, Français, HG, Anglais)
+                              </p>
+                            </div>
+                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-black text-emerald-600">
+                              <span>Tronc commun scientifique</span>
+                              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Accéder aux cours</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </span>
+                            </div>
+                          </button>
+                        )}
+
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'lettres') && (
+                          <button
+                            onClick={() => handleSaveAndSelectClass('Lycée', 'Seconde', 'L')}
+                            className={`p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                              savedClass?.className === 'Seconde' && savedClass?.series === 'L' && savedClass?.category === 'Lycée'
+                                ? 'bg-purple-50/90 border-purple-600 shadow-md ring-4 ring-purple-500/15'
+                                : 'bg-white border-gray-200 hover:border-purple-400 hover:shadow-md'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                                  📚 Série L (Littéraire)
+                                </span>
+                                {savedClass?.className === 'Seconde' && savedClass?.series === 'L' && savedClass?.category === 'Lycée' && (
+                                  <span className="text-[10px] font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                                  </span>
+                                )}
+                              </div>
+                              <h4 className="text-xl font-black text-gray-900 group-hover:text-purple-600 transition-colors">
+                                2nde L
+                              </h4>
+                              <p className="text-xs text-gray-500 mt-1">
+                                Lettres, Langues &amp; Sciences Humaines (Français renforcé, HG, Anglais, Arabe/LV2, Maths L, SVT L)
+                              </p>
+                            </div>
+                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-black text-purple-600">
+                              <span>Tronc commun littéraire</span>
+                              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Accéder aux cours</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </span>
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 2. NIVEAU PREMIÈRE */}
+                  {(lyceeLevelFilter === 'all' || lyceeLevelFilter === '1ere') && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-black text-gray-500 uppercase tracking-wider bg-gray-100 px-2.5 py-1 rounded-md">
+                          Niveau Première (1ère) • Spécialisations S1, S2, L1, L2
+                        </span>
+                        <div className="flex-1 h-px bg-gray-200" />
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'sciences') && (
+                          <>
+                            <button
+                              onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'S2')}
+                              className={`p-4 sm:p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                                savedClass?.className === 'Première' && (savedClass?.series === 'S2' || savedClass?.series === 'S') && savedClass?.category === 'Lycée'
+                                  ? 'bg-emerald-50/90 border-emerald-600 shadow-md ring-4 ring-emerald-500/15'
+                                  : 'bg-white border-gray-200 hover:border-emerald-400 hover:shadow-md'
+                              }`}
+                            >
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-black px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                                    🔬 1ère S2
+                                  </span>
+                                  {savedClass?.className === 'Première' && (savedClass?.series === 'S2' || savedClass?.series === 'S') && savedClass?.category === 'Lycée' && (
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                                  )}
+                                </div>
+                                <h4 className="text-lg font-black text-gray-900 group-hover:text-emerald-600">
+                                  Sciences Exp. (S2)
+                                </h4>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Programme SVT intégral (28 chapitres), Physique-Chimie &amp; Maths
+                                </p>
+                              </div>
+                              <div className="mt-4 pt-2 text-xs font-black text-emerald-600 flex items-center justify-between">
+                                <span>Biologie &amp; PC</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </div>
+                            </button>
+
+                            <button
+                              onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'S1')}
+                              className={`p-4 sm:p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                                savedClass?.className === 'Première' && savedClass?.series === 'S1' && savedClass?.category === 'Lycée'
+                                  ? 'bg-blue-50/90 border-blue-600 shadow-md ring-4 ring-blue-500/15'
+                                  : 'bg-white border-gray-200 hover:border-blue-400 hover:shadow-md'
+                              }`}
+                            >
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-black px-2 py-0.5 rounded-full bg-blue-100 text-blue-800">
+                                    📐 1ère S1
+                                  </span>
+                                  {savedClass?.className === 'Première' && savedClass?.series === 'S1' && savedClass?.category === 'Lycée' && (
+                                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                                  )}
+                                </div>
+                                <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600">
+                                  Sciences Exactes (S1)
+                                </h4>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Mathématiques approfondies et Sciences Physiques rigoureuses
+                                </p>
+                              </div>
+                              <div className="mt-4 pt-2 text-xs font-black text-blue-600 flex items-center justify-between">
+                                <span>Maths &amp; Physiques</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </div>
+                            </button>
+                          </>
+                        )}
+
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'lettres') && (
+                          <>
+                            <button
+                              onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'L1')}
+                              className={`p-4 sm:p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                                savedClass?.className === 'Première' && (savedClass?.series === 'L1' || savedClass?.series === 'L') && savedClass?.category === 'Lycée'
+                                  ? 'bg-amber-50/90 border-amber-600 shadow-md ring-4 ring-amber-500/15'
+                                  : 'bg-white border-gray-200 hover:border-amber-400 hover:shadow-md'
+                              }`}
+                            >
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-black px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
+                                    📖 1ère L1
+                                  </span>
+                                  {savedClass?.className === 'Première' && (savedClass?.series === 'L1' || savedClass?.series === 'L') && savedClass?.category === 'Lycée' && (
+                                    <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
+                                  )}
+                                </div>
+                                <h4 className="text-lg font-black text-gray-900 group-hover:text-amber-600">
+                                  Langues &amp; Lettres (L1)
+                                </h4>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Français approfondi, Langues Vivantes, Philosophie &amp; Littérature
+                                </p>
+                              </div>
+                              <div className="mt-4 pt-2 text-xs font-black text-amber-600 flex items-center justify-between">
+                                <span>Littérature &amp; Langues</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </div>
+                            </button>
+
+                            <button
+                              onClick={() => handleSaveAndSelectClass('Lycée', 'Première', 'L2')}
+                              className={`p-4 sm:p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                                savedClass?.className === 'Première' && savedClass?.series === 'L2' && savedClass?.category === 'Lycée'
+                                  ? 'bg-purple-50/90 border-purple-600 shadow-md ring-4 ring-purple-500/15'
+                                  : 'bg-white border-gray-200 hover:border-purple-400 hover:shadow-md'
+                              }`}
+                            >
+                              <div>
+                                <div className="flex items-center justify-between mb-2">
+                                  <span className="text-[11px] font-black px-2 py-0.5 rounded-full bg-purple-100 text-purple-800">
+                                    🏛️ 1ère L2
+                                  </span>
+                                  {savedClass?.className === 'Première' && savedClass?.series === 'L2' && savedClass?.category === 'Lycée' && (
+                                    <CheckCircle2 className="w-4 h-4 text-purple-600 shrink-0" />
+                                  )}
+                                </div>
+                                <h4 className="text-lg font-black text-gray-900 group-hover:text-purple-600">
+                                  Sciences Humaines (L2)
+                                </h4>
+                                <p className="text-xs text-gray-500 mt-1">
+                                  Histoire-Géo, Sciences Sociales, Philosophie &amp; Littérature
+                                </p>
+                              </div>
+                              <div className="mt-4 pt-2 text-xs font-black text-purple-600 flex items-center justify-between">
+                                <span>Sciences Sociales</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </div>
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* 3. NIVEAU TERMINALE (EXAMEN DU BACCALAURÉAT 🎓) */}
+                  {(lyceeLevelFilter === 'all' || lyceeLevelFilter === 'tle') && (
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-black text-amber-900 uppercase tracking-wider bg-amber-100 px-2.5 py-1 rounded-md border border-amber-300">
+                          🏆 Niveau Terminale (Tle) • Examen National du Baccalauréat
+                        </span>
+                        <div className="flex-1 h-px bg-amber-200" />
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'sciences') && (
+                          <button
+                            onClick={() => handleSaveAndSelectClass('Lycée', 'Terminale', 'S')}
+                            className={`p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                              savedClass?.className === 'Terminale' && savedClass?.series === 'S' && savedClass?.category === 'Lycée'
+                                ? 'bg-emerald-50/90 border-emerald-600 shadow-md ring-4 ring-emerald-500/15'
+                                : 'bg-gradient-to-b from-emerald-50/40 to-white border-emerald-300 hover:border-emerald-500 hover:shadow-md'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300">
+                                  🎓 Baccalauréat Scientifique (S1 / S2)
+                                </span>
+                                {savedClass?.className === 'Terminale' && savedClass?.series === 'S' && savedClass?.category === 'Lycée' && (
+                                  <span className="text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                                  </span>
+                                )}
+                              </div>
+                              <h4 className="text-2xl font-black text-gray-900 group-hover:text-emerald-700 transition-colors">
+                                Terminale S
+                              </h4>
+                              <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
+                                Programme officiel du Bac S : Mathématiques S, Physique-Chimie, SVT S, Philosophie, Français, Histoire-Géo &amp; Anglais.
+                              </p>
+                              <div className="mt-3 p-2 rounded-xl bg-emerald-100/40 text-[11px] font-bold text-emerald-900 border border-emerald-200/60">
+                                ✓ Épreuves complètes et fiches de révision Bac S
+                              </div>
+                            </div>
+                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-black text-emerald-700">
+                              <span>Candidats Bac Scientifique</span>
+                              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Accéder aux cours</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </span>
+                            </div>
+                          </button>
+                        )}
+
+                        {(lyceeSeriesFilter === 'all' || lyceeSeriesFilter === 'lettres') && (
+                          <button
+                            onClick={() => handleSaveAndSelectClass('Lycée', 'Terminale', 'L')}
+                            className={`p-5 rounded-2xl border-2 transition-all text-left flex flex-col justify-between group relative cursor-pointer active:scale-98 ${
+                              savedClass?.className === 'Terminale' && savedClass?.series === 'L' && savedClass?.category === 'Lycée'
+                                ? 'bg-purple-50/90 border-purple-600 shadow-md ring-4 ring-purple-500/15'
+                                : 'bg-gradient-to-b from-purple-50/40 to-white border-purple-300 hover:border-purple-500 hover:shadow-md'
+                            }`}
+                          >
+                            <div>
+                              <div className="flex items-center justify-between mb-2">
+                                <span className="text-xs font-black px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800 border border-purple-300">
+                                  🎓 Baccalauréat Littéraire (L1 / L2)
+                                </span>
+                                {savedClass?.className === 'Terminale' && savedClass?.series === 'L' && savedClass?.category === 'Lycée' && (
+                                  <span className="text-[10px] font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <CheckCircle2 className="w-3 h-3" /> Enregistrée
+                                  </span>
+                                )}
+                              </div>
+                              <h4 className="text-2xl font-black text-gray-900 group-hover:text-purple-700 transition-colors">
+                                Terminale L
+                              </h4>
+                              <p className="text-xs text-gray-600 mt-1.5 leading-relaxed">
+                                Programme officiel du Bac L : Philosophie renforcée, Littérature, Histoire-Géo, Anglais, Mathématiques L &amp; SVT L.
+                              </p>
+                              <div className="mt-3 p-2 rounded-xl bg-purple-100/40 text-[11px] font-bold text-purple-900 border border-purple-200/60">
+                                ✓ Méthodologie dissertation &amp; sujets types Bac L
+                              </div>
+                            </div>
+                            <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-black text-purple-700">
+                              <span>Candidats Bac Littéraire</span>
+                              <span className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                <span>Accéder aux cours</span>
+                                <ChevronRight className="w-4 h-4 stroke-[3]" />
+                              </span>
+                            </div>
+                          </button>
+                        )}
+                      </div>
+                    </div>
                   )}
                 </div>
-                <h4 className="text-lg font-black text-gray-900 group-hover:text-blue-600">
-                  Classe de {c.name}
-                </h4>
-                <p className="text-xs text-gray-500 mt-1">{c.desc}</p>
-              </button>
-            );
-          })}
+              )}
+            </div>
+          </>
+        )}
+
+        {/* 6. ENCADRÉ D'AIDE ET ORIENTATION SCOLAIRE AVEC IBKANE IA 70 775 37 76 */}
+        <div className="mt-8 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50 via-indigo-50 to-emerald-50 border border-blue-200/80 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-left">
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+              <MessageCircle className="w-5 h-5 fill-white" />
+            </div>
+            <div>
+              <h4 className="text-sm font-black text-gray-900">
+                Besoin d'orientation ou d'aide scolaire ?
+              </h4>
+              <p className="text-xs text-gray-600 mt-0.5">
+                Vous hésitez entre une filière ou avez une question de cours ? Échangez directement avec <strong>Ibkane IA</strong> sur WhatsApp au <strong>70 775 37 76</strong>.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20j%27ai%20une%20question%20d%27orientation%20scolaire%20ou%20de%20cours"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-extrabold text-xs transition shadow-xs flex items-center justify-center gap-2 cursor-pointer active:scale-95 shrink-0"
+          >
+            <MessageCircle className="w-4 h-4 fill-white" />
+            <span>Discuter au 70 775 37 76</span>
+          </a>
         </div>
       </div>
-
-      {/* Note explicative de sauvegarde */}
-      <div className="mt-8 p-4 rounded-2xl bg-gray-50 border border-gray-200/80 flex items-center gap-3 text-xs text-gray-600">
-        <Sparkles className="w-4 h-4 text-blue-600 shrink-0" />
-        <span>
-          <strong>Sauvegarde automatique :</strong> Votre choix de classe est enregistré localement sur votre téléphone ou ordinateur. Vous pouvez en changer à tout moment depuis le bouton dédié en haut de l'écran.
-        </span>
-      </div>
-    </div>
-  );
+    );
+  };
 
   // ÉCRAN : CHOIX DE MATIÈRE
   const renderSubject = () => {
     const availableSubjects = getSubjectsForClass(selectedCategory, selectedClass);
 
     return (
-      <div className="w-full max-w-4xl mx-auto px-2 sm:px-4 py-2 sm:py-4">
-        {/* Bouton de retour en haut */}
-        <div className="mb-3 flex items-center justify-between gap-2 flex-wrap">
-          <button
-            onClick={() => setScreen('choose-class')}
-            className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-blue-50 text-gray-700 hover:text-blue-800 font-bold text-xs sm:text-sm border border-gray-200 hover:border-blue-200 transition shadow-2xs cursor-pointer group"
-            title="Retour au choix de la classe"
-          >
-            <ArrowLeft className="w-4 h-4 text-blue-600 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform" />
-            <span>← Retour aux classes ({selectedClass}{selectedSeries ? ` ${selectedSeries}` : ''})</span>
-          </button>
-        </div>
-
-        <div className="mb-4 sm:mb-6">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-gray-500 mb-1">
-            <button onClick={() => setScreen('choose-class')} className="hover:text-blue-600 transition">
-              {selectedCategory}
-            </button>
-            <span>›</span>
-            <button
-              onClick={() => setScreen('choose-class')}
-              className="text-gray-700 hover:text-blue-600 font-medium underline-offset-2 hover:underline transition flex items-center gap-1"
-              title="Changer de classe"
-            >
-              <span>Classe de {selectedClass} {selectedSeries ? `(Série ${selectedSeries})` : ''}</span>
-              <span className="text-[10px] text-blue-600 bg-blue-50 px-1.5 py-0.5 rounded-sm border border-blue-200">Changer</span>
-            </button>
-            <span>›</span>
-            <span className="text-blue-600 font-bold">Matières</span>
+      <div className="w-full max-w-5xl mx-auto px-2 sm:px-4 py-2 sm:py-4">
+        {/* Bandeau d'en-tête supérieur pour les matières */}
+        <div className="relative mb-6 rounded-3xl bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-950 text-white p-5 sm:p-7 shadow-xl overflow-hidden border border-blue-900/60">
+          {/* Ruban tricolore officiel du Sénégal (Vert, Jaune, Rouge) */}
+          <div className="absolute top-0 left-0 right-0 h-1.5 flex">
+            <div className="flex-1 bg-emerald-500" />
+            <div className="flex-1 bg-amber-400" />
+            <div className="flex-1 bg-rose-500" />
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
-            Choisissez la matière
-          </h2>
-          <p className="text-xs sm:text-sm text-gray-500 mt-1">
-            Sélectionnez une discipline pour accéder à tous les cours et leçons du programme officiel sénégalais.
-          </p>
+
+          {/* Halo lumineux */}
+          <div className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full bg-blue-500/15 blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-2 text-left max-w-2xl">
+              <div className="flex items-center gap-2 text-xs font-bold text-blue-200 flex-wrap">
+                <button
+                  onClick={() => setScreen('choose-class')}
+                  className="hover:underline text-emerald-400 font-extrabold flex items-center gap-1 cursor-pointer"
+                >
+                  <span>🇸🇳 {selectedCategory}</span>
+                </button>
+                <span>›</span>
+                <span className="bg-white/15 px-3 py-1 rounded-full text-white font-black border border-white/20">
+                  Classe de {selectedClass} {selectedSeries ? `(Série ${selectedSeries})` : ''}
+                </span>
+                <span>•</span>
+                <span className="text-amber-300 font-bold">{availableSubjects.length} Matières officielles</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white tracking-tight leading-tight">
+                Matières &amp; Programmes officiels
+              </h2>
+              <p className="text-xs sm:text-sm text-blue-100/90 leading-relaxed">
+                Sélectionnez une discipline ci-dessous pour accéder immédiatement à l'ensemble des cours complets, exercices corrigés et sujets conformes au programme sénégalais.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap md:flex-col gap-2 shrink-0">
+              <button
+                onClick={() => setScreen('choose-class')}
+                className="px-4 py-2.5 rounded-xl bg-white text-blue-950 hover:bg-blue-50 font-black text-xs sm:text-sm transition shadow-sm flex items-center justify-center gap-2 cursor-pointer active:scale-95"
+                title="Changer de niveau ou de classe"
+              >
+                <span>Changer de classe</span>
+                <ChevronRight className="w-4 h-4 text-blue-700 stroke-[3]" />
+              </button>
+
+              <a
+                href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20j%27ai%20une%20question%20sur%20les%20cours%20de%20"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs transition shadow-xs cursor-pointer active:scale-95"
+                title="Aide WhatsApp avec Ibkane IA (70 775 37 76)"
+              >
+                <MessageCircle className="w-4 h-4 fill-white shrink-0" />
+                <span>WhatsApp Ibkane IA</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
@@ -7128,17 +7677,24 @@ export default function App() {
       {/* Header / Barre de navigation FIXE SUR L'ÉCRAN EN HAUT */}
       {screen !== 'welcome' && screen !== 'lesson-reader' && (
         <header className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40 shadow-xs">
-          <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-2">
+          {/* Ruban tricolore officiel du Sénégal au sommet de l'écran */}
+          <div className="h-1 w-full flex">
+            <div className="flex-1 bg-emerald-500" />
+            <div className="flex-1 bg-amber-400" />
+            <div className="flex-1 bg-rose-500" />
+          </div>
+
+          <div className="w-full max-w-5xl mx-auto px-3 sm:px-4 h-15 sm:h-16 flex items-center justify-between gap-2">
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-              {/* Bouton Retour FIXE EN HAUT */}
+              {/* Bouton Retour FIXE EN HAUT DE L'ÉCRAN */}
               {screen !== 'welcome' && (
                 <button
                   onClick={handleBack}
-                  className="flex items-center gap-1.5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer group shrink-0 active:scale-95"
+                  className="flex items-center gap-1.5 px-3 py-2 sm:px-3.5 sm:py-2 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-black text-xs sm:text-sm shadow-xs transition cursor-pointer group shrink-0 active:scale-95"
                   aria-label={getBackBtnLabel().full}
                   title={getBackBtnLabel().full}
                 >
-                  <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[2.5] group-hover:-translate-x-0.5 transition-transform shrink-0" />
+                  <ArrowLeft className="w-4 h-4 sm:w-4.5 sm:h-4.5 stroke-[3] group-hover:-translate-x-0.5 transition-transform shrink-0" />
                   <span>Retour</span>
                   <span className="hidden sm:inline opacity-90 font-medium text-[11px] sm:text-xs">
                     • {getBackBtnLabel().label}
@@ -7148,11 +7704,11 @@ export default function App() {
 
               {/* Logo avec AppIcon officiel */}
               <div
-                className="flex items-center gap-2 cursor-pointer"
+                className="flex items-center gap-2 cursor-pointer select-none"
                 onClick={() => setScreen('welcome')}
                 title="Page d'accueil Kaay Jang"
               >
-                <div className="w-8 h-8 rounded-xl shadow-xs overflow-hidden shrink-0">
+                <div className="w-8 h-8 rounded-xl shadow-xs overflow-hidden shrink-0 border border-blue-900/10">
                   <AppIcon className="w-full h-full" />
                 </div>
                 <div>
@@ -7166,27 +7722,29 @@ export default function App() {
               </div>
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              {/* Badge niveau / classe actuelle avec ouverture directe des paramètres */}
-              {screen !== 'welcome' && (
-                <button
-                  onClick={() => setIsSettingsOpen(true)}
-                  className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-blue-50 text-blue-800 hover:bg-blue-100 border border-blue-200/80 transition text-xs font-bold shadow-2xs cursor-pointer"
-                  title="Changer de niveau ou de langue"
-                >
-                  <GraduationCap className="w-3.5 h-3.5 text-blue-600" />
-                  <span>{selectedClass}{selectedSeries ? ` ${selectedSeries}` : ''}</span>
-                  <span className="text-[10px] text-blue-500 font-normal">• Changer</span>
-                </button>
-              )}
+            {/* Pillule Classe actuelle au centre (accessible en 1 clic pour changer de niveau) */}
+            {screen !== 'choose-class' && (
+              <button
+                onClick={() => setScreen('choose-class')}
+                className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50/90 hover:bg-blue-100 text-blue-950 border border-blue-200/80 transition text-xs font-bold cursor-pointer active:scale-95 shadow-2xs"
+                title="Cliquer pour changer de classe ou de cycle"
+              >
+                <GraduationCap className="w-4 h-4 text-blue-600 shrink-0" />
+                <span>{selectedCategory} • Classe de {selectedClass} {selectedSeries ? `(${selectedSeries})` : ''}</span>
+                <span className="text-[10px] text-blue-600 font-extrabold bg-white px-1.5 py-0.5 rounded-md border border-blue-200">
+                  Changer
+                </span>
+              </button>
+            )}
 
-              {/* Bouton Télécharger l'application avec son icône */}
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              {/* Bouton Télécharger l'application avec son icône native */}
               <button
                 onClick={() => setIsInstallModalOpen(true)}
-                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-extrabold text-xs sm:text-sm shadow-xs transition active:scale-95 cursor-pointer shrink-0"
+                className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 active:from-blue-800 active:to-indigo-800 text-white font-extrabold text-xs sm:text-sm shadow-xs transition active:scale-95 cursor-pointer shrink-0"
                 title="Télécharger l'application native Kaay Jang sur votre téléphone"
               >
-                <AppIcon className="w-4 h-4 sm:w-5 sm:h-5 rounded-md shrink-0 shadow-2xs" />
+                <AppIcon className="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-md shrink-0 shadow-2xs" />
                 <span className="font-extrabold">Télécharger</span>
                 <span className="hidden md:inline font-bold">l'App</span>
               </button>
@@ -7196,7 +7754,7 @@ export default function App() {
                 href="https://wa.me/221707753776?text=Bonjour%20Ibkane%20IA%2C%20je%20vous%20contacte%20depuis%20l%27application%20Kaay%20Jang"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0 active:scale-95"
+                className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-xs transition cursor-pointer shrink-0 active:scale-95"
                 title="Discussion WhatsApp directe avec Ibkane IA (70 775 37 76)"
               >
                 <MessageCircle className="w-4 h-4 fill-white shrink-0" />
@@ -7207,7 +7765,7 @@ export default function App() {
               {/* Bouton Partager / Lien de partage */}
               <button
                 onClick={() => setIsShareModalOpen(true)}
-                className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-200 font-bold text-xs sm:text-sm transition cursor-pointer shrink-0 active:scale-95"
+                className="flex items-center gap-1.5 px-2 sm:px-2.5 py-1.5 sm:py-2 rounded-xl bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-800 border border-gray-200 font-bold text-xs sm:text-sm transition cursor-pointer shrink-0 active:scale-95"
                 title="Partager l'application (Lien de partage officiel)"
               >
                 <Share2 className="w-4 h-4 text-blue-600 shrink-0" />
@@ -7217,8 +7775,8 @@ export default function App() {
               {/* Bouton Paramètres */}
               <button
                 onClick={() => setIsSettingsOpen(true)}
-                className="p-2 sm:px-2.5 sm:py-1.5 rounded-xl bg-gray-100 hover:bg-gray-200 text-gray-700 transition text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer border border-gray-200"
-                title="Paramètres"
+                className="p-2 sm:px-2.5 sm:py-2 rounded-xl bg-gray-100 hover:bg-gray-200 active:bg-gray-300 text-gray-700 transition text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer border border-gray-200 active:scale-95"
+                title="Paramètres de l'application"
                 aria-label="Paramètres"
               >
                 <Settings className="w-4 h-4 text-gray-600 shrink-0" />

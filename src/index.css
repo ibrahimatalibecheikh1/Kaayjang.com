@@ -1,10 +1,39 @@
 @import "tailwindcss";
 
+/* 1. DÉSACTIVATION GLOBALE STRICTE DE LA SÉLECTION ET COPIE DE TEXTE SUR L'INTERFACE */
+*, *::before, *::after {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Autoriser uniquement la sélection et la saisie normale dans les formulaires et champs de recherche */
+input, textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+/* Désactiver le glissement (drag) des images et icônes svg */
+img, svg {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: auto;
+}
+
+/* 2. DÉSACTIVATION STRICTE DU ZOOM ET DÉFILEMENT FLUIDE */
 html {
   min-height: 100%;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -16,6 +45,10 @@ body {
   -webkit-tap-highlight-color: transparent;
   background-color: #F8FAFC;
   color: #0F172A;
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior-y: contain;
 }
 
 #root {
